@@ -233,7 +233,7 @@
   \thispagestyle{plain}
   \begin{center}
     \setlength{\parskip}{0pt}
-    {\bf{\textbf{Resumen}} \par}
+    {\bf{\textbf{RESUMEN}} \par}
   \end{center}
 }
 {
