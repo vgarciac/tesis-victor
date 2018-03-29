@@ -32,8 +32,9 @@
 % Para colocar teoremas en cajas
 \usepackage{mdframed}
 
-% Para texto Lorem Ipsum
-% \usepackage{blindtext}
+% Para manejas la ubicacion de las figuras
+\usepackage{float}
+\usepackage{wrapfig}
 
 % Paquetes locales
 % Puedes agregar paquetes locales (archivos .sty) en un subdirectorio % 'paquetes'.
@@ -58,10 +59,26 @@
 
 \begin{titlepage}
     \title{\vspace{-2cm} \includegraphics[width=1.2in]{./usb.png} \\[.2cm]
-        \large Universidad Simón Bolívar \\
-        Decanato de Estudios Profesionales \\
-        Coordinación de Ingeniería Electrónica
-        \vfill \large \textbf{SISTEMA DE GENERACIÓN DE MOSAICOS 2D PARA ROBOTS MÓVILES A PARTIR DE VIDEO MONOCULAR}  \vfill}
+        \large UNIVERSIDAD SIMÓN BOLÍVAR \\
+        \textbf{DECANATO DE ESTUDIOS PROFESIONALES \\
+        COORDINACIÓN DE INGENIERIA ELECTRÓNICA}
+        \vfill \large {\textbf{SISTEMA DE GENERACIÓN DE MOSAICOS 2D PARA ROBOTS MÓVILES A PARTIR DE VIDEO MONOCULAR}}  \vfill}
+    \author{Por: \\
+        Victor Yovanni Garcia Carmona \\[1.2cm]
+        \textbf{PROYECTO DE GRADO} \\
+        Presentado ante la Ilustre Universidad Simón Bolívar \\
+        como requisito parcial para optar al título de \\
+        Ingeniero Electrónico}
+    \date{Sartenejas, Marzo de 2018}
+\end{titlepage}
+\clearpage
+\newpage
+\begin{titlepage}
+    \title{\vspace{-2cm} \includegraphics[width=1.2in]{./usb.png} \\[.2cm]
+        \large UNIVERSIDAD SIMÓN BOLÍVAR \\
+        \textbf{DECANATO DE ESTUDIOS PROFESIONALES \\
+        COORDINACIÓN DE INGENIERIA ELECTRÓNICA}
+        \vfill \large {\textbf{SISTEMA DE GENERACIÓN DE MOSAICOS 2D PARA ROBOTS MÓVILES A PARTIR DE VIDEO MONOCULAR}}  \vfill}
     \author{Por: \\
         Victor Yovanni Garcia Carmona \\[1.2cm]
         Realizado con la asesoría de: \\
@@ -165,9 +182,9 @@
 	
 % El estilo de la bibliografía es AAAI, definido en el archivo aaai.bst.
 \label{Bibliography}
+\bibliographystyle{unsrt}
 \bibliography{bibliografia}
 \lhead{\emph{Bibliografía}}
-\bibliographystyle{aaai}
 \addtocontents{toc}{\vspace{2em}}
 	
 % Apéndices
