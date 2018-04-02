@@ -1,0 +1,70 @@
+\begin{thebibliography}{10}
+
+\bibitem{primeros-mapas}
+Paul~R. Wolf.
+\newblock {\em Elements of Photogrammetry (Second Edition)}.
+\newblock McGraw-Hill Higher Education, 1983.
+
+\bibitem{gracias-victor}
+N.~Gracias y~J.~Santos-Victor.
+\newblock Underwater mosaicing and trajectory reconstruction using global
+  alignment.
+\newblock {\em MTS/IEEE Conference and Exhibition}, 2001.
+
+\bibitem{Pizarro-singh}
+H~Pizarro, O. y~Singh.
+\newblock Seabed video mosaicking with matisse: a technical overview and cruise
+  results.
+\newblock {\em International Offshore and Polar Engineering Conference}, 2004.
+
+\bibitem{eustice}
+Pizarro O. Singh-H. y Howland~J. Eustice, R.
+\newblock Underwater image toolbox for optical image processing and mosaicking
+  in matlab.
+\newblock {\em International Symposium on Underwater Technology}, 2002.
+
+\bibitem{Allais}
+Borgetto M.-Opderbecke J. Pessel N. y Rigaud~V Allais, A.~G.
+\newblock Toward large-area mosaicing for underwater scientific applications.
+\newblock {\em IEEE Journal of Oceanic Engineering}, 2003.
+
+\bibitem{harris}
+Hans~P. Morevec.
+\newblock Towards automatic visual obstacle avoidance.
+\newblock 1977.
+
+\bibitem{sift}
+David~G. Lowe.
+\newblock Distinctive image features from scale-invariant keypoints.
+\newblock {\em Computer Science Department, University of British Columbia},
+  2004.
+
+\bibitem{surf}
+Tuytelaars T. y Van Gool~L Bay, H.
+\newblock Surf: Speeded up robust features.
+\newblock {\em European Conference on Computer Vision}, 2006.
+
+\bibitem{orb}
+Kurt Konolige y Gary~Bradski Ethan~Rublee, Vincent~Rabaud.
+\newblock Orb: an efficient alternative to sift or surf.
+\newblock {\em International Conference on Computer Vision}, 2011.
+
+\bibitem{kaze}
+y~Andrew J.~Davison Pablo Fernandez~Alcantarilla, Adrien~Bartoli.
+\newblock Kaze features.
+\newblock {\em European Conference on Computer Vision}, 2012.
+
+\bibitem{akaze}
+Pablo~Fernández Alcantarilla.
+\newblock Fast explicit diffusion for accelerated features in nonlinear scale
+  spaces.
+\newblock {\em British Machine Vision Conference (BMVC)}, 2013.
+
+\bibitem{ldb}
+Kwang-Ting~Cheng Xin~Yang.
+\newblock Local difference binary for ultrafast and distinctive feature
+  description.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  2013.
+
+\end{thebibliography}

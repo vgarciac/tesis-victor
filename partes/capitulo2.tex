@@ -1,12 +1,15 @@
-\chapter{Estado del Arte}
+\chapter{Deteccion de puntos de interes}
 \label{capitulo2}
-\lhead{Capítulo 2. \emph{Estado del Arte}}
+\lhead{Capítulo 2. \emph{Deteccion de puntos de interes}}
+
+
+\section{Introduccion}
 
 En este capitulo se presenta una revisión teórica del estado actual de las aplicaciones e investigaciones que se han desarrollado en el área de procesamiento de imágenes, aplicado a la construcción de mosaicos. Además se presenta una reseña histórica de la evolución de dichos métodos. Con esto se pretende recuperar y trascender el conocimiento acumulado en esta área de estudio, además de familiarizar al lector con los conceptos básicos, necesarios para la comprensión del presente trabajo.
 
 En primer lugar, se reseña el progreso de los algoritmos para la extracción de puntos de interés, seguidamente se presentan avances sobre los módulos de alineación de imágenes. Finalmente, en la ultima sección se describen los métodos mas utilizados en la actualidad para la etapa final del mapeo, como lo son la búsqueda de la mejor linea de corte y corrección final de color.
 
-\section{Detección de puntos de interés}
+\section{Detectores de caracteristicas}
 
 Antes mencionar la evolución de los algoritmos de detección de puntos de interés, primero es necesario definir que son estos. Los puntos de interés, puntos clave, o \textit{"features"} (en español: características) como son comúnmente llamados, son regiones en una imagen que contienen patrones específicos, lo que hace que puedan ser fácilmente seguidos o ubicados en otra imagen.
 
@@ -104,18 +107,19 @@ Para el calculo de la orientación el primer algoritmo \textit{KAZE} utiliza un 
 
 Por otro lado, la versión acelerada \textit{A-KAZE} emplea un descriptor basado en una versión modificada del algoritmo de diferencia local binaria \textit{LDB} \cite{ldb} (del ingles: Local Difference Binary), llamado M-LBD (del ingles: Modified Local Difference Binary), el cual aprovecha al máximo la información del espacio de escala no lineal. La modificación consiste en hacer un sub-muestreo de cada región que divide la zona del descriptor, en lugar de calcular el promedio de todos los píxeles de la región, es decir, se tienen muestras de cada subdivisión para distintas escalas.
 
-\section{Proyección de imágenes}
 
- \begin{figure}[H]
- 	\centering
- 	\includegraphics[width=0.85\textwidth]{paralaje1}
- 	\caption[Paralaje - Efectos en el cambio de punto de vista]{Efectos en el cambio del punto de vista.}
- 	\label{imagen:paralaje}
- \end{figure}
- 
- Desde el punto de vista \textbf{A}, se observa la estrella a la izquierda del circulo. Mientras que desde le punto \textbf{B} la estrella es observada a la derecha del circulo.
+\section{Descriptores de caracteristicas}
 
-\section{Fusión de imágenes}
+Descriptores
 
-mensaje de prueba 2
+\section{Emparejadores}
 
+Emparejadores
+
+\section{Distribucion espacial}
+
+Distribucion espacial
+
+\section{Resumen}
+
+Resumen

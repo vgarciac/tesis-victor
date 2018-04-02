@@ -1,0 +1,80 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: tesis.aux
+The style file: unsrt.bst
+Database file #1: bibliografia.bib
+Repeated entry---line 14 of file bibliografia.bib
+ : @article{harris
+ :                ,
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "Eustice, R., Pizarro, O., Singh, H., y Howland, J." for entry eustice
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Eustice, R., Pizarro, O., Singh, H., y Howland, J." for entry eustice
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Eustice, R., Pizarro, O., Singh, H., y Howland, J." for entry eustice
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Eustice, R., Pizarro, O., Singh, H., y Howland, J." for entry eustice
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Eustice, R., Pizarro, O., Singh, H., y Howland, J." for entry eustice
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Allais, A. G., Borgetto, M., Opderbecke, J., Pessel, N., y Rigaud, V" for entry Allais
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Allais, A. G., Borgetto, M., Opderbecke, J., Pessel, N., y Rigaud, V" for entry Allais
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Allais, A. G., Borgetto, M., Opderbecke, J., Pessel, N., y Rigaud, V" for entry Allais
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Allais, A. G., Borgetto, M., Opderbecke, J., Pessel, N., y Rigaud, V" for entry Allais
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Allais, A. G., Borgetto, M., Opderbecke, J., Pessel, N., y Rigaud, V" for entry Allais
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Allais, A. G., Borgetto, M., Opderbecke, J., Pessel, N., y Rigaud, V" for entry Allais
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Allais, A. G., Borgetto, M., Opderbecke, J., Pessel, N., y Rigaud, V" for entry Allais
+while executing---line 944 of file unsrt.bst
+Warning--empty booktitle in harris
+Too many commas in name 1 of "Bay, H., Tuytelaars, T. y Van Gool, L" for entry surf
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Bay, H., Tuytelaars, T. y Van Gool, L" for entry surf
+while executing---line 944 of file unsrt.bst
+You've used 12 entries,
+            1791 wiz_defined-function locations,
+            504 strings with 5263 characters,
+and the built_in function-call counts, 1611 in all, are:
+= -- 132
+> -- 48
+< -- 0
++ -- 24
+- -- 12
+* -- 38
+:= -- 297
+add.period$ -- 36
+call.type$ -- 12
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 13
+duplicate$ -- 101
+empty$ -- 183
+format.name$ -- 12
+if$ -- 352
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 13
+newline$ -- 63
+num.names$ -- 12
+pop$ -- 45
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 34
+stack$ -- 0
+substring$ -- 0
+swap$ -- 12
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 12
+width$ -- 14
+write$ -- 121
+(There were 15 error messages)
