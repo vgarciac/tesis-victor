@@ -1,0 +1,59 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {chapter}{Resumen}{\es@scroman {i}}{dummy.1}
+\vspace {1em}
+\contentsline {chapter}{Agradecimientos}{\es@scroman {i}}{dummy.2}
+\vspace {1em}
+\contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {iv}}{dummy.4}
+\contentsline {chapter}{Lista de Tablas}{\es@scroman {v}}{dummy.6}
+\contentsline {chapter}{Acr\IeC {\'o}nimos y S\IeC {\'\i }mbolos}{\es@scroman {vi}}{dummy.8}
+\vspace {2em}
+\contentsline {chapter}{\numberline {1}Introduccion}{1}{chapter.11}
+\contentsline {section}{\numberline {1.1}Antecedentes}{1}{section.12}
+\contentsline {section}{\numberline {1.2}Justificaci\IeC {\'o}n y planteamiento del problema}{3}{section.17}
+\contentsline {section}{\numberline {1.3}Objetivos}{3}{section.18}
+\contentsline {subsection}{\numberline {1.3.1}Objetivo General}{3}{subsection.19}
+\contentsline {subsection}{\numberline {1.3.2}Objetivos Espec\IeC {\'\i }ficos}{3}{subsection.20}
+\contentsline {section}{\numberline {1.4}Estructura del trabajo}{4}{section.21}
+\contentsline {chapter}{\numberline {2}Deteccion de puntos de interes}{5}{chapter.22}
+\contentsline {section}{\numberline {2.1}Introduccion}{5}{section.23}
+\contentsline {section}{\numberline {2.2}Detectores de caracteristicas}{5}{section.24}
+\contentsline {section}{\numberline {2.3}Descriptores de caracteristicas}{13}{section.32}
+\contentsline {section}{\numberline {2.4}Emparejadores}{13}{section.33}
+\contentsline {section}{\numberline {2.5}Distribucion espacial}{13}{section.34}
+\contentsline {section}{\numberline {2.6}Resumen}{13}{section.35}
+\contentsline {chapter}{\numberline {3}Alineacion de imagenes}{14}{chapter.36}
+\contentsline {section}{\numberline {3.1}Introduccion}{14}{section.37}
+\contentsline {section}{\numberline {3.2}Transformaciones geometricas}{15}{section.39}
+\contentsline {section}{\numberline {3.3}Generacion de sub-mosaicos}{16}{section.40}
+\contentsline {subsection}{\numberline {3.3.1}Seleccion de imagen de referencia}{16}{subsection.41}
+\contentsline {subsection}{\numberline {3.3.2}Matriz de homografia promedio}{16}{subsection.42}
+\contentsline {section}{\numberline {3.4}Coreccion euclideana}{16}{section.43}
+\contentsline {section}{\numberline {3.5}Resumen}{16}{section.44}
+\contentsline {section}{\numberline {3.6}Algoritmos (temporal)}{18}{section.45}
+\contentsline {chapter}{\numberline {4}Union de imagenes}{19}{chapter.81}
+\contentsline {section}{\numberline {4.1}Introduccion}{19}{section.82}
+\contentsline {section}{\numberline {4.2}Linea de costura}{19}{section.83}
+\contentsline {subsection}{\numberline {4.2.1}Mapa mas cercano}{19}{subsection.84}
+\contentsline {subsection}{\numberline {4.2.2}Corte por grafo}{19}{subsection.85}
+\contentsline {section}{\numberline {4.3}Correccion de color}{20}{section.86}
+\contentsline {subsection}{\numberline {4.3.1}Ajuste de ganancia}{20}{subsection.87}
+\contentsline {subsection}{\numberline {4.3.2}Metodo de Reinhard}{20}{subsection.88}
+\contentsline {section}{\numberline {4.4}Fusion de imagenes}{20}{section.89}
+\contentsline {subsection}{\numberline {4.4.1}Fusion ponderada}{20}{subsection.90}
+\contentsline {subsection}{\numberline {4.4.2}Fusion piramidal}{20}{subsection.91}
+\contentsline {chapter}{\numberline {5}Resultados Experimentales}{21}{chapter.92}
+\contentsline {section}{\numberline {5.1}Comparativa de detectores}{21}{section.93}
+\contentsline {section}{\numberline {5.2}Correcciones de distorsion}{21}{section.94}
+\contentsline {subsection}{\numberline {5.2.1}Homografia promedio}{21}{subsection.95}
+\contentsline {subsection}{\numberline {5.2.2}Correccion euclideana}{21}{subsection.96}
+\contentsline {section}{\numberline {5.3}Linea de corte}{22}{section.97}
+\contentsline {section}{\numberline {5.4}Fusion de imagenes}{22}{section.98}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{23}{chapter.99}
+\contentsline {chapter}{\numberline {7}Conclusiones}{24}{chapter.100}
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}@nombreApendice}{27}{appendix.102}
+\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{27}{section.103}
+\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{27}{subsection.104}
+\contentsline {chapter}{\numberline {B}@nombreApendice}{28}{appendix.105}
+\vspace {2em}
