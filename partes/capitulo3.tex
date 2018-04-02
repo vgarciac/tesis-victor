@@ -1,12 +1,65 @@
-\chapter{Plataformas Experimentales}
+\chapter{Sistema de generación de mosaico}
 \label{capitulo3}
-\lhead{Capítulo 3. \emph{Plataformas Experimentales}}
+\lhead{Capítulo 3. \emph{Sistema de generación de mosaico}}
 
-Resumen del capitulo 3
+\section{Deteccion de caracteristicas}
 
-\section{Seccion 1}
-mensaje de prueba
+\section{Emparejamiento de puntos de interés}
 
-\section{Sección 2}
-\subsection{sub-sección 2}
-mensaje de prueba subsección 2;
+\section{Calculo de matriz de transformación}
+
+\section{Coreccion de erroes de proyeccion}
+\section{Coreccion de erroes de distorsión}
+\subsection{Seleccion de imagen de referencia}
+\subsection{Generacion de sub mosaicos}
+
+\section{Recorte de imagenes}
+
+\section{Correccion de color}
+
+
+\section{Algoritmos (temporal)}
+\begin{algorithm}[H] %or another one check
+	\caption{Calculo de matriz de homografia promedio}
+	\SetAlgoLined
+		   
+	\While{no se alcanza el maximo de iteraciones}{
+		seleccionar 4 puntos aleatorios del primer sub-mosaico\;
+		seleccionar los 4 puntos correspondientes en el segundo sub-mosaico\;
+		calcular el punto medio para cada par de puntos correspondientes\;
+		calcular la transformacion desde los puntos del primer sub-mosaico hasta los puntos medios\;
+		aplicar transformacion en el primer sub-mosaico\;
+		calcular error de distorsión en el primer sub-mosaico\;
+		\eIf{el error es menor que el mas bajo obtenido}{
+			guardar el error como el mas bajo\;
+			guardar la matriz de transformación como la mejor\;
+			}{
+			restaurar valores del primer sub-mosaico\;
+		}
+	}
+\end{algorithm}
+
+\begin{algorithm}[H] %or another one check
+	\caption{Encontrar matriz de transformacion}
+	\SetAlgoLined
+	 $I_{i+1}$ $\equiv$ Imagen nueva\;
+	 $I_{i}$ $\equiv$ ultima imagen anadida al mosaico\;
+	 $V_{i}$ $\equiv$ vecinos de $I_{i}$\;
+	\While{puntos emparejados $\ge$ 4}{
+		 Emparejar puntos de $I_{i+1}$ con $I_{i}$\;
+		 \If{$I_{i}$ tiene vecinos}{
+			 	\ForEach {vecinos de $I_{i}$}{
+			 		Emparejar puntos de $I_{i+1}$ con $V_{i}$\;
+			 	}
+		 }
+		 descartar malos emparejamientos;
+		 aplicar busqueda sectorizada;
+		 \If{puntos totales emparejados $\le$ 3}{
+			 	modificar criterio para descartar\;
+			 	\If{criterio para descartar llega al minimo}{
+			 		terminar \tcp*{no es posible emparejar imagen}
+			 	}
+		 }
+	}
+\end{algorithm}
+
