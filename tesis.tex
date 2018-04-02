@@ -22,6 +22,7 @@
 
 % Para incluir hipervínculos
 \usepackage{hyperref}
+\usepackage{url}
 \hypersetup{urlcolor=blue, colorlinks=false}
 
 % Para más símbolos matemáticos
@@ -35,6 +36,12 @@
 % Para manejas la ubicacion de las figuras
 \usepackage{float}
 \usepackage{wrapfig}
+\usepackage{graphicx}
+
+% Algoritmos y pseudoCodigos
+\usepackage{amsmath}
+\selectlanguage{spanish} 
+\usepackage[ruled,vlined,linesnumbered,noresetcount,spanish,onelanguage]{algorithm2e} %for psuedo code
 
 % Paquetes locales
 % Puedes agregar paquetes locales (archivos .sty) en un subdirectorio % 'paquetes'.
@@ -59,7 +66,7 @@
 
 \begin{titlepage}
     \title{\vspace{-2cm} \includegraphics[width=1.2in]{./usb.png} \\[.2cm]
-        \large UNIVERSIDAD SIMÓN BOLÍVAR \\
+        \large {UNIVERSIDAD SIMÓN BOLÍVAR} \\
         \textbf{DECANATO DE ESTUDIOS PROFESIONALES \\
         COORDINACIÓN DE INGENIERIA ELECTRÓNICA}
         \vfill \large {\textbf{SISTEMA DE GENERACIÓN DE MOSAICOS 2D PARA ROBOTS MÓVILES A PARTIR DE VIDEO MONOCULAR}}  \vfill}
@@ -88,7 +95,9 @@
         como requisito parcial para optar al título de \\
         Ingeniero Electrónico}
     \date{Sartenejas, Marzo de 2018}
+    
 \end{titlepage}
+
 
 \begin{document}
 \frontmatter
@@ -134,17 +143,19 @@
 {
 				
 	% Aquí van las siglas
-	\textbf{SIGLAS} & \textbf{S}iglas \textbf{I}sla \textbf{G}rafo 
-	\textbf{L}aos \textbf{A}ve \textbf{S}erpiente\\
-	\textbf{ACM} & \textbf{A}ssociation for \textbf{C}omputing \textbf{M}achinery\\
-	&\\
-	\hline
-	&\\
+	% \textbf{SIFT} & Transformacion de caracteristicas invariante a la escala (del inglés: \textbf{S}cale \textbf{I}nvariant \textbf{T}eature \textbf{T}ransform)\\
+	% \textbf{SURF} & Transformacion de caracteristicas Robusto y acelerado (del inglés: \textbf{S}peed-\textbf{U}up \textbf{R}obust \textbf{F}eatures)\\
+	% \textbf{FAST} & Caracteristicas de pruebas de segmentos aceleradas (del inglés: \textbf{F}eatures from \textbf{A}ccelerated \textbf{S}egment \textbf{T}est)\\
+	% \textbf{BRIEF} & Características elementales independientes robustas binarias (del inglés: \textbf{B}inary \textbf{R}obust \textbf{I}ndependent \textbf{E}lementary) \textbf{F}eatures) \\
+	% \textbf{ORB} & FAST orientado y BRIEF rotado (del inglés: \textbf{O}riented for FAST and \textbf{R}otated \textbf{B}RIEF)\\
+	% &\\
+	% \hline
+	% &\\
 				
 	% Aquí van los símbolos
-	$\iff$ & doble implicación, si y sólo si\\
-	$\Rightarrow$ & implicación lógica\\
-	$[u:=v]$ & sustitución textual de $u$ por $v$
+	% $\iff$ & doble implicación, si y sólo si\\
+	% $\Rightarrow$ & implicación lógica\\
+	% $[u:=v]$ & sustitución textual de $u$ por $v$
 }
 	
 %% ----------------------------------------------------------------
