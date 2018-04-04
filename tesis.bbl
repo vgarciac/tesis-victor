@@ -28,10 +28,20 @@ Borgetto M.-Opderbecke J. Pessel N. y Rigaud~V Allais, A.~G.
 \newblock Toward large-area mosaicing for underwater scientific applications.
 \newblock {\em IEEE Journal of Oceanic Engineering}, 2003.
 
+\bibitem{Tuytelaars}
+Tinne~Tuytelaars y~Krystian~Mikolajczyk.
+\newblock Local invariant feature detectors: a survey.
+\newblock {\em Foundations and Trends® in Computer Graphics and Vision}, 2008.
+
 \bibitem{harris}
 Hans~P. Morevec.
 \newblock Towards automatic visual obstacle avoidance.
 \newblock 1977.
+
+\bibitem{log}
+T~Lindeberg.
+\newblock Feature detection with automatic scale selection.
+\newblock {\em International Journal of Computer Vision}, 1998.
 
 \bibitem{sift}
 David~G. Lowe.

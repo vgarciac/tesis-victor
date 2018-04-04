@@ -1,84 +1,151 @@
-\chapter{Alineacion de imagenes}
+\chapter{Detección de puntos de interés}
 \label{capitulo3}
-\lhead{Capítulo 3. \emph{Alineacion de imagenes}}
+\lhead{Capítulo 3. \emph{Detección de puntos de interés}}
 
-\section{Introduccion}
 
-Introduccion
+\section{Introducción}
+
+
+\section{Revisión teórica}
+
+\subsection{Detectores de características}
+
+Antes mencionar la evolución de los algoritmos de detección de puntos de interés, primero es necesario definir que son estos. Los puntos de interés, puntos clave, o \textit{"features"} (en español: características) como son comúnmente llamados, son regiones en una imagen que contienen patrones específicos, lo que hace que puedan ser fácilmente seguidos o ubicados en otra imagen. Tuytelaars y Mikolajczyk \cite{Tuytelaars} definen un punto característico local como \textit{``un patrón en la imagen que difiere de su vecindario directo''}. De esta forma, se considera que los puntos característicos deben proporcionar la posibilidad de ser identificados en diferentes imágenes con el objetivo de emparejarlos.
+
+Para alcanzar este objetivo los detectores y extractores de puntos característicos deben cumplir con ciertas propiedades que les permita funcionar bajo distintas condiciones, en concreto se busca que estos algoritmos cumplan con las siguientes propiedades:
+
+\begin{itemize}
+	\item \textbf{Robustez:} El algoritmo debe ser capaz de detectar la misma ubicación del punto característico independientemente ante cambios en la escala, rotación, traslación, iluminación, transformaciones geométricas, artefactos de compresión y ruido.
+	
+	\item \textbf{Repetibilidad:} El algoritmo debe ser capaz de detectar el mismo punto característico de la misma escena bajo cambios en el punto de vista.
+	
+	\item \textbf{Exactitud:} El detector debe localizar el punto característico de manera precisa (misma ubicación de pixel). Especialmente para tareas de alineación de imágenes.
+	
+	\item \textbf{Generalidad:} El algoritmo debe ser capaz de detectar puntos que pueden ser usadas en distintas aplicaciones, es decir, que detecte varios tipos de características (esquinas, burbujas, etc.)
+	
+	\item \textbf{Eficiencia:} El algoritmo debe ser capaz de detectar puntos característicos en nuevas imágenes a gran velocidad, para soportar aplicaciones en tiempo real.
+	
+	\item \textbf{Cantidad:} El algoritmo debe detectar todos, o casi todos los puntos característicos presentes en la imagen. 
+	
+\end{itemize}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{paralaje1}
-	\caption[Paralaje - Efectos en el cambio de punto de vista]{Efectos en el cambio del punto de vista.}
-	\label{imagen:paralaje}
+	\includegraphics[width=0.7\textwidth]{features}
+	\caption[Puntos de interés]{Ejemplo de caracterización de puntos en una imagen}
+	\label{imagen:features}
 \end{figure}
 
-Desde el punto de vista \textbf{A}, se observa la estrella a la izquierda del circulo. Mientras que desde le punto \textbf{B} la estrella es observada a la derecha del circulo.
+Atendiendo a la imagen \ref{imagen:features}, se puede observar que se caracterizan seis áreas de interés. Analizando estos segmentos, vemos que \textbf{\textit{A}} y \textbf{\textit{B}} corresponden con superficies planas, lo que hace que sea muy difícil identificar la ubicación exacta de estas superficies en la imagen original. Por otro lado, tenemos las regiones \textbf{\textit{C}} y \textbf{\textit{D}}, las cuales corresponden con bordes en la imagen, si bien, se puede limitar en gran medida el área de búsqueda hacia toda las regiones del mismo bordes, sigue siendo difícil encontrar la ubicación exacta. Por ultimo, analizando las regiones \textbf{\textit{E}} y \textbf{\textit{F}} tenemos que corresponden a esquinas de la imagen original, en este caso se puede identificar fácilmente la ubicación exacta de la región en la imagen.
 
-\section{Transformaciones geometricas}
-Prueba
+A partir de esta idea, en la cual se consideran las esquinas como regiones fácilmente identificables en una imagen, en \textit{1988} nace el primer algoritmo de detección de puntos de interés llamado Detector de esquinas de Harris \cite{harris} (nombre original en inglés: Harris Corner Detector), y como su nombre lo indica está basado en la detección de esquinas.
 
-\section{Generacion de sub-mosaicos}
-Prueba
+Retomando el concepto planteado previamente, este detector busca la diferencia de intensidad de una región con su entorno directo, es decir, se detectará una esquina para aquellas regiones que presenten una alta variación de intensidad, al desplazar la ventana estudiada en cualquier dirección. En la figura \ref{imagen:harris-window} se puede apreciar visualmente como funciona esta ventana de búsqueda.
 
-\subsection{Seleccion de imagen de referencia}
-Prueba
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{harris-window}
+	\caption[Deteccion de esquinas]{Desplazamiento de la ventana de búsqueda, para de detección de esquinas}
+	\label{imagen:harris-window}
+\end{figure}
 
-\subsection{Matriz de homografia promedio}
-Prueba
+Cuando se trabajan con detectores de características, se desea que estos sean invariantes ante la mayor cantidad de variables posibles, tal y como se menciona en la propiedad de robustez que deben tener estos algoritmos. Si bien el detector presentado anteriormente es invariante ante la traslación y la rotación (ya que las esquinas se mantienen como esquinas si son rotadas o desplazadas), no funciona de la misma forma ante cambios de escala. Como se observa en la figura \ref{imagen:corner-scale}, una región considerada como esquina, se podría considerar plana si es ampliada.
 
-\section{Coreccion euclideana}
-Prueba
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{corner-scale}
+	\caption[Deteccion de esquinas]{Esquinas escalas}
+	\label{imagen:corner-scale}
+\end{figure}
 
-\section{Resumen}
+Con el fin de conseguir detectar los mismos puntos ante cambios en la escala de la imagen, Lindeberg, T. \cite{log} propone un algoritmo detector de ``manchas'' multi-escala a través de la búsqueda de un máximos en el espacio de escala, el cual se crea utilizando un operador laplaciano. El Laplaciano de Gaussianas \textit{LoG} (del ingles: Laplacian-of-Gaussian), es una combinación lineal de segundas derivadas utilizado para detectar burbujas o manchas en una imagen. El funcionamiento es el siguiente: Dada una imagen de entrada, la representación para cada escala $-s-$ de la imagen se define como la convolución de la imagen con un filtro Gaussiano con desviación estándar $s$.
+
+Este resultado brinda una fuerte respuesta positiva para burbujas oscuras y respuestas fuertes negativas para burbujas claras, ambas de un tamaño 2$s$, donde $s$ es la escala. De esta forma las caracteristicas detectadas presentan una fuerte relación entre el tamaño de las estructuras en la imagen y el grado de difusión del filtro gaussiano. Donde la desviación estándar del filtro se usa para controlar la escala cambiando que tanto se difumina la imagen.
+
+Llegados aquí, una vez se haya detectado la ubicación de los puntos característicos en la imagen, la información de la localidad de este debe ser codificada y almacenada, y de esta forma lograr tener un descriptor único de la región con el objetivo final de ubicarlo en otra imagen. Con este fin se desarrollaron los algoritmos descriptores, los cuales una vez tengan la ubicación de los puntos característicos se encargan de convertir la información de su alrededor en una serie de números, o un vector que permita diferenciar un punto clave de otro. Esta información también es necesaria que sea invariante ante las variable mencionadas previamente, para lograr una identificación eficiente del mismo punto en distintas imágenes bajo distintas condiciones.
+
+Partiendo de estos problemas, y del hecho que el calculo del operador LoG es computacionalmente costoso, en \textit{2004 D. Lowe} crea el detector y descriptor \textit{SIFT} \cite{sift} (del inglés: Scale Invariant Feature Transform), en el cual el espacio de escala es construido en forma piramidal con la diferencia de gaussianas DoG (del inglés: Difference of Gaussians). En este sentido, El operador DoG ofrece una aproximación al LoG, donde se calcula sin convolución restando niveles de escala adyacentes de una pirámide gaussiana. El proceso para la detección y descripción de puntos de interés de este algoritmo, consta de cuatro pasos principales:
+
+En primer lugar, realiza una detección de máximos en el espacio de la escala aplicando la diferencia gaussiana \textit{DoG}. Para esto, se aplica el filtro gaussiano con distintos tamaños de media (se tienen distintas escalas), luego restando estas imágenes para distintos pares de escalas se logra la diferencia de gaussiana. Posteriormente se buscan los máximos locales a lo largo del espacio (coordenadas X,Y) para cada correspondiente escala. Este proceso de detección se puede visualizar en la figura \ref{imagen:sift-escalas}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{sift-escalas}
+	\caption[SIFT - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\label{imagen:sift-escalas}
+\end{figure}
+
+En segundo lugar para la localización de puntos de interés, se descartan los puntos encontrados en el paso anterior que no superen cierto valor de umbral, es decir, que no estén lo suficientemente contrastados con su entorno. Con esta etapa el algoritmo solo toma en cuenta los puntos claves mas fuertes por cada escala. Además, con el objetivo de eliminar los bordes suficientemente contrastados que no correspondan con esquinas, el algoritmo usa una matriz hessiana para calcular las curvaturas principales, y así quedarse solo con esquinas.
+
+Para garantizar la invarianza con respecto a la rotación, se toman los píxeles vecinos al punto clave y se calcula la magnitud y dirección del gradiente en esa región. Con esto se hace un histograma de la magnitud del gradiente en cada dirección, donde el pico mayor del histograma indica la orientación. En el caso que exista un pico mayor al 80\% del pico principal, este se utiliza para crear otro punto de interés en la misma posición pero con la distinta rotación.
+
+Finalmente para crear el vector descriptor por cada punto clave se crea una matriz de 16x16 alrededor de este, dividida en 4 subregiones de 4x4 píxeles con un histograma de orientaciones para cada uno. Seguidamente, el descriptor del punto será el vector con los valores de los histogramas de las regiones 4x4 concatenados. La figura \ref{imagen:descriptor} la representación del descriptor de SIFT.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{sift-descriptor}
+	\caption[SIFT - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\label{imagen:descriptor}
+\end{figure}
+
+
+En el año 2006, un grupo de tres  personas Bay, H., Tuytelaars, T. and Van Gool, L. desarrollan \textit{SURF} \cite{surf}, el cual es un detector y descriptor de características basado en SIFT, pero con modificacioes que aumentan su velocidad de detección. Si bien, sacrifica un poco de rendimiento y precisión, lo hace mas provechoso para aplicaciones embebidas que demanden mayor velocidad de computo y menor uso de recursos, como por ejemplo \textit{SLAM} (del ingles: Simultaneous Localization and Mapping). El proceso para la extracción de características por parte de este algoritmo se compone de los siguientes pasos:
+
+Como primer paso, en lugar de aproximar el laplaciano de Gauss \textit{LoG} (del inglés: Laplacian of Gaussians) con la diferencia de Gaussianas (DoG) como lo hace SIFT, este algoritmo aproxima LoG con cuadrados para promediar la imagen. La ventaja de aplicar filtros con cuadrados es que con la ayuda de imágenes integrales el cálculo computacional se reduce en gran medida.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{surf}
+	\caption[SURF - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\label{imagen:surf}
+\end{figure}
+
+En función de identificar la orientación, el algoritmo utiliza la respuesta wavelet Haar en horizontal y vertical en un vecindario de 6$s$ (donde $s$ es la escala evaluada) píxeles al rededor del punto de interés, Luego estas respuestas son representadas como puntos en el espacio, para luego calcular la orientación dominante con la suma de todos los resultados dentro de una ventana deslizante de apertura 60$^\circ$. En la figura \ref{imagen:surf} se puede visualizar en el lado izquierdo, la aproximación que realiza de la derivada de segundo orden del filtro gaussiano, y su aproximación con un filtro cuadrado. Del lado derecho se ilustra el vector de orientación en función a la distribución de puntos estudiados.
+
+El siguiente avance importante en los algoritmos de detección aparece en el año 2011 con \textit{ORB} \cite{orb} (del inglés: Oriented FAST and Rotated BRIEF), este utiliza una combinación del detector FAST (del inglés: Features from Accelerated Segment Test) y del descriptor BRIEF (del inglés: Binary Robust Independent Elementary Features), este nuevo algoritmo esta caracterizado por su alta velocidad de procesamiento manteniendo un buen rendimiento, gracias al uso de un descriptor binario. 
+
+Como se mencionó utiliza el algoritmo FAST, el cual consiste en encontrar esquinas evaluando los píxeles en un perímetro circular, de esta forma, un punto será detectado como esquina si la cantidad de píxeles de color opuesto al evaluado, supera cierto valor de umbral (ver izquierda en la figura \ref{imagen:orb}), posteriormente con el fin de aumentar la robustez, es aplicado el algoritmo de clasificación de esquinas de $Harris$. De igual forma se realiza con una estructura piramidal evaluando varias escalas (al igual que SIFT).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{orb}
+	\caption[ORB - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\label{imagen:orb}
+\end{figure}
+
+Como el algoritmo FAST no toma en cuenta la orientación, en el ORB se modificó para que calculara la orientación de la siguiente forma: Se considera una región ubicada en el centro del punto estudiado, luego se calcula el centroide de la región en función a la intensidad de los puntos. De esta forma, la dirección del vector desde el punto central  hasta el centroide es asignado como vector de orientación. Observando a la derecha en \ref{imagen:orb} se aprecia un ejemplo del lugar del centroide \textit{(C)} y del centro \textit{(O)} par auna región en particular.
+
+
+Para el descriptor utiliza BRIEF, a diferencia de los anteriores (SIFT y SURF) este es un descriptor binario y no vectorial. El descriptor BFIEF produce una palabra de $n$-bits usando el algoritmo \textit{Local Binay Tests} (LBT), el problema de esta representación es que no es muy robusta ante cambios en la rotación. Para resolver esto ORB utiliza la información de la orientación previamente calculada en el paso de detección para aplicar LBT en esa orientación.
+
+Los algoritmos de detección que se mencionaron hasta este momento tienen una caracteristica en común, y es que cuando trabajan con el esquema piramidal lo hacen bajo el espacio de escala Gaussiano, el cual es una instancia particular de difusion lineal. De esta forma, al utilizar este filtro no se respetan los limites naturales de los objetos y se difumina del mismo nivel toda la region de la imagen cuando se avanza entre nieveles de escala.
+
+Enfocándose en esta característica, en el año de \textit{2012} se desarrolla el detector y descriptor llamado KAZE \cite{kaze} por parte de \textit{Pablo Fernández Alcantarilla}. Este novedoso algoritmo opera completamente en un espacio de escala no lineal, y para ello utilizan un esquema de división de operadores aditivos (\textit{AOS}, del inglés: Additive Operator Splitting), que les permite obtener espacios de escala no lineales de forma eficiente. De este modo se puede realizar un difuminado localmente adaptativo, posibilitando que se remueva el ruido en las imágenes, manteniendo información importante sobre los bordes de los objetos al avanzar en el espacio de escala. En la figura \ref{imagen:kaze} se puede observar como afecta en los bordes de los objetos el aplicar un filtro de difusión lineal, y uno que no lo es, bajo el esquema propuesto por este algoritmo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{kaze}
+	\caption[KAZE - Espacio de escalas]{Deteccion de maximos en el espacio de la escala}
+	\label{imagen:kaze}
+\end{figure}
+
+Bajo este mismo esquema de difusión no lineal, el mismo autor en el año \textit{2013} desarrolla la versión acelerada de este algoritmo que recibe el nombre de \textit{A-KAZE} \cite{akaze} (del ingles: Accelerated KAZE). Esta mejora se utiliza un esquema basado en difusión explícita rápida \textit{FED} (del ingles: Fast Explicit Difussion) en lugar de \textit{AOS}, el cual es un nuevo esquema piramidal que incrementa en gran medida la velocidad de computo para construir el espacio de escala no lineal.
+
+Para el calculo de la orientación el primer algoritmo \textit{KAZE} utiliza un descriptor para la orientación similar al que emplea SURF. Este encuentra la orientación dominante en un área circular de radio 6$s$ ($s$ corresponde con la escala), y para cada muestra del círculo se calcula la derivada de primer orden en las direcciones $X$ e $Y$, y se ponderan con una gaussiana centrada en el punto de interés. Luego, las respuestas de estas derivadas son representadas como puntos en un espacio vectorial, donde la orientación dominante se haya sumando las respuestas dentro de un segmento de circulo deslizante con apertura de 60$^\circ$.
+
+Por otro lado, la versión acelerada \textit{A-KAZE} emplea un descriptor basado en una versión modificada del algoritmo de diferencia local binaria \textit{LDB} \cite{ldb} (del ingles: Local Difference Binary), llamado M-LBD (del ingles: Modified Local Difference Binary), el cual aprovecha al máximo la información del espacio de escala no lineal. La modificación consiste en hacer un sub-muestreo de cada región que divide la zona del descriptor, en lugar de calcular el promedio de todos los píxeles de la región, es decir, se tienen muestras de cada subdivisión para distintas escalas.
+
+
+\subsection{Descriptores de características}
+
+Descriptores
+
+\subsection{Emparejadores}
+
+Emparejadores
+
+\section{Implementación y resultados de modulo comparativo}
+
+\section{Conclusiones}
+
 Resumen
-
-
-
-\section{Algoritmos (temporal)}
-\begin{algorithm}[H] %or another one check
-	\caption{Calculo de matriz de homografia promedio}
-	\SetAlgoLined
-		   
-	\While{no se alcanza el maximo de iteraciones}{
-		seleccionar 4 puntos aleatorios del primer sub-mosaico\;
-		seleccionar los 4 puntos correspondientes en el segundo sub-mosaico\;
-		calcular el punto medio para cada par de puntos correspondientes\;
-		calcular la transformacion desde los puntos del primer sub-mosaico hasta los puntos medios\;
-		aplicar transformacion en el primer sub-mosaico\;
-		calcular error de distorsión en el primer sub-mosaico\;
-		\eIf{el error es menor que el mas bajo obtenido}{
-			guardar el error como el mas bajo\;
-			guardar la matriz de transformación como la mejor\;
-			}{
-			restaurar valores del primer sub-mosaico\;
-		}
-	}
-\end{algorithm}
-
-\begin{algorithm}[H] %or another one check
-	\caption{Encontrar matriz de transformacion}
-	\SetAlgoLined
-	 $I_{i+1}$ $\equiv$ Imagen nueva\;
-	 $I_{i}$ $\equiv$ ultima imagen anadida al mosaico\;
-	 $V_{i}$ $\equiv$ vecinos de $I_{i}$\;
-	\While{puntos emparejados $\ge$ 4}{
-		 Emparejar puntos de $I_{i+1}$ con $I_{i}$\;
-		 \If{$I_{i}$ tiene vecinos}{
-			 	\ForEach {vecinos de $I_{i}$}{
-			 		Emparejar puntos de $I_{i+1}$ con $V_{i}$\;
-			 	}
-		 }
-		 descartar malos emparejamientos;
-		 aplicar busqueda sectorizada;
-		 \If{puntos totales emparejados $\le$ 3}{
-			 	modificar criterio para descartar\;
-			 	\If{criterio para descartar llega al minimo}{
-			 		terminar \tcp*{no es posible emparejar imagen}
-			 	}
-		 }
-	}
-\end{algorithm}
-
-
-
