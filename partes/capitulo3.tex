@@ -8,7 +8,7 @@
 
 \section{Revisión teórica}
 
-\subsection{Detectores de características}
+\subsection{Detectores y descriptores de características}
 
 Antes mencionar la evolución de los algoritmos de detección de puntos de interés, primero es necesario definir que son estos. Los puntos de interés, puntos clave, o \textit{"features"} (en español: características) como son comúnmente llamados, son regiones en una imagen que contienen patrones específicos, lo que hace que puedan ser fácilmente seguidos o ubicados en otra imagen. Tuytelaars y Mikolajczyk \cite{Tuytelaars} definen un punto característico local como \textit{``un patrón en la imagen que difiere de su vecindario directo''}. De esta forma, se considera que los puntos característicos deben proporcionar la posibilidad de ser identificados en diferentes imágenes con el objetivo de emparejarlos.
 
@@ -29,14 +29,16 @@ Para alcanzar este objetivo los detectores y extractores de puntos característi
 	
 \end{itemize}
 
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{features}
-	\caption[Puntos de interés]{Ejemplo de caracterización de puntos en una imagen}
+	\caption{Caracterización de regiones en una imagen}
 	\label{imagen:features}
 \end{figure}
 
-Atendiendo a la imagen \ref{imagen:features}, se puede observar que se caracterizan seis áreas de interés. Analizando estos segmentos, vemos que \textbf{\textit{A}} y \textbf{\textit{B}} corresponden con superficies planas, lo que hace que sea muy difícil identificar la ubicación exacta de estas superficies en la imagen original. Por otro lado, tenemos las regiones \textbf{\textit{C}} y \textbf{\textit{D}}, las cuales corresponden con bordes en la imagen, si bien, se puede limitar en gran medida el área de búsqueda hacia toda las regiones del mismo bordes, sigue siendo difícil encontrar la ubicación exacta. Por ultimo, analizando las regiones \textbf{\textit{E}} y \textbf{\textit{F}} tenemos que corresponden a esquinas de la imagen original, en este caso se puede identificar fácilmente la ubicación exacta de la región en la imagen.
+Llegados a este punto es necesario definir el funcionamiento de los algoritmos detectores, y que consideran estos como puntos característicos, basados en la definición previamente planteada. Atendiendo a la imagen \ref{imagen:features}, se puede observar que se caracterizan seis áreas de interés. Analizando estos segmentos, vemos que \textbf{\textit{A}} y \textbf{\textit{B}} corresponden con superficies planas, lo que hace que sea muy difícil identificar la ubicación exacta de estas superficies en la imagen original. Por otro lado, tenemos las regiones \textbf{\textit{C}} y \textbf{\textit{D}}, las cuales corresponden con bordes en la imagen, si bien, se puede limitar en gran medida el área de búsqueda hacia toda las regiones del mismo bordes, sigue siendo difícil acertar con la ubicación correcta. Por ultimo, analizando las regiones \textbf{\textit{E}} y \textbf{\textit{F}} tenemos que corresponden a esquinas de la imagen original, en este caso se puede identificar fácilmente la ubicación exacta de la región en la imagen.
 
 A partir de esta idea, en la cual se consideran las esquinas como regiones fácilmente identificables en una imagen, en \textit{1988} nace el primer algoritmo de detección de puntos de interés llamado Detector de esquinas de Harris \cite{harris} (nombre original en inglés: Harris Corner Detector), y como su nombre lo indica está basado en la detección de esquinas.
 
@@ -45,7 +47,7 @@ Retomando el concepto planteado previamente, este detector busca la diferencia d
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{harris-window}
-	\caption[Deteccion de esquinas]{Desplazamiento de la ventana de búsqueda, para de detección de esquinas}
+	\caption{Ventana de búsqueda para de detección de esquinas}
 	\label{imagen:harris-window}
 \end{figure}
 
@@ -54,7 +56,7 @@ Cuando se trabajan con detectores de características, se desea que estos sean i
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{corner-scale}
-	\caption[Deteccion de esquinas]{Esquinas escalas}
+	\caption{Efecto del escalado sobre las esquinas}
 	\label{imagen:corner-scale}
 \end{figure}
 
@@ -71,7 +73,7 @@ En primer lugar, realiza una detección de máximos en el espacio de la escala a
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{sift-escalas}
-	\caption[SIFT - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\caption{Detección de máximos en el espacio de la escala DoG}
 	\label{imagen:sift-escalas}
 \end{figure}
 
@@ -84,19 +86,19 @@ Finalmente para crear el vector descriptor por cada punto clave se crea una matr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{sift-descriptor}
-	\caption[SIFT - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\caption{Descriptor del algoritmo SIFT}
 	\label{imagen:descriptor}
 \end{figure}
 
 
-En el año 2006, un grupo de tres  personas Bay, H., Tuytelaars, T. and Van Gool, L. desarrollan \textit{SURF} \cite{surf}, el cual es un detector y descriptor de características basado en SIFT, pero con modificacioes que aumentan su velocidad de detección. Si bien, sacrifica un poco de rendimiento y precisión, lo hace mas provechoso para aplicaciones embebidas que demanden mayor velocidad de computo y menor uso de recursos, como por ejemplo \textit{SLAM} (del ingles: Simultaneous Localization and Mapping). El proceso para la extracción de características por parte de este algoritmo se compone de los siguientes pasos:
+En el año 2006, un grupo de tres  personas Bay, H., Tuytelaars, T. and Van Gool, L. desarrollan \textit{SURF} \cite{surf}, el cual es un detector y descriptor de características basado en SIFT, pero con modificacioes que aumentan su velocidad de detección. Si bien, sacrifica un poco de rendimiento y precisión, lo hace mas provechoso para aplicaciones embebidas que demanden mayor velocidad de computo y menor uso de recursos, como por ejemplo \textit{SLAM}. El proceso para la extracción de características por parte de este algoritmo se compone de los siguientes pasos:
 
 Como primer paso, en lugar de aproximar el laplaciano de Gauss \textit{LoG} (del inglés: Laplacian of Gaussians) con la diferencia de Gaussianas (DoG) como lo hace SIFT, este algoritmo aproxima LoG con cuadrados para promediar la imagen. La ventaja de aplicar filtros con cuadrados es que con la ayuda de imágenes integrales el cálculo computacional se reduce en gran medida.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{surf}
-	\caption[SURF - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\caption{Deteccion y descripción mediante el algoritmo SURF}
 	\label{imagen:surf}
 \end{figure}
 
@@ -109,7 +111,7 @@ Como se mencionó utiliza el algoritmo FAST, el cual consiste en encontrar esqui
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{orb}
-	\caption[ORB - Espacio de escalas]{Detección de máximos en el espacio de la escala}
+	\caption{Deteccion y descripción mediante el algoritmo SURF}
 	\label{imagen:orb}
 \end{figure}
 
@@ -125,7 +127,7 @@ Enfocándose en esta característica, en el año de \textit{2012} se desarrolla 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{kaze}
-	\caption[KAZE - Espacio de escalas]{Deteccion de maximos en el espacio de la escala}
+	\caption[Filtro no lineal propuesto por KAZE]{\textit{(A)}: imagen original, \textit{(B)} filtro lineal Gaussiano, \textit{(C)} filtro no lineal usado en KAZE}
 	\label{imagen:kaze}
 \end{figure}
 
@@ -136,11 +138,7 @@ Para el calculo de la orientación el primer algoritmo \textit{KAZE} utiliza un 
 Por otro lado, la versión acelerada \textit{A-KAZE} emplea un descriptor basado en una versión modificada del algoritmo de diferencia local binaria \textit{LDB} \cite{ldb} (del ingles: Local Difference Binary), llamado M-LBD (del ingles: Modified Local Difference Binary), el cual aprovecha al máximo la información del espacio de escala no lineal. La modificación consiste en hacer un sub-muestreo de cada región que divide la zona del descriptor, en lugar de calcular el promedio de todos los píxeles de la región, es decir, se tienen muestras de cada subdivisión para distintas escalas.
 
 
-\subsection{Descriptores de características}
-
-Descriptores
-
-\subsection{Emparejadores}
+\subsection{Emparejadores de puntos característicos}
 
 Emparejadores
 
