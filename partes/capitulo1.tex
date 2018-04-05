@@ -7,7 +7,9 @@ La navegación y exploración en áreas de difícil acceso mediante el uso de ro
 
 \section{Antecedentes}
 
-En el \textit{GIDM} se han realizado grandes avances en el desarrollo de equipos y plataformas robóticas, para actividades de investigación, exploración e inspección de ambientes no estructurados. En este sentido, se tienen proyectos como el presentado por \textit{Danilo, D.} \cite{danilo}, cuyo trabajo de grado consistió en el desarrollo en un sistema de operación remota para un robot submarino, con la finalidad de implementarlo en tareas de exploración. Con objetivos similares, \textit{Said, A.} \cite{said} basó su proyecto de grado en la instrumentación y control de un robot cuadricóptero volador. 
+En el \textit{GIDM} se han realizado grandes avances en el desarrollo de equipos y plataformas robóticas, para actividades de investigación, exploración e inspección de ambientes no estructurados. Usualmente cuando se opera en este tipo de ambientes, en busca de realizar exploraciones mas eficientes y a mayor escala, se emplean vehículos operados remotamente \textit{ROV} (del inglés: Remotely Operated Vehicles) equipados con cámaras de vídeo, o bien en el caso de aplicaciones subacuáticas también se suelen emplear vehículos autónomos submarinos \textit{AUV} (del inglés: Automated Underwater Vehicles), mientras que para exploraciones aéreas son empleados vehículos aéreos no tripulados UAV (del ingles: Unmanned Aerial Vehicle).
+
+En este sentido, se tienen proyectos como el presentado por \textit{Danilo, D.} \cite{danilo}, cuyo trabajo de grado consistió en el desarrollo en un sistema de operación remota para un robot submarino (\textit{ROV}), con la finalidad de implementarlo en tareas de exploración. Con objetivos similares, \textit{Said, A.} \cite{said} basó su proyecto de grado en la instrumentación y control de un robot cuadricóptero volador(\textit{AUV}). 
 
 Adicional a los proyectos antes mencionados, en el el \textit{GIDM}  se cuenta con un vehículo submarino llamado OpenROV\footnote{ \url{https://www.openrov.com/products/openrov28/}}, el cual es un robot maniobrado remotamente de baja envergadura diseñado especialmente para operar bajo el agua.
 
@@ -17,7 +19,6 @@ Adicional a los proyectos antes mencionados, en el el \textit{GIDM}  se cuenta c
 	\caption{Robot móvil OpenROV}
 	\label{imagen:openrov}
 \end{figure}
-
 Si bien se cuenta con un conjunto de plataformas robóticas adaptadas para tareas de exploración, hasta el momento no se han desarrollados sistemas basados en visión que permitan incluirse en la etapa de navegación y mapeo de dichos robots, siendo la presente investigación la primera en abordar la tarea de la reconstrucción del suelo recorrido haciendo uso únicamente de una cámara de vídeo, sensor presente en todas las plataformas robóticas entes mencionados.
 
 \section{Justificación y planteamiento del problema}
@@ -38,6 +39,7 @@ Si bien, este problema afecta en gran medida la construcción del mosaico, no es
 
 \begin{wrapfigure}{r}{0.3\textwidth}
 	\begin{center}
+		\vspace*{-0.4in}
 		\includegraphics[width=0.3\textwidth]{hugin}
 	\end{center}
 	\caption{Logo del software Hugin}

@@ -8,9 +8,26 @@ En este capítulo se presenta una revisión teórica del estado actual de las ap
 
 La elaboración de mosaicos para la construcción de mapas del suelo, se ha desarrollado incluso antes desde la era digital de la computadoras. Desde que el proceso de registrar fotografías ha existido, se comenzaron a usar para elaborar mapas topográficos \cite{primeros-mapas}, donde imágenes adquiridas a partir de globos aerostáticos o altas colinas eran unidas manualmente. Posteriormente, producto de los avances en materia de aeronáutica, el interés por la aerofotografía se incrementó en gran medida. En este mismo sentido se utilizaban aviones para el registro de imágenes a mayores altitudes, y se cubrían mayores áreas en menor cantidad de tiempo. Pero debido a que no se alcanzaban suficiente altura, y se mantenía la necesidad de registrar grandes áreas, era requerido que los mapas se construyan mediante fotografías que se superpongan, de igual forma esta tarea se llevaba a cabo mediante técnicas manuales por medio de expertos.
 
-La necesidad de registrar áreas aun mas grandes siguió avanzando, motivado por la llegada de los satélites que eran capaces de enviar a tierra la información que obtenían de las cámaras. Los avances tecnológicos en materia de computación, y el creciente aumento de datos para esta aplicación, promovieron el desarrollo de técnicas de procesamiento digital de imágenes para dar solución a este tipo de problemas.
+La necesidad de registrar áreas aun mas grandes siguió avanzando, motivado por la llegada de los satélites que eran capaces de enviar a tierra la información que obtenían de las cámaras. Los avances tecnológicos en materia de computación, y el creciente aumento de datos para esta aplicación, promovieron el desarrollo de técnicas de procesamiento digital de imágenes para dar solución a este tipo de problemas. En este sentido, distintos centros de investigación en el área de la física, robótica y visión por computadora, han aplicados sus esfuerzos en desarrollar algoritmos para la realización de estos mapas en ambientes mas desafiantes como lo son el fondo marino \cite{gracias-victor,Pizarro-singh,eustice,Allais}.
 
-Del mismo modo, distintos centros de investigación en el área de la física, robótica y visión por computadora, han aplicados sus esfuerzos en desarrollar algoritmos para la realización de estos mapas en ambientes mas desafiantes como lo son el fondo marino \cite{gracias-victor,Pizarro-singh,eustice,Allais}. Usualmente cuando se opera en este tipo de ambientes, en busca de realizar exploraciones mas eficientes y a mayor escala, se emplean vehículos operados remotamente \textit{ROV} (del inglés: Remotely Operated Vehicles), en el caso de aplicaciones submarinas también se suelen utilizar vehículos autónomos submarinos \textit{AUV} (del inglés: Automated Underwater Vehicles), mientras que para exploraciones aéreas son empleados vehículos aéreos no tripulados UAV (del ingles: Unmanned Aerial Vehicle).
+Tal y como se ha mencionado el proceso de generación de mosaico involucra varios pasos principales, que los podemos definir como sigue: registro de imágenes, Alineación y fusión. Este proceso se ilustra gráficamente en la figura \ref{imagen:mosaic-process}.
+
+\begin{itemize}
+	\item \textbf{Registro:} De su termino en inglés \textit{image-registration}, consiste en establecer la correspondencia geomántica entre las imágenes que componen la misma escena. Para esto, es necesario estimar la transformación geométrica que logra alinear dichas imágenes en el mismo plano.
+	
+	\item \textbf{Alineación:} También llamada proyección, consiste en alinear las imágenes registradas en un sistema de referencia común, es decir, con respecto a un plano re referencia. En este caso se utiliza la transformación geométrica calculada en el paso anterior.
+	
+	\item \textbf{Fusión:} En este paso se busca corregir los errores fotométricos o discontinuidades presentes en el mosaico luego del proceso de alineación. Estos errores aparecen, producto de errores en la estimación de las transformaciones o a cambios en la perspectiva de los objetos observados
+\end{itemize}
+
+\begin{figure}[H]
+	\centerline{
+		\includegraphics[width=10cm]{registration-process}}
+	\caption{Proceso básico para la generación de mosaico}
+	\label{imagen:mosaic-process}
+\end{figure}
+
+Si bien, se han propuesto una gran cantidad de algoritmos por parte de distintos grupos de investigación en todo el mundo, esta tarea aun sigue siendo desafiante debido mayormente a los procesos de registro y fusión de las imágenes. En especifico, el proceso para estimar correspondencias entre las imágenes es complicado, en principio debido a la naturaleza no plana de los suelos estudiados; por otro lado la reducción de discontinuidades, o inconsistencias entre imágenes consecutivas sigue siendo una tarea desafiante. De modo que 
 
 \section{Esquema propuesto}
 
