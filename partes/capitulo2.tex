@@ -23,11 +23,29 @@ Tal y como se ha mencionado el proceso de generación de mosaico involucra vario
 \begin{figure}[H]
 	\centerline{
 		\includegraphics[width=10cm]{registration-process}}
-	\caption{Proceso básico para la generación de mosaico}
+	\caption{Proceso básico para la generación de mosaico, poner referencia, cambiar a español}
 	\label{imagen:mosaic-process}
 \end{figure}
 
-Si bien, se han propuesto una gran cantidad de algoritmos por parte de distintos grupos de investigación en todo el mundo, esta tarea aun sigue siendo desafiante debido mayormente a los procesos de registro y fusión de las imágenes. En especifico, el proceso para estimar correspondencias entre las imágenes es complicado, en principio debido a la naturaleza no plana de los suelos estudiados; por otro lado la reducción de discontinuidades, o inconsistencias entre imágenes consecutivas sigue siendo una tarea desafiante. De modo que 
+Si bien, se han propuesto una gran cantidad de algoritmos por parte de distintos grupos de investigación en todo el mundo, esta tarea aun sigue siendo desafiante, debido mayormente a los procesos de registro y fusión de las imágenes. Específicamente el proceso para estimar correspondencias entre las imágenes es un problema complicado, en principio debido a la naturaleza no plana de los suelos estudiados; por otro lado la reducción de discontinuidades, o inconsistencias entre imágenes consecutivas sigue siendo una tarea desafiante. De modo que la mayoría de avances e implementaciones en esta área están encaminados en resolver estos dos problemas principales, o bien mejorar los resultados de trabajos previos. De esta forma se clasificarán los algoritmos para la generación de mosaicos basados en como estos abordan los procesos de registro y fusión, además para cada clasificación se realiza una revisión teórica de cada categoría, así como también los diferentes métodos y modificaciones que han aplicado los distintos desarrolladores. 
+
+\subsection*{Clasificación basada en el registro de imágenes}
+
+Este proceso es muy importante para la creación de mosaicos, y básicamente es la base para estos. Cuando se registran imágenes, primero lo que se busca es encontrar la relación, o la correspondencia entre estas. donde estas pudieron haber sido capturadas desde distintos puntos de vista, distintos instantes de tiempo, distinta perspectiva, o incluso distintas cámaras. Luego de encontrar las zonas o puntos correspondientes se busca estimar una matriz de transformación geométrica que permita alinearlas todas en los pasos siguientes. Se puede decir que el registro ha sido exitoso, si se logra estimar una matriz de transformación tal que todos los puntos correspondientes se puedan unir.
+
+Las relaciones entre las imágenes se pueden establecer utilizando distintos métodos, ya sea, emparejando puntos coincidentes, regiones enteras, o bien usando la propiedad de correlación de fase en el dominio de la frecuencia. Estos métodos para establecer correspondencias son discutidos a continuación.
+
+\subsubsection*{Algoritmos en el dominio espacial}
+
+Los algoritmos en esta categoría utilizan la información de los píxeles para establecer la relación entre imágenes, es decir, se utiliza el valor de los píxeles (intensidad) y se trata de establecer la correspondencia de estos según la ubicación en la que se encuentren. Estos se pueden separar en dos técnicas principales: basados en área o en puntos clave.
+
+Los algoritmos basados en área, buscan relacionar dos ventanas o regiones en dos imágenes que correspondan a la misma escena. El concepto principal consiste en mover la región de interés desde la primera imagen hacia la segunda, buscando que la diferencia entre las intensidades sea la menor posible, es decir,  se trata de estimar la mejor matriz de transformación que logre reducir la diferencia de intensidades al alinear las regiones estudiadas (citar). Algunos trabajos importantes en esta clasificación utilizaron algoritmos como NCC (citar), y el MI (citar), donde estos proporcionan una métrica de similitud entre dos imágenes. Al emplear esta técnica se logra emparejar las imágenes a nivel de píxel, si bien se logran buenos resultados, el proceso de iterar para optimizar los parámetros de transformación y el calculo del error para cada píxel sobre las regiones, se convierte computacionalmente costoso.
+
+Para reducir el tiempo de computo, se utilizan algoritmos basados en características, en los cuales se tratan de detectar puntos en distintas imágenes, que correspondan con el mismo. De este modo se puede encontrar la transformación geométrica que relaciona estos puntos de origen con los de destino resolviendo una ecuación lineal.
+
+
+\subsection*{Clasificación basada en el fusión de imágenes}
+
 
 \section{Esquema propuesto}
 
