@@ -24,12 +24,12 @@ Prueba
 	\While{puntos emparejados $\ge$ 4}{
 		Emparejar puntos de $I_{i+1}$ con $I_{i}$\;
 		\If{$I_{i}$ tiene vecinos}{
-			\ForEach {vecinos de $I_{i}$}{
+			\ForEach {vecino de $I_{i}$}{
 				Emparejar puntos de $I_{i+1}$ con $V_{i}$\;
 			}
 		}
-		descartar malos emparejamientos;
-		aplicar busqueda sectorizada;
+		descartar malos emparejamientos\;
+		aplicar busqueda sectorizada\;
 		\If{puntos totales emparejados $\le$ 3}{
 			modificar criterio para descartar\;
 			\If{criterio para descartar llega al minimo}{
