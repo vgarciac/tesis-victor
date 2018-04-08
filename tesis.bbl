@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{capel}
-D.P. Capel.
-\newblock {\em Image Mosaicing and Superresolution}.
-\newblock Springer Science and Business Media, 2004.
-
 \bibitem{danilo}
 Danilo~Díaz Tarascó.
 \newblock Desarrollo de sistema de telemetria para teleoperación de robot
@@ -19,6 +14,11 @@ Said Alexander~Alvarado Marín.
 Paul~R. Wolf.
 \newblock {\em Elements of Photogrammetry (Second Edition)}.
 \newblock McGraw-Hill Higher Education, 1983.
+
+\bibitem{capel}
+D.P. Capel.
+\newblock {\em Image Mosaicing and Superresolution}.
+\newblock Springer Science and Business Media, 2004.
 
 \bibitem{nccvsmi}
 Sherin Ghannam and A.~Lynn Abbott.
@@ -38,38 +38,10 @@ Amaury~Dame y~Eric~Marchand.
   proces.
 \newblock {\em IEEE International Conference on Image Processing (ICIP)}, 2011.
 
-\bibitem{zhang}
-Fan Zhang and Feng Liu.
-\newblock Parallax-tolerant image stitching.
-\newblock {\em IEEE Conference on Computer Vision and Pattern Recognition},
-  2014.
-
-\bibitem{watershed}
-Shahriar Negahdaripour y Mohammad~Mahoor Nuno~Gracias, Art~Gleason.
-\newblock Fast image blending using watersheds and graph cuts.
-\newblock {\em Image and Vision Computing 27(5):597-607}, 2009.
-
-\bibitem{maxflow}
-Y.~Boykov y~V.~Kolmogorov.
-\newblock An experimental comparison of min-cut/max- flow algorithms for energy
-  minimization in vision.
-\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  2001.
-
-\bibitem{Tuytelaars}
-Tinne~Tuytelaars y~Krystian~Mikolajczyk.
-\newblock Local invariant feature detectors: a survey.
-\newblock {\em Foundations and Trends® in Computer Graphics and Vision}, 2008.
-
 \bibitem{harris}
 Hans~P. Morevec.
 \newblock Towards automatic visual obstacle avoidance.
 \newblock 1977.
-
-\bibitem{log}
-T~Lindeberg.
-\newblock Feature detection with automatic scale selection.
-\newblock {\em International Journal of Computer Vision}, 1998.
 
 \bibitem{sift}
 David~G. Lowe.
@@ -97,6 +69,57 @@ Pablo~Fernández Alcantarilla.
 \newblock Fast explicit diffusion for accelerated features in nonlinear scale
   spaces.
 \newblock {\em British Machine Vision Conference (BMVC)}, 2013.
+
+\bibitem{high-level}
+G.~Wiet T. Pan y K.~Huang J.~Prescott, M.~Clary.
+\newblock Automatic registration of large set of microscopic images using
+  high-level features.
+\newblock {\em IEEE International Symposium on Biomedical Imaging}, 2006.
+
+\bibitem{phase-rot}
+G.R. Keller H. Huang y V.~Kreinovich H.~Xie, N.~Hicks.
+\newblock An idl/envi implementation of the fft-based algorithm for automatic
+  image registration.
+\newblock {\em Computers and Geosciences}, 2003.
+
+\bibitem{phase-scale}
+Z.~Zhang y H.~Tang F.~Yang, L.~Wei.
+\newblock Image mosaic based on phase correlation and harris operator.
+\newblock {\em Journal of Computational Information Systems}, 2012.
+
+\bibitem{multiband}
+U.C.~Pati A.~Pandey.
+\newblock A novel technique for non-overlapping image mosaicing based on
+  pyramid method.
+\newblock {\em IEEE India Conference}, 2013.
+
+\bibitem{zhang}
+Fan Zhang and Feng Liu.
+\newblock Parallax-tolerant image stitching.
+\newblock {\em IEEE Conference on Computer Vision and Pattern Recognition},
+  2014.
+
+\bibitem{watershed}
+Shahriar Negahdaripour y Mohammad~Mahoor Nuno~Gracias, Art~Gleason.
+\newblock Fast image blending using watersheds and graph cuts.
+\newblock {\em Image and Vision Computing 27(5):597-607}, 2009.
+
+\bibitem{maxflow}
+Y.~Boykov y~V.~Kolmogorov.
+\newblock An experimental comparison of min-cut/max- flow algorithms for energy
+  minimization in vision.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  2001.
+
+\bibitem{Tuytelaars}
+Tinne~Tuytelaars y~Krystian~Mikolajczyk.
+\newblock Local invariant feature detectors: a survey.
+\newblock {\em Foundations and Trends® in Computer Graphics and Vision}, 2008.
+
+\bibitem{log}
+T~Lindeberg.
+\newblock Feature detection with automatic scale selection.
+\newblock {\em International Journal of Computer Vision}, 1998.
 
 \bibitem{ldb}
 Kwang-Ting~Cheng Xin~Yang.
