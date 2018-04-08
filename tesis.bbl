@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{capel}
+D.P. Capel.
+\newblock {\em Image Mosaicing and Superresolution}.
+\newblock Springer Science and Business Media, 2004.
+
 \bibitem{danilo}
 Danilo~Díaz Tarascó.
 \newblock Desarrollo de sistema de telemetria para teleoperación de robot
@@ -15,28 +20,41 @@ Paul~R. Wolf.
 \newblock {\em Elements of Photogrammetry (Second Edition)}.
 \newblock McGraw-Hill Higher Education, 1983.
 
-\bibitem{gracias-victor}
-N.~Gracias y~J.~Santos-Victor.
-\newblock Underwater mosaicing and trajectory reconstruction using global
-  alignment.
-\newblock {\em MTS/IEEE Conference and Exhibition}, 2001.
+\bibitem{nccvsmi}
+Sherin Ghannam and A.~Lynn Abbott.
+\newblock Cross correlation versus mutual information for image mosaicing.
+\newblock {\em International Journal of Advanced Computer Science and
+  Applications}, 2013.
 
-\bibitem{Pizarro-singh}
-H~Pizarro, O. y~Singh.
-\newblock Seabed video mosaicking with matisse: a technical overview and cruise
-  results.
-\newblock {\em International Offshore and Polar Engineering Conference}, 2004.
+\bibitem{ncc}
+Kostas~Berberidis y~Irene~Karybali.
+\newblock A new efficient cross-correlation based image registration technique
+  with improved performance.
+\newblock {\em European Signal Processing Conference}, 2002.
 
-\bibitem{eustice}
-Pizarro O. Singh-H. y Howland~J. Eustice, R.
-\newblock Underwater image toolbox for optical image processing and mosaicking
-  in matlab.
-\newblock {\em International Symposium on Underwater Technology}, 2002.
+\bibitem{mi}
+Amaury~Dame y~Eric~Marchand.
+\newblock Video mosaicing using a mutual information-based motion estimation
+  proces.
+\newblock {\em IEEE International Conference on Image Processing (ICIP)}, 2011.
 
-\bibitem{Allais}
-Borgetto M.-Opderbecke J. Pessel N. y Rigaud~V Allais, A.~G.
-\newblock Toward large-area mosaicing for underwater scientific applications.
-\newblock {\em IEEE Journal of Oceanic Engineering}, 2003.
+\bibitem{zhang}
+Fan Zhang and Feng Liu.
+\newblock Parallax-tolerant image stitching.
+\newblock {\em IEEE Conference on Computer Vision and Pattern Recognition},
+  2014.
+
+\bibitem{watershed}
+Shahriar Negahdaripour y Mohammad~Mahoor Nuno~Gracias, Art~Gleason.
+\newblock Fast image blending using watersheds and graph cuts.
+\newblock {\em Image and Vision Computing 27(5):597-607}, 2009.
+
+\bibitem{maxflow}
+Y.~Boykov y~V.~Kolmogorov.
+\newblock An experimental comparison of min-cut/max- flow algorithms for energy
+  minimization in vision.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  2001.
 
 \bibitem{Tuytelaars}
 Tinne~Tuytelaars y~Krystian~Mikolajczyk.

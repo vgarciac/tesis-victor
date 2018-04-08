@@ -26,22 +26,31 @@ Tal y como se ha mencionado el proceso de generación de mosaico involucra vario
 
 Si bien, se han propuesto una gran cantidad de algoritmos por parte de distintos grupos de investigación en todo el mundo, esta tarea aun sigue siendo desafiante, debido mayormente a los procesos de registro y fusión de las imágenes.
 
+\begin{figure}[H]
+	\centerline{
+		\includegraphics[width=10cm]{registration-process}}
+	\caption[Proceso básico para la generación de mosaico]{Proceso básico para la generación de mosaico, adaptado de \cite{capel}}
+	\label{imagen:mosaic-process}
+\end{figure}
+
 Específicamente el proceso para estimar correspondencias entre las imágenes es un problema complicado, en principio debido a la naturaleza no plana de los suelos estudiados; por otro lado la reducción de discontinuidades, o inconsistencias entre imágenes consecutivas sigue siendo una tarea desafiante. De modo que la mayoría de avances e implementaciones en esta área están encaminados en resolver estos dos problemas principales, o bien mejorar los resultados de trabajos previos.
 
 De esta forma se propone una clasificación de los algoritmos de mosaicos basada en como estos abordan los procesos de registro y fusión, además para cada clasificación se realiza una revisión teórica de cada categoría, así como también los diferentes métodos y modificaciones que han aplicado los distintos desarrolladores. 
 
 \begin{figure}[H]
 	\centerline{
-		\includegraphics[width=10cm]{registration-process}}
-	\caption{Proceso básico para la generación de mosaico, poner referencia, cambiar a español}
-	\label{imagen:mosaic-process}
+		\includegraphics[width=15cm]{clasificacion}}
+	\caption{Clasificación mosaico}
+	
+	\label{imagen:registro}
 \end{figure}
+
 
 \section*{Clasificación basada en el registro de imágenes}
 
 Este proceso es muy importante para la creación de mosaicos, y básicamente es la base para estos. Cuando se registran imágenes, primero lo que se busca es encontrar la relación, o la correspondencia entre estas, teniendo en cuanta que pudieron haber sido capturadas desde distintos puntos de vista, distintos instantes de tiempo, distinta perspectiva, o incluso distintas cámaras. Luego de encontrar las zonas o puntos correspondientes, se busca estimar una matriz de transformación geométrica que permita alinearlas todas en un sistema de referencia común. Se puede decir que el registro ha sido exitoso, si se logra estimar una matriz de transformación tal que todos los puntos correspondientes se puedan unir.
 
-Las relaciones entre las imágenes se pueden establecer utilizando distintos métodos, ya sea, emparejando puntos coincidentes, regiones enteras, o bien usando la propiedad de correlación de fase en el dominio de la frecuencia. Estos métodos para establecer correspondencias son discutidos a continuación.
+Las relaciones entre las imágenes se pueden establecer utilizando distintos métodos, ya sea, emparejando puntos coincidentes, regiones enteras, o bien usando la propiedad de correlación de fase en el dominio de la frecuencia. Si bien se cuenta con algoritmos de generación de mosaico que realizan el registro de imágenes basados en datos de navegación, como el GPS (del inglés: Global Positioning System), o instrumentos de medición inercial IMU (del inglés: Inertial Measurement Unit), para estimar el movimiento de los vehículos y así establecer una relación entre las imágenes basado en el movimiento de la cámara, en este trabajo solo se discutirán técnicas que utilicen únicamente una cámara monocular como sensor de entrada. Dicho esto, estos métodos para establecer correspondencias son discutidos a continuación.
 
 \subsection*{Algoritmos en el dominio espacial}
 
@@ -49,10 +58,9 @@ Los algoritmos en esta categoría utilizan la información de los píxeles para 
 
 % Basados en Area
 
-Los algoritmos basados en área, buscan relacionar dos ventanas o regiones en dos imágenes que correspondan a la misma escena. El concepto principal consiste en mover la región de interés desde la primera imagen hacia la segunda, buscando que la diferencia entre las intensidades sea la menor posible, es decir,  se trata de estimar la mejor matriz de transformación que logre reducir la diferencia de intensidades al alinear las regiones estudiadas (citar). Algunos trabajos importantes en esta clasificación utilizaron algoritmos como NCC (citar), y el MI (citar), donde estos proporcionan una métrica de igualdad entre dos imágenes. El el primer caso, el NCC mide la similitud entre las regiones estudiadas según los valores de intensidades, mientras que el MI la mide en base a la cantidad de información que comparten estas imágenes en términos de entropía. Al emplear esta técnica se logra emparejar las imágenes a nivel de píxel. Si bien se logran buenos resultados, el proceso de iterar para optimizar los parámetros de transformación y el calculo del error para cada píxel sobre las regiones, se convierte computacionalmente costoso.
+Los algoritmos basados en área, buscan relacionar dos ventanas o regiones en dos imágenes que correspondan a la misma escena. El concepto principal consiste en mover la región de interés desde la primera imagen hacia la segunda, buscando que la diferencia entre las intensidades sea la menor posible, es decir,  se trata de estimar la mejor matriz de transformación que logre reducir la diferencia de intensidades al alinear las regiones estudiadas \cite{nccvsmi}. Algunos trabajos importantes en esta clasificación utilizaron algoritmos como NCC (siglas del inglés: Normalized Cross Correlation) \cite{ncc}, y el MI (siglas del inglés: Mutual Information) \cite{mi}, donde estos proporcionan una métrica de igualdad entre dos imágenes.
 
-% Basados en datos de Navegación
-
+El el primer caso, el NCC mide la similitud entre las regiones estudiadas según los valores de intensidades, mientras que el MI la mide en base a la cantidad de información que comparten estas imágenes en términos de entropía. Al emplear esta técnica se logra emparejar las imágenes a nivel de píxel. Si bien se logran buenos resultados, el proceso de iterar para optimizar los parámetros de transformación y el calculo del error para cada píxel sobre las regiones, se convierte computacionalmente costoso.
 
 
 % Basados en Características
@@ -84,7 +92,7 @@ Estos algoritmos utilizan la propiedad de correlación de fase para lograr su ob
 Tal y como se explicó este proceso para una traslación, se tienen diversos trabajos como (citar) que añaden modificaciones para permitir otro tipo de transformaciones a parte de la rotación, e incluso otros que admiten cambios en la escala (citar). Si bien, los trabajos mencionados presentaron importantes, se requiere de un buen porcentaje de cobertura entre las imágenes, presenta limitaciones en los grados de libertad de las transformaciones geométricas que se pueden estimar.
 
 
-\section*{Clasificación basada en el fusión de imágenes}
+\section*{Clasificación basada en la fusión de imágenes}
 
 Si bien el proceso de registro de imágenes es fundamental para lograr un mosaico correcto, el paso final de unir las imágenes también es de gran importancia. Teniendo en cuenta que se busca aparentar que todas las imágenes componen una sola, es vital que se logre un mapa final sin inconsistencias o discontinuidades producto de los cambios en iluminación, objetos en movimiento, entre otros.
 
@@ -92,17 +100,17 @@ Debido a la importancia de este paso, numerosos métodos para lidiar con este ti
 
 \subsection*{Transición suavizada}
 
-Los algoritmos de esta categoría buscan minimizar la diferencia entre dos imágenes suavizando los bordes donde se superponen. FALTA INTRO
-
-El método mas simple para fusionar dos imágenes, consiste en realizar una suma ponderada sobre el área de superposición entre ambas, ponderando la intensidad de cada imagen a la mitad. Al realizar esta operación se suelen tener efectos indeseados como el efecto fantasma, donde se pueden observar duplicados del mismo objeto con cierto nivel de desvanecimiento. Esto de sebe a errores en el proceso de alineación de las imágenes, diferencia en la iluminación, o incluso a objetos móviles. 
+Los algoritmos de esta categoría buscan minimizar la diferencia entre dos imágenes, buscando que el cambio entre los bordes de estas sea imperceptible. El método mas simple para fusionar dos imágenes bajo esta técnica, consiste en realizar una suma ponderada sobre el área de superposición entre ambas, ponderando la intensidad de cada imagen a la mitad. Al realizar esta operación se suelen tener efectos indeseados como el efecto fantasma, en el cual se pueden observar duplicados del mismo objeto con cierto nivel de desvanecimiento. Esto de sebe a errores en el proceso de alineación de las imágenes, diferencia en la iluminación, o incluso a objetos móviles. 
 
 Para evitar esto, se utiliza un proceso de fusión que consiste en realizar una suma ponderada entre ambas imágenes, pero dando mayor ponderación a las regiones que se encuentren mas cerca del centro de la imagen, y menor a aquellas que se encuentren cerca el borde. Si bien, se logra reducir posibles discontinuidades entre los bordes originales, el efecto fantasma aun se puede apreciar para imágenes con fuertes problemas de alineación.
 
-Considerando este problema, y con el objetivo de realizar una unión mas robusta, se desarrolló un esquema piramidal de fusión ponderada. El proceso consiste en obtener una imagen laplaciana para distintos tamaños de escala formando así una pirámide, al mismo tiempo se va creando para cada escala una mascara, la cual será la mascara original difuminada por el efecto del filtro gaussiano. Luego para cada nivel de la pirámide se aplica el algoritmo de fusión ponderada descrito previamente donde la mascara  difuminada pondera el valor de cada píxel. Entre los trabajos que aplican este algoritmo obteniendo resultados notables se tienen (citar), logrando reducir en gran medida el efecto duplicado en las regiones de superposición.
+Considerando este problema, y con el objetivo de realizar una unión mas robusta, se desarrolló un esquema piramidal de fusión ponderada. El proceso consiste en obtener una imagen laplaciana para distintos tamaños de escala formando así una pirámide, al mismo tiempo se va creando para cada escala una mascara, que será la original difuminada por el efecto del filtro gaussiano. Luego para cada nivel de la pirámide se aplica el algoritmo de fusión ponderada descrito previamente donde la mascara  difuminada pondera el valor de cada píxel. Entre los trabajos que aplican este algoritmo obteniendo resultados notables se tienen (citar), logrando reducir en gran medida el efecto duplicado en las regiones de superposición.
 
 \subsection*{Linea de corte óptima}
 
 En lugar de buscar reducir las posibles discontinuidades a partir de una suave transición a través del borde entre dos imágenes, en este tipo de algoritmo se busca modificar este borde. Es decir, se trata de encontrar la linea de corte en el área de superposición que logre reducir la discontinuidad de texturas entre ambas imágenes. La diferencia principal de este método sobre los anteriores, es que se toma en cuenta la información presente en la región que se desea fusionar, permitiendo que se logre remover errores producidos por el efecto paralaje, o debido a objetos móviles dentro de la escena. Por otra parte, como las regiones resultantes luego de la linea de corte no se comparten información, se pueden presentar discontinuidades producto de grandes diferencias de iluminación.
+
+En esta sección podemos destacar el trabajo de \textit{Zhang et. al.} \cite{zhang}, que presenta resultados robustos ante imágenes con alto efecto paralaje. En este se busca el área para el cual ambas imágenes presentan mejor similitud (llamada local-stitch), y se busca una linea de corte que bordee esta área. Por otro lado tenemos trabajos como el de \textit{Gracias et. al.} \cite{watershed}, en el que se busca la linea de corte que minimiza la diferencia entre los gradientes en el área de superposición, a través de un modelado por grafos, y resolviendo el algoritmo flujo-máximo/mínimo-corte \cite{maxflow} para encontrar la línea deseada.
 
 
 \section{Esquema propuesto}
