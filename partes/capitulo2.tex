@@ -2,19 +2,19 @@
 \label{capitulo2}
 \lhead{Capítulo 2. \emph{Sistemas de generación de mosaico}}
 
-En este capítulo se presenta una revisión teórica del estado actual de las aplicaciones e investigaciones que se han desarrollado en el área de procesamiento de imágenes, aplicado a la construcción de mosaicos, además de una reseña histórica de la evolución de dichos métodos. Debido a que la construcción de mosaicos ha sido y sigue siendo un área de investigación muy activa, existe una gran variedad de métodos y técnicas que se han empleado para este fin. Con el objetivo de recopilar esta información de manera estructurada, se presenta una clasificación de estos algoritmo en base al modo de abordar los módulos principales para la elaboración de estos mapas.
+En este capítulo se presenta una revisión teórica del estado actual de las investigaciones que se han desarrollado en el área de procesamiento de imágenes, aplicado a la construcción de mosaicos, además de una reseña histórica de la evolución de dichos métodos. Debido a que la construcción de mosaicos ha sido y sigue siendo un área de investigación muy activa, existe una gran variedad de métodos y técnicas que se han empleado para este fin. Con el objetivo de recopilar esta información de manera estructurada, se presenta una clasificación de estos algoritmo en base al modo de abordar los módulos principales para la elaboración de estos mapas.
 
 Con esto se pretende recuperar y trascender el conocimiento acumulado en esta área de estudio, además de familiarizar al lector con los conceptos básicos, necesarios para la comprensión del presente trabajo. Luego, se presenta el modelo del sistema de generación de mosaico propuesto en base a los algoritmos y técnicas que se han utilizado en las investigaciones mas recientes. Finalmente se introduce la librería de procesamiento de imágenes que se seleccionó para la implementación de todos los módulos necesarios.
 
 \section{Estado del arte}
 
-La elaboración de mosaicos para la construcción de mapas del suelo, se ha desarrollado incluso antes desde la era digital de la computadoras. Desde que el proceso de registrar fotografías ha existido, se comenzaron a usar para elaborar mapas topográficos \cite{primeros-mapas}, donde imágenes adquiridas a partir de globos aerostáticos o altas colinas eran unidas manualmente. Posteriormente, producto de los avances en materia de aeronáutica, el interés por la aerofotografía se incrementó en gran medida. En este mismo sentido se utilizaban aviones para el registro de imágenes a mayores altitudes, y se cubrían mayores áreas en menor cantidad de tiempo. Pero debido a que no se alcanzaban suficiente altura, y se mantenía la necesidad de registrar grandes áreas, era requerido que los mapas se construyan mediante fotografías que se superpongan, de igual forma esta tarea se llevaba a cabo mediante técnicas manuales por medio de expertos.
+La elaboración de mosaicos para la construcción de mapas del suelo, se ha desarrollado incluso antes desde la era digital de la computadoras. Desde que el proceso de registrar fotografías ha existido, se comenzaron a usar para elaborar mapas topográficos \cite{primeros-mapas}, donde imágenes adquiridas a partir de globos aerostáticos o altas colinas eran unidas manualmente. Posteriormente, producto de los avances en materia de aeronáutica, el interés por la aerofotografía se incrementó en gran medida. En este mismo sentido se utilizaban aviones para el registro de imágenes a mayores altitudes, logrando cubrir mayores áreas en menor cantidad de tiempo. Pero debido a que no se alcanzaba suficiente altura, y se mantenía la necesidad de registrar grandes áreas, era requerido que los mapas se construyan mediante fotografías que se superpongan, de igual forma esta tarea se llevaba a cabo mediante técnicas manuales por medio de expertos.
 
 La necesidad de registrar áreas aun mas grandes siguió avanzando, motivado por la llegada de los satélites que eran capaces de enviar a tierra la información que obtenían de las cámaras. Los avances tecnológicos en materia de computación, y el creciente aumento de datos para esta aplicación, promovieron el desarrollo de técnicas de procesamiento digital de imágenes para dar solución a este tipo de problemas.
 
-Con el desarrollo de cámaras cada vez mas pequeñas y portátiles, así como también la llegada de vehículos no tripulados mas compactos ---ROV, UAV, AUV---, se produjeron grandes avances y nuevas técnicas por parte de centros de investigación en el área de la física, robótica y visión por computadora, que buscaron aportar soluciones para la realización automática de mosaicos, esta vez, con un creciente enfoque en las aplicaciones mas desafiantes como los ambientes submarinos.
+Con el desarrollo de cámaras cada vez mas pequeñas y portátiles, así como también la llegada de vehículos no tripulados mas compactos ---ROV, UAV, AUV---, se produjeron grandes avances y nuevas técnicas por parte de centros de investigación en el área de la física, robótica y visión por computadora, que buscaron aportar soluciones para la realización automática de mosaicos. Esta vez, con un creciente enfoque en las aplicaciones mas desafiantes como los ambientes submarinos.
 
-Es posible separar el proceso que consiste en construir un mapa del suelo a partir de fotografías, en tres simples pasos. Si bien, éste se ilustran gráficamente en la figura \ref{imagen:mosaic-process}, los podemos definir como sigue:
+Para explicar el proceso en el que consiste construir un mapa del suelo a partir de fotografías, lo podemos separar en tres simples pasos. Si bien, éste se ilustran gráficamente en la figura \ref{imagen:mosaic-process}, a continuación se explica cada una de estas etapas.
 
 \begin{itemize}
 	\item \textbf{Registro:} De su termino en inglés \textit{image-registration}, consiste en establecer la correspondencia geomántica entre las imágenes que componen la misma escena. Para esto, es necesario estimar la transformación geométrica que logra alinear dichas imágenes en un mismo plano.
@@ -33,7 +33,7 @@ Si bien, se han propuesto una gran cantidad de algoritmos por parte de distintos
 	\label{imagen:mosaic-process}
 \end{figure}
 
-Específicamente el proceso para estimar correspondencias entre las imágenes es un problema complicado, en principio debido a la naturaleza no plana de los suelos estudiados; por otro lado la reducción de discontinuidades, o inconsistencias entre imágenes consecutivas sigue siendo una tarea desafiante. Es por esto que la mayoría de avances e implementaciones en esta área, están encaminados en resolver estos dos problemas principales, o bien mejorar los resultados de trabajos previos.
+Específicamente la etapa para estimar correspondencias entre las imágenes es un problema complicado, en principio debido a la naturaleza no plana de los suelos estudiados; por otro lado la reducción de discontinuidades, o inconsistencias entre imágenes consecutivas sigue siendo una tarea desafiante. Es por esto que la mayoría de avances e implementaciones en esta área, están encaminados en resolver estos dos problemas principales, o bien mejorar los resultados de trabajos previos.
 
 De esta forma se propone una clasificación de los algoritmos de mosaicos, basada en como estos abordan los procesos de registro y fusión. Además, para cada clasificación se realiza una breve revisión teórica de cada categoría, así como también los diferentes métodos y modificaciones que han aplicado diversos desarrolladores. en la figura \ref{imagen:clasificacion} se puede apreciar esta clasificación.
 
@@ -115,13 +115,20 @@ En esta sección podemos destacar el trabajo de \textit{Zhang et. al.} \cite{zha
 
 \section{Esquema propuesto}
 
+En base a los métodos estudiados en la sección anterior, se plantea el siguiente esquema para la construcción automática de mosaicos:
 
+En primer lugar, se propone utilizar un esquema basado en características para la etapa de registro de imágenes, específicamente, utilizar algoritmos detectores de características locales. El uso de esta técnica permite que se pueda trabajar con imágenes consecutivas que no tengan un elevado nivel de superposición. Además, la gran variedad de algoritmos presentes de esta categoría permite trabajar bajo un gran número de ambientes, presentando robustez ante variados tipos de condiciones. 
+
+Por otro lado, evaluando visualmente los resultados obtenidos en las distintas técnicas de fusión, se pretende implementar una combinación en los algoritmos que fueron mas eficientes bajo condiciones de alto efecto paralaje, presencia de objetos móviles, cambios en la iluminación, entre otros. En este caso, se buscaría la linea de corte óptima y luego se aplica una fusión bajo un esquema piramidal.
+
+Si bien el registro y la fusión constituyen las etapas mas importantes, diversos métodos para lograr corregir errores de distorsión y proyección se han desarrollado de la mano de muchos grupos de investigación. Evaluando entre los presentes, se plantea implementar el modelo de sub mosaicos propuesto por \textit{F. Bellavia et. al.} en \cite{bellavia-ransac,bellavia-ref}, el cual se presentará detalladamente en el siguiente capítulo. Explicado brevemente, estos algoritmos buscan reducir errores provenientes de la sección de registro, y toman en consideración algunos aspectos importantes que logran reducir distorsiones geométricas en el mosaico final. 
+
+Finalmente, tomando en cuenta algunas observaciones y recomendaciones de los trabajos consultados, se propone implementar un módulo de corrección de color con el objetivo de reducir las diferencias de intensidades entre los bordes de las imágenes consecutivas. Adicionalmente en el esquema se agregan algunas técnicas propuestas en \cite{grid} para añadir robustez al sistema propuesto. El esquema propuesto se puede observar en la figura \ref{imagen:esquema}, donde cada uno de estos módulos serán explicados en detalle en los capítulos siguientes.
 
 \begin{figure}[H]
 	\centerline{
 		\includegraphics[width=1.21\textwidth]{esquema-general}}
 		\caption{Esquema propuesto para la construcción del mosaico}
-	
 	\label{imagen:esquema}
 \end{figure}
 
@@ -131,7 +138,7 @@ En esta sección podemos destacar el trabajo de \textit{Zhang et. al.} \cite{zha
 
 \begin{wrapfigure}{R}{5cm}
 	\begin{center}
-		\vspace*{-0.4in}
+		\vspace*{-0.2in}
 		\includegraphics[width=4cm]{opencv}
 	\end{center}
 	\caption{Logo de la librería OpenCV}
@@ -141,7 +148,7 @@ Para la implementación de los módulos previamente descritos, es necesario el u
 
 OpenCV (del inglés: Open Source Computer Vision) es una librería de procesamiento de imágenes desarrollada por la empresa Intel\footnote{\url{http://www.intel.com}} en el año 1999. Esta librería ofrece un gran numero de algoritmos optimizados (actualmente mas de 2.500), el cual proporciona un entorno de desarrollo altamente eficiente para aplicaciones de procesamiento de imágenes. Asimismo presenta una gran aceptación por parte de los usuarios en el mundo académico y comercial, con mas de 47 mil usuarios, y un numero de descargas que supera los 14 millones.
 
-Esta plataforma tiene soporte para distintos sitemas operativos, como \textit{Windows, Linux, Mac OS, iOS y Android.} Ademas de tener la posibilidad de trabajarla con diversos lenguajes de programación como: C++, Python, JavaScript. La motivación de el presente trabajo se encuentra orientada al desarrollo de una aplicación que en un futuro pueda ser embebida en un sistema de navegación automático, con lo cual el soporte de un lenguaje de bajo nivel como C++, puede permitir un algoritmo con suficiente velocidad de computo para este fin.
+Esta plataforma tiene soporte para distintos sitemas operativos, como \textit{Windows, Linux, Mac OS, iOS y Android.} Ademas de tener la posibilidad de trabajarla con diversos lenguajes de programación como: C++, Python, JavaScript. La motivación de el presente trabajo se encuentra orientada al desarrollo de una aplicación que en un futuro pueda ser embebida en un sistema de navegación automático, con lo cual el soporte de un lenguaje de bajo nivel como C++, puede permitir el desarrollo de un algoritmo con suficiente velocidad de computo para este fin.
 
 Por otra parte, esta librería presenta soporte para trabajar con la arquitectura de de calculo paralelo CUDA (del inglés: Compute Unified Device Architecture) de la empresa NVIDIA\footnote{\url{http://www.nvidia.com}}, con la cual se puede aprovechar el uso de las unidades de procesamiento gráfico para acelerar el rendimiento del algoritmo que se implemente. Cabe destacar que los equipos disponibles en el laboratorio del \textit{GIDM} tienen disponible tarjetas gráficas con este soporte.
 

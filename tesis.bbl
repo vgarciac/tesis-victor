@@ -111,6 +111,23 @@ Y.~Boykov y~V.~Kolmogorov.
 \newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
   2001.
 
+\bibitem{bellavia-ransac}
+Fabio Pazzaglia y Carlo~Colombo Fabio~Bellavia, Marco~Fanfani.
+\newblock Piecewise planar underwater mosaicing.
+\newblock {\em OCEANS’15 MTS/IEEE Genova}, 2015.
+
+\bibitem{bellavia-ref}
+Fabio Bellavia and Carlo Colombo.
+\newblock Estimating the best reference homography for planar mosaics from
+  videos.
+\newblock {\em VISAPP - 10th International Conference on Computer Vision Theory
+  and Applications; VISIGRAPP, Proceedings}, 2015.
+
+\bibitem{grid}
+Armagan Elibol, Jinwhan Kim, Nuno Gracias, and Rafael Garc{\'i}a.
+\newblock Fast underwater image mosaicing through submapping.
+\newblock {\em Journal of Intelligent and Robotic Systems}, 85:167--187, 2017.
+
 \bibitem{Tuytelaars}
 Tinne~Tuytelaars y~Krystian~Mikolajczyk.
 \newblock Local invariant feature detectors: a survey.

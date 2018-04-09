@@ -7,17 +7,17 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Proceso b\IeC {\'a}sico para la generaci\IeC {\'o}n de mosaico}}{9}{figure.caption.26}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Clasificaci\IeC {\'o}n de los algoritmos de generaci\IeC {\'o}n de mosaico}}{10}{figure.caption.27}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema propuesto para la construcci\IeC {\'o}n del mosaico\relax }}{16}{figure.caption.37}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Logo de la librer\IeC {\'\i }a OpenCV\relax }}{17}{figure.caption.40}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema propuesto para la construcci\IeC {\'o}n del mosaico\relax }}{17}{figure.caption.37}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Logo de la librer\IeC {\'\i }a OpenCV\relax }}{18}{figure.caption.40}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Caracterizaci\IeC {\'o}n de regiones en una imagen\relax }}{19}{figure.caption.48}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Ventana de b\IeC {\'u}squeda para de detecci\IeC {\'o}n de esquinas\relax }}{20}{figure.caption.49}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Efecto del escalado sobre las esquinas\relax }}{21}{figure.caption.50}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Detecci\IeC {\'o}n de m\IeC {\'a}ximos en el espacio de la escala DoG\relax }}{22}{figure.caption.51}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Descriptor del algoritmo SIFT\relax }}{23}{figure.caption.52}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Deteccion y descripci\IeC {\'o}n mediante el algoritmo SURF\relax }}{24}{figure.caption.53}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Deteccion y descripci\IeC {\'o}n mediante el algoritmo SURF\relax }}{25}{figure.caption.54}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Filtro no lineal propuesto por KAZE}}{26}{figure.caption.55}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Caracterizaci\IeC {\'o}n de regiones en una imagen\relax }}{20}{figure.caption.48}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ventana de b\IeC {\'u}squeda para de detecci\IeC {\'o}n de esquinas\relax }}{21}{figure.caption.49}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Efecto del escalado sobre las esquinas\relax }}{22}{figure.caption.50}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Detecci\IeC {\'o}n de m\IeC {\'a}ximos en el espacio de la escala DoG\relax }}{23}{figure.caption.51}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Descriptor del algoritmo SIFT\relax }}{24}{figure.caption.52}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Deteccion y descripci\IeC {\'o}n mediante el algoritmo SURF\relax }}{25}{figure.caption.53}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Deteccion y descripci\IeC {\'o}n mediante el algoritmo SURF\relax }}{26}{figure.caption.54}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Filtro no lineal propuesto por KAZE}}{27}{figure.caption.55}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

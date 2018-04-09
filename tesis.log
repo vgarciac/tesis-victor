@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  8 APR 2018 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  8 APR 2018 22:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1691,124 +1691,124 @@ File: imagenes/clasificacion.png Graphic file (type png)
 Package pdftex.def Info: imagenes/clasificacion.png used on input line 42.
 (pdftex.def)             Requested size: 426.79134pt x 166.109pt.
  [10 <./imagenes/clasificacion.png>] [11]
-[12] [13] [14] [15]
-<imagenes/esquema-general.jpeg, id=485, 914.41624pt x 410.53375pt>
+[12] [13] [14] [15] [16]
+<imagenes/esquema-general.jpeg, id=497, 914.41624pt x 410.53375pt>
 File: imagenes/esquema-general.jpeg Graphic file (type jpg)
 
 <use imagenes/esquema-general.jpeg>
-Package pdftex.def Info: imagenes/esquema-general.jpeg used on input line 122.
+Package pdftex.def Info: imagenes/esquema-general.jpeg used on input line 130.
 (pdftex.def)             Requested size: 505.1452pt x 226.79027pt.
 
-<imagenes/opencv.png, id=486, 144.54pt x 178.0251pt>
+<imagenes/opencv.png, id=498, 144.54pt x 178.0251pt>
 File: imagenes/opencv.png Graphic file (type png)
  <use imagenes/opencv.png>
-Package pdftex.def Info: imagenes/opencv.png used on input line 135.
+Package pdftex.def Info: imagenes/opencv.png used on input line 142.
 (pdftex.def)             Requested size: 113.81102pt x 140.17647pt.
 
-[16 <./imagenes/esquema-general.jpeg>]) (./partes/capitulo3.tex [17 <./imagenes
+[17 <./imagenes/esquema-general.jpeg>]) (./partes/capitulo3.tex [18 <./imagenes
 /opencv.png>]
 Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
  3 Detecci\IeC {\'o}n de puntos de inter\IeC {\'e}s
 ------------------------------------------------------------------------------
-[18
+[19
 
-] <imagenes/features.jpg, id=513, 451.6875pt x 280.04625pt>
+] <imagenes/features.jpg, id=524, 451.6875pt x 280.04625pt>
 File: imagenes/features.jpg Graphic file (type jpg)
 
 <use imagenes/features.jpg>
 Package pdftex.def Info: imagenes/features.jpg used on input line 36.
 (pdftex.def)             Requested size: 292.22987pt x 181.19035pt.
- [19 <./imagenes/features.jpg>]
-<imagenes/harris-window.png, id=521, 735.74875pt x 213.79875pt>
+ [20 <./imagenes/features.jpg>]
+<imagenes/harris-window.png, id=532, 735.74875pt x 213.79875pt>
 File: imagenes/harris-window.png Graphic file (type png)
 
 <use imagenes/harris-window.png>
 Package pdftex.def Info: imagenes/harris-window.png used on input line 49.
 (pdftex.def)             Requested size: 375.7232pt x 109.18271pt.
 
-<imagenes/corner-scale.png, id=523, 347.2975pt x 133.49875pt>
+<imagenes/corner-scale.png, id=534, 347.2975pt x 133.49875pt>
 File: imagenes/corner-scale.png Graphic file (type png)
 
 <use imagenes/corner-scale.png>
 Package pdftex.def Info: imagenes/corner-scale.png used on input line 58.
 (pdftex.def)             Requested size: 354.85464pt x 136.4093pt.
- [20 <./imagenes/harris-window.png>] [21 <./imagenes/corner-scale.png>]
-<imagenes/sift-escalas.png, id=539, 1042.89626pt x 302.12875pt>
+ [21 <./imagenes/harris-window.png>] [22 <./imagenes/corner-scale.png>]
+<imagenes/sift-escalas.png, id=550, 1042.89626pt x 302.12875pt>
 File: imagenes/sift-escalas.png Graphic file (type png)
 
 <use imagenes/sift-escalas.png>
 Package pdftex.def Info: imagenes/sift-escalas.png used on input line 75.
 (pdftex.def)             Requested size: 354.85464pt x 102.80078pt.
- [22 <./imagenes/sift-escalas.png>]
-<imagenes/sift-descriptor.jpg, id=547, 21.25421pt x 9.93001pt>
+ [23 <./imagenes/sift-escalas.png>]
+<imagenes/sift-descriptor.jpg, id=558, 21.25421pt x 9.93001pt>
 File: imagenes/sift-descriptor.jpg Graphic file (type jpg)
 
 <use imagenes/sift-descriptor.jpg>
 Package pdftex.def Info: imagenes/sift-descriptor.jpg used on input line 88.
 (pdftex.def)             Requested size: 292.22987pt x 136.55688pt.
 
-<imagenes/surf.png, id=549, 704.6325pt x 263.98625pt>
+<imagenes/surf.png, id=560, 704.6325pt x 263.98625pt>
 File: imagenes/surf.png Graphic file (type png)
  <use imagenes/surf.png>
 Package pdftex.def Info: imagenes/surf.png used on input line 100.
 (pdftex.def)             Requested size: 333.97972pt x 125.12085pt.
 
-[23 <./imagenes/sift-descriptor.jpg>]
-<imagenes/orb.png, id=558, 721.69624pt x 225.84375pt>
+[24 <./imagenes/sift-descriptor.jpg>]
+<imagenes/orb.png, id=569, 721.69624pt x 225.84375pt>
 File: imagenes/orb.png Graphic file (type png)
  <use imagenes/orb.png>
 Package pdftex.def Info: imagenes/orb.png used on input line 113.
 (pdftex.def)             Requested size: 375.7232pt x 117.57726pt.
 
-[24 <./imagenes/surf.png (PNG copy)>] [25 <./imagenes/orb.png (PNG copy)>]
-<imagenes/kaze.png, id=573, 706.64pt x 370.38374pt>
+[25 <./imagenes/surf.png (PNG copy)>] [26 <./imagenes/orb.png (PNG copy)>]
+<imagenes/kaze.png, id=584, 706.64pt x 370.38374pt>
 File: imagenes/kaze.png Graphic file (type png)
  <use imagenes/kaze.png>
 Package pdftex.def Info: imagenes/kaze.png used on input line 129.
 (pdftex.def)             Requested size: 354.85464pt x 185.99959pt.
 
-[26 <./imagenes/kaze.png>]) (./partes/capitulo4.tex [27]
+[27 <./imagenes/kaze.png>]) (./partes/capitulo4.tex [28]
 Cap\'{\i }tulo 4.
 ------------------------------------------------------------------------------
  4 Alineaci\IeC {\'o}n de im\IeC {\'a}genes
 ------------------------------------------------------------------------------
-[28
+[29
 
-] [29]) (./partes/capitulo5.tex [30]
+] [30]) (./partes/capitulo5.tex [31]
 Cap\'{\i }tulo 5.
 ------------------------------------------------------------------------------
  5 Uni\IeC {\'o}n de im\IeC {\'a}genes
 ------------------------------------------------------------------------------
-[31
+[32
 
-]) (./partes/capitulo6.tex [32]
+]) (./partes/capitulo6.tex [33]
 Cap\'{\i }tulo 6.
 ------------------------------------------------------------------------------
  6 Conclusiones y trabajos futuros
 ------------------------------------------------------------------------------
-) (./tesis.bbl [33
+) (./tesis.bbl [34
 
-] [34
+] [35
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 117.
+] [36]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 134.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 117.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 134.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 117.
- [35])
-(./partes/apendiceA.tex [36]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 134.
+)
+(./partes/apendiceA.tex [37]
 Ap\'{e}ndice A.
 ------------------------------------------------------------------------------
  A Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias
 ------------------------------------------------------------------------------
-) [37
+) [38
 
 ]
 ------------------------------------------------------------------------------
@@ -1833,10 +1833,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 207.
  ) 
 Here is how much of TeX's memory you used:
- 34056 strings out of 493029
- 599799 string characters out of 6136234
- 657445 words of memory out of 5000000
- 36871 multiletter control sequences out of 15000+600000
+ 34069 strings out of 493029
+ 600017 string characters out of 6136234
+ 657493 words of memory out of 5000000
+ 36880 multiletter control sequences out of 15000+600000
  17574 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,54p,10394b,697s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1858,10 +1858,10 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tesis.pdf (47 pages, 1419000 bytes).
+Output written on tesis.pdf (48 pages, 1422867 bytes).
 PDF statistics:
- 775 PDF objects out of 1000 (max. 8388607)
- 677 compressed objects within 7 object streams
- 195 named destinations out of 1000 (max. 500000)
+ 787 PDF objects out of 1000 (max. 8388607)
+ 688 compressed objects within 7 object streams
+ 199 named destinations out of 1000 (max. 500000)
  514 words of extra memory for PDF output out of 10000 (max. 10000000)
 
