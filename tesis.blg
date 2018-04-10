@@ -8,13 +8,17 @@ Repeated entry---line 14 of file bibliografia.bib
  :                ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "danilo" isn't style-file defined
---line 220 of file bibliografia.bib
+--line 252 of file bibliografia.bib
 Warning--entry type for "said" isn't style-file defined
---line 225 of file bibliografia.bib
+--line 257 of file bibliografia.bib
 Warning--empty booktitle in harris
 Too many commas in name 1 of "Bay, H., Tuytelaars, T. y Van Gool, L" for entry surf
 while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "Bay, H., Tuytelaars, T. y Van Gool, L" for entry surf
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Calonder, Michael y Lepetit, Vincent y Strecha, Christoph y Fua, Pascal" for entry brief
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Calonder, Michael y Lepetit, Vincent y Strecha, Christoph y Fua, Pascal" for entry brief
 while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "J. Prescott, M. Clary, G. Wiet, T. Pan y K. Huang" for entry high-level
 while executing---line 944 of file unsrt.bst
@@ -22,45 +26,46 @@ Too many commas in name 1 of "H. Xie, N. Hicks, G.R. Keller, H. Huang y V. Krein
 while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "Nuno Gracias, Art Gleason, Shahriar Negahdaripour, y Mohammad Mahoor" for entry watershed
 while executing---line 944 of file unsrt.bst
-You've used 26 entries,
+Warning--empty journal in flann
+You've used 30 entries,
             1791 wiz_defined-function locations,
-            565 strings with 7240 characters,
-and the built_in function-call counts, 3588 in all, are:
-= -- 294
-> -- 126
+            588 strings with 7910 characters,
+and the built_in function-call counts, 4294 in all, are:
+= -- 358
+> -- 146
 < -- 0
-+ -- 58
-- -- 32
-* -- 99
-:= -- 645
-add.period$ -- 76
-call.type$ -- 26
-change.case$ -- 24
++ -- 67
+- -- 37
+* -- 132
+:= -- 758
+add.period$ -- 89
+call.type$ -- 30
+change.case$ -- 28
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 210
-empty$ -- 401
-format.name$ -- 32
-if$ -- 790
+cite$ -- 32
+duplicate$ -- 249
+empty$ -- 484
+format.name$ -- 37
+if$ -- 954
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 26
-newline$ -- 131
-num.names$ -- 26
-pop$ -- 97
+int.to.str$ -- 30
+missing$ -- 31
+newline$ -- 151
+num.names$ -- 30
+pop$ -- 114
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 80
+skip$ -- 91
 stack$ -- 0
-substring$ -- 21
-swap$ -- 26
+substring$ -- 48
+swap$ -- 30
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 27
-width$ -- 28
-write$ -- 258
-(There were 6 error messages)
+warning$ -- 2
+while$ -- 32
+width$ -- 32
+write$ -- 301
+(There were 8 error messages)

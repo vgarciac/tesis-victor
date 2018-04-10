@@ -54,6 +54,18 @@ Tuytelaars T. y Van Gool~L Bay, H.
 \newblock Surf: Speeded up robust features.
 \newblock {\em European Conference on Computer Vision}, 2006.
 
+\bibitem{fast}
+Edward Rosten and Tom Drummond.
+\newblock Machine learning for high-speed corner detection.
+\newblock {\em Proceedings of the 9th European Conference on Computer Vision -
+  Volume Part I}, 2006.
+
+\bibitem{brief}
+Vincent y Strecha Christoph y Fua~Pascal Calonder, Michael y~Lepetit.
+\newblock Brief: Binary robust independent elementary features.
+\newblock In {\em Proceedings of the 11th European Conference on Computer
+  Vision: Part IV}. Springer-Verlag, 2010.
+
 \bibitem{orb}
 Kurt Konolige y Gary~Bradski Ethan~Rublee, Vincent~Rabaud.
 \newblock Orb: an efficient alternative to sift or surf.
@@ -144,5 +156,15 @@ Kwang-Ting~Cheng Xin~Yang.
   description.
 \newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
   2013.
+
+\bibitem{comp-vision}
+Richard Szeliski.
+\newblock {\em Computer Vision: Algorithms and Applications}.
+\newblock Springer-Verlag New York, Inc., New York, NY, USA, 1st edition, 2010.
+
+\bibitem{flann}
+David Muja, Marius y~Lowe.
+\newblock Scalable nearest neighbor algorithms for high dimensional data.
+\newblock 36:2227--2240, 11 2014.
 
 \end{thebibliography}
