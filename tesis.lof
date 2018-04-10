@@ -10,14 +10,15 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema propuesto para la construcci\IeC {\'o}n del mosaico\relax }}{17}{figure.caption.37}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Logo de la librer\IeC {\'\i }a OpenCV\relax }}{18}{figure.caption.40}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Caracterizaci\IeC {\'o}n de regiones en una imagen\relax }}{20}{figure.caption.48}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Ventana de b\IeC {\'u}squeda para de detecci\IeC {\'o}n de esquinas\relax }}{21}{figure.caption.49}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Efecto del escalado sobre las esquinas\relax }}{22}{figure.caption.50}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Detecci\IeC {\'o}n de m\IeC {\'a}ximos en el espacio de la escala DoG\relax }}{23}{figure.caption.51}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Descriptor del algoritmo SIFT\relax }}{24}{figure.caption.52}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Deteccion y descripci\IeC {\'o}n mediante el algoritmo SURF\relax }}{25}{figure.caption.53}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Deteccion y descripci\IeC {\'o}n mediante el algoritmo SURF\relax }}{26}{figure.caption.54}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Filtro no lineal propuesto por KAZE}}{27}{figure.caption.55}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Caracterizaci\IeC {\'o}n de regiones en una imagen}}{21}{figure.caption.48}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ventana de b\IeC {\'u}squeda para de detecci\IeC {\'o}n de esquinas}}{22}{figure.caption.51}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Efecto del escalado sobre las esquinas}}{22}{figure.caption.54}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Detector SIFT}}{24}{figure.caption.57}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Descriptor SIFT}}{25}{figure.caption.58}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Detector y descriptor SURF}}{25}{figure.caption.59}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Detector y descriptor ORB}}{26}{figure.caption.60}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Filtro no lineal propuesto por KAZE}}{28}{figure.caption.63}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Emparejamiento de puntos caracter\IeC {\'\i }sticos}}{29}{figure.caption.65}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

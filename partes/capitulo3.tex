@@ -1,10 +1,11 @@
-\chapter{Detección de puntos de interés}
+\chapter{Detección de puntos característicos}
 \label{capitulo3}
-\lhead{Capítulo 3. \emph{Detección de puntos de interés}}
+\lhead{Capítulo 3. \emph{Detección de puntos característicos}}
 
 
 \section{Introducción}
 
+En el capítulo anterior se valuaron los distintos tipos de técnicas para el registro de imágenes, y en base a estos se planteó el uso de características locales para establecer la correspondencia entre imágenes. En el presente capitulo se pretende explicar en detalle el funcionamiento de los algoritmos de detección mas usados en estas aplicaciones, así como también la importancia de los avances que cada uno introduce. Después se presentan los algoritmo de emparejamiento, así como también una explicación de su funcionamiento. Finalmente, con el objetivo de caracterizar cada uno de los detectores y emparejadores, se implementa un módulo para comparar el rendimiento de estos bajo distintas condiciones. Esto nos permitirá luego seleccionar el mejor algoritmo para cada aplicación.
 
 \section{Revisión teórica}
 
@@ -34,9 +35,11 @@ Para alcanzar este objetivo los detectores y extractores de puntos característi
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{features}
-	\caption{Caracterización de regiones en una imagen}
+	\caption[Caracterización de regiones en una imagen]{Caracterización de regiones en una imagen\protect\footnotemark}
 	\label{imagen:features}
 \end{figure}
+\footnotetext{\url{https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_features_meaning/py_features_meaning.html}}
+%https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_features_meaning/py_features_meaning.html
 
 Llegados a este punto es necesario definir el funcionamiento de los algoritmos detectores, y que consideran estos como puntos característicos, basados en la definición previamente planteada. Atendiendo a la imagen \ref{imagen:features}, se puede observar que se caracterizan seis áreas de interés. Analizando estos segmentos, vemos que \textbf{\textit{A}} y \textbf{\textit{B}} corresponden con superficies planas, lo que hace que sea muy difícil identificar la ubicación exacta de estas superficies en la imagen original. Por otro lado, tenemos las regiones \textbf{\textit{C}} y \textbf{\textit{D}}, las cuales corresponden con bordes en la imagen, si bien, se puede limitar en gran medida el área de búsqueda hacia toda las regiones del mismo bordes, sigue siendo difícil acertar con la ubicación correcta. Por ultimo, analizando las regiones \textbf{\textit{E}} y \textbf{\textit{F}} tenemos que corresponden a esquinas de la imagen original, en este caso se puede identificar fácilmente la ubicación exacta de la región en la imagen.
 
@@ -47,18 +50,22 @@ Retomando el concepto planteado previamente, este detector busca la diferencia d
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{harris-window}
-	\caption{Ventana de búsqueda para de detección de esquinas}
+	\caption[Ventana de búsqueda para de detección de esquinas]{Ventana de búsqueda para de detección de esquinas, adaptado de\protect\footnotemark}
 	\label{imagen:harris-window}
 \end{figure}
+\footnotetext{\url{https://dsp.stackexchange.com/questions/14338/}}
+%https://dsp.stackexchange.com/questions/14338/
 
 Cuando se trabajan con detectores de características, se desea que estos sean invariantes ante la mayor cantidad de variables posibles, tal y como se menciona en la propiedad de robustez que deben tener estos algoritmos. Si bien el detector presentado anteriormente es invariante ante la traslación y la rotación (ya que las esquinas se mantienen como esquinas si son rotadas o desplazadas), no funciona de la misma forma ante cambios de escala. Como se observa en la figura \ref{imagen:corner-scale}, una región considerada como esquina, se podría considerar plana si es ampliada.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{corner-scale}
-	\caption{Efecto del escalado sobre las esquinas}
+	\caption[Efecto del escalado sobre las esquinas]{Efecto del escalado sobre las esquinas	\protect\footnotemark}
 	\label{imagen:corner-scale}
 \end{figure}
+\footnotetext{\url{https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html}}
+%https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html
 
 Con el fin de conseguir detectar los mismos puntos ante cambios en la escala de la imagen, Lindeberg, T. \cite{log} propone un algoritmo detector de ``manchas'' multi-escala a través de la búsqueda de un máximos en el espacio de escala, el cual se crea utilizando un operador laplaciano. El Laplaciano de Gaussianas \textit{LoG} (del ingles: Laplacian-of-Gaussian), es una combinación lineal de segundas derivadas utilizado para detectar burbujas o manchas en una imagen. El funcionamiento es el siguiente: Dada una imagen de entrada, la representación para cada escala $-s-$ de la imagen se define como la convolución de la imagen con un filtro Gaussiano con desviación estándar $s$.
 
@@ -73,7 +80,7 @@ En primer lugar, realiza una detección de máximos en el espacio de la escala a
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{sift-escalas}
-	\caption{Detección de máximos en el espacio de la escala DoG}
+	\caption[Detector SIFT]{Detección de máximos en el espacio de la escala DoG, adaptado de \cite{sift}}
 	\label{imagen:sift-escalas}
 \end{figure}
 
@@ -86,7 +93,7 @@ Finalmente para crear el vector descriptor por cada punto clave se crea una matr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{sift-descriptor}
-	\caption{Descriptor del algoritmo SIFT}
+	\caption[Descriptor SIFT]{Izquierda: imagen de gradientes. Derecha: descriptor del punto clave. de \cite{sift}}
 	\label{imagen:descriptor}
 \end{figure}
 
@@ -98,7 +105,7 @@ Como primer paso, en lugar de aproximar el laplaciano de Gauss \textit{LoG} (del
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{surf}
-	\caption{Deteccion y descripción mediante el algoritmo SURF}
+	\caption[Detector y descriptor SURF]{Izquierda: aproximación a la derivada de segundo orden del filtro gaussiano (derivada parcial en el eje \textit{y}) y su aproximación con un filtro cuadrado. Derecha: vector de orientación del descriptor. Adaptado de \cite{surf}}
 	\label{imagen:surf}
 \end{figure}
 
@@ -111,10 +118,11 @@ Como se mencionó utiliza el algoritmo FAST, el cual consiste en encontrar esqui
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{orb}
-	\caption{Deteccion y descripción mediante el algoritmo SURF}
+	\caption[Detector y descriptor ORB]{izquierda: detección de esquinas usando FAST, de \cite{fast}. derecha: descriptor basado en BRIEF, adaptado de\protect\footnotemark }
 	\label{imagen:orb}
 \end{figure}
 
+\footnotetext{\url{https://gilscvblog.com/2013/10/04/}}
 Como el algoritmo FAST no toma en cuenta la orientación, en el ORB se modificó para que calculara la orientación de la siguiente forma: Se considera una región ubicada en el centro del punto estudiado, luego se calcula el centroide de la región en función a la intensidad de los puntos. De esta forma, la dirección del vector desde el punto central  hasta el centroide es asignado como vector de orientación. Observando a la derecha en \ref{imagen:orb} se aprecia un ejemplo del lugar del centroide \textit{(C)} y del centro \textit{(O)} par auna región en particular.
 
 
@@ -127,7 +135,7 @@ Enfocándose en esta característica, en el año de \textit{2012} se desarrolla 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{kaze}
-	\caption[Filtro no lineal propuesto por KAZE]{\textit{(A)}: imagen original, \textit{(B)} filtro lineal Gaussiano, \textit{(C)} filtro no lineal usado en KAZE}
+	\caption[Filtro no lineal propuesto por KAZE]{\textit{(A)}: imagen original, \textit{(B)} filtro lineal Gaussiano, \textit{(C)} filtro no lineal usado en KAZE, adaptada de \cite{kaze}}
 	\label{imagen:kaze}
 \end{figure}
 
@@ -140,7 +148,32 @@ Por otro lado, la versión acelerada \textit{A-KAZE} emplea un descriptor basado
 
 \subsection{Emparejadores de puntos característicos}
 
-Emparejadores
+En este punto ya hemos estudiado los distintos algoritmos que permiten encontrar y clasificar puntos de interés en las imágenes. Ahora bien, es necesario identificar cuales de estos puntos corresponden con la misma ubicación, tal y como podemos observar en la figura \ref*{imagen:match}. Para establecer esta relación se utilizan los algoritmos emparejadores de características, los cuales relacionan estos puntos en base a los descriptores de dichos puntos.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{match}
+	\caption[Emparejamiento de puntos característicos]{Emparejamiento de puntos que corresponden a la misma ubicación, de \cite{comp-vision} }
+	\label{imagen:match}
+\end{figure}
+
+El proceso para realizar el emparejamiento consiste en el siguiente: Teniendo un punto característico $P_{1}$ perteneciente a la imagen $1$, y por otro lado se teniendo un punto $P_{2}$ perteneciente a la imagen $2$, Se calcula la distancia entre los descriptores $D_{1}$ y $D_{2}$. En el caso de descriptores vectoriales, esta distancia corresponde con la distancia \textit{Euclidiana}, dada por la siguiente expresión:
+\begin{displaymath}
+D = \sqrt{ (v_{1}-q_{1})^2 + (v_{2}-q_{2})^2 + \cdots + (v_{n}-q_{n})^2 }
+\end{displaymath}
+Donde $v_{n}$ corresponden con los componentes del vector descriptor $D1$, $q_{n}$ con los componentes del vector descriptor $D2$, y $n$ en el numero de componentes de ambos vectores. Por otro lado, para los descriptores binarios, se calcula la distancia \textit{Hamming}, dada por la siguiente expresión:
+\begin{displaymath}
+D = {D_{1} \oplus D_{2}}
+\end{displaymath}
+Este proceso se repite hasta tener la distancia de cada punto de la imagen $1$ con todos los puntos de la imagen $2$, y viceversa. Al tener estas distancias, los puntos se emparejarán si y solo si se cumplen las siguientes condiciones: 
+
+\begin{enumerate}[label=(\roman*)]
+	\item El punto $P_{1}$ presenta la mejor distancia con $P_{2}$, en relación a todos los puntos de la imagen $2$.
+	
+	\item El punto $P_{2}$ presenta la mejor distancia con $P_{1}$ en relación a todos los puntos de la imagen $1$.
+\end{enumerate}
+
+Este proceso es mejor conocido como emparejamiento por fuerza bruta, ya que se compara entre todos los puntos por la mejor pareja posible. Si bien se asegura obtener el mejor emparejamiento, siendo viable para trabajar con pocos datos, al aplicarse con una gran cantidad de puntos el hecho de probar todas los casos posibles incrementan en gran medida el tiempo de computo. Para efectuar este proceso de una forma eficiente se desarrollaron algoritmos basados en la búsqueda de vecinos mas cercanos. En este sentido se cuenta con el algoritmo \textit{kd-forest}, el cual es una mejora del algoritmo \textit{kd-trees} para mejor desempeño al usar vectores multidimensionales, implementado en la librería para la rápida aproximación de vecinos mas cercanos FLANN \cite{flann} (del inglés: Fast Library for Approximate Nearest Neighbors).
 
 \section{Módulo comparativo}
 
