@@ -26,34 +26,34 @@
 \contentsline {subsection}{\numberline {3.2.1}Detectores y descriptores de caracter\IeC {\'\i }sticas}{20}{subsection.47}
 \contentsline {subsection}{\numberline {3.2.2}Emparejadores de puntos caracter\IeC {\'\i }sticos}{29}{subsection.64}
 \contentsline {section}{\numberline {3.3}M\IeC {\'o}dulo comparativo}{30}{section.68}
-\contentsline {subsection}{\numberline {3.3.1}Resultados}{30}{subsection.69}
-\contentsline {section}{\numberline {3.4}Conclusiones}{30}{section.70}
-\contentsline {chapter}{\numberline {4}Alineaci\IeC {\'o}n de im\IeC {\'a}genes}{31}{chapter.71}
-\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{31}{section.72}
-\contentsline {section}{\numberline {4.2}Revisi\IeC {\'o}n te\IeC {\'o}rica}{31}{section.73}
-\contentsline {subsection}{\numberline {4.2.1}Transformaciones geom\IeC {\'e}tricas}{32}{subsection.74}
-\contentsline {section}{\numberline {4.3}Generaci\IeC {\'o}n de sub-mosaicos}{32}{section.75}
-\contentsline {subsection}{\numberline {4.3.1}Selecci\IeC {\'o}n de imagen de referencia}{32}{subsection.97}
-\contentsline {subsection}{\numberline {4.3.2}Matriz de transformaci\IeC {\'o}n promedio}{33}{subsection.98}
-\contentsline {section}{\numberline {4.4}Correcci\IeC {\'o}n euclidiana}{33}{section.115}
-\contentsline {section}{\numberline {4.5}Resultados}{33}{section.116}
-\contentsline {section}{\numberline {4.6}Conclusiones}{33}{section.117}
-\contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{34}{chapter.118}
-\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{34}{section.119}
-\contentsline {section}{\numberline {5.2}Linea de costura}{34}{section.120}
-\contentsline {subsection}{\numberline {5.2.1}Mapa mas cercano}{34}{subsection.121}
-\contentsline {subsection}{\numberline {5.2.2}Corte por grafo}{34}{subsection.122}
-\contentsline {section}{\numberline {5.3}Correcci\IeC {\'o}n de color}{35}{section.123}
-\contentsline {subsection}{\numberline {5.3.1}Ajuste de ganancia}{35}{subsection.124}
-\contentsline {subsection}{\numberline {5.3.2}M\IeC {\'e}todo de Reinhard}{35}{subsection.125}
-\contentsline {section}{\numberline {5.4}Fusi\IeC {\'o}n de im\IeC {\'a}genes}{35}{section.126}
-\contentsline {subsection}{\numberline {5.4.1}Fusi\IeC {\'o}n ponderada}{35}{subsection.127}
-\contentsline {subsection}{\numberline {5.4.2}Fusi\IeC {\'o}n piramidal}{35}{subsection.128}
-\contentsline {section}{\numberline {5.5}Resultados}{35}{section.129}
-\contentsline {section}{\numberline {5.6}Conclusiones}{35}{section.130}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{36}{chapter.131}
+\contentsline {subsection}{\numberline {3.3.1}Resultados}{32}{subsection.106}
+\contentsline {section}{\numberline {3.4}Conclusiones}{32}{section.107}
+\contentsline {chapter}{\numberline {4}Alineaci\IeC {\'o}n de im\IeC {\'a}genes}{33}{chapter.108}
+\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{33}{section.109}
+\contentsline {section}{\numberline {4.2}Revisi\IeC {\'o}n te\IeC {\'o}rica}{33}{section.110}
+\contentsline {subsection}{\numberline {4.2.1}Transformaciones geom\IeC {\'e}tricas}{34}{subsection.111}
+\contentsline {section}{\numberline {4.3}Generaci\IeC {\'o}n de sub-mosaicos}{34}{section.112}
+\contentsline {subsection}{\numberline {4.3.1}Selecci\IeC {\'o}n de imagen de referencia}{34}{subsection.134}
+\contentsline {subsection}{\numberline {4.3.2}Matriz de transformaci\IeC {\'o}n promedio}{35}{subsection.135}
+\contentsline {section}{\numberline {4.4}Correcci\IeC {\'o}n euclidiana}{35}{section.152}
+\contentsline {section}{\numberline {4.5}Resultados}{35}{section.153}
+\contentsline {section}{\numberline {4.6}Conclusiones}{35}{section.154}
+\contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{36}{chapter.155}
+\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{36}{section.156}
+\contentsline {section}{\numberline {5.2}Linea de costura}{36}{section.157}
+\contentsline {subsection}{\numberline {5.2.1}Mapa mas cercano}{36}{subsection.158}
+\contentsline {subsection}{\numberline {5.2.2}Corte por grafo}{36}{subsection.159}
+\contentsline {section}{\numberline {5.3}Correcci\IeC {\'o}n de color}{37}{section.160}
+\contentsline {subsection}{\numberline {5.3.1}Ajuste de ganancia}{37}{subsection.161}
+\contentsline {subsection}{\numberline {5.3.2}M\IeC {\'e}todo de Reinhard}{37}{subsection.162}
+\contentsline {section}{\numberline {5.4}Fusi\IeC {\'o}n de im\IeC {\'a}genes}{37}{section.163}
+\contentsline {subsection}{\numberline {5.4.1}Fusi\IeC {\'o}n ponderada}{37}{subsection.164}
+\contentsline {subsection}{\numberline {5.4.2}Fusi\IeC {\'o}n piramidal}{37}{subsection.165}
+\contentsline {section}{\numberline {5.5}Resultados}{37}{section.166}
+\contentsline {section}{\numberline {5.6}Conclusiones}{37}{section.167}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{38}{chapter.168}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{40}{appendix.133}
-\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{40}{section.134}
-\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{40}{subsection.135}
+\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{42}{appendix.170}
+\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{42}{section.171}
+\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{42}{subsection.172}
 \vspace {2em}
