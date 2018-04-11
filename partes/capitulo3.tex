@@ -179,7 +179,7 @@ Este proceso es mejor conocido como emparejamiento por fuerza bruta, ya que se c
 
 \section{Módulo comparativo}
 
-En base a los algoritmos que se proponen utilizar, es necesario comparar su rendimiento bajo distintas condiciones, de modo que se pueda seleccionar el indicado para cada tipo de aplicación. En este sentido, se pretende estudiar el rendimiento en base a los siguientes parámetros:
+Una vez se conocen los algoritmos que se proponen utilizar, es necesario comparar su rendimiento bajo distintas condiciones, de modo que se pueda seleccionar el indicado para cada tipo de aplicación. En este sentido, se pretende estudiar el rendimiento en base a los siguientes parámetros:
 
 
 \begin{itemize}
@@ -199,9 +199,9 @@ El proceso planteado para la comparación, consiste en evaluar los parámetros a
 	\label{imagen:comparacion}
 \end{figure}
 
-Cuando se utiliza un algoritmo para emparejar puntos, es muy común que existan parejas erróneas, puesto que al tener una gran cantidad de puntos, varios pares de descriptores pueden tener la similitud necesaria para ser considerados como el mismo punto. Por esta razón es importante emplear una etapa que permita filtrar dichas parejas. Como ya se mencionó, se tienen distintos tipos de emparejadores, y en función a cada uno es necesario realizar el descarte de manera distinta. En este sentido, el proceso para cada uno se describe a continuación.
+Cuando se utiliza un algoritmo para emparejar características, es muy común que existan parejas erróneas, puesto que al tener una gran cantidad de datos, varios pares de descriptores pueden tener la similitud necesaria para ser considerados como el mismo punto. Por esta razón es importante emplear una etapa que permita filtrar dichas parejas. Como ya se mencionó, se tienen distintos tipos de emparejadores, y en función a cada uno es necesario realizar el descarte de manera distinta. A continuación se describe el proceso en función a cada caso.
 
-En el caso del algoritmo de fuerza bruta: Se obtiene la distancia de la mejor pareja, luego se descartan todas las pareas cuya distancia sea mayor que $U$ veces la mejor distancia. Al umbral $U$ se le asignó el valor de 3, ya que experimentalmente presentó buenos resultados. El proceso planteado se muestra en el algoritmo \ref{fuerzabruta}.
+En el caso del algoritmo de fuerza bruta: Se obtiene la distancia de la mejor pareja, luego se descartan todas las pareas cuya distancia sea mayor que la mejor obtenida multiplicada por un factor de umbral. El proceso planteado se muestra en el algoritmo \ref{fuerzabruta}.
 
 \begin{figure}[h]
 	\centering
@@ -232,7 +232,7 @@ En el caso del algoritmo de fuerza bruta: Se obtiene la distancia de la mejor pa
 	\end{minipage}
 \end{figure}
 
-En el caso del algoritmo bajo el esquema de vecinos mas cercanos: Se descarta cada pareja cuya distancia sea menor que $U$ veces la distancia al vecino mas cercano.  Al factor $U$ se le asignó el valor de 0.8, ya que experimentalmente presentó buenos resultados. El proceso planteado se muestra en el algoritmo \ref{vecinosmascercanos}.
+En el caso del algoritmo bajo el esquema de vecinos mas cercanos: Se descarta cada pareja cuya distancia esté muy cercana a la distancia del vecino mas próximo. El proceso planteado se muestra en el algoritmo \ref{vecinosmascercanos}.
 
 \begin{figure}[h]
 	\centering
@@ -258,6 +258,66 @@ En el caso del algoritmo bajo el esquema de vecinos mas cercanos: Se descarta ca
 	\end{minipage}
 \end{figure}
 \subsection{Resultados}
+
+\begin{table}[]
+	\centering
+	\caption{MVI 0234}
+	\label{my-label}
+	\begin{tabular}{@{}lllllll@{}}
+		\toprule
+			 &                				& SIFT & SURF & ORB & KAZE & A-KAZE \\ \midrule 
+		       \hfill\vline& Total parejas  & 68679& 32888&29637& 6818 & 6896   \\
+		Fuerza Bruta \vline& Buenas parejas & 12601& 3764 & 224 & 1407 & 520    \\
+			   \vspace{0.5cm}
+			   \hfill\vline& Tiempo (s)     & 38.27&13.60 &2.32 &69.09 & 16.99  \\
+			   
+			   \hfill\vline& Total parejas  & 68679& 32888&29637& 6818 & 6896   \\
+		FLANN  \hfill\vline& Buenas parejas &13221 & 38.95& 282 & 1416 &553     \\ 
+			   \hfill\vline& Tiempo (s)     & 34.05& 13.55& 2.50& 68.93& 16.59  \\ 
+			   \bottomrule
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+	\centering
+	\caption{MVI ScottReef}
+	\label{my-label}
+	\begin{tabular}{@{}lllllll@{}}
+		\toprule
+		   &                				& SIFT & SURF & ORB & KAZE & A-KAZE \\ \midrule 
+			   \hfill\vline& Total parejas  &100620&48955 &21000&17952 & 19430  \\
+		Fuerza Bruta \vline& Buenas parejas & 3631 & 1383 & 55  & 1511 & 239    \\
+		\vspace{0.5cm}
+			   \hfill\vline& Tiempo (s)     & 49.87& 16.97&5.90 &52.74 & 15.05 \\
+			   
+			   \hfill\vline& Total parejas  &100620&48955 &21000&17952 & 19430  \\
+		FLANN  \hfill\vline& Buenas parejas &3987  & 1480 & 65  & 1604 &282     \\ 
+			   \hfill\vline& Tiempo (s)     & 36.82& 15.70& 5.95& 51.48& 15.22  \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+	\centering
+	\caption{MVI 0752}
+	\label{my-label}
+	\begin{tabular}{@{}lllllll@{}}
+		\toprule
+		&                      				& SIFT & SURF & ORB & KAZE & A-KAZE  \\ \midrule 
+			   \hfill\vline& Total parejas  &116840& 62472&25382&35934 & 34733   \\
+		Fuerza Bruta \vline& Buenas parejas & 14659& 6068 & 207 & 6760 & 1888    \\
+		\vspace{0.5cm}
+			   \hfill\vline& Tiempo (s)     & 53.24&18.37 & 2.3 &61.14 & 15.37   \\
+			   
+			   \hfill\vline& Total parejas  &116840& 62472&25382&35934 & 34733   \\
+		FLANN  \hfill\vline& Buenas parejas &15690 & 3426 & 242 & 7175 & 2136    \\ 
+			   \hfill\vline& Tiempo (s)     & 39.23& 17.66& 2.44& 62.07& 15.07   \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 
 \section{Conclusiones}
 
