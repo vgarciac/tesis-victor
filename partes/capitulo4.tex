@@ -1,25 +1,143 @@
 \chapter{Alineación de imágenes}
 \label{capitulo4}
-\lhead{Capítulo 4. \emph{Alineacion de imagenes}}
+\lhead{Capítulo 4. \emph{Alineación de imágenes}}
 
 \section{Introducción}
-
-Introducción
 
 
 
 \section{Revisión teórica}
-Prueba
-
 \subsection{Transformaciones geométricas}
 
+El siguiente paso en el proceso de registro, luego de establecer la correspondencia entre las imágenes, es encontrar la transformación geométrica que permite alinearlas.
+
+Existen varias formas de describir las transformaciones geométricas, la primera es algebraica, en la cual se muestra la estructura de la matriz de transformación, y la segunda es analizando las variables que se preservan, o que se mantienen invariantes luego de aplicar la transformación. Ambas características son presentadas a continuación.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Isometría}
+
+Como se observa en \ref{matriz-isometria}
+
+\begin{equation}
+	\begin{pmatrix}
+	{x'}\\{y'}\\{1}
+	\end{pmatrix} = 
+	\begin{bmatrix}
+	{\cos \theta}&{-\sin \theta}&{tx}\\
+	{\sin \theta}&{\cos \theta}&{ty}\\
+	{0}&{0}&{1}
+	\end{bmatrix}
+	\begin{pmatrix}
+	{x}\\{y}\\{1}
+	\end{pmatrix}
+	\label{matriz-isometria}
+\end{equation}
+
+\begin{equation}
+\vec{x'}= 
+\begin{bmatrix}
+{\vec{R}}&{\vec{t}}\\
+{\vec{0^T}}&{1}
+\end{bmatrix}
+\vec{x}
+\label{bloque-isometria}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Similaridad}
+
+\begin{equation}
+\begin{pmatrix}
+{x'}\\{y'}\\{1}
+\end{pmatrix} = 
+\begin{bmatrix}
+{s\cdot \cos \theta}&{-s\cdot \sin \theta}&{tx}\\
+{s\cdot \sin \theta}&{s\cdot \cos \theta}&{ty}\\
+{0}&{0}&{1}
+\end{bmatrix}
+\begin{pmatrix}
+{x}\\{y}\\{1}
+\end{pmatrix}
+\label{matriz-similaridad}
+\end{equation}
+
+\begin{equation}
+\vec{x'}= 
+\begin{bmatrix}
+{s\vec{R}}&{\vec{t}}\\
+{\vec{0^T}}&{1}
+\end{bmatrix}
+\vec{x}
+\label{bloque-similaridad}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Afín}
+
+\begin{equation}
+\begin{pmatrix}
+{x'}\\{y'}\\{1}
+\end{pmatrix} = 
+\begin{bmatrix}
+{a_{11}}&{a_{12}}&{tx}\\
+{a_{2s1}}&{a_{22}}&{ty}\\
+{0}&{0}&{1}
+\end{bmatrix}
+\begin{pmatrix}
+{x}\\{y}\\{1}
+\end{pmatrix}
+\label{matriz-afin}
+\end{equation}
+
+\begin{equation}
+\vec{x'}= 
+\begin{bmatrix}
+{\vec{A}}&{\vec{t}}\\
+{\vec{0^T}}&{1}
+\end{bmatrix}
+\vec{x}
+\label{bloque-afin}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Perspectiva}
+
+\begin{equation}
+\begin{pmatrix}
+{x'}\\{y'}\\{1}
+\end{pmatrix} = 
+\begin{bmatrix}
+{h_{11}}&{h_{12}}&{h_{13}}\\
+{h_{21}}&{h_{22}}&{h_{23}}\\
+{h_{31}}&{h_{32}}&{h_{33}}
+\end{bmatrix}
+\begin{pmatrix}
+{x}\\{y}\\{1}
+\end{pmatrix}
+\label{matriz-perspectiva}
+\end{equation}
+
+\begin{equation}
+\vec{x'}= 
+\begin{bmatrix}
+{\vec{A}}&{\vec{t}}\\
+{\vec{v^T}}&{v}
+\end{bmatrix}
+\vec{x}
+\label{bloque-perspectiva}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generación de sub-mosaicos}
 
 \begin{algorithm}[H] %or another one check
 	\caption{Registro de imágenes}
 	\SetAlgoLined
 	$I_{i+1}$ $\equiv$ Imagen nueva\;
-	$I_{i}$ $\equiv$ ultima imagen anadida al mosaico\;
+	$I_{i}$ $\equiv$ ultima imagen añadida al mosaico\;
 	$V_{i}$ $\equiv$ vecinos de $I_{i}$\;
 	\While{puntos emparejados $\ge$ 4}{
 		Emparejar puntos de $I_{i+1}$ con $I_{i}$\;
@@ -72,7 +190,7 @@ Prueba
 \section{Resultados}
 Resumen
 
-\section{Conclusiones}
+\section{Resumen}
 Resumen
 
 
