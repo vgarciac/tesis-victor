@@ -5,7 +5,7 @@
 
 \section{Introducción}
 
-En el capítulo anterior se valuaron los distintos tipos de técnicas para el registro de imágenes, y en base a estos se planteó el uso de características locales para establecer la correspondencia entre imágenes. En el presente capitulo se pretende explicar en detalle el funcionamiento de los algoritmos de detección mas usados en estas aplicaciones, así como también la importancia de los avances que cada uno introduce. Después se presentan los algoritmo de emparejamiento, así como también una explicación de su funcionamiento. Finalmente, con el objetivo de caracterizar cada uno de los detectores y emparejadores, se implementa un módulo para comparar el rendimiento de estos bajo distintas condiciones. Esto nos permitirá luego seleccionar el mejor algoritmo para cada aplicación.
+En el capítulo anterior se valuaron los distintos tipos de técnicas de establecer la relación para el registro de imágenes, y en base a estos se planteó el uso de características locales para establecer la correspondencia entre imágenes. En el presente capitulo se pretende explicar en detalle el funcionamiento de los algoritmos de detección mas usados en estas aplicaciones, así como también la importancia de los avances que cada uno introduce. Después se presentan los algoritmo de emparejamiento, así como también una explicación de su funcionamiento. Finalmente, con el objetivo de caracterizar cada uno de los detectores y emparejadores, se implementa un módulo para comparar el rendimiento de estos bajo distintas condiciones. Esto nos permitirá luego seleccionar el mejor algoritmo para cada aplicación.
 
 \section{Revisión teórica}
 
@@ -181,7 +181,6 @@ Este proceso es mejor conocido como emparejamiento por fuerza bruta, ya que se c
 
 Una vez se conocen los algoritmos que se proponen utilizar, es necesario comparar su rendimiento bajo distintas condiciones, de modo que se pueda seleccionar el indicado para cada tipo de aplicación. En este sentido, se pretende estudiar el rendimiento en base a los siguientes parámetros:
 
-
 \begin{itemize}
 	\item \textbf{Tiempo de ejecución:} Tiempo en el que se detectan y describen las características en dos imágenes con las mismas dimensiones.
 	
@@ -190,12 +189,16 @@ Una vez se conocen los algoritmos que se proponen utilizar, es necesario compara
 	\item \textbf{Cantidad de puntos emparejados:} Cantidad total de puntos emparejados correctamente luego de descartar parejas erróneas. 
 \end{itemize}
 
+Adicionalmente, se propone aplicar algunos métodos que permiten aumentar el rendimiento de los algoritmos de detección, así como también implementar un proceso que permita reducir o eliminar falsos positivos al emparejar puntos de interés. 
+
+\subsection{Metodología}
+
 El proceso planteado para la comparación, consiste en evaluar los parámetros antes mencionados para todas las combinaciones de extractores y emparejadores que se tienen, tal y como se ilustra en la figura \ref{imagen:comparacion}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm]{comparacion}
-	\caption[Combinación de algoritmos para el analisis de rendimiento]{Posibles com}
+	\includegraphics[width=14cm]{comparacion}
+	\caption[Combinación de algoritmos para el analisis de rendimiento]{Combinaciones posibles del módulo comparativo}
 	\label{imagen:comparacion}
 \end{figure}
 
@@ -227,7 +230,6 @@ En el caso del algoritmo de fuerza bruta: Se obtiene la distancia de la mejor pa
 					}
 				}
 			}
-			
 		\end{algorithm}
 	\end{minipage}
 \end{figure}
@@ -247,7 +249,7 @@ En el caso del algoritmo bajo el esquema de vecinos mas cercanos: Se descarta ca
 			$N$ $\equiv$ Número de puntos emparejados\\
 			$U$ $\equiv$ Umbral para descartar erróneos\\
 			\Begin{
-				$U = 0.8$\;
+				$U = 0.5$\;
 				\ForEach{i $\in$ n=1,2,$\cdots$,N}{
 					\If{$D_{i} > V_{i} \cdot U$}{
 						eliminar $P_{i}$\;
@@ -257,68 +259,303 @@ En el caso del algoritmo bajo el esquema de vecinos mas cercanos: Se descarta ca
 		\end{algorithm}
 	\end{minipage}
 \end{figure}
+
+En segundo lugar, con el objetivo de mejorar la detección se implementa un proceso de pre-procesamiento en las imágenes de entrada. Tal y como se estudió en la sección teórica, para que un punto característico sea detectado, éste debe contener información que lo diferencie de su entorno cercano, en este caso esta diferencia es medida en función a su intensidad. En base a esta definición, se propone un algoritmo que permite mejorar el contraste en la imagen mediante la técnica de estirar su histograma. De esta forma cada imagen tendrá el máximo rango de excursión sobre las intensidades de sus puntos, permitiendo que los valores de umbral al detectar regiones, se superen con más facilidad.
+
+Es importante destacar que para este proceso todas las imágenes fueron almacenadas usando variables de 8 bits, es decir, que cada valor es representado en un rango comprendido entre 0 y 255.
+
+Para el calculo del histograma se obtiene la frecuencia de aparición de cada valor de intensidad en la imagen. Luego, se obtiene el valor de la intensidad para la cual, la cantidad de píxeles cuyo valor sea menor o igual a ésta, no supere el 1\% de la cantidad total de píxeles en la imagen, este punto es llamado percentil bajo. A continuación se repite este proceso par ubicar el percentil alto, el cual corresponde con la intensidad para la cual la cantidad de píxeles inferiores a ésta, no supera el 99\% de la cantidad total de píxeles. Al tener estos valores se aplican los siguientes criterios:
+
+\begin{itemize}
+	\item Todos los píxeles cuyo valor se encuentre por debajo del percentil bajo es igualado a 0.
+	\item Todos los píxeles cuyo valor se encuentre por encima del percentil alto es igualado a 255.
+	\item Todos los valores cuyo valor se encuentre entre el percentil bajo y el alto, es reescalado usando la siguiente ecuación: 
+	\begin{displaymath}
+		I_{pixel} = \frac{(I_{pixel} - P_{bajo}) \cdot 255}{P_{alto} - P_{bajo}}
+	\end{displaymath}
+\end{itemize}
+
+En la figura \ref{imagen:stretch} se puede apreciar el cambio, tanto en el histograma como en la misma imagen, luego de aplicar el proceso previamente descrito.
+
+
+\begin{figure}[h]
+	\centering
+	\vspace{0.6cm}
+	\begin{tabular}{@{}cc@{}}
+		\includegraphics[width=.50\textwidth]{gray-01} &
+		\includegraphics[width=.40\textwidth]{hist-01} \\
+		\includegraphics[width=.50\textwidth]{gray-stretch-01} &
+		\includegraphics[width=.40\textwidth]{hist-stretch-01}
+	\end{tabular}
+	\captionof{figure}[Estiramiento del histograma]{Arriba: imagen original y su respectivo histograma a su derecha. Abajo: Imagen luego de aplicar el estiramiento del histograma, y su respectivo histograma a su derecha.}
+	\label{imagen:stretch}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Resultados}
 
-\begin{table}[]
+A continuación se presentan los resultados, para todas las combinaciones de extractores y emparejadores, bajo distintas condiciones de escena. Todas las pruebas mostradas en esta sección se realizaron utilizando un equipo con las siguientes características:  \textit{Intel\textsuperscript \textregistered } Core 2 Duo CPU E8400 @ 3.00Ghz.
+
+En el cuadro \ref{0234} se observan los resultados para 61 pares de imágenes del fondo marino en la región de Chuspa, ubicada en el estado Vargas, Venezuela. Adicionalmente, en la figura \ref{imagen:0234} se ilustran cuatro imágenes representativas del conjunto estudiado. Para esta prueba se utilizaron imágenes de $640x480$ píxeles.
+
+\begin{table}[h]
 	\centering
-	\caption{MVI 0234}
-	\label{my-label}
+	\captionof{table}{Comparación de rendimiento usando imágenes submarinas de Chuspa}
+	\label{0234}
+	\renewcommand{\arraystretch}{0.8}% Tighter
 	\begin{tabular}{@{}lllllll@{}}
 		\toprule
-			 &                				& SIFT & SURF & ORB & KAZE & A-KAZE \\ \midrule 
-		       \hfill\vline& Total parejas  & 68679& 32888&29637& 6818 & 6896   \\
-		Fuerza Bruta \vline& Buenas parejas & 12601& 3764 & 224 & 1407 & 520    \\
-			   \vspace{0.5cm}
-			   \hfill\vline& Tiempo (s)     & 38.27&13.60 &2.32 &69.09 & 16.99  \\
+			 &                				& SIFT 			& SURF & ORB 			& KAZE 				& A-KAZE \\ \midrule 
+		       \hfill\vline& Total parejas  & \textbf{68679}& 32888&29637			& 6818 				& 6896   \\
+		Fuerza Bruta \vline& Buenas parejas & 12601			& 3764 & 224 			& 1407 				& 520    \\
+			   \hfill\vline& Precisión (\%) & 18.34			&11.44 &0.70 			&20.63 				& 7.54  \\
+			   \vspace{0.3cm}
+			   \hfill\vline& Tiempo (s)     & 38.27			&13.60 &\textbf{2.32}	&69.09 				& 16.99  \\
 			   
-			   \hfill\vline& Total parejas  & 68679& 32888&29637& 6818 & 6896   \\
-		FLANN  \hfill\vline& Buenas parejas &13221 & 38.95& 282 & 1416 &553     \\ 
-			   \hfill\vline& Tiempo (s)     & 34.05& 13.55& 2.50& 68.93& 16.59  \\ 
+			   \hfill\vline& Total parejas  & \textbf{68679}& 32888&29637			& 6818 				& 6896   \\
+		FLANN  \hfill\vline& Buenas parejas &\textbf{13221} & 3895 & 282 			& 1416 				&553     \\ 
+			   \hfill\vline& Precisión (\%) & 19.25			& 11.84& 0.95			& \textbf{20.76}	& 8.01 \\ 
+			   \hfill\vline& Tiempo (s)     & 38.27			&13.60 &\textbf{2.32} 	&69.09 				& 16.99  \\
 			   \bottomrule
 	\end{tabular}
 \end{table}
 
 
-\begin{table}[]
+\begin{table}[h]
 	\centering
-	\caption{MVI ScottReef}
-	\label{my-label}
+	\captionof{table}{Comparación de rendimiento usando imágenes submarinas de Chuspa, luego de aplicar estiramiento del histograma}
+	\label{0234-2}
+	\renewcommand{\arraystretch}{0.8}% Tighter
 	\begin{tabular}{@{}lllllll@{}}
 		\toprule
-		   &                				& SIFT & SURF & ORB & KAZE & A-KAZE \\ \midrule 
-			   \hfill\vline& Total parejas  &100620&48955 &21000&17952 & 19430  \\
-		Fuerza Bruta \vline& Buenas parejas & 3631 & 1383 & 55  & 1511 & 239    \\
-		\vspace{0.5cm}
-			   \hfill\vline& Tiempo (s)     & 49.87& 16.97&5.90 &52.74 & 15.05 \\
-			   
-			   \hfill\vline& Total parejas  &100620&48955 &21000&17952 & 19430  \\
-		FLANN  \hfill\vline& Buenas parejas &3987  & 1480 & 65  & 1604 &282     \\ 
-			   \hfill\vline& Tiempo (s)     & 36.82& 15.70& 5.95& 51.48& 15.22  \\ 
+		&                				& SIFT 			& SURF & ORB 			& KAZE 				& A-KAZE \\ \midrule 
+		\hfill\vline& Total parejas  & \textbf{235284}  & 98402&30500			& 59061 			& 62957   \\
+		Fuerza Bruta \vline& Buenas parejas & 29200		& 7461 & 200 			& 11812 			& 3115    \\
+		\hfill\vline& Precisión (\%) & 12.41			&7.58 &0.65 			&19.99 				& 4.94  \\
+		\vspace{0.3cm}
+		\hfill\vline& Tiempo (s)     & 113.29			&28.81 &\textbf{3.44}	&75.40 				& 21.66  \\
+		
+		\hfill\vline& Total parejas  & \textbf{235284}  & 98402&30500			& 59061 			& 62957   \\
+		FLANN \hfill\vline& Buenas parejas &\textbf{31917}& 7461 & 257 			& 12522				& 3617     \\ 
+		\hfill\vline& Precisión (\%) & 13.53			& 8.17& 0.84			& \textbf{21.20}	& 5.74 \\ 
+		\hfill\vline& Tiempo (s)     & 63.81			&25.79 &\textbf{3.78} 	&75.20 				& 20.58  \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-
-\begin{table}[]
+\begin{figure}[h]
+	
 	\centering
-	\caption{MVI 0752}
-	\label{my-label}
+	\vspace{0.6cm}
+	\begin{tabular}{@{}cccc@{}}
+		\includegraphics[width=.23\textwidth]{0234-1} &
+		\includegraphics[width=.23\textwidth]{0234-2} &
+		\includegraphics[width=.23\textwidth]{0234-3} &
+		\includegraphics[width=.23\textwidth]{0234-4} 
+	\end{tabular}
+	\captionof{figure}{subconjunto representativo del conjunto de imágenes de Chuspa}
+	\label{imagen:0234}
+\end{figure}
+
+
+En el cuadro \ref{SR} se observan los resultados para 42 pares de imágenes. Estas imágenes fueron proporcionadas por el centro Australiano de Robótica de Campo ACFR (del inglés: Australian Center for Field Robotics) y pertenecen al conjunto de datos \textit{ScottReef 25}. Adicionalmente, en la figura \ref{imagen:SR} se ilustran cuatro imágenes representativas del conjunto estudiado. Para esta prueba se utilizaron imágenes de $640x480$ píxeles.
+
+%\begin{figure}{\linewidth}
+\begin{table}[h]
+		\centering
+		\captionof{table}{Comparación de rendimiento usando imágenes submarinas de ScottReef}
+		\label{SR}
+		\renewcommand{\arraystretch}{0.8}% Tighter
+		\begin{tabular}{@{}lllllll@{}}
+			\toprule
+			&              	 			& SIFT 			& SURF & ORB & KAZE & A-KAZE \\ \midrule 
+			\hfill\vline& Total parejas  &\textbf{100620}&48955 &21000&17952 & 19430  \\
+			Fuerza Bruta \vline& Buenas parejas & 3631 			& 1383 & 55  & 1511 & 239    \\
+			\hfill\vline& Precisión (\%) & 3.60			&2.82  &0.26 & 8.41& 1.23  \\
+			\vspace{0.3cm}
+			\hfill\vline& Tiempo (s)     & 49.87& 16.97&\textbf{5.90} &52.74 & 15.05 \\
+			
+			\hfill\vline& Total parejas  &\textbf{100620}&48955 &21000			&17952 			& 19430  \\
+			FLANN  \hfill\vline& Buenas parejas &\textbf{3987}  & 1480 & 65  			& 1604 			&282     \\ 
+			\hfill\vline& Precisión (\%) & 3.96			&3.02  &0.30			& \textbf{8.93}& 1.45  \\
+			\hfill\vline& Tiempo (s)     & 36.82			& 15.70& 5.95	& 51.48			& 15.22  \\ 
+			\bottomrule
+		\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+	\centering
+	\captionof{table}{Comparación de rendimiento usando imágenes submarinas de ScottReef, luego de aplicar estiramiento del histograma}
+	\label{SR-2}
+	\renewcommand{\arraystretch}{0.8}% Tighter
 	\begin{tabular}{@{}lllllll@{}}
 		\toprule
-		&                      				& SIFT & SURF & ORB & KAZE & A-KAZE  \\ \midrule 
-			   \hfill\vline& Total parejas  &116840& 62472&25382&35934 & 34733   \\
-		Fuerza Bruta \vline& Buenas parejas & 14659& 6068 & 207 & 6760 & 1888    \\
-		\vspace{0.5cm}
-			   \hfill\vline& Tiempo (s)     & 53.24&18.37 & 2.3 &61.14 & 15.37   \\
-			   
-			   \hfill\vline& Total parejas  &116840& 62472&25382&35934 & 34733   \\
-		FLANN  \hfill\vline& Buenas parejas &15690 & 3426 & 242 & 7175 & 2136    \\ 
-			   \hfill\vline& Tiempo (s)     & 39.23& 17.66& 2.44& 62.07& 15.07   \\ 
+		&              	 			& SIFT 			 & SURF & ORB & KAZE  & A-KAZE \\ \midrule 
+		\hfill\vline& Total parejas  &\textbf{231242}&115193&21000&134065 & 127859  \\
+		Fuerza Bruta \vline& Buenas parejas & 5987 	& 2317 & 62  & 7621 & 796    \\
+		\hfill\vline& Precisión (\%) & 2.58			&2.01  &0.29 &5.68& 0.62  \\
+		\vspace{0.3cm}
+		\hfill\vline& Tiempo (s)     & 125.38& 36.427& 7.08 &78.11 & 35.47 \\
+		
+		\hfill\vline& Total parejas  		&\textbf{231242}		&115193 &21000	&134065 		& 127859  \\
+		FLANN  \hfill\vline& Buenas parejas &\textbf{6847}  		& 2542  & 65  	& 9034 			&1052     \\ 
+		\hfill\vline& Precisión (\%) 		& 2.96					&2.20   &0.30	& \textbf{6.73} & 0.82  \\
+		\hfill\vline& Tiempo (s)     		& 60.10					&29.59 & \textbf{7.02}	& 66.69			& 26.72  \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
+	 
+\begin{figure}[h]
+ 	\centering
+ 	\vspace{0.6cm}
+ 	\begin{tabular}{@{}cccc@{}}
+ 		\includegraphics[width=.23\textwidth]{sr1} &
+ 		\includegraphics[width=.23\textwidth]{sr2} &
+ 		\includegraphics[width=.23\textwidth]{sr3} &
+ 		\includegraphics[width=.23\textwidth]{sr4} 
+ 	\end{tabular}
+ 	
+ 	\captionof{figure}{subconjunto representativo del conjunto de imágenes de ScottReef}
+ 	\label{imagen:SR}
+ 	
+\end{figure}
+
+En el cuadro \ref{0752} se observan los resultados para 51 pares de imágenes del fondo marino del parque nacional Mochima, ubicado en el estado Sucre, Venezuela. Adicionalmente, en la figura \ref{imagen:0234} se ilustran cuatro imágenes representativas del conjunto estudiado. Para esta prueba se utilizaron imágenes de $640x480$ píxeles.
+
+%\begin{figure}{\linewidth}
+\begin{table}[h]
+	\centering
+	\captionof{table}{Comparación de rendimiento usando imágenes submarinas de Mochima}
+	\label{0752}
+	\renewcommand{\arraystretch}{0.8}% Tighter
+	\begin{tabular}{@{}lllllll@{}}
+		\toprule
+		&                      				& SIFT 			& SURF & ORB & KAZE & A-KAZE  \\ \midrule 
+		\hfill\vline& Total parejas  &\textbf{116840}& 62472&25382&35934 & 34733   \\
+		Fuerza Bruta \vline& Buenas parejas & 14659			& 6068 & 207 & 6760 & 1888    \\
+		\hfill\vline& Precisión (\%) & 12.58			&9.71  &0.81 & 18.81 & 5.43  \\
+		\vspace{0.3cm}
+		\hfill\vline& Tiempo (s)     & 53.24			&18.37 & \textbf{2.30} &61.14 & 15.37   \\
+		
+		\hfill\vline& Total parejas  &\textbf{116840}& 62472&25382			&35934 				& 34733   \\
+		FLANN  \hfill\vline& Buenas parejas &\textbf{15690} & 6426 & 242 			& 7175 				& 2136    \\
+		\hfill\vline& Precisión (\%) & 13.42			& 5.48 &0.95  			& \textbf{19.96} 	& 6.14    \\ 
+		\hfill\vline& Tiempo (s)     & 39.23			& 17.66& 2.44	& 62.07				& 15.07   \\ 
 		\bottomrule
 	\end{tabular}
 \end{table}
 
+\begin{table}[h]
+	\centering
+	\captionof{table}{Comparación de rendimiento usando imágenes submarinas de Mochima, luego de aplicar estiramiento del histograma}
+	\label{0752-2}
+	\renewcommand{\arraystretch}{0.8}% Tighter
+	\begin{tabular}{@{}lllllll@{}}
+		\toprule
+		&                      				& SIFT 			& SURF & ORB 		& KAZE 				& A-KAZE  \\ \midrule 
+		\hfill\vline& Total parejas  &\textbf{146453}		& 75342&25440		&61107 				& 57797   \\
+		Fuerza Bruta \vline& Buenas parejas & 16743			& 6879 & 208 		& 12105 			& 3310    \\
+		\hfill\vline& Precisión (\%) & 11.43				&3.13  &0.81		& 19.80 			& 5.72  \\
+		\vspace{0.3cm}
+		\hfill\vline& Tiempo (s)     & 68.42				&22.05 & \textbf{2.80} &66.45       & 18.69   \\
+		
+		\hfill\vline& Total parejas  &\textbf{146453}& 75342&25440			&61107 				& 57797   \\
+		FLANN  \hfill\vline& Buenas parejas &\textbf{18006} & 7328 & 244 			& 12890 			& 3773    \\
+		\hfill\vline& Precisión (\%) & 12.29				& 9.72 &0.95  			& \textbf{21.09} 	& 6.52    \\ 
+		\hfill\vline& Tiempo (s)     & 45.01				& 20.27& 2.88			& 64.77				& 17.57   \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
 
-\section{Conclusiones}
+\begin{figure}[h]
+	\centering
+	\vspace{0.6cm}
+	\begin{tabular}{@{}cccc@{}}
+		\includegraphics[width=.23\textwidth]{0752-1} &
+		\includegraphics[width=.23\textwidth]{0752-2} &
+		\includegraphics[width=.23\textwidth]{0752-3} &
+		\includegraphics[width=.23\textwidth]{0752-4} 
+	\end{tabular}
+	\captionof{figure}{subconjunto representativo del conjunto de imágenes de Mochima}
+	\label{imagen:0752}
+\end{figure}
 
-Resumen
+En el cuadro \ref{geotagg} se observan los resultados para 50 pares de imágenes aéreas de una cantera de grava, ubicado en Suiza. Estas imágenes fueron proporcionadas por la empresa SenseFly\footnote{\url{https://www.sensefly.com/education/datasets/}} y capturadas por un dron eBee\footnote{\url{https://www.sensefly.com/drone/ebee-mapping-drone/}}.  Adicionalmente, en la figura \ref{imagen:geotag} se ilustran cuatro imágenes representativas del conjunto estudiado. Para esta prueba se utilizaron imágenes de $1280x960$ píxeles.
+
+\begin{table}[h]
+	\centering
+	\caption{Comparación de rendimiento usando imágenes aéreas de una cantera de grava}
+	\label{geotagg}
+	\begin{tabular}{@{}lllllll@{}}
+		\toprule
+		&                      				& SIFT 			& SURF & ORB & KAZE  & A-KAZE  \\ \midrule 
+			   \hfill\vline& Total parejas  &\textbf{336189}& 222251&25000&108819& 121914   \\
+		Fuerza Bruta \vline& Buenas parejas & 21006			& 5853 & 126 & 10290 & 3240  \\
+			   \hfill\vline& Precisión (\%) & 3.24			&2.63  & 0.5   & 9.45& 2.65  \\
+				\vspace{0.3cm}
+			   \hfill\vline& Tiempo (s)     & 282.76		&116.38 & 28.84 &309.29 & 92.71   \\
+		
+			   \hfill\vline& Total parejas  &\textbf{336189}& 222251&25000			&108819				& 121914   \\
+		FLANN  \hfill\vline& Buenas parejas &\textbf{22610} & 6525 & 143			& 10861				& 3749    \\
+			   \hfill\vline& Precisión (\%) & 6.72			& 2.93 &0.57  			& \textbf{9.98} 	& 3.07    \\ 
+			   \hfill\vline& Tiempo (s)     & 153.12		& 90.27& \textbf{28.53}	& 299.59			& 81.52   \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
+\begin{table}[h]
+	\centering
+	\caption{Comparación de rendimiento usando imágenes aéreas de una cantera de grava, luego de aplicar estiramiento del histograma}
+	\label{geotagg-2}
+	\begin{tabular}{@{}lllllll@{}}
+		\toprule
+		&                      				& SIFT 			& SURF & ORB & KAZE  & A-KAZE  \\ \midrule 
+		\hfill\vline& Total parejas  &\textbf{335418}		& 221287&25000&108124& 121122   \\
+		Fuerza Bruta \vline& Buenas parejas & 20943			& 5812 & 127 & 10313 & 3239  \\
+		\hfill\vline& Precisión (\%) & 6.24			&2.62  & 0.58  & 9.53& 2.67  \\
+		\vspace{0.3cm}
+		\hfill\vline& Tiempo (s)     & 278.97		&114.86 & 29.54 &300.12 & 92.31   \\
+		
+		\hfill\vline& Total parejas  &\textbf{335418}& 221287&25000			&108124				& 121122   \\
+		FLANN  \hfill\vline& Buenas parejas &\textbf{22555} & 6509 & 149	& 10880				& 3754    \\
+		\hfill\vline& Precisión (\%) & 6.72			& 2.94 &0.59  			& \textbf{10.06} 	& 3.09   \\ 
+		\hfill\vline& Tiempo (s)     & 153.71		& 88.25& \textbf{29.44}	& 294.61			& 83.68   \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{@{}cccc@{}}
+		\includegraphics[width=.23\textwidth]{geotagg-1} &
+		\includegraphics[width=.23\textwidth]{geotagg-2} &
+		\includegraphics[width=.23\textwidth]{geotagg-3} &
+		\includegraphics[width=.23\textwidth]{geotagg-4} 
+	\end{tabular}
+	\caption{subconjunto representativo del conjunto de imágenes de la cantera de grava}
+	\label{imagen:geotag}
+\end{figure}
+
+Presentadas las pruebas, analizaremos el rendimiento de todas las combinaciones estudiadas en función a los parámetros descritos al inicio de la sección.
+
+Es evidente la inversa relación entre la cantidad de puntos detectados y el tiempo que le toma ese proceso. En función a la detección, podemos acotar que los algoritmos SIFT y KAZE presentan la mayor cantidad de parejas correctas, siendo SIFT el que permanece con el mayor numero a lo largo de todas las pruebas. Este resultado está relacionado con el uso de descriptores vectoriales, que permiten una descripción mas robusta de los puntos detectados. Además que en el caso de SIFT no se realiza ninguna aproximación para la obtención de las diferentes escalas de la imagen.
+
+Por el contrario, Aquellos algoritmos que utilizan descriptores binarios presentan un menor rendimiento en base a parejas emparejadas. Sin embargo, esta característica les permite realizar la extracción con una velocidad mucho mayor, siendo este un patrón que se mantiene a lo largo de todas las pruebas.
+
+Analizando los resultados del extractor \textit{KAZE}, Si bien no ofrece la mayor cantidad de parejas correctas, presenta el mejor cociente entre parejas totales y correctas. Lo que indica un gran nivel de robustez en su descriptor, ya que un alto porcentaje de las parejas encontradas en un principio, efectivamente corresponden con el mismo punto.
+
+Comparando el rendimiento de los emparejadores, podemos observar que para la mayoría de los casos el algoritmo FLANN aumenta la cantidad de parejas correctas, y al mismo tiempo disminuye el tiempo computacional. Si bien para la mayoría de las pruebas no se tiene un mejora significativa en términos de tiempo, es debido a que este algoritmo ofrece mayores beneficios cuando la cantidad de parejas a estudiar es mucho mas elevada. Este punto se evidencia mayormente en los resultados del algoritmo SIFT, el cual ofrece mayor cantidad de parejas, y por lo tanto mayor conjunto de puntos a emparejar.
+
+Por ultimo podemos destacar el importante aumento en la cantidad de parejas detectadas, para los casos en los que se aplicó el pre-procesamiento en la entrada. Como ya se mencionó, se debe al aumento en el contraste, lo que produce que la diferencia entre un punto característico y su vecindario se incremente, aumentando al mismo tiempo la posibilidad de ser detectado y luego emparejado.
+
+% Intel Core 2 Duo CPU E8400 @ 3.00 Ghz
+% 3.7 GiB RAM
+
+\section{Resumen}
+
+El proceso de establecer la relación entre las imágenes, es un paso muy importante en la etapa de registro. De esta forma, la selección del algoritmo para la extracción de características, así como también la técnica que se use para establecer las correspondencias determinará la calidad final del mapa. Tal y como se presentaron se dispone de una gran cantidad de algoritmos para la extracción de características locales, así como también métodos eficientes para emparejarlos. Esta diversidad permite que se cuente con algoritmos que se comporten de manera eficiente para cada tipo de aplicación, o en el caso de mapeo, para cada tipo de escena. 
+
+En el presente capítulo se logró establecer una clasificación sobre los algoritmos de generación, en función a como aborden las etapas mas importantes de éste. Tomando en cuenta los distintos métodos y técnicas, se planteó un sistema que combina aquellas que presentan los mejores resultados, considerando los requerimientos del presente proyecto. Al mismo tiempo se describió el funcionamiento de todos algoritmos que se plantean implementar en el sistema, permitiendo que se puedan plantear técnicas para mejorar el rendimiento en la extracción y emparejamiento. 
+
+Tras los resultados mostrados, se logró evidenciar claramente el rendimiento de cada combinación en función a los parámetros de tiempo y cantidad de parejas. Lo que permite una selección en función de los requerimientos de la aplicación. 
