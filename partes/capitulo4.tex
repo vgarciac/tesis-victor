@@ -4,7 +4,7 @@
 
 \section{Introducción}
 
-De la sección anterior estudiamos la primera etapa del proceso de registro de imágenes, estableciendo la correspondencia entre puntos entre estas. Ahora bien, en esta sección se continúa la etapa de registro abordando el tema de las transformaciones geométricas, en primer lugar presentando una descripción y explicación de su estructura y seguido del proceso de obtención a partir de los puntos previamente obtenidos. Una vez el proceso de registro este completo se profundiza en la etapa de alineación de imágenes en un plano común, presentando los algoritmos utilizados para su implementación, así como también técnicas para reducir el error acumulado de las etapas anteriores. Finalmente se presentas resultados por separado de cada proceso previamente descrito, con su respectivo análisis.
+De la sección anterior estudiamos la primera etapa del proceso de registro de imágenes, estableciendo la correspondencia de puntos entre estas. Ahora bien, en esta sección se continúa la etapa de registro pero abordando el tema de las transformaciones geométricas, en primer lugar presentando una descripción y explicación de su estructura y seguido del proceso de obtención a partir de los puntos previamente obtenidos. Una vez la etapa de registro este completa, se profundiza en el proceso para la alineación de imágenes en un plano común, presentando los algoritmos utilizados para su implementación, así como también técnicas para reducir el error acumulado de las etapas anteriores. Finalmente se presentas resultados por separado de cada proceso previamente descrito, con su respectivo análisis.
 
 \section{Revisión teórica}
 
@@ -12,7 +12,7 @@ A continuación se expone una revisión de los conceptos básicos que involucran
 
 \subsection{Transformaciones geométricas}
 
-El siguiente paso en el proceso de registro, luego de establecer la correspondencia entre las imágenes, es encontrar la transformación geométrica que permite alinearlas. Pero antes es necesario introducir el concepto de espacio proyectivo, sobre el cual se efectuarán dichas transformaciones geométricas. Para esto comenzaremos presentando la notación homogénea para puntos y lineas en un plano.
+El siguiente paso en el proceso de registro, luego de establecer la correspondencia entre las imágenes, es encontrar la transformación geométrica que permite alinearlas. Para comprender su funcionamiento primero es necesario introducir el concepto de espacio proyectivo, sobre el cual se efectuarán dichas transformaciones geométricas. En base a esto comenzaremos presentando la notación homogénea para puntos y lineas en este espacio.
 
 Una linea en el espacio representada por la ecuación $ax + by + c = 0$, se puede expresar en forma vectorial de la forma $(a,\, b,\, c)$. Así, los puntos $k(a,\, b,\, c)$ representan todo el conjunto de rectas que son equivalentes --- $(ka)x + (kb)y + (k)c = 0$ ---, para cualquier $k\neq0$. De esta forma, se conoce como un vector homogéneo al vector particular que pertenezca a un grupo de vectores bajo esta relación de equivalencia. En base a este concepto se introduce la definición \ref{espacio-p} de espacio proyectivo.
 
@@ -26,14 +26,14 @@ Una linea en el espacio representada por la ecuación $ax + by + c = 0$, se pued
 
 Conociendo el espacio proyectivo, y la notación de vectores homogéneos, es importante introducir el concepto de puntos homogéneos, y establecer una relación que nos permita transformarlos a su espacio euclidiano original. 
 
-Teniendo un punto $\vec{x}=(x,\, y)$, este pertenece a la recta $\vec{l}=(a,\, b,\, c)$ si logra satisfacer su ecuación --- $ax + by + c = 0$ ---. Si lo escribimos en forma vectorial, tendríamos $(x,\, y,\, 1)(a,\, b,\, c) = 0$, esto es añadiendo un 1 como tercer componente del punto $\vec{x}$. Similar al concepto previo de vectores homogéneos, se tiene que el conjunto de puntos $k(x,\, y,\, 1)$ son representaciones equivalentes del mismo punto, ya que todo ese conjunto pertenece a la misma recta --- $k(x,\, y,\, 1)(a,\, b,\, c) = 0 \to (ka)x + (kb)y + (k)c = 0$ ---. Así, añadiendo esta coordenada, tenemos que los puntos son representados como vectores homogéneos y pertenecen al espacio ${\rm I\!P}^2$. De esta forma se introduce la siguiente definición \ref{point-p2} que relaciona la siguiente conversión: ${\rm I\!P}^2 \to {\rm I\!R}^2$.
+Teniendo un punto $\vec{x}=(x,\, y)$, este pertenece a la recta $\vec{l}=(a,\, b,\, c)$ si logra satisfacer su ecuación --- $ax + by + c = 0$ ---. Si lo escribimos en forma vectorial, tendríamos $(x,\, y,\, 1)(a,\, b,\, c) = 0$, esto es añadiendo un 1 como tercer componente del punto $\vec{x}$. Similar al concepto previo de vectores homogéneos, se tiene que el conjunto de puntos $k(x,\, y,\, 1)$ son representaciones equivalentes del mismo punto, ya que todo ese conjunto pertenece a la misma recta --- $k(x,\, y,\, 1)(a,\, b,\, c) = 0 \to (ka)x + (kb)y + (k)c = 0$ ---. Así, añadiendo esta coordenada, tenemos que los puntos son representados como vectores homogéneos y pertenecen al espacio ${\rm I\!P}^2$. De esta forma se introduce la siguiente definición \ref{punto-homogeneo} que relaciona la siguiente conversión: ${\rm I\!P}^2 \to {\rm I\!R}^2$.
 
 \begin{displayquote}
 	\vspace{-1.5cm}
 	\begin{definition}
 		La representación de un vector homogéneo es de la forma $\vec{x} = (x_1,\, x_2,\, x_3)$, representando el punto $(x_1/x_3,\, x_2/x_3)$ en ${\rm I\!R}^2$, con $x_3 \neq 0$.
 	\end{definition} 
-	\label{punto-p2}
+	\label{punto-homogeneo}
 \end{displayquote}
 
 Teniendo claros los conceptos de representación homogénea, se presenta formalmente la definición de una homografía (\ref{def-homografia}) o transformación geométrica en el espacio proyectivo.
@@ -59,9 +59,9 @@ Existen varias formas de describir las transformaciones geométricas, la primera
 En base a los grados de libertad, a las propiedades geométricas y al tipo de invarianza que presenten, se tienen cuatro niveles de transformaciones geométricas: isometría, similaridad, afín y perspectiva. Estos son descritos a continuación.
 %${\rm I\!P}^2$, ${\rm I\!R}$ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Isometría}
+\subsubsection*{ISOMETRÍA}
 
-Este termino proviene del griego iso (igual) metria (medida), y tal como su nombre lo indica, ésta transformación se caracteriza fuertemente por mantener iguales las longitudes entre todos los puntos. Ésta transformación está compuesta por una combinación de rotaciones y translaciones --- transformaciones euclidianas --- donde se modela el movimiento de un objeto rígido. En la ecuación \ref{matriz-isometria} se puede observar la representación matricial de esta transformación.
+Este termino proviene del griego iso (igual) metria (medida), y tal como su nombre lo indica, ésta transformación se caracteriza fuertemente por mantener iguales las longitudes entre todos los puntos. Ésta transformación está compuesta por una combinación de rotaciones y translaciones --- transformaciones euclidianas --- donde se modela el movimiento de un objeto rígido. En la ecuación \ref{matriz-isometria} se puede observar su representación matricial.
 
 \begin{equation}
 	\begin{pmatrix}
@@ -97,7 +97,7 @@ Donde $ \vec{R} $ sería una matriz ortogonal de rotación $2\times2$, $ \vec{t}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Similaridad}
+\subsubsection*{SIMILARIDAD}
 
 Esta transformación es una combinación de una isometría con un escalado, en este caso el escalado es de igual magnitud en los ejes $x$ e $y$. La representación matricial se observa en la ecuación \ref{matriz-similaridad}.
 
@@ -136,9 +136,9 @@ Donde $ \vec{R} $ sería una matriz ortogonal de rotación $2\times2$, $s$ es el
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Afín}
+\subsubsection*{AFÍN}
 
-La transformación afín (tambien llamada afinidad) está compuesta por una transformación lineal (rotación, sesgo, homotecia), seguida de una translación. En está se tiene una transformación mas compleja que las anteriores, ya que se incluyen algunas deformaciones que no permiten conservar la forma original de los objetos. De igual forma puede incluirse un escalado, pero a diferencia de las anteriores, éste puede ser de distinta magnitud en los ejes $x$ e $y$. La representación matricial se observa en la ecuación \ref{matriz-afin}.
+La transformación afín (tambien llamada afinidad) está compuesta por una transformación lineal (rotación, sesgo, homotecia), seguida de una translación. En está se tiene una transformación mas compleja que las anteriores, ya que se incluyen algunas deformaciones que no permiten conservar la forma original de los objetos. De igual forma puede incluirse un escalado, pero a diferencia de la anterior, éste puede ser de distinta magnitud en los ejes $x$ e $y$. La representación matricial se observa en la ecuación \ref{matriz-afin}.
 
 \begin{equation}
 \begin{pmatrix}
@@ -175,9 +175,9 @@ Donde $ \vec{A} $ sería una matriz ortogonal $2\times2$ no singular, $\vec{t} $
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Proyectiva}
+\subsubsection*{PROYECTIVA}
 
-Por último se presenta la transformación proyectiva u homografía. Las transformaciones mostradas anteriormente  tienen en común la ultima fila de la matriz que la describe --- $(0,\, 0,\, 1)$ ---, lo cual hace que el tercer componente de la representación homogénea nunca cambie de 1. Por esta razón se dice que estas transformaciones son de coordenadas no-homogéneas. El caso de la homografía es distinto, ya que se tiene una transformación lineal de coordenadas homogéneas (definición \ref{punto-p2}). La representación matricial se puede ver en la ecuación \ref{matriz-perspectiva}.
+Por último se presenta la transformación proyectiva u homografía. Las transformaciones mostradas anteriormente  tienen en común la ultima fila de la matriz que la describe --- $(0,\, 0,\, 1)$ ---, lo cual hace que el tercer componente de la representación homogénea nunca cambie de 1. Por esta razón se dice que estas transformaciones son de coordenadas no-homogéneas. El caso de la homografía es distinto, ya que se tiene una transformación lineal de coordenadas homogéneas (definición \ref{punto-homogeneo}). La representación matricial se puede ver en la ecuación \ref{matriz-perspectiva}.
 
 \begin{equation}
 \begin{pmatrix}
@@ -222,50 +222,148 @@ En la figura \ref{imagen:transformaciones} se ilustra gráficamente los tipos de
 	\label{imagen:transformaciones}
 \end{figure}
 
-Las transformaciones proyectivas, al igual que las anteriores puede ser descompuesta en una serie de transformaciones de menor jerarquía, tal y como se muestra en la ecuación X para la proyectiva.
+Las transformaciones proyectivas, al igual que las anteriores puede ser descompuesta en una serie de transformaciones de menor jerarquía, tal y como se muestra en la ecuación \ref{composicion-homografia} para la proyectiva.
 
-\begin{displaymath}
-\mathrm{H} = \mathrm{H}_\mathsf{S} \mathrm{H}_\mathsf{A} \mathrm{H}_\mathsf{P} = 
+\begin{equation}
+\mathtt{H} = \mathtt{H}_\mathsf{S} \mathtt{H}_\mathsf{A} \mathtt{H}_\mathsf{P} = 
 \begin{bmatrix}
-{s\vec{R}}&{\vec{t}}\\
+{s\mathtt{R}}&{\vec{t}}\\
 {\vec{0}}&{1}
 \end{bmatrix}
 \begin{bmatrix}
-{\vec{K}}&{\vec{0}}\\
+{\mathtt{K}}&{\vec{0}}\\
 {\vec{0}}&{1}
 \end{bmatrix}
 \begin{bmatrix}
-{\vec{I}}&{\vec{0}}\\
+{\mathtt{I}}&{\vec{0}}\\
 {\vec{v}}&{u}
 \end{bmatrix} =
 \begin{bmatrix}
-{\vec{A}}&{\vec{t}}\\
+{\mathtt{A}}&{\vec{t}}\\
 {\vec{v}}&{u}
 \end{bmatrix}
-\end{displaymath}
+\label{composicion-homografia}
+\end{equation}
 
-Donde los sub-índices de las matrices corresponden con S = similaridad, A = Afín, P = Proyectiva. $\vec{R}$ es una matriz de rotación (no singular) $2\times2$,  $\vec{K}$ es una matriz $2\times2$ triangular superior normalizada tal que det$\vec{K}=1$ (para remover la escala y rotación), $\vec{t}$ es un vector de translación de 2 componentes, $\vec{I}$ es una matrix identidad $2\times2$, $\vec{v}$ es un vector de 2 componentes, $\vec{A}$ es una matriz no singular y $u\neq0$.
+Donde los sub-índices de las matrices corresponden con $\mathsf{S}$ = similaridad, $\mathsf{A}$ = Afín, $\mathsf{P}$ = Proyectiva. $\mathtt{R}$ es una matriz de rotación (no singular) $2\times2$,  $\mathtt{K}$ es una matriz $2\times2$ triangular superior normalizada tal que det$\mathtt{K}=1$ (para remover la escala y rotación), $\vec{t}$ es un vector de translación de 2 componentes, $\mathtt{I}$ es una matriz identidad $2\times2$, $\vec{v}$ es un vector de 2 componentes, $\mathtt{A}$ es una matriz no singular y $u\neq0$.
 
-Las transformaciones proyectivas también cumplen con las siguientes aserciones: El inverso de una homografía, es también una homografía. La composición de dos homografía es una homografía. En base a esto, siempre es posible encontrar una matriz de transformación que pueda relacionar dos planos
+Las transformaciones proyectivas al estar compuestas por un grupo de transformaciones  también cumplen con las siguientes aserciones: \\
+\textit{$\,$(i)$\,\,$}  El inverso de una homografía, es también una homografía.\\
+\textit{(ii)} La composición de dos homografía es una homografía.\\
+En base a esto, siempre es posible encontrar una matriz de transformación que pueda relacionar dos planos.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=12cm]{planos}
-	\caption[Ejemplo de transformación geométrica]{Ejemplo de transformación geométrica}
-	\label{imagen:planos}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Estimación de Homografía}
+
+El ultimo nivel de transformación estudiada posee ocho grados de libertad (\textit{8-DoF}), con lo cual es posible estimar los parámetros de dicha transformación con tan solo 8 valores independientes. Por otro lado, conociendo que la homografía es una transformación que preserva la naturaleza de los objetos --- transforma puntos en puntos, lineas en lineas y planos en planos --, solo es posible relacionar dos imágenes mediante una homografía, siempre y cuando la escena que capturen corresponda con un plano. ver figura \ref{imagen:planos}.
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{@{}cc@{}}
+		\includegraphics[width=.45\textwidth]{planos2} &
+		\includegraphics[width=.45\textwidth]{planos1} 
+	\end{tabular}
+	\caption[Relacion de homografías]{Los puntos $\mathbf{C}$ y $\mathbf{C'}$ corresponden con los centros de la cámara en las distintas posiciones, Los puntos $\vec{x_i}$ y $\vec{x'_i}$ son la intersección de los puntos de la escena $\vec{X_i}$ en el plano de la imagen (formación de la imagen). Si la cámara se mueve no se podrá relacionar los planos de las imágenes con una homografía (izquierda), a menos que los puntos de la escena se encuentren todos en un mismo plano (derecha). Adaptado de \cite{zisserman}.}
+	\label{imagen:planos}
+\end{figure}
+
+El primer paso para la estimación de la transformación consiste en encontrar 4 pares correspondientes de puntos, como cada punto en 2D posee 2-DoF ($x$ e $y$ del plano euclidiano de la imagen) con 4 puntos se tienen los 8-DoF. Luego por cada par de puntos se tienen (a partir de la ecuación \ref{matriz-perspectiva}) las siguientes relaciones: 
 \begin{displaymath}
-x' = \frac{x'_1}{x'_3} = \frac{h_{11}x+h_{12}y+h_{13}}{h_{31}x+h_{32}y+h_{33}}, \qquad y' = \frac{x'_2}{x'_3} = \frac{h_{21}x+h_{22}y+h_{23}}{h_{31}x+h_{32}y+h_{33}}
+x'_i = \frac{x'}{w} = \frac{h_{11}x_i+h_{12}y_i+h_{13}}{h_{31}x_i+h_{32}y_i+h_{33}}, \qquad y'_i = \frac{y'}{w} = \frac{h_{21}x_i+h_{22}y_i+h_{23}}{h_{31}x_i+h_{32}y_i+h_{33}}
+\end{displaymath}
+Como se observa cada par de puntos genera dos ecuaciones lineales, mostradas a continuación luego de simplificar:
+\begin{displaymath}
+{x'_i ( h_{31}x_i+h_{32}y_i+h_{33} ) = h_{11}x_i+h_{12}y_i+h_{13}}
 \end{displaymath}
 \begin{displaymath}
-{x' ( h_{31}x+h_{32}y+h_{33} ) = h_{11}x+h_{12}y+h_{13}}
+{y'_i ( h_{31}x_i+h_{32}y_i+h_{33} ) = h_{21}x_i+h_{22}y_i+h_{23}}
 \end{displaymath}
+Escrito de forma matricial se puede expresar como a continuación:
 \begin{displaymath}
-{y' ( h_{31}x+h_{32}y+h_{33} ) = h_{21}x+h_{22}y+h_{23}}
+\mathtt{A}_i\vec{h}=\vec{0}
 \end{displaymath}
+Donde 
+\begin{displaymath}
+\mathtt{A}_i =
+\begin{bmatrix}
+-x_i&-y_i&-1&0&0&0&x'_ix_i&x'_iy_i&x'_i\\
+0&0&0&-x_i&-y_i&-1&y'_ix_i&y_i'y_i&y'_i
+\end{bmatrix}
+\end{displaymath}
+Y
+\begin{displaymath}
+\vec{h}^\mathtt{T} = (h_{11},\, h_{12},\, h_{13},\, h_{21},\, h_{22},\, h_{23},\, h_{31},\, h_{32},\, h_{33})
+\end{displaymath}
+Dado que 1 pareja arroja 2 ecuaciones lineales, 4 parejas arrojarían 8 ecuaciones, y se puede resuelve el sistema para un factor multiplicativo dado por $h_{33}$. La única restricción que tiene esta sistema de ecuaciones para asegurar un resultado es que no se tengan 3 puntos que residan en la misma linea. Con esto se tiene el siguiente sistema de ecuaciones:
+\begin{displaymath}
+\mathtt{A}\vec{h}=
+\begin{bmatrix}
+-x_1&-y_1&-1&0&0&0&x'_1x_1&x'_1y_1&x'_1\\
+0&0&0&-x_1&-y_1&-1&y'_1x_1&y_1'y_1&y'_1\\
+-x_2&-y_2&-1&0&0&0&x'_2x_2&x'_2y_2&x'_2\\
+0&0&0&-x_2&-y_2&-1&y'_2x_2&y_2'y_2&y'_2\\
+-x_3&-y_3&-1&0&0&0&x'_3x_3&x'_3y_3&x'_3\\
+0&0&0&-x_3&-y_3&-1&y'_3x_3&y_3'y_3&y'_3\\
+-x_4&-y_4&-1&0&0&0&x'_1x_1&x'_1y_1&x'_4\\
+0&0&0&-x_4&-y_4&-1&y'_4x_4&y_4'y_4&y'_4
+\end{bmatrix}
+\begin{bmatrix}
+h_{11}\\h_{12}\\h_{13}\\h_{21}\\h_{22}\\h_{23}\\h_{31}\\h_{32}\\h_{33}
+\end{bmatrix}
+= 0
+\end{displaymath}
+Añadiendo la condición de 	 $\left | \mathtt{H} \right | = 1$ para evitar la solución trivial $\vec{h}=0$. Luego se puede resolver mediante el método de descomposición en valores singulares SVD (del inglés: Singular Value Decomposition) con $\mathtt{A} = \mathtt{U}\mathtt{S}\mathtt{V}^\mathtt{A}$, donde $\mathtt{U}$ y $\mathtt{V}$ son una matriz ortogonal; y $\mathtt{S}$ es una matriz formada con los valores singulares de $\mathtt{A}$ en su diagonal principal ordenados en orden descendente. Finalmente el vector singular unitario correspondiente con el menor valor singular es la solución $\vec{h}$.
+
+En este punto, la matriz encontrada se puede usar para transformar $\vec{x} \to \vec{x'}$, o bien se puede usar la inversa ($\mathtt{H^{-1}}$) para realizar el mapeo en sentido contrario.
+
+Dada la naturaleza no plana de las escenas del mundo real, o bien debido a la inexactitud al medir los puntos cuando se captura una imagen, es muy poco probable que los puntos correspondientes radiquen en un mismo plano. Por otra parte es muy común que para aplicaciones de mapeo automático se cuenten con una gran cantidad de puntos correspondientes, con lo cual se tiene un sistema sobre determinado. En este caso es necesario realizar aproximaciones que permitan encontrar ya no la única homografía, sino la mejor, en función a los datos con los que se cuenten. Para esto es usual el uso de algoritmos que estiman la matriz buscando minimizar alguna función de coste.
+
+Uno de los algoritmos mas usados para encontrar el mejor modelo está basado en el método RANSAC (del inglés: Random Sample Consensus), el cual es explicado a continuación.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{RANSAC}
+
+Este es un método iterativo que permite calcular los parámetros de un modelo, a partir de un conjunto de datos que presentan valores atípicos. En nuestro caso, se tiene un conjunto sobre dimensionado de pares de puntos correspondientes, de los cuales se deben seleccionar los mejores 4 pares para estimar la mejor matriz de transformación, siendo la mejor aquella que logre minimizar la función de coste planteada.
+
+
+Como ya se ha mencionado, las escenas que se estudian no son completamente planas, lo que provoca una inexactitud al estimar la transformación. Para lograr establecer un modelo, el método RANSAC considera solo los mejores datos que se logren ajustar a el, en este sentido se definen los \textit{inliers} y \textit{outliers}, donde los \textit{inliers} son aquellos valores que logran encajar en el modelo deseado, mientras que los \textit{outliers} son aquellos que no logran hacerlo. Por ejemplo: si se tienen un conjunto de puntos cuya distribución corresponden con el plano del suelo, estos serian los \textit{inliers}, y por otro lado aquellos puntos que no pertenecen a este plano serian los \textit{outliers}, ya sea por un emparejamiento erróneo o que pertenezcan a un segmento de distinta altitud de la escena. En la figura \ref{imagen:ransac} se ilustra esta distinción.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{ransac}
+	\caption[ransac poitns]{El siguiente diagrama representa la vista lateral de un plano. Los puntos amarillos corresponden con los utilizados para establecer el modelo (para calcular la matriz). Los puntos azules corresponden con los \textit{inliers}, mientras que los rojos con los \textit{outliers}. La distancia para la función de coste se mide desde cada punto hasta el plano considerando únicamente los \textit{inliers}}
+	\label{imagen:ransac}
+\end{figure}
+
+Ahora bien es necesario establecer la función de costo que buscará minimizar el algoritmo. En este caso se intenta lograr disminuir el error cuadrático medio, donde el error es medido con la distancia de los puntos (inliers) correspondientes. Tal y como se observa en la figura \ref{imagen:ransac} el método RANSAC establece un perímetro que le permite distinguir \textit{inliers} de \textit{outliers}, ahora bien una vez se logran distinguir, el algoritmo solo considera los mejores para obtener el costo o peso asociado al modelo estimado, calculando para esto la distancia desde cada inlier hasta el plano. Este proceso se puede apreciar en el algoritmo \ref{ransac}.
+
+\begin{figure}[hb]
+	\centering
+	\begin{minipage}{\linewidth}
+		\begin{algorithm}[H] %or another one check
+			\caption{Estimación de matriz de transformación RANSAC}
+			\SetAlgoLined
+			\Begin{
+				\While{No se llegue al maximo de iteraciones}
+				{
+					Se toman 4 parejas correspondientes\;
+					Se calcula la matriz de homografía\;
+					Se aplica la matriz sobre los puntos de origen\;
+					Se calcula el error basado en distancia\tcp*{Solo considerando \textit{inliers}}
+					\If{Error $<$ MejorError}
+					{
+						Guardar matriz como la mejor\;
+						Guardar Error como el mejor\;
+					}
+				}
+			}
+			\label{ransac}
+		\end{algorithm}
+	\end{minipage}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generación de sub-mosaicos}

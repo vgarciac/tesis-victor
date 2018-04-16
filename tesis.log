@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  15 APR 2018 00:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  16 APR 2018 00:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1311,6 +1311,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \WF@everypar=\toks52
 Package: wrapfig 2003/01/31  v 3.6
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+LaTeX Info: Redefining \subref on input line 104.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count173
@@ -1324,8 +1328,8 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count175
 \calc@Cskip=\skip76
 )
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+LaTeX Info: Redefining \. on input line 53.
+LaTeX Info: Redefining \% on input line 53.
 
 (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
@@ -1389,29 +1393,29 @@ LaTeX Info: Redefining \% on input line 27.
 )
 \openout1 = `tesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 111.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 111.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 112.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 112.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    ... okay on input line 112.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1441,7 +1445,7 @@ Package caption Info: End \AtBeginDocument code.
 )
 \c@lstlisting=\count186
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring OFF on input line 111.
+Package hyperref Info: Link coloring OFF on input line 112.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1450,16 +1454,16 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count187
 )
-LaTeX Info: Redefining \ref on input line 111.
-LaTeX Info: Redefining \pageref on input line 111.
-LaTeX Info: Redefining \nameref on input line 111.
+LaTeX Info: Redefining \ref on input line 112.
+LaTeX Info: Redefining \pageref on input line 112.
+LaTeX Info: Redefining \nameref on input line 112.
 
 (./tesis.out) (./tesis.out)
 \@outlinefile=\write5
 \openout5 = `tesis.out'.
 
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
 
 babelbib: Set bibliography fall-back language to spanish
 (/usr/share/texlive/texmf-dist/tex/latex/babelbib/spanish.bdf
@@ -1474,14 +1478,14 @@ ABD: EveryShipout initializing macros
 File: imagenes/./usb.png Graphic file (type png)
 
 <use imagenes/./usb.png>
-Package pdftex.def Info: imagenes/./usb.png used on input line 114.
+Package pdftex.def Info: imagenes/./usb.png used on input line 115.
 (pdftex.def)             Requested size: 86.72377pt x 57.8027pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 114.
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 114.
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1615,21 +1619,21 @@ Cap\'{\i }tulo 1.
 
 
 
-] <imagenes/openrov.jpg, id=417, 15.13687pt x 6.51569pt>
+] <imagenes/openrov.jpg, id=419, 15.13687pt x 6.51569pt>
 File: imagenes/openrov.jpg Graphic file (type jpg)
 
 <use imagenes/openrov.jpg>
 Package pdftex.def Info: imagenes/openrov.jpg used on input line 18.
 (pdftex.def)             Requested size: 292.22987pt x 125.88876pt.
  [2 <./imagenes/openrov.jpg>]
-<imagenes/paralaje.png, id=429, 620.3175pt x 567.11874pt>
+<imagenes/paralaje.png, id=431, 620.3175pt x 567.11874pt>
 File: imagenes/paralaje.png Graphic file (type png)
 
 <use imagenes/paralaje.png>
 Package pdftex.def Info: imagenes/paralaje.png used on input line 33.
 (pdftex.def)             Requested size: 184.9429pt x 169.0812pt.
 
-<imagenes/hugin.png, id=430, 463.7325pt x 269.005pt>
+<imagenes/hugin.png, id=432, 463.7325pt x 269.005pt>
 File: imagenes/hugin.png Graphic file (type png)
  <use imagenes/hugin.png>
 Package pdftex.def Info: imagenes/hugin.png used on input line 43.
@@ -1647,14 +1651,14 @@ Cap\'{\i }tulo 2.
 ------------------------------------------------------------------------------
 [7
 
-] [8] <imagenes/registration-process.png, id=468, 562.1pt x 580.1675pt>
+] [8] <imagenes/registration-process.png, id=470, 562.1pt x 580.1675pt>
 File: imagenes/registration-process.png Graphic file (type png)
 
 <use imagenes/registration-process.png>
 Package pdftex.def Info: imagenes/registration-process.png used on input line 3
 1.
 (pdftex.def)             Requested size: 284.52756pt x 293.66833pt.
- [9 <./imagenes/registration-process.png>] <imagenes/clasificacion.png, id=479,
+ [9 <./imagenes/registration-process.png>] <imagenes/clasificacion.png, id=482,
  724.7075pt x 282.05376pt>
 File: imagenes/clasificacion.png Graphic file (type png)
 
@@ -1663,14 +1667,14 @@ Package pdftex.def Info: imagenes/clasificacion.png used on input line 42.
 (pdftex.def)             Requested size: 426.79134pt x 166.109pt.
  [10 <./imagenes/clasificacion.png>] [11]
 [12] [13] [14] [15] [16]
-<imagenes/esquema-general.jpeg, id=549, 914.41624pt x 410.53375pt>
+<imagenes/esquema-general.jpeg, id=551, 914.41624pt x 410.53375pt>
 File: imagenes/esquema-general.jpeg Graphic file (type jpg)
 
 <use imagenes/esquema-general.jpeg>
 Package pdftex.def Info: imagenes/esquema-general.jpeg used on input line 130.
 (pdftex.def)             Requested size: 505.1452pt x 226.79027pt.
 
-<imagenes/opencv.png, id=550, 144.54pt x 178.0251pt>
+<imagenes/opencv.png, id=552, 144.54pt x 178.0251pt>
 File: imagenes/opencv.png Graphic file (type png)
  <use imagenes/opencv.png>
 Package pdftex.def Info: imagenes/opencv.png used on input line 142.
@@ -1684,7 +1688,7 @@ Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
 [19
 
-] [20] <imagenes/features.jpg, id=580, 451.6875pt x 280.04625pt>
+] [20] <imagenes/features.jpg, id=582, 451.6875pt x 280.04625pt>
 File: imagenes/features.jpg Graphic file (type jpg)
 
 <use imagenes/features.jpg>
@@ -1697,14 +1701,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--41
  []
 
 [21 <./imagenes/features.jpg>]
-<imagenes/harris-window.png, id=594, 735.74875pt x 213.79875pt>
+<imagenes/harris-window.png, id=596, 735.74875pt x 213.79875pt>
 File: imagenes/harris-window.png Graphic file (type png)
 
 <use imagenes/harris-window.png>
 Package pdftex.def Info: imagenes/harris-window.png used on input line 52.
 (pdftex.def)             Requested size: 375.7232pt x 109.18271pt.
 
-<imagenes/corner-scale.png, id=599, 347.2975pt x 133.49875pt>
+<imagenes/corner-scale.png, id=601, 347.2975pt x 133.49875pt>
 File: imagenes/corner-scale.png Graphic file (type png)
 
 <use imagenes/corner-scale.png>
@@ -1717,76 +1721,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--67
  []
 
 [22 <./imagenes/harris-window.png> <./imagenes/corner-scale.png>] [23]
-<imagenes/sift-escalas.png, id=622, 1042.89626pt x 302.12875pt>
+<imagenes/sift-escalas.png, id=624, 1042.89626pt x 302.12875pt>
 File: imagenes/sift-escalas.png Graphic file (type png)
 
 <use imagenes/sift-escalas.png>
 Package pdftex.def Info: imagenes/sift-escalas.png used on input line 82.
 (pdftex.def)             Requested size: 354.85464pt x 102.80078pt.
  [24 <./imagenes/sift-escalas.png>]
-<imagenes/sift-descriptor.png, id=631, 1178.4025pt x 484.81125pt>
+<imagenes/sift-descriptor.png, id=633, 1178.4025pt x 484.81125pt>
 File: imagenes/sift-descriptor.png Graphic file (type png)
 
 <use imagenes/sift-descriptor.png>
 Package pdftex.def Info: imagenes/sift-descriptor.png used on input line 95.
 (pdftex.def)             Requested size: 292.22987pt x 120.22603pt.
 
-<imagenes/surf.png, id=635, 704.6325pt x 263.98625pt>
+<imagenes/surf.png, id=637, 704.6325pt x 263.98625pt>
 File: imagenes/surf.png Graphic file (type png)
  <use imagenes/surf.png>
 Package pdftex.def Info: imagenes/surf.png used on input line 107.
 (pdftex.def)             Requested size: 333.97972pt x 125.12085pt.
 
 [25 <./imagenes/sift-descriptor.png> <./imagenes/surf.png (PNG copy)>]
-<imagenes/orb.png, id=647, 721.69624pt x 225.84375pt>
+<imagenes/orb.png, id=649, 721.69624pt x 225.84375pt>
 File: imagenes/orb.png Graphic file (type png)
  <use imagenes/orb.png>
 Package pdftex.def Info: imagenes/orb.png used on input line 120.
 (pdftex.def)             Requested size: 375.7232pt x 117.57726pt.
 
 [26 <./imagenes/orb.png (PNG copy)>]
-<imagenes/kaze.png, id=664, 706.64pt x 370.38374pt>
+<imagenes/kaze.png, id=666, 706.64pt x 370.38374pt>
 File: imagenes/kaze.png Graphic file (type png)
  <use imagenes/kaze.png>
 Package pdftex.def Info: imagenes/kaze.png used on input line 137.
 (pdftex.def)             Requested size: 354.85464pt x 185.99959pt.
 
 [27] [28 <./imagenes/kaze.png>]
-<imagenes/match.png, id=680, 938.50626pt x 339.2675pt>
+<imagenes/match.png, id=682, 938.50626pt x 339.2675pt>
 File: imagenes/match.png Graphic file (type png)
 
 <use imagenes/match.png>
 Package pdftex.def Info: imagenes/match.png used on input line 155.
 (pdftex.def)             Requested size: 398.33858pt x 143.99782pt.
  [29 <./imagenes/match.png>] [30]
-<imagenes/comparacion.png, id=699, 1239.63126pt x 659.46375pt>
+<imagenes/comparacion.png, id=701, 1239.63126pt x 659.46375pt>
 File: imagenes/comparacion.png Graphic file (type png)
 
 <use imagenes/comparacion.png>
 Package pdftex.def Info: imagenes/comparacion.png used on input line 200.
 (pdftex.def)             Requested size: 398.33858pt x 211.90814pt.
  [31 <./imagenes/comparacion.png>] [32]
-<imagenes/gray-01.png, id=748, 642.4pt x 481.8pt>
+<imagenes/gray-01.png, id=750, 642.4pt x 481.8pt>
 File: imagenes/gray-01.png Graphic file (type png)
  <use imagenes/gray-01.png>
 Package pdftex.def Info: imagenes/gray-01.png used on input line 285.
 (pdftex.def)             Requested size: 208.73653pt x 156.55373pt.
 
-<imagenes/hist-01.png, id=749, 1585.925pt x 1485.55pt>
+<imagenes/hist-01.png, id=751, 1585.925pt x 1485.55pt>
 File: imagenes/hist-01.png Graphic file (type png)
 
 <use imagenes/hist-01.png>
 Package pdftex.def Info: imagenes/hist-01.png used on input line 286.
 (pdftex.def)             Requested size: 166.98668pt x 156.40671pt.
 
-<imagenes/gray-stretch-01.png, id=750, 642.4pt x 481.8pt>
+<imagenes/gray-stretch-01.png, id=752, 642.4pt x 481.8pt>
 File: imagenes/gray-stretch-01.png Graphic file (type png)
 
 <use imagenes/gray-stretch-01.png>
 Package pdftex.def Info: imagenes/gray-stretch-01.png used on input line 287.
 (pdftex.def)             Requested size: 208.73653pt x 156.55373pt.
 
-<imagenes/hist-stretch-01.png, id=751, 1585.925pt x 1485.55pt>
+<imagenes/hist-stretch-01.png, id=753, 1585.925pt x 1485.55pt>
 File: imagenes/hist-stretch-01.png Graphic file (type png)
 
 <use imagenes/hist-stretch-01.png>
@@ -1803,25 +1807,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imagenes/0234-1.jpg, id=759, 642.4pt x 481.8pt>
+<imagenes/0234-1.jpg, id=761, 642.4pt x 481.8pt>
 File: imagenes/0234-1.jpg Graphic file (type jpg)
  <use imagenes/0234-1.jpg>
 Package pdftex.def Info: imagenes/0234-1.jpg used on input line 352.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0234-2.jpg, id=760, 642.4pt x 481.8pt>
+<imagenes/0234-2.jpg, id=762, 642.4pt x 481.8pt>
 File: imagenes/0234-2.jpg Graphic file (type jpg)
  <use imagenes/0234-2.jpg>
 Package pdftex.def Info: imagenes/0234-2.jpg used on input line 353.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0234-3.jpg, id=761, 642.4pt x 481.8pt>
+<imagenes/0234-3.jpg, id=763, 642.4pt x 481.8pt>
 File: imagenes/0234-3.jpg Graphic file (type jpg)
  <use imagenes/0234-3.jpg>
 Package pdftex.def Info: imagenes/0234-3.jpg used on input line 354.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0234-4.jpg, id=762, 642.4pt x 481.8pt>
+<imagenes/0234-4.jpg, id=764, 642.4pt x 481.8pt>
 File: imagenes/0234-4.jpg Graphic file (type jpg)
  <use imagenes/0234-4.jpg>
 Package pdftex.def Info: imagenes/0234-4.jpg used on input line 355.
@@ -1843,25 +1847,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imagenes/sr1.png, id=770, 1365.1pt x 1027.84pt>
+<imagenes/sr1.png, id=772, 1365.1pt x 1027.84pt>
 File: imagenes/sr1.png Graphic file (type png)
  <use imagenes/sr1.png>
 Package pdftex.def Info: imagenes/sr1.png used on input line 414.
 (pdftex.def)             Requested size: 96.01701pt x 72.2855pt.
 
-<imagenes/sr2.png, id=771, 1365.1pt x 1027.84pt>
+<imagenes/sr2.png, id=773, 1365.1pt x 1027.84pt>
 File: imagenes/sr2.png Graphic file (type png)
  <use imagenes/sr2.png>
 Package pdftex.def Info: imagenes/sr2.png used on input line 415.
 (pdftex.def)             Requested size: 96.01701pt x 72.2855pt.
 
-<imagenes/sr3.png, id=772, 1365.1pt x 1027.84pt>
+<imagenes/sr3.png, id=774, 1365.1pt x 1027.84pt>
 File: imagenes/sr3.png Graphic file (type png)
  <use imagenes/sr3.png>
 Package pdftex.def Info: imagenes/sr3.png used on input line 416.
 (pdftex.def)             Requested size: 96.01701pt x 72.2855pt.
 
-<imagenes/sr4.png, id=773, 1365.1pt x 1027.84pt>
+<imagenes/sr4.png, id=775, 1365.1pt x 1027.84pt>
 File: imagenes/sr4.png Graphic file (type png)
  <use imagenes/sr4.png>
 Package pdftex.def Info: imagenes/sr4.png used on input line 417.
@@ -1880,25 +1884,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imagenes/0752-1.jpg, id=776, 642.4pt x 481.8pt>
+<imagenes/0752-1.jpg, id=778, 642.4pt x 481.8pt>
 File: imagenes/0752-1.jpg Graphic file (type jpg)
  <use imagenes/0752-1.jpg>
 Package pdftex.def Info: imagenes/0752-1.jpg used on input line 476.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0752-2.jpg, id=777, 642.4pt x 481.8pt>
+<imagenes/0752-2.jpg, id=779, 642.4pt x 481.8pt>
 File: imagenes/0752-2.jpg Graphic file (type jpg)
  <use imagenes/0752-2.jpg>
 Package pdftex.def Info: imagenes/0752-2.jpg used on input line 477.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0752-3.jpg, id=778, 642.4pt x 481.8pt>
+<imagenes/0752-3.jpg, id=780, 642.4pt x 481.8pt>
 File: imagenes/0752-3.jpg Graphic file (type jpg)
  <use imagenes/0752-3.jpg>
 Package pdftex.def Info: imagenes/0752-3.jpg used on input line 478.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0752-4.jpg, id=779, 642.4pt x 481.8pt>
+<imagenes/0752-4.jpg, id=781, 642.4pt x 481.8pt>
 File: imagenes/0752-4.jpg Graphic file (type jpg)
  <use imagenes/0752-4.jpg>
 Package pdftex.def Info: imagenes/0752-4.jpg used on input line 479.
@@ -1919,28 +1923,28 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imagenes/geotagg-1.png, id=790, 185.0915pt x 138.919pt>
+<imagenes/geotagg-1.png, id=792, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-1.png Graphic file (type png)
 
 <use imagenes/geotagg-1.png>
 Package pdftex.def Info: imagenes/geotagg-1.png used on input line 531.
 (pdftex.def)             Requested size: 96.01701pt x 72.06659pt.
 
-<imagenes/geotagg-2.png, id=791, 185.0915pt x 138.919pt>
+<imagenes/geotagg-2.png, id=793, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-2.png Graphic file (type png)
 
 <use imagenes/geotagg-2.png>
 Package pdftex.def Info: imagenes/geotagg-2.png used on input line 532.
 (pdftex.def)             Requested size: 96.01701pt x 72.06659pt.
 
-<imagenes/geotagg-3.png, id=792, 185.0915pt x 138.919pt>
+<imagenes/geotagg-3.png, id=794, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-3.png Graphic file (type png)
 
 <use imagenes/geotagg-3.png>
 Package pdftex.def Info: imagenes/geotagg-3.png used on input line 533.
 (pdftex.def)             Requested size: 96.01701pt x 72.06659pt.
 
-<imagenes/geotagg-4.png, id=793, 185.0915pt x 138.919pt>
+<imagenes/geotagg-4.png, id=795, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-4.png Graphic file (type png)
 
 <use imagenes/geotagg-4.png>
@@ -1965,79 +1969,89 @@ Cap\'{\i }tulo 4.
 ------------------------------------------------------------------------------
 [41
 
-]
-
-LaTeX Warning: Reference `point-p2' on page 42 undefined on input line 29.
-
-[42] [43] [44] [45]
-<imagenes/transformaciones.png, id=857, 1083.04625pt x 509.905pt>
+] [42] [43] [44] [45]
+<imagenes/transformaciones.png, id=860, 1083.04625pt x 509.905pt>
 File: imagenes/transformaciones.png Graphic file (type png)
 
 <use imagenes/transformaciones.png>
 Package pdftex.def Info: imagenes/transformaciones.png used on input line 220.
 (pdftex.def)             Requested size: 412.56496pt x 194.23274pt.
- [46]
-<imagenes/planos.png, id=865, 1078.0275pt x 609.27625pt>
-File: imagenes/planos.png Graphic file (type png)
+ [46] [47 <./imagenes/transformaciones.png>] <imagenes/planos2.png, id=878, 886
+.31125pt x 657.45625pt>
+File: imagenes/planos2.png Graphic file (type png)
 
-<use imagenes/planos.png>
-Package pdftex.def Info: imagenes/planos.png used on input line 253.
-(pdftex.def)             Requested size: 341.43306pt x 192.97356pt.
- [47 <./imagenes/transformaciones.png>] [48 <./imagenes/planos.png>] [49]) (./p
-artes/capitulo5.tex [50]
+<use imagenes/planos2.png>
+Package pdftex.def Info: imagenes/planos2.png used on input line 264.
+(pdftex.def)             Requested size: 187.8616pt x 139.35397pt.
+
+<imagenes/planos1.png, id=879, 914.41624pt x 651.43375pt>
+File: imagenes/planos1.png Graphic file (type png)
+
+<use imagenes/planos1.png>
+Package pdftex.def Info: imagenes/planos1.png used on input line 265.
+(pdftex.def)             Requested size: 187.8616pt x 133.83304pt.
+ [48 <./imagenes/planos2.png> <./imagenes/planos1.png>] [49] <imagenes/ransac.p
+ng, id=894, 1053.9375pt x 626.34pt>
+File: imagenes/ransac.png Graphic file (type png)
+
+<use imagenes/ransac.png>
+Package pdftex.def Info: imagenes/ransac.png used on input line 334.
+(pdftex.def)             Requested size: 398.33858pt x 236.731pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[50] [51 <./imagenes/ransac.png>] [52]) (./partes/capitulo5.tex [53]
 Cap\'{\i }tulo 5.
 ------------------------------------------------------------------------------
  5 Uni\IeC {\'o}n de im\IeC {\'a}genes
 ------------------------------------------------------------------------------
-[51
+[54
 
-]) (./partes/capitulo6.tex [52]
+]) (./partes/capitulo6.tex [55]
 Cap\'{\i }tulo 6.
 ------------------------------------------------------------------------------
  6 Conclusiones y trabajos futuros
 ------------------------------------------------------------------------------
-) (./tesis.bbl [53
+) (./tesis.bbl [56
 
-] [54
+] [57
 
-] [55]) (./partes/apendiceA.tex [56]
+] [58]) (./partes/apendiceA.tex [59]
 Ap\'{e}ndice A.
 ------------------------------------------------------------------------------
  A Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias
 ------------------------------------------------------------------------------
-) [57
+) [60
 
 ]
 ------------------------------------------------------------------------------
  Bibliograf\'{\i }a
 ------------------------------------------------------------------------------
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
 (./tesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
 Package rerunfilecheck Info: File `tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 9CA9B45D1D2CF7F597D628B5E7AF3C69;9625.
+(rerunfilecheck)             Checksum: BEF4C6C843D5AD09E53B775E2F613D26;9625.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 217.
  ) 
 Here is how much of TeX's memory you used:
- 28016 strings out of 493029
- 469591 string characters out of 6136234
- 573179 words of memory out of 5000000
- 30712 multiletter control sequences out of 15000+600000
- 21146 words of font info for 78 fonts, out of 8000000 for 9000
+ 28085 strings out of 493029
+ 470746 string characters out of 6136234
+ 573853 words of memory out of 5000000
+ 30752 multiletter control sequences out of 15000+600000
+ 22123 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,22n,54p,1575b,772s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
@@ -2048,24 +2062,27 @@ t/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts
 e1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0800.pfb></usr/shar
-e/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on tesis.pdf (67 pages, 10436133 bytes).
+nts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sfti0800.pfb></usr/share/texmf/fonts/type
+1/public/cm-super/sfti1200.pfb>
+Output written on tesis.pdf (70 pages, 10561675 bytes).
 PDF statistics:
- 1097 PDF objects out of 1200 (max. 8388607)
- 937 compressed objects within 10 object streams
- 297 named destinations out of 1000 (max. 500000)
- 650 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1155 PDF objects out of 1200 (max. 8388607)
+ 987 compressed objects within 10 object streams
+ 319 named destinations out of 1000 (max. 500000)
+ 660 words of extra memory for PDF output out of 10000 (max. 10000000)
 
