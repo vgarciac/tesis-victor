@@ -35,27 +35,28 @@
 \contentsline {subsection}{\numberline {4.2.1}Transformaciones geom\IeC {\'e}tricas}{42}{subsection.127}
 \contentsline {subsection}{\numberline {4.2.2}Estimaci\IeC {\'o}n de Homograf\IeC {\'\i }a}{48}{subsection.142}
 \contentsline {section}{\numberline {4.3}Generaci\IeC {\'o}n de sub-mosaicos}{52}{section.161}
-\contentsline {subsection}{\numberline {4.3.1}Selecci\IeC {\'o}n de imagen de referencia}{52}{subsection.183}
-\contentsline {subsection}{\numberline {4.3.2}Matriz de transformaci\IeC {\'o}n promedio}{53}{subsection.184}
-\contentsline {section}{\numberline {4.4}Correcci\IeC {\'o}n euclidiana}{53}{section.201}
-\contentsline {section}{\numberline {4.5}Resultados}{53}{section.202}
-\contentsline {section}{\numberline {4.6}Resumen}{53}{section.203}
-\contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{54}{chapter.204}
-\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{54}{section.205}
-\contentsline {section}{\numberline {5.2}Linea de costura}{54}{section.206}
-\contentsline {subsection}{\numberline {5.2.1}Mapa mas cercano}{54}{subsection.207}
-\contentsline {subsection}{\numberline {5.2.2}Corte por grafo}{54}{subsection.208}
-\contentsline {section}{\numberline {5.3}Correcci\IeC {\'o}n de color}{55}{section.209}
-\contentsline {subsection}{\numberline {5.3.1}Ajuste de ganancia}{55}{subsection.210}
-\contentsline {subsection}{\numberline {5.3.2}M\IeC {\'e}todo de Reinhard}{55}{subsection.211}
-\contentsline {section}{\numberline {5.4}Fusi\IeC {\'o}n de im\IeC {\'a}genes}{55}{section.212}
-\contentsline {subsection}{\numberline {5.4.1}Fusi\IeC {\'o}n ponderada}{55}{subsection.213}
-\contentsline {subsection}{\numberline {5.4.2}Fusi\IeC {\'o}n piramidal}{55}{subsection.214}
-\contentsline {section}{\numberline {5.5}Resultados}{55}{section.215}
-\contentsline {section}{\numberline {5.6}Resumen}{55}{section.216}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{56}{chapter.217}
+\contentsline {subsection}{\numberline {4.3.1}Matriz de transformaci\IeC {\'o}n promedio}{53}{subsection.162}
+\contentsline {subsection}{\numberline {4.3.2}Segmentaci\IeC {\'o}n de puntos caracter\IeC {\'\i }sticos}{54}{subsection.184}
+\contentsline {subsection}{\numberline {4.3.3}Relaci\IeC {\'o}n con vecinos}{55}{subsection.185}
+\contentsline {section}{\numberline {4.4}Correcci\IeC {\'o}n euclidiana}{55}{section.208}
+\contentsline {section}{\numberline {4.5}Resultados}{55}{section.209}
+\contentsline {section}{\numberline {4.6}Resumen}{56}{section.210}
+\contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{57}{chapter.211}
+\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{57}{section.212}
+\contentsline {section}{\numberline {5.2}Linea de costura}{57}{section.213}
+\contentsline {subsection}{\numberline {5.2.1}Mapa mas cercano}{57}{subsection.214}
+\contentsline {subsection}{\numberline {5.2.2}Corte por grafo}{57}{subsection.215}
+\contentsline {section}{\numberline {5.3}Correcci\IeC {\'o}n de color}{58}{section.216}
+\contentsline {subsection}{\numberline {5.3.1}Ajuste de ganancia}{58}{subsection.217}
+\contentsline {subsection}{\numberline {5.3.2}M\IeC {\'e}todo de Reinhard}{58}{subsection.218}
+\contentsline {section}{\numberline {5.4}Fusi\IeC {\'o}n de im\IeC {\'a}genes}{58}{section.219}
+\contentsline {subsection}{\numberline {5.4.1}Fusi\IeC {\'o}n ponderada}{58}{subsection.220}
+\contentsline {subsection}{\numberline {5.4.2}Fusi\IeC {\'o}n piramidal}{58}{subsection.221}
+\contentsline {section}{\numberline {5.5}Resultados}{58}{section.222}
+\contentsline {section}{\numberline {5.6}Resumen}{58}{section.223}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{59}{chapter.224}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{60}{appendix.219}
-\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{60}{section.220}
-\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{60}{subsection.221}
+\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{63}{appendix.226}
+\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{63}{section.227}
+\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{63}{subsection.228}
 \vspace {2em}
