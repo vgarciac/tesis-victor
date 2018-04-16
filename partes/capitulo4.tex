@@ -84,13 +84,13 @@ Esta matriz es posible expresarla por bloques, como se muestra a continuación:
 \begin{displaymath}
 \vec{x'}= 
 \begin{bmatrix}
-{\vec{R}}&{\vec{t}}\\
+{\mathtt{R}}&{\vec{t}}\\
 {\vec{0}}&{1}
 \end{bmatrix}
 \vec{x}
 \label{bloque-isometria}
 \end{displaymath}
-Donde $ \vec{R} $ sería una matriz ortogonal de rotación $2\times2$, $ \vec{t} $ es un vector columna de translación de 2 componentes y $\vec{0} $ es un vector fila nulo de 2 dimensiones.
+Donde $ \mathtt{R} $ sería una matriz ortogonal de rotación $2\times2$, $ \vec{t} $ es un vector columna de translación de 2 componentes y $\vec{0} $ es un vector fila nulo de 2 dimensiones.
 \begin{itemize}
 	\item \textbf{Invarianza:} Distancia entre puntos, ángulo entre lineas y área.
 	\item \textbf{3 Grados de libertad:} Ángulo de rotación, traslación en eje $x$, traslación en eje $y$. Puede ser calculada a partir de dos puntos correspondientes.
@@ -122,13 +122,13 @@ Esta matriz es posible expresarla por bloques, como se muestra a continuación:
 \begin{displaymath}
 \vec{x'}= 
 \begin{bmatrix}
-{s\vec{R}}&{\vec{t}}\\
+{s\mathtt{R}}&{\vec{t}}\\
 {\vec{0}}&{1}
 \end{bmatrix}
 \vec{x}
 \label{bloque-similaridad}
 \end{displaymath}
-Donde $ \vec{R} $ sería una matriz ortogonal de rotación $2\times2$, $s$ es el factor de la escala, $ \vec{t} $ es un vector columna de translación de 2 componentes y $\vec{0} $ es un vector fila nulo de 2 componentes.
+Donde $ \mathtt{R} $ sería una matriz ortogonal de rotación $2\times2$, $s$ es el factor de la escala, $ \vec{t} $ es un vector columna de translación de 2 componentes y $\vec{0} $ es un vector fila nulo de 2 componentes.
 
 \begin{itemize}
 	\item \textbf{Invarianza:} Cociente de longitudes, Ángulo entre lineas y área.
@@ -161,13 +161,13 @@ Esta matriz es posible expresarla por bloques, como se muestra a continuación:
 \begin{displaymath}
 \vec{x'}= 
 \begin{bmatrix}
-{\vec{A}}&{\vec{t}}\\
+{\mathtt{A}}&{\vec{t}}\\
 {\vec{0}}&{1}
 \end{bmatrix}
 \vec{x}
 \label{bloque-afin}
 \end{displaymath}
-Donde $ \vec{A} $ sería una matriz ortogonal $2\times2$ no singular, $\vec{t} $ es un vector columna de translación de 2 componentes y $\vec{0} $ es un vector fila nulo de 2 componentes.
+Donde $ \mathtt{A} $ sería una matriz ortogonal $2\times2$ no singular, $\vec{t} $ es un vector columna de translación de 2 componentes y $\vec{0} $ es un vector fila nulo de 2 componentes.
 
 \begin{itemize}
 	\item \textbf{Invarianza:} Lineas paralelas, cociente de longitudes de lineas paralelas.
@@ -200,13 +200,13 @@ Esta matriz es posible expresarla por bloques, como se muestra a continuación:
 \begin{displaymath}
 \vec{x'}= 
 \begin{bmatrix}
-{\vec{A}}&{\vec{t}}\\
+{\mathtt{A}}&{\vec{t}}\\
 {\vec{v}}&{u}
 \end{bmatrix}
 \vec{x}
 \label{bloque-perspectiva}
 \end{displaymath}
-Donde $ \vec{A} $ sería una matriz ortogonal $2\times2$ no singular, $\vec{v}$ es un vector fila de 2 componentes, $\vec{t}$ es un vector columna de translación de 2 componentes, $\vec{0} $ es un vector fila nulo de 2 componentes y $u$ es el factor de escala de la transformación.
+Donde $ \mathtt{A} $ sería una matriz ortogonal $2\times2$ no singular, $\vec{v}$ es un vector fila de 2 componentes, $\vec{t}$ es un vector columna de translación de 2 componentes, $\vec{0} $ es un vector fila nulo de 2 componentes y $u$ es el factor de escala de la transformación.
 
 \begin{itemize}
 	\item \textbf{Invarianza:} cociente cruzado (cociente de cocientes de longitudes), puntos de contacto (intersecciones).
@@ -279,7 +279,7 @@ Como se observa cada par de puntos genera dos ecuaciones lineales, mostradas a c
 \begin{displaymath}
 {y'_i ( h_{31}x_i+h_{32}y_i+h_{33} ) = h_{21}x_i+h_{22}y_i+h_{23}}
 \end{displaymath}
-Escrito de forma matricial se puede expresar como a continuación:
+Escrito en forma matricial se puede expresar de la siguiente forma:
 \begin{displaymath}
 \mathtt{A}_i\vec{h}=\vec{0}
 \end{displaymath}
@@ -295,7 +295,7 @@ Y
 \begin{displaymath}
 \vec{h}^\mathtt{T} = (h_{11},\, h_{12},\, h_{13},\, h_{21},\, h_{22},\, h_{23},\, h_{31},\, h_{32},\, h_{33})
 \end{displaymath}
-Dado que 1 pareja arroja 2 ecuaciones lineales, 4 parejas arrojarían 8 ecuaciones, y se puede resuelve el sistema para un factor multiplicativo dado por $h_{33}$. La única restricción que tiene esta sistema de ecuaciones para asegurar un resultado es que no se tengan 3 puntos que residan en la misma linea. Con esto se tiene el siguiente sistema de ecuaciones:
+Dado que 1 pareja arroja 2 ecuaciones lineales, 4 parejas arrojarían 8 ecuaciones, y se puede resuelve el sistema para un factor multiplicativo dado por $h_{33}$ ($h_{33}=1$). La única restricción que tiene esta sistema de ecuaciones para asegurar un resultado, es que no se tengan 3 puntos que residan en la misma linea. Con esto se tiene el siguiente sistema de ecuaciones:
 \begin{displaymath}
 \mathtt{A}\vec{h}=
 \begin{bmatrix}
@@ -313,7 +313,7 @@ h_{11}\\h_{12}\\h_{13}\\h_{21}\\h_{22}\\h_{23}\\h_{31}\\h_{32}\\h_{33}
 \end{bmatrix}
 = 0
 \end{displaymath}
-Añadiendo la condición de 	 $\left | \mathtt{H} \right | = 1$ para evitar la solución trivial $\vec{h}=0$. Luego se puede resolver mediante el método de descomposición en valores singulares SVD (del inglés: Singular Value Decomposition) con $\mathtt{A} = \mathtt{U}\mathtt{S}\mathtt{V}^\mathtt{A}$, donde $\mathtt{U}$ y $\mathtt{V}$ son una matriz ortogonal; y $\mathtt{S}$ es una matriz formada con los valores singulares de $\mathtt{A}$ en su diagonal principal ordenados en orden descendente. Finalmente el vector singular unitario correspondiente con el menor valor singular es la solución $\vec{h}$.
+Añadiendo la condición de 	 $\left | \mathtt{H} \right | = 1$ para evitar la solución trivial $\vec{h}=0$. Luego se puede resolver mediante el método de descomposición en valores singulares SVD (del inglés: Singular Value Decomposition) con $\mathtt{A} = \mathtt{U}\mathtt{S}\mathtt{V}^\mathtt{T}$, donde $\mathtt{U}$ y $\mathtt{V}$ son matrices ortogonales; y $\mathtt{S}$ es una matriz formada con los valores singulares de $\mathtt{A}$ en su diagonal principal ordenados en orden descendente. Finalmente el vector singular unitario correspondiente con el menor valor singular es la solución $\vec{h}$.
 
 En este punto, la matriz encontrada se puede usar para transformar $\vec{x} \to \vec{x'}$, o bien se puede usar la inversa ($\mathtt{H^{-1}}$) para realizar el mapeo en sentido contrario.
 
@@ -324,7 +324,7 @@ Uno de los algoritmos mas usados para encontrar el mejor modelo está basado en 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{RANSAC}
 
-Este es un método iterativo que permite calcular los parámetros de un modelo, a partir de un conjunto de datos que presentan valores atípicos. En nuestro caso, se tiene un conjunto sobre dimensionado de pares de puntos correspondientes, de los cuales se deben seleccionar los mejores 4 pares para estimar la mejor matriz de transformación, siendo la mejor aquella que logre minimizar la función de coste planteada.
+Este es un método iterativo que permite calcular los parámetros de un modelo, a partir de un conjunto de datos que presentan valores atípicos. En nuestro caso, se tiene un conjunto sobre determinado de pares de puntos correspondientes, de los cuales se deben seleccionar los mejores 4 pares para estimar la mejor matriz de transformación, siendo la mejor aquella que logre minimizar la función de coste planteada.
 
 
 Como ya se ha mencionado, las escenas que se estudian no son completamente planas, lo que provoca una inexactitud al estimar la transformación. Para lograr establecer un modelo, el método RANSAC considera solo los mejores datos que se logren ajustar a el, en este sentido se definen los \textit{inliers} y \textit{outliers}, donde los \textit{inliers} son aquellos valores que logran encajar en el modelo deseado, mientras que los \textit{outliers} son aquellos que no logran hacerlo. Por ejemplo: si se tienen un conjunto de puntos cuya distribución corresponden con el plano del suelo, estos serian los \textit{inliers}, y por otro lado aquellos puntos que no pertenecen a este plano serian los \textit{outliers}, ya sea por un emparejamiento erróneo o que pertenezcan a un segmento de distinta altitud de la escena. En la figura \ref{imagen:ransac} se ilustra esta distinción.
@@ -332,11 +332,11 @@ Como ya se ha mencionado, las escenas que se estudian no son completamente plana
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=14cm]{ransac}
-	\caption[ransac poitns]{El siguiente diagrama representa la vista lateral de un plano. Los puntos amarillos corresponden con los utilizados para establecer el modelo (para calcular la matriz). Los puntos azules corresponden con los \textit{inliers}, mientras que los rojos con los \textit{outliers}. La distancia para la función de coste se mide desde cada punto hasta el plano considerando únicamente los \textit{inliers}}
+	\caption[ransac poitns]{El siguiente diagrama representa la vista lateral de un plano. Los puntos amarillos corresponden con los utilizados para establecer el modelo (para calcular la matriz). Los puntos azules corresponden con los \textit{inliers}, mientras que los rojos con los \textit{outliers}. La distancia para la función de coste se mide desde cada punto hasta el plano considerando únicamente los \textit{inliers}.}
 	\label{imagen:ransac}
 \end{figure}
 
-Ahora bien es necesario establecer la función de costo que buscará minimizar el algoritmo. En este caso se intenta lograr disminuir el error cuadrático medio, donde el error es medido con la distancia de los puntos (inliers) correspondientes. Tal y como se observa en la figura \ref{imagen:ransac} el método RANSAC establece un perímetro que le permite distinguir \textit{inliers} de \textit{outliers}, ahora bien una vez se logran distinguir, el algoritmo solo considera los mejores para obtener el costo o peso asociado al modelo estimado, calculando para esto la distancia desde cada inlier hasta el plano. Este proceso se puede apreciar en el algoritmo \ref{ransac}.
+Ahora bien es necesario establecer la función de costo que buscará minimizar el algoritmo. En este caso se intenta disminuir el error cuadrático medio, donde el error es medido con la distancia de los puntos (inliers) correspondientes. Tal y como se observa en la figura \ref{imagen:ransac} el método RANSAC establece un perímetro que le permite distinguir \textit{inliers} de \textit{outliers}, ahora bien una vez se logran distinguir, el algoritmo solo considera los mejores para obtener el costo o peso asociado al modelo estimado, calculando para esto la distancia desde cada inlier hasta el plano. Este proceso se puede apreciar en el algoritmo \ref{ransac}.
 
 \begin{figure}[hb]
 	\centering
@@ -368,57 +368,88 @@ Ahora bien es necesario establecer la función de costo que buscará minimizar e
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generación de sub-mosaicos}
 
-\begin{algorithm}[H] %or another one check
-	\caption{Registro de imágenes}
-	\SetAlgoLined
-	$I_{i+1}$ $\equiv$ Imagen nueva\;
-	$I_{i}$ $\equiv$ ultima imagen añadida al mosaico\;
-	$V_{i}$ $\equiv$ vecinos de $I_{i}$\;
-	\While{puntos emparejados $\ge$ 4}{
-		Emparejar puntos de $I_{i+1}$ con $I_{i}$\;
-		\If{$I_{i}$ tiene vecinos}{
-			\ForEach {vecino de $I_{i}$}{
-				Emparejar puntos de $I_{i+1}$ con $V_{i}$\;
-			}
-		}
-		descartar malos emparejamientos\;
-		aplicar busqueda sectorizada\;
-		\If{puntos totales emparejados $\le$ 3}{
-			modificar criterio para descartar\;
-			\If{criterio para descartar llega al minimo}{
-				terminar \tcp*{no es posible emparejar imagen}
-			}
-		}
-	}
-\end{algorithm}
+El proceso mas simple para la generación de un mosaico consiste en añadir imágenes siguiendo los procesos planteados previamente para establecer el registro, y luego aplicando la matriz de transformación para lograr referenciarla en el plano del mosaico. Ahora bien para el caso del primer par de imágenes, esta practica implica que se hallo la transformación desde la nueva añadida hacia la primera, tomando esta primera como plano de referencia. Esto se conoce como el proceso básico para la elaboración de mosaicos, en el cual se considera la primera imagen como referencia global para la construcción del mapa. La selección errónea de una imagen de referencia puede generar grandes distorsiones en el mosaico (especialmente para mapas grandes), y considerando el sistema simple, si no se cuenta con una primera imagen que se encuentre muy bien alineada con el plano del suelo, se comprometerá gravemente el resultado final del mosaico.
 
+En busca de resolver este problema, \textit{Bellavia et. al.} en \cite{bellavia-ref,bellavia-ransac} plantean el modelo de sub mosaicos para lograr reducir el error geométrico producto de la mala selección de la imagen de referencia. Este sistema propone una estrategia para la selección del mejor plano de referencia que logre minimizar el error de distorsión, mediante la construcción de pequeños segmentos de mosaico que se alinean bajo el esquema básico, pero que poseen localmente poca distorsión geométrica.
 
-\subsection{Selección de imagen de referencia}
-Prueba
+La generación de los sub mosaicos consiste en el siguiente proceso: refiriéndonos a la figura X, se selecciona como referencia la primera imagen (cuadro verde relleno), se añaden imágenes al sub mosaico sucesivamente hasta que la siguiente presente mucha distorsión (cuadro amarillo), en este punto se crea un nuevo sub mosaico (cuadros azules) y se añade aquella que presentó mucha distorsión como referencia para el nuevo sub mosaico. Así sucesivamente se van construyendo sub mosaicos hasta que no se cuenten con mas imágenes.
+
+Una vez se han creado todos los sub-mosaicos es necesario unirlos. En este punto cada sub mosaico considera la primera imagen como el plano de referencia, por lo tanto es necesario definir cual será la referencia bajo la cual éstos deben unirse. Para esto se utiliza la homografía que logre disminuir el error de distorsión sobre todos las imágenes del sub mosaico, esta transformación se define como homografía promedio. El proceso para su obtención se calcula a continuación.
 
 \subsection{Matriz de transformación promedio}
 
-\begin{algorithm}[H] %or another one check
+Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos sub mosaicos que se desean unir (deben ser temporalmente continuos), en la imagen superior se observan los sub mosaicos (marcos verde oscuro y verde claro) alineados y considerando la imagen de referencia del primero (verde lleno) como imagen de referencia global. En el segundo caso se muestran ambos alineados pero considerando la imagen de referencia del segundo (rojo lleno) como imagen de referencia global. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{homografia-promedio2}
+	\caption[Estimación de homografia promedio]{Estimación de homografía promedio en base a 4 pares de puntos correspondientes, de \cite{bellavia-ref}}
+	\label{imagen:homografia-promedio}
+\end{figure}
+
+Para encontrar la homografía promedio se aplica un algoritmo basado en el método RANSAC el cual consiste en obtener 4 pares de puntos correspondientes ($x^1_i   \leftrightarrow x^2_i$) entre los dos sub mosaicos (verde y rojo), seguidamente para dichos puntos se calcula el punto medio ($x^a_i$), luego se calcula la matriz que transforma los puntos del primer sub mosaico hacia los puntos medios, después se aplica la homografía en el primer sub mosaico y se obtiene la distorsión para dicha transformación. Finalmente la matriz que logre minimizar la distorsión global en el nuevo sub mosaico es seleccionada como la homografía promedio. este proceso se muestra mejor estructurado en el algoritmo \ref{homografia-promedio}.
+
+
+\begin{algorithm}[h] %or another one check
 	\caption{Calculo de matriz de homografia promedio}
 	\SetAlgoLined
-	
-	\While{no se alcanza el maximo de iteraciones}{
-		seleccionar 4 puntos aleatorios del primer sub-mosaico\;
-		seleccionar los 4 puntos correspondientes en el segundo sub-mosaico\;
-		calcular el punto medio para cada par de puntos correspondientes\;
-		calcular la transformacion desde los puntos del primer sub-mosaico hasta los puntos medios\;
-		aplicar transformacion en el primer sub-mosaico\;
-		calcular error de distorsión en el primer sub-mosaico\;
-		\eIf{el error es menor que el mas bajo obtenido}{
-			guardar el error como el mas bajo\;
-			guardar la matriz de transformación como la mejor\;
-		}{
-		restaurar valores del primer sub-mosaico\;
+	\Begin{
+		\While{no se alcanza el maximo de iteraciones}{
+			Seleccionar 4 puntos aleatorios del primer sub-mosaico\;
+			Seleccionar los 4 puntos correspondientes en el segundo sub-mosaico\;
+			Salcular el punto medio para cada par de puntos correspondientes\;
+			Calcular la transformacion desde los puntos del primer sub-mosaico hasta los puntos medios\;
+			Aplicar transformacion en el primer sub-mosaico\;
+			Calcular error de distorsión en el primer sub-mosaico\;
+			\eIf{el error es menor que el mas bajo obtenido}{
+				Guardar el error como el mas bajo\;
+				Guardar la matriz de transformación como la mejor\;
+			}{
+			Restaurar valores del primer sub-mosaico\;
+			}	
+		}
+		Aplicar mejor matriz al primer sub-mosaico\;
 	}
-}
+	\label{homografia-promedio}
 \end{algorithm}
 
+\subsection{Segmentación de puntos característicos}
 
+Según se estudió en el método RANSAC, la estimación de una buena homografía depende de la distribución de los puntos en la escena. Es posible contar con una gran cantidad de puntos extraídos y emparejados en una sección de la escena que no corresponde con el mejor modelo del plano de ésta, lo que indica que la matriz de homografía se ajuste a esta sección del plano por ofrecer menor error en la función de coste. En cambio, el resultado esperado es que se tenga una mejor distribución de puntos en la escena de modo que se tenga una ponderación de igual magnitud para todas las regiones del suelo. Un ejemplo de este caso se puede apreciar en la figura X.  
+
+Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone una segmentación espacial de los puntos emparejados entre dos imágenes, con el objetivo de mejorar la distribución y ponderar de igual forma todas las secciones del plano. Básicamente el proceso consiste en dividir la imagen en $n\times m$ celdas, y por cada celda seleccionar la pareja mejor pareja de puntos. Teniendo como resultado un máximo de $n\times m$ parejas entre imágenes. Esta división y selección se puede observar en la figura X.
+
+\subsection{Relación con vecinos}
+prueba
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}{.8\linewidth}
+		\begin{algorithm}[H] %or another one check
+			\caption{Relacionar imágenes}
+			\SetAlgoLined
+			$I_{i+1}$ $\equiv$ Imagen nueva\;
+			$I_{i}$ $\equiv$ ultima imagen añadida al mosaico\;
+			$V_{i}$ $\equiv$ vecinos de $I_{i}$\;
+			\While{puntos emparejados $\ge$ 4}{
+				Emparejar puntos de $I_{i+1}$ con $I_{i}$\;
+				\If{$I_{i}$ tiene vecinos}{
+					\ForEach {vecino de $I_{i}$}{
+						Emparejar puntos de $I_{i+1}$ con $V_{i}$\;
+					}
+				}
+				descartar malos emparejamientos\;
+				aplicar busqueda sectorizada\;
+				\If{puntos totales emparejados $\le$ 3}{
+					modificar criterio para descartar\;
+					\If{criterio para descartar llega al minimo}{
+						terminar \tcp*{no es posible emparejar imagen}
+					}
+				}
+			}
+		\end{algorithm}
+	\end{minipage}
+\end{figure}
+prueba
 \section{Corrección euclidiana}
 Prueba
 

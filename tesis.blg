@@ -29,7 +29,7 @@ while executing---line 944 of file unsrt.bst
 Warning--empty journal in flann
 You've used 31 entries,
             1791 wiz_defined-function locations,
-            592 strings with 8038 characters,
+            592 strings with 8036 characters,
 and the built_in function-call counts, 4440 in all, are:
 = -- 370
 > -- 150
