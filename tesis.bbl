@@ -167,4 +167,9 @@ David Muja, Marius y~Lowe.
 \newblock Scalable nearest neighbor algorithms for high dimensional data.
 \newblock 36:2227--2240, 11 2014.
 
+\bibitem{zisserman}
+Richard~Hartley y~Andrew~Zisserman.
+\newblock {\em Multiple View Geometry in Computer Vision}.
+\newblock Cambridge University Press New York, NY, USA, 2003.
+
 \end{thebibliography}
