@@ -39,7 +39,7 @@
 \contentsline {subsection}{\numberline {4.3.2}Segmentaci\IeC {\'o}n de puntos caracter\IeC {\'\i }sticos}{54}{subsection.184}
 \contentsline {subsection}{\numberline {4.3.3}Relaci\IeC {\'o}n con vecinos}{55}{subsection.185}
 \contentsline {section}{\numberline {4.4}Correcci\IeC {\'o}n euclidiana}{55}{section.208}
-\contentsline {section}{\numberline {4.5}Resultados}{55}{section.209}
+\contentsline {section}{\numberline {4.5}Resultados}{56}{section.209}
 \contentsline {section}{\numberline {4.6}Resumen}{56}{section.210}
 \contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{57}{chapter.211}
 \contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{57}{section.212}
