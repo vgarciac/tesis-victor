@@ -419,7 +419,8 @@ Según se estudió en el método RANSAC, la estimación de una buena homografía
 Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone una segmentación espacial de los puntos emparejados entre dos imágenes, con el objetivo de mejorar la distribución y ponderar de igual forma todas las secciones del plano. Básicamente el proceso consiste en dividir la imagen en $n\times m$ celdas, y por cada celda seleccionar la pareja mejor pareja de puntos. Teniendo como resultado un máximo de $n\times m$ parejas entre imágenes. Esta división y selección se puede observar en la figura X.
 
 \subsection{Relación con vecinos}
-prueba
+
+Tal y como se ha planteado el proceso de registro hasta este punto, consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición, con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estás condiciones no se cumplen es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo de imágenes inmediatamente anteriores, a las cuales llamaremos imágenes vecinas.
 
 \begin{figure}[h]
 	\centering
