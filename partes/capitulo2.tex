@@ -37,11 +37,12 @@ Específicamente la etapa para estimar correspondencias entre las imágenes es u
 
 De esta forma se propone una clasificación de los algoritmos de mosaicos, basada en como estos abordan los procesos de registro y fusión. Además, para cada clasificación se realiza una breve revisión teórica de cada categoría, así como también los diferentes métodos y modificaciones que han aplicado diversos desarrolladores. en la figura \ref{imagen:clasificacion} se puede apreciar esta clasificación.
 
-\begin{figure}[H]
-	\centerline{
-		\includegraphics[width=15cm]{clasificacion}}
-	\caption[Clasificación de los algoritmos de generación de mosaico]{Clasificación de los algoritmos de generación de mosaico según como aborden las etapas de registro y fusión}
-	
+
+\begin{figure}
+	\centering     %%% not \center
+	\subfigure[Clasificación segun el proceso de registro]{\label{fig:vecinos1-a}\includegraphics[width=.45\textwidth]{clasificacion1.pdf}}\hspace{5mm}%}
+	\subfigure[Clasificación segun el proceso de fusión]{\label{fig:vecinos1-b}\includegraphics[width=.45\textwidth]{clasificacion2.pdf}}
+	\caption{Clasificación de los algoritmos de generación de mosaico}
 	\label{imagen:clasificacion}
 \end{figure}
 
@@ -127,7 +128,7 @@ Finalmente, tomando en cuenta algunas observaciones y recomendaciones de los tra
 
 \begin{figure}[H]
 	\centerline{
-		\includegraphics[width=1.21\textwidth]{esquema-general}}
+		\includegraphics[width=1.21\textwidth]{esquema-general.pdf}}
 		\caption{Esquema propuesto para la construcción del mosaico}
 	\label{imagen:esquema}
 \end{figure}
