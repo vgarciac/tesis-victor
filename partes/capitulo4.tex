@@ -217,7 +217,7 @@ En la figura \ref{imagen:transformaciones} se ilustra gráficamente los tipos de
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=14.5cm]{transformaciones}
+	\includegraphics[width=14.5cm]{transformaciones.pdf}
 	\caption[Tipos de transformaciones geométricas]{Tipos de transformaciones geométricas}
 	\label{imagen:transformaciones}
 \end{figure}
@@ -258,12 +258,11 @@ En base a esto, siempre es posible encontrar una matriz de transformación que p
 
 El ultimo nivel de transformación estudiada posee ocho grados de libertad (\textit{8-DoF}), con lo cual es posible estimar los parámetros de dicha transformación con tan solo 8 valores independientes. Por otro lado, conociendo que la homografía es una transformación que preserva la naturaleza de los objetos --- transforma puntos en puntos, lineas en lineas y planos en planos --, solo es posible relacionar dos imágenes mediante una homografía, siempre y cuando la escena que capturen corresponda con un plano. ver figura \ref{imagen:planos}.
 
+
 \begin{figure}[h]
-	\centering
-	\begin{tabular}{@{}cc@{}}
-		\includegraphics[width=.45\textwidth]{planos2} &
-		\includegraphics[width=.45\textwidth]{planos1} 
-	\end{tabular}
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:a}\includegraphics[width=.45\textwidth]{planos2}}\hspace{5mm}%}
+	\subfigure[]{\label{fig:b}\includegraphics[width=.45\textwidth]{planos1}}
 	\caption[Relacion de homografías]{Los puntos $\mathbf{C}$ y $\mathbf{C'}$ corresponden con los centros de la cámara en las distintas posiciones, Los puntos $\vec{x_i}$ y $\vec{x'_i}$ son la intersección de los puntos de la escena $\vec{X_i}$ en el plano de la imagen (formación de la imagen). Si la cámara se mueve no se podrá relacionar los planos de las imágenes con una homografía (izquierda), a menos que los puntos de la escena se encuentren todos en un mismo plano (derecha). Adaptado de \cite{zisserman}.}
 	\label{imagen:planos}
 \end{figure}
@@ -331,7 +330,7 @@ Como ya se ha mencionado, las escenas que se estudian no son completamente plana
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=14cm]{ransac}
+	\includegraphics[width=14cm]{ransac.pdf}
 	\caption[ransac poitns]{El siguiente diagrama representa la vista lateral de un plano. Los puntos amarillos corresponden con los utilizados para establecer el modelo (para calcular la matriz). Los puntos azules corresponden con los \textit{inliers}, mientras que los rojos con los \textit{outliers}. La distancia para la función de coste se mide desde cada punto hasta el plano considerando únicamente los \textit{inliers}.}
 	\label{imagen:ransac}
 \end{figure}
@@ -414,13 +413,49 @@ Para encontrar la homografía promedio se aplica un algoritmo basado en el méto
 
 \subsection{Segmentación de puntos característicos}
 
-Según se estudió en el método RANSAC, la estimación de una buena homografía depende de la distribución de los puntos en la escena. Es posible contar con una gran cantidad de puntos extraídos y emparejados en una sección de la escena que no corresponde con el mejor modelo del plano de ésta, lo que indica que la matriz de homografía se ajuste a esta sección del plano por ofrecer menor error en la función de coste. En cambio, el resultado esperado es que se tenga una mejor distribución de puntos en la escena de modo que se tenga una ponderación de igual magnitud para todas las regiones del suelo. Un ejemplo de este caso se puede apreciar en la figura X.  
+Según se estudió en el método RANSAC, la estimación de una buena homografía depende de la distribución de los puntos en la escena. Es posible contar con una gran cantidad de puntos extraídos y emparejados en una sección de la escena que no corresponde con el mejor modelo del plano de ésta, lo que indica que la matriz de homografía se ajuste a esta sección del plano por ofrecer menor error en la función de coste. En cambio, el resultado esperado es que se tenga una mejor distribución de puntos en la escena de modo que se tenga una ponderación de igual magnitud para todas las regiones del suelo.
 
-Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone una segmentación espacial de los puntos emparejados entre dos imágenes, con el objetivo de mejorar la distribución y ponderar de igual forma todas las secciones del plano. Básicamente el proceso consiste en dividir la imagen en $n\times m$ celdas, y por cada celda seleccionar la pareja mejor pareja de puntos. Teniendo como resultado un máximo de $n\times m$ parejas entre imágenes. Esta división y selección se puede observar en la figura X.
+Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone una segmentación espacial de los puntos emparejados entre dos imágenes, seguida de un proceso de selección con el objetivo de mejorar la distribución, y ponderar de igual forma todas las secciones del plano. Básicamente el proceso consiste en dividir la imagen en $n\times m$ celdas, y por cada celda seleccionar la pareja mejor pareja de puntos. Teniendo como resultado un máximo de $n\times m$ parejas entre imágenes. Esta división y selección se puede observar en la figura \ref{imagen:celdas}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{celdas.pdf}
+	\caption[Selección de mejores parejas]{Selección de mejores parejas en cada celda. Los puntos verdes corresponden con las parejas detectadas, y los puntos rojos serian las mejores pareas por cada celda.}
+	\label{imagen:celdas}
+\end{figure}
+
+Refiriéndonos a la figura \ref{imagen:grid-plano}, se observa como en \ref{fig:grid-plano-a} una fuerte aglomeración de parejas en una sección del plano (región con muchos puntos característicos) produce que la estimación de la matriz de homografía le asigne una alta ponderación al modelo del plano que se ajusta a esta región. Por otro lado, en la figura  \ref{fig:grid-plano-a} se observa como se puede mejorar la estimación de la transformación, al seleccionar solo las mejores parejas por cada región, de esta forma la ponderación se distribuye de mejor manera a lo largo del plano del suelo.
+
+\begin{figure}
+	\centering     %%% not \center
+	\subfigure[30 inliers y 10 outliers (mejor modelo)]{\label{fig:grid-plano-a}\includegraphics[width=0.8\textwidth]{grid-plano1.pdf}}%\hspace{10mm}%}
+	
+	\subfigure[10 inliers y 5 outliers (mejor modelo)]{\label{fig:grid-plano-b}\includegraphics[width=0.8\textwidth]{grid-plano2.pdf}}
+	\caption{Ambas imágenes representan la vista lateral del plano de un suelo. En (a) se presenta el mejor modelo del plano con la cantidad original de parejas, mientras que en (b) se muestra el mismo proceso pero luego de haber seleccionado las parejas con enlace mas fuerte por cada región, (determinada según \ref{imagen:celdas})}
+	\label{imagen:grid-plano}
+\end{figure}
 
 \subsection{Relación con vecinos}
 
-Tal y como se ha planteado el proceso de registro hasta este punto, consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición, con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estás condiciones no se cumplen es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo de imágenes inmediatamente anteriores, a las cuales llamaremos imágenes vecinas.
+Tal y como se ha planteado el proceso de registro hasta este punto, consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición (ver figura \ref{fig:vecinos1-a}), con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estás condiciones no se cumplen es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo todas aquellas inmediatamente anteriores con la que presenta , a las cuales llamaremos imágenes vecinas (ver figura \ref{fig:vecinos1-b}).
+
+
+\begin{figure}
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:vecinos1-a}\includegraphics[height=.40\textwidth]{vecinos1.pdf}}\hspace{10mm}%}
+	\subfigure[]{\label{fig:vecinos1-b}\includegraphics[height=.40\textwidth]{vecinos2.pdf}}
+	\caption{En función a la ultima imagen añadida (superior), todas las imágenes con marco de color negro son considerados como vecinos. En el caso de la figura (b) una búsqueda en la que solo se considere la imagen anterior no aprovecha toda la información de aquellas con las que se intersecta}
+	\label{imagen:vecinos1}
+\end{figure}
+
+
+\begin{figure}
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:a}\includegraphics[width=.29\textwidth]{vecinos3.pdf}}\hspace{5mm}%}
+	\subfigure[]{\label{fig:b}\includegraphics[width=.29\textwidth]{vecinos4.pdf}}\hspace{5mm}%
+	\subfigure[]{\label{fig:b}\includegraphics[width=.29\textwidth]{vecinos5.pdf}}
+	\caption{my caption}
+\end{figure}
 
 \begin{figure}[h]
 	\centering
