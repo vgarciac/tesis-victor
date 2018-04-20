@@ -172,4 +172,15 @@ Richard~Hartley y~Andrew~Zisserman.
 \newblock {\em Multiple View Geometry in Computer Vision}.
 \newblock Cambridge University Press New York, NY, USA, 2003.
 
+\bibitem{elibol}
+Armagan Elibol, Nuno Gracias, and Rafael Garcia.
+\newblock {\em Efficient Topology Estimation for Large Scale Optical Mapping},
+  volume~82.
+\newblock 01 2012.
+
+\bibitem{graph-opencv}
+Vivek Kwatra, Arno Sch\"{o}dl, Irfan Essa, Greg Turk, and Aaron Bobick.
+\newblock Graphcut textures: Image and video synthesis using graph cuts.
+\newblock {\em ACM Trans. Graph.}, 2003.
+
 \end{thebibliography}

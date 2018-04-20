@@ -4,31 +4,66 @@
 
 
 \section{Introducción}
-Prueba
+El objetivo final de la creación de un mosaico, es lograr un mapa que represente de la mejor forma la trayectoria recorrida. Esto es, que sea visualmente congruente y que no presente ningún tipo de discontinuidades de modo que todo parezca una misma imagen. De las primeras etapas se manifiestan muchos errores producto de los problemas ya planteados, si bien a lo largo del proceso éstos se intentan reducir lo mas posible, siempre es necesaria la etapa final de fusión para lograr los objetivos propuestos.
+
+En esta sección se describen los algoritmos utilizados para lograr fusionar las imágenes del mosaico, como ya se especificó fueron seleccionados aquellos que presentaron resultados importantes en diversos estudios externos, y se implementaron en conjunto para lograr resultados mucho mas robustos. Estos se detallan a continuación en el orden de aplicación sobre el mosaico: linea de corte, ajuste de color y finalmente la fusión ponderada.
+
+Finalmente se muestran los resultados con su respectivo análisis de aplicar cada uno de los algoritmos aquí descritos.
+\clearpage
+
 
 \section{Linea de costura}
-Prueba
+Este algoritmo es aplicado en primer lugar, ya que el resto de métodos requieren conocer de antemano los límites de cada imagen. 
+A diferencia de los anteriores, este tipo de algoritmos es el único que toma en cuenta la información que comparten las imágenes en el área que tienen en común, con lo cual su implementación logra corregir la mayor cantidad de imperfecciones. 
 
-\subsection{Mapa mas cercano}
-Prueba
 
 \subsection{Corte por grafo}
-Prueba
+
+Este es un método derivado de la teoría de grafos, donde la idea es separar un grafo con conexiones simples en dos grafos separados con un mínimo costo de separación. Se define un grafo $\mathcal{G} = \langle \mathcal{N}, \mathcal{E} \rangle$ como un conjunto de nodos $\mathcal{N}$, conectados por enlaces $\mathcal{E}$. Cada enlace conecta dos nodos y tiene asociado un costo o peso $\mathcal{W}(p, q) \,\, p,q \in \mathcal{N}$ --- cuando se habla de conexión simple, se refiere a que el costo en los enlaces está asociado para ambas direcciones $\mathcal{W}(p, q) = \mathcal{W}(p, q)$ ---. Se dice que dos grafos están separados si no se tiene ningún enlace que conecte dos nodos entre los grafos. Definimos $\mathcal{S}$ y $\mathcal{T}$ como los grafos separados que se tienen luego de aplicar el corte en $\mathcal{G}$. El método para determinar el mejor corte se basa en encontrar el camino entre los enlaces que logra separa un grafo en dos, con el mínimo costo de corte, donde el costo del corte es la suma de los pesos de todos los enlaces del camino seleccionado.
+
+En el conjunto de nodos en el grafo se cuentan con dos especiales o nodos terminales, el inicio ($\mathtt{I}$) y el final ($\mathtt{F}$), donde el resto de píxeles en la imagen corresponden con un nodo no terminal. En aplicaciones de visión por computadora, cuando se desea unir dos imágenes en una región de intersección, lo que se busca es lograr un etiquetado de píxeles que permita distinguir que nodos corresponden a cada imagen en el área de intersección.
+
+Se presenta en la ecuación \ref{funcion-corte} la función de coste que etiqueta los nodos, y minimiza el costo del corte.
+\begin{equation}
+C(f) = \sum_{_p\in \mathcal{N}}^{} D_p(f_p) + \sum_{_p,_q \in \mathcal{N} - \{\mathtt{I},\mathtt{F}\}}^{} \mathcal{W}_p,_q (f_p, f_q)
+\label{funcion-corte}
+\end{equation}
+Donde $p$ es un nodo que pertenece al conjunto de nodos no terminales $\mathcal{N} - \{\mathtt{I},\mathtt{F}\}$. El término $D_p(f_p)$ es el costo de asignar una etiqueta $f_p$ ($f_p \in \{0,\,1\}$) al nodo $p$ --- en este caso una etiqueta binaria, asociando el píxel a una imagen u otra ---. El término $\mathcal{W}_p,_q (f_p, f_q)$ es el costo de asociar una etiqueta al nodo $_p$ y una distinta al nodo $_q$.
+
+Una gran diferencia de intensidades entre píxeles adyacentes representa un fuerte indicador de la existencia de un borde o contorno entre dos objetos, es decir, que el costo de un enlace se puede definir como el inverso de la diferencia entre la intensidad de los píxeles que conecta. Siendo $I(p)$ la intensidad de un píxel $p$, se defina el coso de cada enlace como:
+\begin{equation}
+\mathcal{W}_p,_q = 255 - |I(p) - I (q)|
+\label{costo-corte}
+\end{equation}
+Si bien se consideran los parámetros necesarios con esa función, se obtienen resultados mucho mas robustos usando una función exponencial \cite{graph-opencv}:
+\begin{equation}
+\mathcal{W}_p,_q = e^{\left(\frac{255-|I(p) - I (q)|}{2 \sigma}  \right) }
+\label{costo-corte}
+\end{equation}
+Donde $\sigma$ es la desviación estándar de la imagen, y siendo válido para los casos en los que $f_p \neq f_q$, indicando que ambos nodos pertenecen serán separados por la linea de corte.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{grafo-completo.pdf}
+	\caption[Corte por grafo]{De izquierda a derecha: imagen original, creación de nodos y enlaces, se asignan los pesos y se halla la linea de corte, finalmente se binariza la imagen según las etiquetas para crear una mascara.}
+	\label{imagen:grafo}
+\end{figure}
+Refiriéndonos a la figura \ref{imagen:grafo}, se observa el proceso de modelar una imagen mediante un grafo con conexiónes simples, donde cada cuadro está compuesto por el inverso de la diferencia de intensidades entre dos imágenes, representado en escala de grises. Al final se tiene un imagen compuesta por dos grafos separados, donde $\mathtt{I} \in \mathcal{S}$ y $\mathtt{F} \in \mathcal{T}$ donde a cada nodo del grafo se le asigna un valor binario dependiendo de la etiqueta resultante el algoritmo de minimización del costo de corte.
+
 
 \section{Corrección de color}
-Prueba
-
-\subsection{Ajuste de ganancia}
-Prueba
+Cuando se tienen imágenes capturadas desde distintos puntos de vista, se suelen tener en la composición final cambios de intensidades por cambios de exposición de luz en la escena. Por ellos es necesario 
 
 \subsection{Método de Reinhard}
 Prueba
 
 \section{Fusión de imágenes}
+prueba
 
 \subsection{Fusión ponderada}
 Prueba
-\subsection{Fusión piramidal}
+
+\subsection{Fusión ponderada piramidal}
 Prueba
 
 \section{Resultados}

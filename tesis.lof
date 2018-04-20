@@ -33,18 +33,25 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{48}{figure.caption.145}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{48}{figure.caption.145}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces ransac poitns}}{51}{figure.caption.149}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{53}{figure.caption.167}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Selecci\IeC {\'o}n de mejores parejas}}{55}{figure.caption.189}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Ambas im\IeC {\'a}genes representan la vista lateral del plano de un suelo. En (a) se presenta el mejor modelo del plano con la cantidad original de parejas, mientras que en (b) se muestra el mismo proceso pero luego de haber seleccionado las parejas con enlace mas fuerte por cada regi\IeC {\'o}n, (determinada seg\IeC {\'u}n \ref {imagen:celdas})\relax }}{56}{figure.caption.190}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {30 inliers y 10 outliers (mejor modelo)}}}{56}{figure.caption.190}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {10 inliers y 5 outliers (mejor modelo)}}}{56}{figure.caption.190}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces En funci\IeC {\'o}n a la ultima imagen a\IeC {\~n}adida (superior), todas las im\IeC {\'a}genes con marco de color negro son considerados como vecinos. En el caso de la figura (b) una b\IeC {\'u}squeda en la que solo se considere la imagen anterior no aprovecha toda la informaci\IeC {\'o}n de aquellas con las que se intersecta\relax }}{57}{figure.caption.194}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{57}{figure.caption.194}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{57}{figure.caption.194}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces my caption\relax }}{57}{figure.caption.197}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{57}{figure.caption.197}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{57}{figure.caption.197}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{57}{figure.caption.197}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Gerenaci\IeC {\'o}n de sub mosaicos}}{53}{figure.caption.166}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{53}{figure.caption.168}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{55}{figure.caption.174}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Selecci\IeC {\'o}n de mejores parejas}}{57}{figure.caption.196}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Selecci\IeC {\'o}n de mejores puntos}}{58}{figure.caption.197}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {30 inliers y 10 outliers (mejor modelo)}}}{58}{figure.caption.197}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {10 inliers y 5 outliers (mejor modelo)}}}{58}{figure.caption.197}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Superposici\IeC {\'o}n de imagenes vecinas}}{59}{figure.caption.201}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}{figure.caption.201}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}{figure.caption.201}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Superposici\IeC {\'o}n de im\IeC {\'a}genes vecinas}}{59}{figure.caption.204}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}{figure.caption.204}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}{figure.caption.204}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{59}{figure.caption.204}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Correci\IeC {\'o}n euclidiana}}{61}{figure.caption.237}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{61}{figure.caption.237}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{61}{figure.caption.237}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{61}{figure.caption.237}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Corte por grafo}}{65}{figure.caption.250}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

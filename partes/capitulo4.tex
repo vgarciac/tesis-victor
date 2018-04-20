@@ -371,21 +371,75 @@ El proceso mas simple para la generación de un mosaico consiste en añadir imá
 
 En busca de resolver este problema, \textit{Bellavia et. al.} en \cite{bellavia-ref,bellavia-ransac} plantean el modelo de sub mosaicos para lograr reducir el error geométrico producto de la mala selección de la imagen de referencia. Este sistema propone una estrategia para la selección del mejor plano de referencia que logre minimizar el error de distorsión, mediante la construcción de pequeños segmentos de mosaico que se alinean bajo el esquema básico, pero que poseen localmente poca distorsión geométrica.
 
-La generación de los sub mosaicos consiste en el siguiente proceso: refiriéndonos a la figura X, se selecciona como referencia la primera imagen (cuadro verde relleno), se añaden imágenes al sub mosaico sucesivamente hasta que la siguiente presente mucha distorsión (cuadro amarillo), en este punto se crea un nuevo sub mosaico (cuadros azules) y se añade aquella que presentó mucha distorsión como referencia para el nuevo sub mosaico. Así sucesivamente se van construyendo sub mosaicos hasta que no se cuenten con mas imágenes.
+La generación de los sub mosaicos consiste en el siguiente proceso: refiriéndonos a la figura \ref{imagen:generacion-submosaico}, se selecciona como referencia la primera imagen (cuadro verde relleno), se añaden imágenes al sub mosaico sucesivamente hasta que la siguiente presente mucha distorsión (cuadro rojo), en este punto se crea un nuevo sub mosaico (cuadros azules) y se añade aquella que presentó mucha distorsión como referencia para el nuevo sub mosaico. Siguiendo este proceso se van construyendo sub mosaicos hasta que no se cuenten con mas imágenes.
 
-Una vez se han creado todos los sub-mosaicos es necesario unirlos. En este punto cada sub mosaico considera la primera imagen como el plano de referencia, por lo tanto es necesario definir cual será la referencia bajo la cual éstos deben unirse. Para esto se utiliza la homografía que logre disminuir el error de distorsión sobre todos las imágenes del sub mosaico, esta transformación se define como homografía promedio. El proceso para su obtención se calcula a continuación.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{submosaico.pdf}
+	\caption[Gerenación de sub mosaicos]{Generación de sub mosaicos}
+	\label{imagen:generacion-submosaico}
+\end{figure}
+
+El criterio para determinar el grado de distorsión de la imagen se observa en la ecuación , tal y como se propone en \cite{bellavia-ref}:
+
+\begin{equation}
+	E = \max\limits_{I_k\subset S_i} (E^O + E^C + E^A + E^\alpha)
+	\label{eq-error}
+\end{equation}
+
+
+Para ello se considera la imagen que presente mas distorsión en el sub mosaico que se intenta unir. El error de cada parámetro se encuentra normalizado en un rango entre $0$ y $1$. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{distorsion.pdf}
+	\caption[Estimación de homografia promedio]{Estimación de homografía promedio en base a 4 pares de puntos correspondientes, de \cite{bellavia-ref}}
+	\label{imagen:distorsion}
+\end{figure}
+
+Considerado los parámetros mostrados en la figura \ref{imagen:distorsion} se describen los componentes del error en la ecuación \ref{eq-error}.
+
+$E^O$ mide el error sobre lados opuestos de la imagen.
+\begin{equation}
+E^O = 1 - \frac{1}{2}  \left(  \frac{\min (l_1, l_3)}{\max (l_1, l_3)} +  \frac{\min (l_2, l_4)}{\max (l_2, l_4)} \right)
+\end{equation}
+
+$E^C$ mide el error sobre lados consecutivos, siendo $m > n$.
+\begin{equation}
+E^C = 1 - \frac{\min (r, \frac{m}{n})}{\max (r, \frac{m}{n})}
+\end{equation}
+
+Donde $r$ es el mínimo cociente entre lados consecutivos, expresado como:
+\begin{displaymath}
+r = \left( \frac{l_1}{l_2},\, \frac{l_2}{l_3},\, \frac{l_3}{l_4},\, \frac{l_4}{l_1} \right)
+\end{displaymath}
+
+$E^A$ mide el error del área
+\begin{equation}
+E^A = 1 - \frac{\min (A_{\tilde{I}_k},\, mn)}{\max (A_{\tilde{I}_k},\, mn)}
+\end{equation}
+
+$E^\alpha$ mide el error sobre los ángulos internos. 
+\begin{equation}
+E^\alpha = (\max (\cos\alpha_{12},\, \cos\alpha_{23},\, \cos\alpha_{34},\, \cos\alpha_{41}))^5
+\end{equation}
+
+
+
+Una vez se han creado todos los sub-mosaicos es necesario unirlos. En este punto cada sub mosaico considera la primera imagen como el plano de referencia, por lo tanto es necesario definir cual será la referencia bajo la cual éstos deben unirse. Para esto se utiliza la homografía que logre disminuir el error de distorsión sobre todos las imágenes del sub mosaico, esta transformación se define como homografía promedio. El proceso para su obtención se detalla a continuación.
+
 
 \subsection{Matriz de transformación promedio}
 
-Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos sub mosaicos que se desean unir (deben ser temporalmente continuos), en la imagen superior se observan los sub mosaicos (marcos verde oscuro y verde claro) alineados y considerando la imagen de referencia del primero (verde lleno) como imagen de referencia global. En el segundo caso se muestran ambos alineados pero considerando la imagen de referencia del segundo (rojo lleno) como imagen de referencia global. 
+Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos sub mosaicos que se desean unir, los cuales son temporalmente continuos, en la imagen superior se observan los sub mosaicos (marcos verde oscuro y verde claro) alineados y considerando la imagen de referencia del primero (verde lleno) como imagen de referencia global. En el segundo caso se muestran ambos alineados pero considerando la imagen de referencia del segundo (rojo lleno) como imagen de referencia global. 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=8cm]{homografia-promedio2}
+	\includegraphics[width=8cm]{homografia-promedio.pdf}
 	\caption[Estimación de homografia promedio]{Estimación de homografía promedio en base a 4 pares de puntos correspondientes, de \cite{bellavia-ref}}
 	\label{imagen:homografia-promedio}
 \end{figure}
 
-Para encontrar la homografía promedio se aplica un algoritmo basado en el método RANSAC el cual consiste en obtener 4 pares de puntos correspondientes ($x^1_i   \leftrightarrow x^2_i$) entre los dos sub mosaicos (verde y rojo), seguidamente para dichos puntos se calcula el punto medio ($x^a_i$), luego se calcula la matriz que transforma los puntos del primer sub mosaico hacia los puntos medios, después se aplica la homografía en el primer sub mosaico y se obtiene la distorsión para dicha transformación. Finalmente la matriz que logre minimizar la distorsión global en el nuevo sub mosaico es seleccionada como la homografía promedio. este proceso se muestra mejor estructurado en el algoritmo \ref{homografia-promedio}.
+Para encontrar la homografía promedio se aplica un algoritmo basado en el método RANSAC, el cual consiste en obtener 4 pares de puntos correspondientes ($x^1_i   \leftrightarrow x^2_i$) entre los dos sub mosaicos (verde y rojo), seguidamente para dichos puntos se calcula el punto medio ($x^a_i$), luego se calcula la matriz que transforma los puntos del primer sub mosaico hacia los puntos medios ($x^a = \mathtt{H}x^1$), después se aplica la homografía en el primer sub mosaico y se obtiene la distorsión para dicha transformación. Finalmente la matriz que logre minimizar la distorsión global en el nuevo sub mosaico es seleccionada como la homografía promedio. este proceso se muestra mejor estructurado en el algoritmo \ref{homografia-promedio}.
 
 
 \begin{algorithm}[h] %or another one check
@@ -411,6 +465,8 @@ Para encontrar la homografía promedio se aplica un algoritmo basado en el méto
 	\label{homografia-promedio}
 \end{algorithm}
 
+Para el calculo de la distorsión geométrica se calculan los siguientes parámetros
+
 \subsection{Segmentación de puntos característicos}
 
 Según se estudió en el método RANSAC, la estimación de una buena homografía depende de la distribución de los puntos en la escena. Es posible contar con una gran cantidad de puntos extraídos y emparejados en una sección de la escena que no corresponde con el mejor modelo del plano de ésta, lo que indica que la matriz de homografía se ajuste a esta sección del plano por ofrecer menor error en la función de coste. En cambio, el resultado esperado es que se tenga una mejor distribución de puntos en la escena de modo que se tenga una ponderación de igual magnitud para todas las regiones del suelo.
@@ -426,12 +482,12 @@ Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone un
 
 Refiriéndonos a la figura \ref{imagen:grid-plano}, se observa como en \ref{fig:grid-plano-a} una fuerte aglomeración de parejas en una sección del plano (región con muchos puntos característicos) produce que la estimación de la matriz de homografía le asigne una alta ponderación al modelo del plano que se ajusta a esta región. Por otro lado, en la figura  \ref{fig:grid-plano-a} se observa como se puede mejorar la estimación de la transformación, al seleccionar solo las mejores parejas por cada región, de esta forma la ponderación se distribuye de mejor manera a lo largo del plano del suelo.
 
-\begin{figure}
+\begin{figure}[t]
 	\centering     %%% not \center
 	\subfigure[30 inliers y 10 outliers (mejor modelo)]{\label{fig:grid-plano-a}\includegraphics[width=0.8\textwidth]{grid-plano1.pdf}}%\hspace{10mm}%}
 	
 	\subfigure[10 inliers y 5 outliers (mejor modelo)]{\label{fig:grid-plano-b}\includegraphics[width=0.8\textwidth]{grid-plano2.pdf}}
-	\caption{Ambas imágenes representan la vista lateral del plano de un suelo. En (a) se presenta el mejor modelo del plano con la cantidad original de parejas, mientras que en (b) se muestra el mismo proceso pero luego de haber seleccionado las parejas con enlace mas fuerte por cada región, (determinada según \ref{imagen:celdas})}
+	\caption[Selección de mejores puntos]{Ambas imágenes representan la vista lateral del plano de un suelo. En (a) se presenta el mejor modelo del plano con la cantidad original de parejas, mientras que en (b) se muestra el mismo proceso pero luego de haber seleccionado las parejas con enlace mas fuerte por cada región, (determinada según \ref{imagen:celdas})}
 	\label{imagen:grid-plano}
 \end{figure}
 
@@ -440,21 +496,25 @@ Refiriéndonos a la figura \ref{imagen:grid-plano}, se observa como en \ref{fig:
 Tal y como se ha planteado el proceso de registro hasta este punto, consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición (ver figura \ref{fig:vecinos1-a}), con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estás condiciones no se cumplen es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo todas aquellas inmediatamente anteriores con la que presenta , a las cuales llamaremos imágenes vecinas (ver figura \ref{fig:vecinos1-b}).
 
 
-\begin{figure}
+\begin{figure}[t]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:vecinos1-a}\includegraphics[height=.40\textwidth]{vecinos1.pdf}}\hspace{10mm}%}
 	\subfigure[]{\label{fig:vecinos1-b}\includegraphics[height=.40\textwidth]{vecinos2.pdf}}
-	\caption{En función a la ultima imagen añadida (superior), todas las imágenes con marco de color negro son considerados como vecinos. En el caso de la figura (b) una búsqueda en la que solo se considere la imagen anterior no aprovecha toda la información de aquellas con las que se intersecta}
+	\caption[Superposición de imagenes vecinas]{En función a la ultima imagen añadida (superior), todas las imágenes con marco de color negro son considerados como vecinos. En el caso de la figura (b) una búsqueda en la que solo se considere la imagen anterior no aprovecha toda la información de aquellas con las que se intersecta}
 	\label{imagen:vecinos1}
 \end{figure}
 
+El caso presentado en la figura \ref{imagen:vecinos1} es aquel donde el movimiento del robot es monótono en un mismo sentido, pero también se puede presentar el caso en el cual este movimiento no se mantiene, con el cual una imagen distinta a la anterior puede aportar mas información para establecer la correspondencia con el mosaico. Este caso se ilustra en la figura \ref{imagen:cambio-sentido}, en \ref{fig:cambio-sentido-a} el movimiento es continuo hacia arriba, en \ref{fig:cambio-sentido-b} el movimiento cambia pero solo se considera la ultima imagen añadida, en \ref{fig:cambio-sentido-c} el sentido también cambia pero se consideran ambas imágenes para establecer la relación de homografía.
 
-\begin{figure}
+\begin{figure}[t]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:a}\includegraphics[width=.29\textwidth]{vecinos3.pdf}}\hspace{5mm}%}
-	\subfigure[]{\label{fig:b}\includegraphics[width=.29\textwidth]{vecinos4.pdf}}\hspace{5mm}%
-	\subfigure[]{\label{fig:b}\includegraphics[width=.29\textwidth]{vecinos5.pdf}}
-	\caption{my caption}
+	\subfigure[]{\label{fig:cambio-sentido-a}\includegraphics[width=.29\textwidth]{vecinos3.pdf}}\hspace{5mm}%}
+	\subfigure[]{\label{fig:cambio-sentido-b}\includegraphics[width=.29\textwidth]{vecinos4.pdf}}\hspace{5mm}%
+	\subfigure[]{\label{fig:cambio-sentido-c}\includegraphics[width=.29\textwidth]{vecinos5.pdf}}
+	
+	\caption[Superposición de imágenes vecinas]{En rojo se muestra el área de superposición entre la nueva imagen (bordes punteados) y la última añadida (2), mientras que en azul se muestra aquella que comparte con una imagen no consecutiva (1).}
+	
+	\label{imagen:cambio-sentido}
 \end{figure}
 
 \begin{figure}[h]
@@ -485,9 +545,33 @@ Tal y como se ha planteado el proceso de registro hasta este punto, consiste est
 		\end{algorithm}
 	\end{minipage}
 \end{figure}
-prueba
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Corrección euclidiana}
-Prueba
+
+La concatenación de un gran grupo de imágenes en la formación de un mosaico, suele traer consigo un error de distorsión acumulado producto de la estimación de la mejor matriz de homografía, afectando en muchos casos el tamaño original de las imágenes. Para resolver este problema \textit{A. Elibol y R. Garcia} en \cite{elibol} proponen un método de corrección global basado en transformaciones de isometría.
+
+Considerando que un robot de exploración (aéreo o submarino) con una cámara dirigida hacia abajo presenta pocas variaciones de rotación (ángulo de cabeceo y balanceo), además de intentar mantener una altura constante con el suelo, las transformaciones que describan su movimiento debería estar descrita por esos grados de libertad (rotación y translación, sin escala). En este sentido, se utiliza un modelo del sub mosaico que utiliza solamente transformaciones de isometría (ecuación \ref{matriz-isometria}). Aí mismo, al no contar con datos de navegación, como GPS que no está presente en aplicaciones bajo el agua, el método propuesto presenta una buena aproximación para reducir el error presentado. Este proceso se encuentra listado a continuación, además se muestra gráficamente en la figura \ref{imagen:correcion-e}.
+
+\begin{enumerate}%for capital roman numbers.
+	\item Alinear imágenes usando transformaciones de Isometría
+	\item Seleccionar coordenadas del borde del mosaico
+	\item Alinear imágenes usando transformaciones de perspectiva
+	\item Seleccionar mismas coordenadas del paso (2)
+	\item Hallar homografía desde desde los puntos (2) hasta (4)
+	\item Aplicar transformación a todas las imágenes del mosaico.
+\end{enumerate}
+
+\begin{figure}[b]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:ec-a}\includegraphics[width=.45\textwidth]{ec-1.pdf}}\hspace{5mm}%}
+	\subfigure[]{\label{fig:ec-b}\includegraphics[width=.45\textwidth]{ec-2.pdf}}
+	\subfigure[]{\label{fig:ec-c}\includegraphics[width=.8\textwidth]{ec-3.pdf}}
+	\caption[Correción euclidiana]{(a) muestra el mosaico usando unicamente tranformaciones de isometría, (b) muestra el mosaico usando transformaciones de perspectiva, y (c) muestra el mosaico tras aplicar la corrección. de \cite{elibol}}
+	
+	\label{imagen:correcion-e}
+\end{figure}
+Con respecto  a la selección de los puntos frontera del mosaico, el primer par se selecciona considerando aquellos de la primera imagen que se encuentren mas alejados del centro de la última, y para el ultimo par se consideran aquellos de la última imagen mas alejados del centro de la primera.
 
 \section{Resultados}
 Resumen
