@@ -8,9 +8,9 @@ Repeated entry---line 14 of file bibliografia.bib
  :                ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "danilo" isn't style-file defined
---line 252 of file bibliografia.bib
+--line 266 of file bibliografia.bib
 Warning--entry type for "said" isn't style-file defined
---line 257 of file bibliografia.bib
+--line 271 of file bibliografia.bib
 Warning--empty booktitle in harris
 Too many commas in name 1 of "Bay, H., Tuytelaars, T. y Van Gool, L" for entry surf
 while executing---line 944 of file unsrt.bst
@@ -27,45 +27,46 @@ while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "Nuno Gracias, Art Gleason, Shahriar Negahdaripour, y Mohammad Mahoor" for entry watershed
 while executing---line 944 of file unsrt.bst
 Warning--empty journal in flann
-You've used 31 entries,
+Warning--empty publisher in elibol
+You've used 33 entries,
             1791 wiz_defined-function locations,
-            592 strings with 8036 characters,
-and the built_in function-call counts, 4440 in all, are:
-= -- 370
-> -- 150
-< -- 0
-+ -- 69
-- -- 38
-* -- 135
-:= -- 781
-add.period$ -- 92
-call.type$ -- 31
-change.case$ -- 28
+            602 strings with 8368 characters,
+and the built_in function-call counts, 4817 in all, are:
+= -- 395
+> -- 178
+< -- 1
++ -- 79
+- -- 46
+* -- 162
+:= -- 846
+add.period$ -- 98
+call.type$ -- 33
+change.case$ -- 29
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 259
-empty$ -- 503
-format.name$ -- 38
-if$ -- 989
+cite$ -- 36
+duplicate$ -- 277
+empty$ -- 536
+format.name$ -- 46
+if$ -- 1069
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 33
-newline$ -- 156
-num.names$ -- 31
-pop$ -- 121
+int.to.str$ -- 33
+missing$ -- 36
+newline$ -- 166
+num.names$ -- 33
+pop$ -- 131
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 93
+skip$ -- 99
 stack$ -- 0
 substring$ -- 48
-swap$ -- 31
-text.length$ -- 0
+swap$ -- 34
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 33
-width$ -- 33
-write$ -- 311
+warning$ -- 3
+while$ -- 35
+width$ -- 35
+write$ -- 331
 (There were 8 error messages)
