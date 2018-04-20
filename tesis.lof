@@ -36,22 +36,29 @@
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Gerenaci\IeC {\'o}n de sub mosaicos}}{53}{figure.caption.166}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{53}{figure.caption.168}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{55}{figure.caption.174}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Selecci\IeC {\'o}n de mejores parejas}}{57}{figure.caption.196}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Selecci\IeC {\'o}n de mejores puntos}}{58}{figure.caption.197}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {30 inliers y 10 outliers (mejor modelo)}}}{58}{figure.caption.197}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {10 inliers y 5 outliers (mejor modelo)}}}{58}{figure.caption.197}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Superposici\IeC {\'o}n de imagenes vecinas}}{59}{figure.caption.201}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}{figure.caption.201}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}{figure.caption.201}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Superposici\IeC {\'o}n de im\IeC {\'a}genes vecinas}}{59}{figure.caption.204}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}{figure.caption.204}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}{figure.caption.204}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{59}{figure.caption.204}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Correci\IeC {\'o}n euclidiana}}{61}{figure.caption.237}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{61}{figure.caption.237}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{61}{figure.caption.237}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{61}{figure.caption.237}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Selecci\IeC {\'o}n de mejores parejas}}{56}{figure.caption.195}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Selecci\IeC {\'o}n de mejores puntos}}{57}{figure.caption.196}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {30 inliers y 10 outliers (mejor modelo)}}}{57}{figure.caption.196}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {10 inliers y 5 outliers (mejor modelo)}}}{57}{figure.caption.196}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Superposici\IeC {\'o}n de imagenes vecinas}}{58}{figure.caption.200}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{58}{figure.caption.200}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{58}{figure.caption.200}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Superposici\IeC {\'o}n de im\IeC {\'a}genes vecinas}}{59}{figure.caption.203}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}{figure.caption.203}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}{figure.caption.203}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{59}{figure.caption.203}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Correci\IeC {\'o}n euclidiana}}{61}{figure.caption.236}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{61}{figure.caption.236}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{61}{figure.caption.236}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{61}{figure.caption.236}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Corte por grafo}}{65}{figure.caption.250}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Corte por grafo}}{64}{figure.caption.249}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Espacio de color CIELAB}}{65}{figure.caption.252}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{65}{figure.caption.252}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{65}{figure.caption.252}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Tipos b\IeC {\'a}sicos de fusi\IeC {\'o}n}}{67}{figure.caption.257}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{67}{figure.caption.257}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{67}{figure.caption.257}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{67}{figure.caption.257}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

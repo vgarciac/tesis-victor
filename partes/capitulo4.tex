@@ -441,8 +441,8 @@ Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos
 
 Para encontrar la homografía promedio se aplica un algoritmo basado en el método RANSAC, el cual consiste en obtener 4 pares de puntos correspondientes ($x^1_i   \leftrightarrow x^2_i$) entre los dos sub mosaicos (verde y rojo), seguidamente para dichos puntos se calcula el punto medio ($x^a_i$), luego se calcula la matriz que transforma los puntos del primer sub mosaico hacia los puntos medios ($x^a = \mathtt{H}x^1$), después se aplica la homografía en el primer sub mosaico y se obtiene la distorsión para dicha transformación. Finalmente la matriz que logre minimizar la distorsión global en el nuevo sub mosaico es seleccionada como la homografía promedio. este proceso se muestra mejor estructurado en el algoritmo \ref{homografia-promedio}.
 
-
-\begin{algorithm}[h] %or another one check
+\begin{spacing}{0.9}
+\begin{algorithm}[H] %or another one check
 	\caption{Calculo de matriz de homografia promedio}
 	\SetAlgoLined
 	\Begin{
@@ -464,8 +464,7 @@ Para encontrar la homografía promedio se aplica un algoritmo basado en el méto
 	}
 	\label{homografia-promedio}
 \end{algorithm}
-
-Para el calculo de la distorsión geométrica se calculan los siguientes parámetros
+\end{spacing}
 
 \subsection{Segmentación de puntos característicos}
 
@@ -480,23 +479,23 @@ Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone un
 	\label{imagen:celdas}
 \end{figure}
 
-Refiriéndonos a la figura \ref{imagen:grid-plano}, se observa como en \ref{fig:grid-plano-a} una fuerte aglomeración de parejas en una sección del plano (región con muchos puntos característicos) produce que la estimación de la matriz de homografía le asigne una alta ponderación al modelo del plano que se ajusta a esta región. Por otro lado, en la figura  \ref{fig:grid-plano-a} se observa como se puede mejorar la estimación de la transformación, al seleccionar solo las mejores parejas por cada región, de esta forma la ponderación se distribuye de mejor manera a lo largo del plano del suelo.
-
-\begin{figure}[t]
+Refiriéndonos a la figura \ref{imagen:grid-plano}, se observa como en \ref{fig:grid-plano-a} una fuerte aglomeración de parejas en una sección del plano (región con muchos puntos característicos) produce que la estimación de la matriz de homografía le asigne una alta ponderación al modelo del plano que se ajusta a esta región.
+\begin{figure}[b]
 	\centering     %%% not \center
 	\subfigure[30 inliers y 10 outliers (mejor modelo)]{\label{fig:grid-plano-a}\includegraphics[width=0.8\textwidth]{grid-plano1.pdf}}%\hspace{10mm}%}
 	
 	\subfigure[10 inliers y 5 outliers (mejor modelo)]{\label{fig:grid-plano-b}\includegraphics[width=0.8\textwidth]{grid-plano2.pdf}}
-	\caption[Selección de mejores puntos]{Ambas imágenes representan la vista lateral del plano de un suelo. En (a) se presenta el mejor modelo del plano con la cantidad original de parejas, mientras que en (b) se muestra el mismo proceso pero luego de haber seleccionado las parejas con enlace mas fuerte por cada región, (determinada según \ref{imagen:celdas})}
+	\caption[Selección de mejores puntos]{Ambas imágenes representan la vista lateral del plano de un suelo. En (a) se presenta el mejor modelo del plano con la cantidad original de parejas, mientras que en (b) se muestra el mismo proceso pero luego de haber seleccionado las parejas con enlace mas fuerte por cada región (según \ref{imagen:celdas}).}
 	\label{imagen:grid-plano}
 \end{figure}
+Por otro lado, en la figura  \ref{fig:grid-plano-a} se observa como se puede mejorar la estimación de la transformación, al seleccionar solo las mejores parejas por cada región, de esta forma la ponderación se distribuye de mejor manera a lo largo del plano del suelo.
 
 \subsection{Relación con vecinos}
 
 Tal y como se ha planteado el proceso de registro hasta este punto, consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición (ver figura \ref{fig:vecinos1-a}), con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estás condiciones no se cumplen es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo todas aquellas inmediatamente anteriores con la que presenta , a las cuales llamaremos imágenes vecinas (ver figura \ref{fig:vecinos1-b}).
 
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:vecinos1-a}\includegraphics[height=.40\textwidth]{vecinos1.pdf}}\hspace{10mm}%}
 	\subfigure[]{\label{fig:vecinos1-b}\includegraphics[height=.40\textwidth]{vecinos2.pdf}}
@@ -562,7 +561,7 @@ Considerando que un robot de exploración (aéreo o submarino) con una cámara d
 	\item Aplicar transformación a todas las imágenes del mosaico.
 \end{enumerate}
 
-\begin{figure}[b]
+\begin{figure}[h]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:ec-a}\includegraphics[width=.45\textwidth]{ec-1.pdf}}\hspace{5mm}%}
 	\subfigure[]{\label{fig:ec-b}\includegraphics[width=.45\textwidth]{ec-2.pdf}}

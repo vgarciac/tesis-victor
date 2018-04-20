@@ -183,4 +183,9 @@ Vivek Kwatra, Arno Sch\"{o}dl, Irfan Essa, Greg Turk, and Aaron Bobick.
 \newblock Graphcut textures: Image and video synthesis using graph cuts.
 \newblock {\em ACM Trans. Graph.}, 2003.
 
+\bibitem{reinhard}
+Bruce Gooch y Peter~Shirley Erik~Reinhard, Michael~Ashikhmin.
+\newblock Color transfer between images.
+\newblock {\em IEEE Computer Graphics and Applications}, 2001.
+
 \end{thebibliography}
