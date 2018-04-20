@@ -52,13 +52,66 @@ Refiriéndonos a la figura \ref{imagen:grafo}, se observa el proceso de modelar 
 
 
 \section{Corrección de color}
-Cuando se tienen imágenes capturadas desde distintos puntos de vista, se suelen tener en la composición final cambios de intensidades por cambios de exposición de luz en la escena. Por ellos es necesario 
+Cuando se tienen imágenes capturadas desde distintos puntos de vista, se suelen tener en la composición final cambios de intensidades por cambios de exposición de luz en la escena. Por ellos es necesario implementar algoritmos que logran reducir la diferencia de intensidades y color entre los bordes de las imágenes. Para esto se implementa un algoritmo de mapeo de color llamado método de \textit{Reinhard} \cite{reinhard} que trabaja en el espacio de color CIELAB, los cuales se describe a continuación. 
+
+\subsubsection*{Espacio de color CIELAB}
+
+Conocido en ocasiones con el nombre de l*a*b, es un espacio derivado del \textit{CIE 1931 XYZ}, creado por la comisión internacional de la iluminación CIE (del francés: Comission Internationale de l'Éclairage).
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:lab-a}\includegraphics[width=.42\textwidth]{lab1}}
+	\subfigure[]{\label{fig:lab-b}\includegraphics[width=.50\textwidth]{lab2}}
+	
+	\caption[Espacio de color CIELAB]{Espacio de color CIELAB. En (a) se aprecia el diagrama tridimensional, mientras que en (b) una vista superior del rango de colores con luminancia fija.}
+	\label{imagen:lab-color}
+\end{figure}
+
+Este es un espacio de color tridimensional descrito por los ejes $a$, que extiende desde verde ($-a$) hasta rojo ($+a$), el eje $b$ que se extiende desde azul ($-b$) hasta amarillo ($+b$), y la luminancia $l$ que varia desde negro ($-l$) hasta blanco ($+l$). Esta representación se puede observar en la figura \ref{imagen:lab-color}.
 
 \subsection{Método de Reinhard}
-Prueba
+El objetivo de esta transformación de color es lograr que la distribución de los puntos en el espacio de color LAB se transfieran entre imágenes. Para lograrlo se utiliza la información de la media y desviación estándar sobre cada canal (L, A y B).
+
+Para un par de imágenes $I$ e $I^*$, donde $I$ es la imagen origen e $I^*$ es la imagen que se quiere corregir, se calcula la media y desviación estándar para cada canal.
+\begin{align*}
+&{\langle l \rangle} \hspace{0.55cm} {\langle l^* \rangle}  &{ \sigma_l } \hspace{0.5cm} { \sigma^*_l } \\
+&{\langle a \rangle} \hspace{0.48cm} {\langle a^* \rangle}  &{ \sigma_a } \hspace{0.5cm} { \sigma^*_a }  \\
+&{\langle b \rangle} \hspace{0.5cm} {\langle b^* \rangle}  &{ \sigma_b } \hspace{0.5cm} { \sigma^*_b } 
+\end{align*}
+Luego se ajusta la distribución de la imagen objetivo de la siguiente forma, se le resta la media de la imagen a corregir:
+\begin{align*}
+l^* &= l^* - \langle l^* \rangle \\
+a^* &= a^* - \langle a^* \rangle \\
+b^* &= b^* - \langle b^* \rangle
+\end{align*}
+Luego se escalan los valores en función a las desviaciones estándar:
+\begin{align*}
+l^* &= \frac{\sigma^*_l}{\sigma_l} l^* \\
+a^* &= \frac{\sigma^*_a}{\sigma_a} a^* \\
+b^* &= \frac{\sigma^*_b}{\sigma_b} b^*
+\end{align*}
+Finalmente se le suma la media pero de la imagen origen:
+\begin{align*}
+l^* &= l^* + \langle l \rangle \\
+a^* &= a^* + \langle a \rangle \\
+b^* &= b^* + \langle b \rangle
+\end{align*}
+Para lograr un mapeo de color correcto es necesario establecer la información que se comparten las imágenes. Para dos imágenes que se superponen, la información de desviación estándar es obtenida solo del área de intersección entre las imágenes $I\cap I^*$.
+
 
 \section{Fusión de imágenes}
-prueba
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:blend-a}\includegraphics[width=.48\textwidth]{blend-types-1}}
+	\subfigure[]{\label{fig:blend-b}\includegraphics[width=.48\textwidth]{blend-types-2}}
+	\vspace{-0.3cm}
+	
+	\subfigure[]{\label{fig:blend-c}\includegraphics[width=.5\textwidth]{blend-types-3}}
+	
+	\caption[Tipos básicos de fusión]{Fusión ponderada}
+	\label{imagen:blend-types}
+\end{figure}
 
 \subsection{Fusión ponderada}
 Prueba
