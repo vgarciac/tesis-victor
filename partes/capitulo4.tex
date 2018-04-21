@@ -429,6 +429,7 @@ E^\alpha = (\max (\cos\alpha_{12},\, \cos\alpha_{23},\, \cos\alpha_{34},\, \cos\
 Una vez se han creado todos los sub-mosaicos es necesario unirlos. En este punto cada sub mosaico considera la primera imagen como el plano de referencia, por lo tanto es necesario definir cual será la referencia bajo la cual éstos deben unirse. Para esto se utiliza la homografía que logre disminuir el error de distorsión sobre todos las imágenes del sub mosaico, esta transformación se define como homografía promedio. El proceso para su obtención se detalla a continuación.
 
 
+
 \subsection{Matriz de transformación promedio}
 
 Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos sub mosaicos que se desean unir, los cuales son temporalmente continuos, en la imagen superior se observan los sub mosaicos (marcos verde oscuro y verde claro) alineados y considerando la imagen de referencia del primero (verde lleno) como imagen de referencia global. En el segundo caso se muestran ambos alineados pero considerando la imagen de referencia del segundo (rojo lleno) como imagen de referencia global. 
@@ -466,7 +467,7 @@ Para encontrar la homografía promedio se aplica un algoritmo basado en el méto
 \end{algorithm}
 \end{spacing}
 
-\subsection{Segmentación de puntos característicos}
+\subsection{Selección de puntos característicos}
 
 Según se estudió en el método RANSAC, la estimación de una buena homografía depende de la distribución de los puntos en la escena. Es posible contar con una gran cantidad de puntos extraídos y emparejados en una sección de la escena que no corresponde con el mejor modelo del plano de ésta, lo que indica que la matriz de homografía se ajuste a esta sección del plano por ofrecer menor error en la función de coste. En cambio, el resultado esperado es que se tenga una mejor distribución de puntos en la escena de modo que se tenga una ponderación de igual magnitud para todas las regiones del suelo.
 
@@ -489,6 +490,26 @@ Refiriéndonos a la figura \ref{imagen:grid-plano}, se observa como en \ref{fig:
 	\label{imagen:grid-plano}
 \end{figure}
 Por otro lado, en la figura  \ref{fig:grid-plano-a} se observa como se puede mejorar la estimación de la transformación, al seleccionar solo las mejores parejas por cada región, de esta forma la ponderación se distribuye de mejor manera a lo largo del plano del suelo.
+
+\subsection{Seguimiento de puntos}
+
+Ya hemos visto el proceso simple de relacionar dos imágenes, donde luego de aplicar la transformación a la nueva imagen, ésta presentará cierto nivel de distorsión, afectando que imágenes siguientes logren establecer una relación robusta de puntos.
+
+La primera propuesta consiste encontrar parejas de puntos correspondientes entre la nueva imagen y el mosaico (todas las imágenes añadidas previamente), pero esto trae consigo un bajo desempeño computacionalmente cuando se cuenta con un gran mosaico. Si bien se puede restringir el área de búsqueda hacia el mínimo cuadro que encierra la ultima imagen transformada, el efecto de distorsión mencionado afecta la detección e identificación de puntos correspondientes.
+
+Para solucionar este problema se propone realizar una extracción de puntos característicos para todas las imágenes en su versión original, y una vez se conozca la matriz de transformación que ubica una imagen en el mosaico, se puede de igual forma transformar la ubicación de los puntos detectados hacia la nueva ubicación. Este proceso se encuentra ilustrado en la figura \ref{imagen:track}.
+
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:ec-a}\includegraphics[width=.7\textwidth]{track1.pdf}}
+	
+	\subfigure[]{\label{fig:ec-b}\includegraphics[width=.5\textwidth]{track2.pdf}}
+	
+	\caption[Seguimiento de puntos]{Seguimiento de puntos. En (a) se realiza la extracción y emparejamiento en las imágenes originales, luego los puntos detectados en la imagen (2) son transformados por la homografía que ubica esa imagen en el mosaico. finalmente en (b) se halla la matriz de transformación para la nueva imagen usando la nueva correspondencia.}
+	\label{imagen:track}
+\end{figure}
+
 
 \subsection{Relación con vecinos}
 
