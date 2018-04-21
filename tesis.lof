@@ -23,45 +23,45 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Emparejamiento de puntos caracter\IeC {\'\i }sticos}}{29}{figure.caption.67}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Combinaci\IeC {\'o}n de algoritmos para el analisis de rendimiento}}{31}{figure.caption.72}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Estiramiento del histograma}}{34}{figure.caption.109}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces im\IeC {\'a}genes representativas del conjunto de im\IeC {\'a}genes de Chuspa\relax }}{35}{figure.caption.113}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces im\IeC {\'a}genes representativas del conjunto de im\IeC {\'a}genes de ScottReef\relax }}{36}{figure.caption.116}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces im\IeC {\'a}genes representativas del conjunto de im\IeC {\'a}genes de Mochima\relax }}{37}{figure.caption.119}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces im\IeC {\'a}genes representativas del conjunto de im\IeC {\'a}genes de la cantera de grava\relax }}{38}{figure.caption.124}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces im\IeC {\'a}genes representativas del conjunto \textit {Chuspa}\relax }}{35}{figure.caption.113}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces im\IeC {\'a}genes representativas del conjunto \textit {ScottReef 25}\relax }}{36}{figure.caption.116}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces im\IeC {\'a}genes representativas del conjunto \textit {Mochima}\relax }}{37}{figure.caption.119}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces im\IeC {\'a}genes representativas del conjunto \textit {Grava}\relax }}{38}{figure.caption.124}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Tipos de transformaciones geom\IeC {\'e}tricas}}{47}{figure.caption.142}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Relacion de homograf\IeC {\'\i }as}}{48}{figure.caption.145}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{48}{figure.caption.145}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{48}{figure.caption.145}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces ransac poitns}}{51}{figure.caption.149}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Gerenaci\IeC {\'o}n de sub mosaicos}}{53}{figure.caption.166}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{53}{figure.caption.168}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{55}{figure.caption.174}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Selecci\IeC {\'o}n de mejores parejas}}{56}{figure.caption.195}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Selecci\IeC {\'o}n de mejores puntos}}{57}{figure.caption.196}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {30 inliers y 10 outliers (mejor modelo)}}}{57}{figure.caption.196}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {10 inliers y 5 outliers (mejor modelo)}}}{57}{figure.caption.196}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Seguimiento de puntos}}{58}{figure.caption.200}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{58}{figure.caption.200}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{58}{figure.caption.200}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Superposici\IeC {\'o}n de imagenes vecinas}}{59}{figure.caption.204}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}{figure.caption.204}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}{figure.caption.204}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Superposici\IeC {\'o}n de im\IeC {\'a}genes vecinas}}{60}{figure.caption.207}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{60}{figure.caption.207}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{60}{figure.caption.207}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{60}{figure.caption.207}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Correci\IeC {\'o}n euclidiana}}{62}{figure.caption.240}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{62}{figure.caption.240}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{62}{figure.caption.240}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{62}{figure.caption.240}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Mejor modelo - RANSAC}}{51}{figure.caption.149}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Gerenaci\IeC {\'o}n de sub mosaicos}}{52}{figure.caption.166}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{54}{figure.caption.168}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Distorsion de imagen}}{54}{figure.caption.190}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Selecci\IeC {\'o}n de mejores parejas}}{56}{figure.caption.196}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Selecci\IeC {\'o}n de mejores puntos, ejemplo con plano}}{57}{figure.caption.197}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {30 inliers y 10 outliers (mejor modelo)}}}{57}{figure.caption.197}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {10 inliers y 5 outliers (mejor modelo)}}}{57}{figure.caption.197}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Seguimiento de puntos}}{59}{figure.caption.201}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}{figure.caption.201}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}{figure.caption.201}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Superposici\IeC {\'o}n de imagenes vecinas, mismo sentido}}{60}{figure.caption.205}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{60}{figure.caption.205}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{60}{figure.caption.205}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Superposici\IeC {\'o}n de im\IeC {\'a}genes vecinas, cambio de sentido}}{60}{figure.caption.208}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{60}{figure.caption.208}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{60}{figure.caption.208}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{60}{figure.caption.208}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Correci\IeC {\'o}n euclidiana}}{62}{figure.caption.235}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{62}{figure.caption.235}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{62}{figure.caption.235}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{62}{figure.caption.235}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Corte por grafo}}{66}{figure.caption.253}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Espacio de color CIELAB}}{67}{figure.caption.256}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{67}{figure.caption.256}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{67}{figure.caption.256}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Fusi\IeC {\'o}n ponderada simple}}{69}{figure.caption.262}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Fusi\IeC {\'o}n piramidal}}{70}{figure.caption.264}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Fusi\IeC {\'o}n piramidal}}{70}{figure.caption.265}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Fusion piramidal}}{72}{figure.caption.266}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Corte por grafo}}{67}{figure.caption.254}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Espacio de color CIELAB}}{68}{figure.caption.257}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{68}{figure.caption.257}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{68}{figure.caption.257}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Fusi\IeC {\'o}n ponderada simple}}{70}{figure.caption.263}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Construcci\IeC {\'o}n de pir\IeC {\'a}mide de gaussianas}}{71}{figure.caption.265}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Construcci\IeC {\'o}n de pir\IeC {\'a}mide de laplacianas}}{72}{figure.caption.266}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{73}{figure.caption.267}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

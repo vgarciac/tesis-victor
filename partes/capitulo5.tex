@@ -6,7 +6,7 @@
 \section{Introducción}
 El objetivo final de la creación de un mosaico, es lograr un mapa que represente de la mejor forma la trayectoria recorrida. Esto es, que sea visualmente congruente y que no presente ningún tipo de discontinuidades de modo que todo parezca una misma imagen. De las primeras etapas se manifiestan muchos errores producto de los problemas ya planteados, si bien a lo largo del proceso éstos se intentan reducir lo mas posible, siempre es necesaria la etapa final de fusión para lograr los objetivos propuestos.
 
-En esta sección se describen los algoritmos utilizados para lograr fusionar las imágenes del mosaico, como ya se especificó, fueron seleccionados aquellos que presentaron resultados importantes en diversos estudios externos, y se implementaron en conjunto para lograr resultados mucho mas robustos. Estos se detallan a continuación en el orden de aplicación sobre el mosaico: linea de corte, ajuste de color y finalmente la fusión ponderada.
+En esta sección se describen los algoritmos utilizados para lograr fusionar las imágenes del mosaico. Como ya se especificó, fueron seleccionados aquellos que presentaron resultados importantes en diversos estudios externos, y se implementaron en conjunto para lograr resultados mucho mas robustos. Estos se detallan a continuación en el orden de aplicación sobre el mosaico: linea de corte, ajuste de color y finalmente la fusión ponderada.
 
 Por ultimo, al final del capítulo se muestran los resultados con su respectivo análisis de aplicar cada uno de los algoritmos aquí descritos.
 \clearpage
@@ -20,7 +20,7 @@ A diferencia de los anteriores, este tipo de algoritmos es el único que toma en
 
 \subsection{Corte por grafo}
 
-Este es un método derivado de la teoría de grafos, donde la idea es separar un grafo con conexiones simples en dos grafos separados con un mínimo costo de separación. Se define un grafo $\mathcal{G} = \langle \mathcal{N}, \mathcal{E} \rangle$ como un conjunto de nodos $\mathcal{N}$, conectados por enlaces $\mathcal{E}$. Cada enlace conecta dos nodos y tiene asociado un costo o peso $\mathcal{W}(p, q) \,\, p,q \in \mathcal{N}$ --- cuando se habla de conexión simple, se refiere a que el costo en los enlaces está asociado para ambas direcciones $\mathcal{W}(p, q) = \mathcal{W}(p, q)$ ---. Se dice que dos grafos están separados si no se tiene ningún enlace que conecte dos nodos entre los grafos. Definimos $\mathcal{S}$ y $\mathcal{T}$ como los grafos separados que se tienen luego de aplicar el corte en $\mathcal{G}$. El método para determinar el mejor corte, se basa en encontrar el camino entre los enlaces que logra separa un grafo en dos, con el mínimo costo de corte, donde el costo del corte es la suma de los pesos de todos los enlaces del camino seleccionado.
+Este es un método derivado de la teoría de grafos, donde la idea es separar un grafo con conexiones simples en dos grafos separados con un mínimo costo de separación. Se define un grafo $\mathcal{G} = \langle \mathcal{N}, \mathcal{E} \rangle$ como un conjunto de nodos $\mathcal{N}$, conectados por enlaces $\mathcal{E}$. Cada enlace conecta dos nodos y tiene asociado un costo o peso $\mathcal{W}(p, q) \,\, p,q \in \mathcal{N}$ --- cuando se habla de conexión simple, se refiere a que el costo en los enlaces está asociado para ambas direcciones $\mathcal{W}(p, q) = \mathcal{W}(p, q)$ ---. Se dice que dos grafos están separados si no se tiene ningún enlace que conecte dos nodos entre los grafos. Definimos $\mathcal{S}$ y $\mathcal{T}$ como los grafos separados que se tienen luego de aplicar el corte en $\mathcal{G}$. El método para determinar el mejor corte, se basa en encontrar el camino entre los enlaces que logra separa un grafo en dos, con el mínimo costo de corte \cite{graph-cut}, donde el costo del corte es la suma de los pesos de todos los enlaces del camino seleccionado.
 
 En el conjunto de nodos presentes en el grafo se cuentan con dos especiales llamados nodos terminales, el inicio ($\mathtt{I}$) y el final ($\mathtt{F}$), donde el resto de píxeles en la imagen corresponden con un nodo no terminal. En aplicaciones de visión por computadora, cuando se desea unir dos imágenes en una región de intersección, lo que se busca es lograr un etiquetado de píxeles que permita distinguir que nodos corresponden a cada imagen en el área de intersección.
 
@@ -71,6 +71,8 @@ Conocido en ocasiones con el nombre de l*a*b, es un espacio derivado del \textit
 
 Este es un espacio de color tridimensional descrito por los ejes $a$, que extiende desde verde ($-a$) hasta rojo ($+a$), el eje $b$ que se extiende desde azul ($-b$) hasta amarillo ($+b$), y la luminancia $l$ que varia desde negro ($-l$) hasta blanco ($+l$). Esta representación se puede observar en la figura \ref{imagen:lab-color}.
 
+Debido a que la cantidad de valores para representar los colores en este espacio es menor que en RGB, es mas rápido hacer correcciones de color en LAB, ya que un cambio en la cantidad de valor de una variable produce un cambio con importancia visual. Además de permitir trabajar la iluminación de la imagen por separado de los colores.
+
 \subsection{Método de Reinhard}
 El objetivo de esta transformación de color es lograr que la distribución de los puntos en el espacio de color LAB se transfieran entre imágenes. Para esto se utiliza la información de la media y desviación estándar sobre cada canal (L, A y B).
 
@@ -92,7 +94,7 @@ l^* &= \frac{\sigma^*_l}{\sigma_l} l^* \\
 a^* &= \frac{\sigma^*_a}{\sigma_a} a^* \\
 b^* &= \frac{\sigma^*_b}{\sigma_b} b^*
 \end{align*}
-Finalmente se le suma la media, pero en este caso de la imagen de origen:
+Finalmente se le suma la media, pero en este caso de la imagen de origen (imagen del color deseado):
 \begin{align*}
 l^* &= l^* + \langle l \rangle \\
 a^* &= a^* + \langle a \rangle \\
@@ -108,9 +110,9 @@ Una vez se logre determinar la mejor linea de corte, y aplicar una corrección d
 Se tienen varias versiones de estos algoritmos que serán explicados a continuación: fusión ponderada simple o bajo un esquema piramidal.
 
 \subsection{Fusión ponderada} \label{feathering}
-Este tipo de algoritmos realiza una fusión que consiste en realizar un suma ponderada, en la cual se modifica el peso en función de la distancia de los puntos con el borde mas cercano a su imagen. Es decir, se realiza una suma de los valores de las imágenes ($\mathtt{I_1},\, \mathtt{I_2}$) en el área de intersección ($\mathtt{I_1}\cap \mathtt{I_2}$) para cada canal, dándole menor peso a los píxeles que se encuentren mas cercanos del extremo de la imagen. Cabe destacar que esta suma se normaliza para asegurar que no se supere el rango $0-255$ con el cual se representan los valores de la imagen final. La ecuación para la suma ponderada se muestra a continuación:
+Este tipo de algoritmos realiza una fusión que consiste en realizar un suma ponderada, en la cual se modifica el peso de los píxeles en función de la distancia con el borde de su imagen. Es decir, se realiza una suma de los valores de las imágenes ($\mathtt{I_1},\, \mathtt{I_2}$) en el área de intersección ($\mathtt{I_1}\cap \mathtt{I_2}$) para cada canal, dándole menor peso a los píxeles que se encuentren mas cercanos del extremo de la imagen. Cabe destacar que esta suma se normaliza para asegurar que no se supere el rango $0-255$ con el cual se representan los valores de la imagen final. La ecuación para la suma ponderada se muestra a continuación:
 \begin{displaymath}
-	F = \frac{(1-\alpha)\cdot \mathtt{I}_1 + \alpha\cdot \mathtt{I}_2}{512} 
+	F = (1-\alpha)\cdot \mathtt{I}_1 + \alpha\cdot \mathtt{I}_2
 \end{displaymath} 
 Donde el parámetro $\alpha$ varia en el rango $0\to 1$, en este caso en función a la distancia, tal y como se ilustra en la figura \ref{imagen:blend-simple}.
 
@@ -122,27 +124,27 @@ Donde el parámetro $\alpha$ varia en el rango $0\to 1$, en este caso en funció
 	\label{imagen:blend-simple}
 \end{figure}
 
-El algoritmo de fusión ponderada de transición presenta ciertas desventajas, entre estas el efecto fantasma, en el que se observan duplicados de los objetos en la escena pero con cierto grado de desvanecimiento. Si bien no será implementado, el estudio de su funcionamiento es necesario para comprender el algoritmo de fusión que trabaja bajo un esquema piramidal.
+El algoritmo de fusión ponderada bajo el esquema de transición presenta ciertas desventajas, entre estas el efecto fantasma, en el que se observan duplicados de los objetos en la escena pero con cierto grado de desvanecimiento. Si bien no será implementado, el estudio de su funcionamiento es necesario para comprender el algoritmo de fusión que trabaja bajo un esquema piramidal.
 
 \subsection{Fusión ponderada piramidal}
 
 El método planteado anteriormente propone una transición suavizada para imágenes que tengan una región en común. Si bien es una primera aproximación al problema aquí planteado, los algoritmos que se pretenden utilizar en etapas previas (linea de corte) eliminan ésta área de intersección, quedando don imágenes con solo un borde en común. 
 
-Esta técnica es llamada fusión piramidal o fusión multibanda, y su proceso consiste en fusionar las imágenes para distintos niveles de escala, refiriéndonos a la figura \ref{imagen:piramidal1} se crea para una misma imagen distintos niveles de escala ($G_i$), donde cada nivel corresponde con una reducción a un cuarto del área del nivel anterior. La cantidad de niveles en la pirámide corresponde con la cantidad de bandas que se quieren fusionar. Es importante mencionar que el proceso de compresión y posterior expansión de una imagen, se aproxima al proceso de aplicar un filtro gaussiano.
+Esta técnica es llamada fusión piramidal o fusión multibanda, y su proceso consiste en fusionar las imágenes para distintos niveles de escala. Refiriéndonos a la figura \ref{imagen:piramidal1}, se crea para una misma imagen distintos niveles de escala ($G_i$), donde cada nivel corresponde con una reducción a un cuarto del área del nivel anterior. La cantidad de niveles en la pirámide corresponde con la cantidad de bandas que se quieren fusionar. Es importante mencionar que el proceso de compresión y posterior expansión de una imagen, se aproxima al proceso de aplicar un filtro gaussiano, con lo cual a cada nivel creado $G_i$ recibe el nombre de gaussiana, resultando lo que se denomina una pirámide de gaussianas, tal y como se ilustra en la figura \ref{imagen:piramidal1} con 5 niveles.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.8\linewidth]{piramidal1.pdf}
-	\caption[Fusión piramidal]{}
+	\caption[Construcción de pirámide de gaussianas]{Construcción de pirámide de gaussianas}
 	\label{imagen:piramidal1}
 \end{figure}
 
-Cada nivel creado $G_i$ recibe el nombre de gaussiana, por lo que en la figura \ref{imagen:piramidal1} se tendría una pirámide de 5 gaussianas.
+
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.8\linewidth]{piramidal2.pdf}
-	\caption[Fusión piramidal]{}
+	\caption[Construcción de pirámide de laplacianas]{Construcción de pirámide de laplacianas}
 	\label{imagen:piramidal2}
 \end{figure}
 
@@ -150,7 +152,9 @@ Una vez se tiene la pirámide de gaussianas, se elabora una pirámide de laplaci
 
 Como ya se mencionó, este proceso se aplica para imágenes que no comparten un área de superposición, con lo cual es necesario definir mediante una mascara binaria los límites de cada imagen. Convenientemente, el proceso de determinar la línea de corte ya nos ofrece esta máscara mediante el proceso de etiquetado, con lo cual se utiliza para definir las fronteras en esta fusión.
 
-La pirámide gaussiana que se elaboró en un principio para cada imagen a fusionar, debe también crearse para la máscara, ya que la fusión debe realizarse ne cada nivel de la pirámide. Como la imagen final muestra en la resolución original, el proceso de fusión debe realizarse escalando cada nivel hasta las dimensiones originales. Éste proceso, mostrado en la figura X, consiste en expandir el último nivel --- con su mascara--- y se le suma el laplaciano correspondiente, devolviéndole la componente en alta frecuencia que se le fue removida. En este punto se tiene el par de imágenes expandidas un nivel, además de la mascara aun afectada por el efecto del filtro gaussiano, con lo cual se efectúa una suma ponderada entre las dos imágenes similar que en la sección \ref{feathering}, pero en este caso se utiliza la mascara difuminada para determinar el peso de la suma, y donde el inverso de la mascara determina la ponderación de la segunda imagen.
+La pirámide gaussiana que se elaboró en un principio para cada imagen a fusionar, debe también crearse para la máscara, ya que la fusión debe realizarse en cada nivel de la pirámide. Finalmente para mostrar la imagen final en la resolución original, el proceso de fusión debe realizarse escalando cada nivel hasta las dimensiones originales.
+
+Éste proceso consiste en expandir el último nivel de la pirámide --- con su respectiva mascara---, una vez expandido se le suma el laplaciano correspondiente, devolviéndole la componente en alta frecuencia que le fue removida. En este punto se tiene el par de imágenes expandidas un nivel, además de la mascara aun afectada por el efecto del filtro gaussiano, con lo cual se efectúa una suma ponderada entre las dos imágenes similar que en la sección \ref{feathering}, pero en este caso se utiliza la mascara difuminada para determinar el peso de la suma, y donde el inverso de la mascara determina la ponderación de la segunda imagen.
 
 En la figura \ref{imagen:blend-apple} se puede observar el resultado de aplicar una fusión bajo el esquema piramidal.
 
@@ -162,13 +166,14 @@ En la figura \ref{imagen:blend-apple} se puede observar el resultado de aplicar 
 	\subfigure[]{\label{fig:orange-mask}\includegraphics[width=.30\textwidth]{mask.pdf}}
 	\subfigure[]{\label{fig:apple-orange}\includegraphics[width=.30\textwidth]{apple-orange.jpg}}
 	
-	\caption[Fusion piramidal]{Fusión piramidal. Donde (a) y (b) representan las imágenes que se desean unir, (c) es la máscara para la fusión y (d) es el resultado final utilizando 9 bandas.}
+	\caption[Ejemplo de fusión pirámidal]{Fusión piramidal. Donde (a) y (b) representan las imágenes que se desean unir, (c) es la máscara para la fusión y (d) es el resultado final utilizando 9 bandas\protect\footnotemark.}
 	\label{imagen:blend-apple}
 \end{figure}
-
+\footnotetext{ \url{https://compvisionlab.wordpress.com/2013/05/13/image-blending-using-pyramid/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados}
+test
 
 \section{Resumen}
-
+test
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  21 APR 2018 00:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  21 APR 2018 19:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1638,21 +1638,21 @@ Cap\'{\i }tulo 1.
 
 
 
-] <imagenes/openrov.jpg, id=455, 15.13687pt x 6.51569pt>
+] <imagenes/openrov.jpg, id=450, 15.13687pt x 6.51569pt>
 File: imagenes/openrov.jpg Graphic file (type jpg)
 
 <use imagenes/openrov.jpg>
 Package pdftex.def Info: imagenes/openrov.jpg used on input line 18.
 (pdftex.def)             Requested size: 292.22987pt x 125.88876pt.
  [2 <./imagenes/openrov.jpg>]
-<imagenes/paralaje.pdf, id=468, 180.675pt x 164.615pt>
+<imagenes/paralaje.pdf, id=463, 180.675pt x 164.615pt>
 File: imagenes/paralaje.pdf Graphic file (type pdf)
 
 <use imagenes/paralaje.pdf>
 Package pdftex.def Info: imagenes/paralaje.pdf used on input line 33.
 (pdftex.def)             Requested size: 184.9429pt x 168.5054pt.
 
-<imagenes/hugin.png, id=469, 463.7325pt x 269.005pt>
+<imagenes/hugin.png, id=464, 463.7325pt x 269.005pt>
 File: imagenes/hugin.png Graphic file (type png)
  <use imagenes/hugin.png>
 Package pdftex.def Info: imagenes/hugin.png used on input line 43.
@@ -1674,14 +1674,14 @@ Cap\'{\i }tulo 2.
 ------------------------------------------------------------------------------
 [7
 
-] [8] <imagenes/registration-process.png, id=522, 562.1pt x 580.1675pt>
+] [8] <imagenes/registration-process.png, id=517, 562.1pt x 580.1675pt>
 File: imagenes/registration-process.png Graphic file (type png)
 
 <use imagenes/registration-process.png>
 Package pdftex.def Info: imagenes/registration-process.png used on input line 3
 1.
 (pdftex.def)             Requested size: 284.52756pt x 293.66833pt.
- [9 <./imagenes/registration-process.png>] <imagenes/clasificacion1.pdf, id=532
+ [9 <./imagenes/registration-process.png>] <imagenes/clasificacion1.pdf, id=527
 , 271.0125pt x 181.67876pt>
 File: imagenes/clasificacion1.pdf Graphic file (type pdf)
 
@@ -1689,7 +1689,7 @@ File: imagenes/clasificacion1.pdf Graphic file (type pdf)
 Package pdftex.def Info: imagenes/clasificacion1.pdf used on input line 43.
 (pdftex.def)             Requested size: 187.8616pt x 125.94063pt.
 
-<imagenes/clasificacion2.pdf, id=533, 233.87375pt x 136.51pt>
+<imagenes/clasificacion2.pdf, id=528, 233.87375pt x 136.51pt>
 File: imagenes/clasificacion2.pdf Graphic file (type pdf)
 
 <use imagenes/clasificacion2.pdf>
@@ -1706,14 +1706,14 @@ pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/clasificacion2.pdf): PDF inc
 lusion: invalid other resource which is no dict (key 'ProcSets', type <array>);
  ignored.
 >] [11] [12] [13] [14] [15] [16]
-<imagenes/esquema-general.pdf, id=621, 685.56125pt x 308.15125pt>
+<imagenes/esquema-general.pdf, id=616, 685.56125pt x 308.15125pt>
 File: imagenes/esquema-general.pdf Graphic file (type pdf)
 
 <use imagenes/esquema-general.pdf>
 Package pdftex.def Info: imagenes/esquema-general.pdf used on input line 131.
 (pdftex.def)             Requested size: 505.1452pt x 227.06442pt.
 
-<imagenes/opencv.png, id=622, 144.54pt x 178.0251pt>
+<imagenes/opencv.png, id=617, 144.54pt x 178.0251pt>
 File: imagenes/opencv.png Graphic file (type png)
  <use imagenes/opencv.png>
 Package pdftex.def Info: imagenes/opencv.png used on input line 143.
@@ -1731,7 +1731,7 @@ Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
 [19
 
-] [20] <imagenes/features.jpg, id=668, 451.6875pt x 280.04625pt>
+] [20] <imagenes/features.jpg, id=663, 451.6875pt x 280.04625pt>
 File: imagenes/features.jpg Graphic file (type jpg)
 
 <use imagenes/features.jpg>
@@ -1744,14 +1744,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--41
  []
 
 [21 <./imagenes/features.jpg>]
-<imagenes/harris-window.png, id=681, 735.74875pt x 213.79875pt>
+<imagenes/harris-window.png, id=676, 735.74875pt x 213.79875pt>
 File: imagenes/harris-window.png Graphic file (type png)
 
 <use imagenes/harris-window.png>
 Package pdftex.def Info: imagenes/harris-window.png used on input line 52.
 (pdftex.def)             Requested size: 375.7232pt x 109.18271pt.
 
-<imagenes/corner-scale.png, id=686, 347.2975pt x 133.49875pt>
+<imagenes/corner-scale.png, id=681, 347.2975pt x 133.49875pt>
 File: imagenes/corner-scale.png Graphic file (type png)
 
 <use imagenes/corner-scale.png>
@@ -1764,49 +1764,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--67
  []
 
 [22 <./imagenes/harris-window.png> <./imagenes/corner-scale.png>] [23]
-<imagenes/sift-escalas.png, id=708, 1042.89626pt x 302.12875pt>
+<imagenes/sift-escalas.png, id=703, 1042.89626pt x 302.12875pt>
 File: imagenes/sift-escalas.png Graphic file (type png)
 
 <use imagenes/sift-escalas.png>
 Package pdftex.def Info: imagenes/sift-escalas.png used on input line 82.
 (pdftex.def)             Requested size: 354.85464pt x 102.80078pt.
  [24 <./imagenes/sift-escalas.png>]
-<imagenes/sift-descriptor.png, id=717, 1178.4025pt x 484.81125pt>
+<imagenes/sift-descriptor.png, id=712, 1178.4025pt x 484.81125pt>
 File: imagenes/sift-descriptor.png Graphic file (type png)
 
 <use imagenes/sift-descriptor.png>
 Package pdftex.def Info: imagenes/sift-descriptor.png used on input line 95.
 (pdftex.def)             Requested size: 292.22987pt x 120.22603pt.
 
-<imagenes/surf.png, id=721, 704.6325pt x 263.98625pt>
+<imagenes/surf.png, id=716, 704.6325pt x 263.98625pt>
 File: imagenes/surf.png Graphic file (type png)
  <use imagenes/surf.png>
 Package pdftex.def Info: imagenes/surf.png used on input line 107.
 (pdftex.def)             Requested size: 333.97972pt x 125.12085pt.
 
 [25 <./imagenes/sift-descriptor.png> <./imagenes/surf.png (PNG copy)>]
-<imagenes/orb.png, id=733, 721.69624pt x 225.84375pt>
+<imagenes/orb.png, id=728, 721.69624pt x 225.84375pt>
 File: imagenes/orb.png Graphic file (type png)
  <use imagenes/orb.png>
 Package pdftex.def Info: imagenes/orb.png used on input line 120.
 (pdftex.def)             Requested size: 375.7232pt x 117.57726pt.
 
 [26 <./imagenes/orb.png (PNG copy)>]
-<imagenes/kaze.png, id=751, 706.64pt x 370.38374pt>
+<imagenes/kaze.png, id=746, 706.64pt x 370.38374pt>
 File: imagenes/kaze.png Graphic file (type png)
  <use imagenes/kaze.png>
 Package pdftex.def Info: imagenes/kaze.png used on input line 137.
 (pdftex.def)             Requested size: 354.85464pt x 185.99959pt.
 
 [27] [28 <./imagenes/kaze.png>]
-<imagenes/match.png, id=767, 938.50626pt x 339.2675pt>
+<imagenes/match.png, id=761, 938.50626pt x 339.2675pt>
 File: imagenes/match.png Graphic file (type png)
 
 <use imagenes/match.png>
 Package pdftex.def Info: imagenes/match.png used on input line 155.
 (pdftex.def)             Requested size: 398.33858pt x 143.99782pt.
  [29 <./imagenes/match.png>] [30]
-<imagenes/comparacion.pdf, id=786, 361.35pt x 189.70876pt>
+<imagenes/comparacion.pdf, id=781, 361.35pt x 189.70876pt>
 File: imagenes/comparacion.pdf Graphic file (type pdf)
 
 <use imagenes/comparacion.pdf>
@@ -1817,28 +1817,28 @@ Package pdftex.def Info: imagenes/comparacion.pdf used on input line 200.
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/comparacion.pdf): PDF inclus
 ion: invalid other resource which is no dict (key 'ProcSets', type <array>); ig
 nored.
->] [32] <imagenes/gray-01.png, id=844, 642.4pt x 481.8pt>
+>] [32] <imagenes/gray-01.png, id=839, 642.4pt x 481.8pt>
 File: imagenes/gray-01.png Graphic file (type png)
 
 <use imagenes/gray-01.png>
 Package pdftex.def Info: imagenes/gray-01.png used on input line 285.
 (pdftex.def)             Requested size: 208.73653pt x 156.55373pt.
 
-<imagenes/hist-01.png, id=845, 1585.925pt x 1485.55pt>
+<imagenes/hist-01.png, id=840, 1585.925pt x 1485.55pt>
 File: imagenes/hist-01.png Graphic file (type png)
 
 <use imagenes/hist-01.png>
 Package pdftex.def Info: imagenes/hist-01.png used on input line 286.
 (pdftex.def)             Requested size: 166.98668pt x 156.40671pt.
 
-<imagenes/gray-stretch-01.png, id=846, 642.4pt x 481.8pt>
+<imagenes/gray-stretch-01.png, id=841, 642.4pt x 481.8pt>
 File: imagenes/gray-stretch-01.png Graphic file (type png)
 
 <use imagenes/gray-stretch-01.png>
 Package pdftex.def Info: imagenes/gray-stretch-01.png used on input line 287.
 (pdftex.def)             Requested size: 208.73653pt x 156.55373pt.
 
-<imagenes/hist-stretch-01.png, id=847, 1585.925pt x 1485.55pt>
+<imagenes/hist-stretch-01.png, id=842, 1585.925pt x 1485.55pt>
 File: imagenes/hist-stretch-01.png Graphic file (type png)
 
 <use imagenes/hist-stretch-01.png>
@@ -1855,25 +1855,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imagenes/0234-1.jpg, id=854, 642.4pt x 481.8pt>
+<imagenes/0234-1.jpg, id=849, 642.4pt x 481.8pt>
 File: imagenes/0234-1.jpg Graphic file (type jpg)
  <use imagenes/0234-1.jpg>
 Package pdftex.def Info: imagenes/0234-1.jpg used on input line 352.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0234-2.jpg, id=855, 642.4pt x 481.8pt>
+<imagenes/0234-2.jpg, id=850, 642.4pt x 481.8pt>
 File: imagenes/0234-2.jpg Graphic file (type jpg)
  <use imagenes/0234-2.jpg>
 Package pdftex.def Info: imagenes/0234-2.jpg used on input line 353.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0234-3.jpg, id=856, 642.4pt x 481.8pt>
+<imagenes/0234-3.jpg, id=851, 642.4pt x 481.8pt>
 File: imagenes/0234-3.jpg Graphic file (type jpg)
  <use imagenes/0234-3.jpg>
 Package pdftex.def Info: imagenes/0234-3.jpg used on input line 354.
 (pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
 
-<imagenes/0234-4.jpg, id=857, 642.4pt x 481.8pt>
+<imagenes/0234-4.jpg, id=852, 642.4pt x 481.8pt>
 File: imagenes/0234-4.jpg Graphic file (type jpg)
  <use imagenes/0234-4.jpg>
 Package pdftex.def Info: imagenes/0234-4.jpg used on input line 355.
@@ -1895,68 +1895,31 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imagenes/sr1.png, id=865, 1365.1pt x 1027.84pt>
+<imagenes/sr1.png, id=860, 1365.1pt x 1027.84pt>
 File: imagenes/sr1.png Graphic file (type png)
  <use imagenes/sr1.png>
 Package pdftex.def Info: imagenes/sr1.png used on input line 414.
 (pdftex.def)             Requested size: 96.01701pt x 72.2855pt.
 
-<imagenes/sr2.png, id=866, 1365.1pt x 1027.84pt>
+<imagenes/sr2.png, id=861, 1365.1pt x 1027.84pt>
 File: imagenes/sr2.png Graphic file (type png)
  <use imagenes/sr2.png>
 Package pdftex.def Info: imagenes/sr2.png used on input line 415.
 (pdftex.def)             Requested size: 96.01701pt x 72.2855pt.
 
-<imagenes/sr3.png, id=867, 1365.1pt x 1027.84pt>
+<imagenes/sr3.png, id=862, 1365.1pt x 1027.84pt>
 File: imagenes/sr3.png Graphic file (type png)
  <use imagenes/sr3.png>
 Package pdftex.def Info: imagenes/sr3.png used on input line 416.
 (pdftex.def)             Requested size: 96.01701pt x 72.2855pt.
 
-<imagenes/sr4.png, id=868, 1365.1pt x 1027.84pt>
+<imagenes/sr4.png, id=863, 1365.1pt x 1027.84pt>
 File: imagenes/sr4.png Graphic file (type png)
  <use imagenes/sr4.png>
 Package pdftex.def Info: imagenes/sr4.png used on input line 417.
 (pdftex.def)             Requested size: 96.01701pt x 72.2855pt.
 
 Overfull \hbox (2.59499pt too wide) in paragraph at lines 413--419
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<imagenes/0752-1.jpg, id=871, 642.4pt x 481.8pt>
-File: imagenes/0752-1.jpg Graphic file (type jpg)
- <use imagenes/0752-1.jpg>
-Package pdftex.def Info: imagenes/0752-1.jpg used on input line 476.
-(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
-
-<imagenes/0752-2.jpg, id=872, 642.4pt x 481.8pt>
-File: imagenes/0752-2.jpg Graphic file (type jpg)
- <use imagenes/0752-2.jpg>
-Package pdftex.def Info: imagenes/0752-2.jpg used on input line 477.
-(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
-
-<imagenes/0752-3.jpg, id=873, 642.4pt x 481.8pt>
-File: imagenes/0752-3.jpg Graphic file (type jpg)
- <use imagenes/0752-3.jpg>
-Package pdftex.def Info: imagenes/0752-3.jpg used on input line 478.
-(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
-
-<imagenes/0752-4.jpg, id=874, 642.4pt x 481.8pt>
-File: imagenes/0752-4.jpg Graphic file (type jpg)
- <use imagenes/0752-4.jpg>
-Package pdftex.def Info: imagenes/0752-4.jpg used on input line 479.
-(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
-
-Overfull \hbox (2.59499pt too wide) in paragraph at lines 475--481
  [][] 
  []
 
@@ -1971,28 +1934,65 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imagenes/geotagg-1.png, id=885, 185.0915pt x 138.919pt>
+<imagenes/0752-1.jpg, id=870, 642.4pt x 481.8pt>
+File: imagenes/0752-1.jpg Graphic file (type jpg)
+ <use imagenes/0752-1.jpg>
+Package pdftex.def Info: imagenes/0752-1.jpg used on input line 476.
+(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
+
+<imagenes/0752-2.jpg, id=871, 642.4pt x 481.8pt>
+File: imagenes/0752-2.jpg Graphic file (type jpg)
+ <use imagenes/0752-2.jpg>
+Package pdftex.def Info: imagenes/0752-2.jpg used on input line 477.
+(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
+
+<imagenes/0752-3.jpg, id=872, 642.4pt x 481.8pt>
+File: imagenes/0752-3.jpg Graphic file (type jpg)
+ <use imagenes/0752-3.jpg>
+Package pdftex.def Info: imagenes/0752-3.jpg used on input line 478.
+(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
+
+<imagenes/0752-4.jpg, id=873, 642.4pt x 481.8pt>
+File: imagenes/0752-4.jpg Graphic file (type jpg)
+ <use imagenes/0752-4.jpg>
+Package pdftex.def Info: imagenes/0752-4.jpg used on input line 479.
+(pdftex.def)             Requested size: 96.01701pt x 72.00957pt.
+
+Overfull \hbox (2.59499pt too wide) in paragraph at lines 475--481
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<imagenes/geotagg-1.png, id=880, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-1.png Graphic file (type png)
 
 <use imagenes/geotagg-1.png>
 Package pdftex.def Info: imagenes/geotagg-1.png used on input line 531.
 (pdftex.def)             Requested size: 96.01701pt x 72.06659pt.
 
-<imagenes/geotagg-2.png, id=886, 185.0915pt x 138.919pt>
+<imagenes/geotagg-2.png, id=881, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-2.png Graphic file (type png)
 
 <use imagenes/geotagg-2.png>
 Package pdftex.def Info: imagenes/geotagg-2.png used on input line 532.
 (pdftex.def)             Requested size: 96.01701pt x 72.06659pt.
 
-<imagenes/geotagg-3.png, id=887, 185.0915pt x 138.919pt>
+<imagenes/geotagg-3.png, id=882, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-3.png Graphic file (type png)
 
 <use imagenes/geotagg-3.png>
 Package pdftex.def Info: imagenes/geotagg-3.png used on input line 533.
 (pdftex.def)             Requested size: 96.01701pt x 72.06659pt.
 
-<imagenes/geotagg-4.png, id=888, 185.0915pt x 138.919pt>
+<imagenes/geotagg-4.png, id=883, 185.0915pt x 138.919pt>
 File: imagenes/geotagg-4.png Graphic file (type png)
 
 <use imagenes/geotagg-4.png>
@@ -2018,36 +2018,36 @@ Cap\'{\i }tulo 4.
 [41
 
 ] [42] [43] [44] [45]
-<imagenes/transformaciones.pdf, id=955, 405.515pt x 192.72pt>
+<imagenes/transformaciones.pdf, id=950, 405.515pt x 192.72pt>
 File: imagenes/transformaciones.pdf Graphic file (type pdf)
 
 <use imagenes/transformaciones.pdf>
-Package pdftex.def Info: imagenes/transformaciones.pdf used on input line 220.
+Package pdftex.def Info: imagenes/transformaciones.pdf used on input line 217.
 (pdftex.def)             Requested size: 412.56496pt x 196.0748pt.
  [46] [47 <./imagenes/transformaciones.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/transformaciones.pdf): PDF i
 nclusion: invalid other resource which is no dict (key 'ProcSets', type <array>
 ); ignored.
->] <imagenes/planos2.png, id=985, 886.31125pt x 657.45625pt>
+>] <imagenes/planos2.png, id=980, 886.31125pt x 657.45625pt>
 File: imagenes/planos2.png Graphic file (type png)
 
 <use imagenes/planos2.png>
-Package pdftex.def Info: imagenes/planos2.png used on input line 264.
+Package pdftex.def Info: imagenes/planos2.png used on input line 261.
 (pdftex.def)             Requested size: 187.8616pt x 139.35397pt.
 
-<imagenes/planos1.png, id=986, 914.41624pt x 651.43375pt>
+<imagenes/planos1.png, id=981, 914.41624pt x 651.43375pt>
 File: imagenes/planos1.png Graphic file (type png)
 
 <use imagenes/planos1.png>
-Package pdftex.def Info: imagenes/planos1.png used on input line 265.
+Package pdftex.def Info: imagenes/planos1.png used on input line 262.
 (pdftex.def)             Requested size: 187.8616pt x 133.83304pt.
  [48 <./imagenes/planos2.png> <./imagenes/planos1.png>] [49] <imagenes/ransac.p
-df, id=1003, 307.1475pt x 186.6975pt>
+df, id=998, 307.1475pt x 186.6975pt>
 File: imagenes/ransac.pdf Graphic file (type pdf)
 
 <use imagenes/ransac.pdf>
-Package pdftex.def Info: imagenes/ransac.pdf used on input line 333.
+Package pdftex.def Info: imagenes/ransac.pdf used on input line 330.
 (pdftex.def)             Requested size: 398.33858pt x 242.14265pt.
 
 
@@ -2058,66 +2058,66 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/ransac.pdf): PDF inclusion: 
 invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
 .
->] <imagenes/submosaico.pdf, id=1050, 295.1025pt x 188.705pt>
+>] <imagenes/submosaico.pdf, id=1044, 295.1025pt x 188.705pt>
 File: imagenes/submosaico.pdf Graphic file (type pdf)
 
 <use imagenes/submosaico.pdf>
-Package pdftex.def Info: imagenes/submosaico.pdf used on input line 378.
+Package pdftex.def Info: imagenes/submosaico.pdf used on input line 373.
 (pdftex.def)             Requested size: 250.48637pt x 160.17828pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[52] <imagenes/distorsion.pdf, id=1058, 179.6242pt x 77.31227pt>
-File: imagenes/distorsion.pdf Graphic file (type pdf)
-
-<use imagenes/distorsion.pdf>
-Package pdftex.def Info: imagenes/distorsion.pdf used on input line 395.
-(pdftex.def)             Requested size: 250.48637pt x 107.81999pt.
- [53 <./imagenes/submosaico.pdf
+ [52 <./imagenes/submosaico.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/submosaico.pdf): PDF inclusi
 on: invalid other resource which is no dict (key 'ProcSets', type <array>); ign
 ored.
-> <./imagenes/distorsion.pdf>]
-<imagenes/homografia-promedio.pdf, id=1088, 294.09875pt x 345.29pt>
+>] <imagenes/homografia-promedio.pdf, id=1055, 294.09875pt x 345.29pt>
 File: imagenes/homografia-promedio.pdf Graphic file (type pdf)
 
 <use imagenes/homografia-promedio.pdf>
-Package pdftex.def Info: imagenes/homografia-promedio.pdf used on input line 43
-8.
+Package pdftex.def Info: imagenes/homografia-promedio.pdf used on input line 38
+9.
 (pdftex.def)             Requested size: 227.62204pt x 267.24396pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[54] [55 <./imagenes/homografia-promedio.pdf>]
-<imagenes/celdas.pdf, id=1158, 528.97626pt x 411.5375pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[53] <imagenes/distorsion.pdf, id=1068, 179.6242pt x 77.31227pt>
+File: imagenes/distorsion.pdf Graphic file (type pdf)
+
+<use imagenes/distorsion.pdf>
+Package pdftex.def Info: imagenes/distorsion.pdf used on input line 434.
+(pdftex.def)             Requested size: 250.48637pt x 107.81999pt.
+ [54 <./imagenes/homografia-promedio.pdf> <./imagenes/distorsion.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/distorsion.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+>] [55] <imagenes/celdas.pdf, id=1151, 528.97626pt x 411.5375pt>
 File: imagenes/celdas.pdf Graphic file (type pdf)
 
 <use imagenes/celdas.pdf>
-Package pdftex.def Info: imagenes/celdas.pdf used on input line 478.
+Package pdftex.def Info: imagenes/celdas.pdf used on input line 473.
 (pdftex.def)             Requested size: 333.97972pt x 259.83516pt.
-
-<imagenes/grid-plano1.pdf, id=1161, 304.13625pt x 204.765pt>
-File: imagenes/grid-plano1.pdf Graphic file (type pdf)
-
-<use imagenes/grid-plano1.pdf>
-Package pdftex.def Info: imagenes/grid-plano1.pdf used on input line 486.
-(pdftex.def)             Requested size: 333.97972pt x 224.8641pt.
-
-<imagenes/grid-plano2.pdf, id=1162, 309.155pt x 177.66376pt>
-File: imagenes/grid-plano2.pdf Graphic file (type pdf)
-
-<use imagenes/grid-plano2.pdf>
-Package pdftex.def Info: imagenes/grid-plano2.pdf used on input line 488.
-(pdftex.def)             Requested size: 333.97972pt x 191.94719pt.
  [56 <./imagenes/celdas.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/celdas.pdf): PDF inclusion: 
 invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
 .
->] [57 <./imagenes/grid-plano1.pdf
+>] <imagenes/grid-plano1.pdf, id=1169, 304.13625pt x 204.765pt>
+File: imagenes/grid-plano1.pdf Graphic file (type pdf)
+
+<use imagenes/grid-plano1.pdf>
+Package pdftex.def Info: imagenes/grid-plano1.pdf used on input line 482.
+(pdftex.def)             Requested size: 333.97972pt x 224.8641pt.
+
+<imagenes/grid-plano2.pdf, id=1170, 309.155pt x 177.66376pt>
+File: imagenes/grid-plano2.pdf Graphic file (type pdf)
+
+<use imagenes/grid-plano2.pdf>
+Package pdftex.def Info: imagenes/grid-plano2.pdf used on input line 484.
+(pdftex.def)             Requested size: 333.97972pt x 191.94719pt.
+ [57 <./imagenes/grid-plano1.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/grid-plano1.pdf): PDF inclus
 ion: invalid other resource which is no dict (key 'ProcSets', type <array>); ig
@@ -2127,20 +2127,41 @@ nored.
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/grid-plano2.pdf): PDF inclus
 ion: invalid other resource which is no dict (key 'ProcSets', type <array>); ig
 nored.
->] <imagenes/track1.pdf, id=1205, 484.81125pt x 144.54pt>
+>] <imagenes/track1.pdf, id=1200, 484.81125pt x 144.54pt>
 File: imagenes/track1.pdf Graphic file (type pdf)
 
 <use imagenes/track1.pdf>
-Package pdftex.def Info: imagenes/track1.pdf used on input line 505.
+Package pdftex.def Info: imagenes/track1.pdf used on input line 501.
 (pdftex.def)             Requested size: 292.22987pt x 87.12825pt.
 
-<imagenes/track2.pdf, id=1206, 330.23375pt x 144.54pt>
+<imagenes/track2.pdf, id=1201, 330.23375pt x 144.54pt>
 File: imagenes/track2.pdf Graphic file (type pdf)
 
 <use imagenes/track2.pdf>
-Package pdftex.def Info: imagenes/track2.pdf used on input line 507.
+Package pdftex.def Info: imagenes/track2.pdf used on input line 503.
 (pdftex.def)             Requested size: 208.73653pt x 91.36502pt.
- [58 <./imagenes/track1.pdf
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[58] <imagenes/vecinos1.pdf, id=1209, 91.34125pt x 126.4725pt>
+File: imagenes/vecinos1.pdf Graphic file (type pdf)
+
+<use imagenes/vecinos1.pdf>
+Package pdftex.def Info: imagenes/vecinos1.pdf used on input line 522.
+(pdftex.def)             Requested size: 120.60426pt x 166.98668pt.
+
+<imagenes/vecinos2.pdf, id=1210, 99.37125pt x 126.4725pt>
+File: imagenes/vecinos2.pdf Graphic file (type pdf)
+
+<use imagenes/vecinos2.pdf>
+Package pdftex.def Info: imagenes/vecinos2.pdf used on input line 523.
+(pdftex.def)             Requested size: 131.20683pt x 166.98668pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[59 <./imagenes/track1.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/track1.pdf): PDF inclusion: 
 invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
@@ -2150,20 +2171,27 @@ invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/track2.pdf): PDF inclusion: 
 invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
 .
->] <imagenes/vecinos1.pdf, id=1233, 91.34125pt x 126.4725pt>
-File: imagenes/vecinos1.pdf Graphic file (type pdf)
+>] <imagenes/vecinos3.pdf, id=1262, 91.34125pt x 135.50626pt>
+File: imagenes/vecinos3.pdf Graphic file (type pdf)
 
-<use imagenes/vecinos1.pdf>
-Package pdftex.def Info: imagenes/vecinos1.pdf used on input line 521.
-(pdftex.def)             Requested size: 120.60426pt x 166.98668pt.
+<use imagenes/vecinos3.pdf>
+Package pdftex.def Info: imagenes/vecinos3.pdf used on input line 532.
+(pdftex.def)             Requested size: 121.06438pt x 179.609pt.
 
-<imagenes/vecinos2.pdf, id=1234, 99.37125pt x 126.4725pt>
-File: imagenes/vecinos2.pdf Graphic file (type pdf)
+<imagenes/vecinos4.pdf, id=1263, 97.36375pt x 102.3825pt>
+File: imagenes/vecinos4.pdf Graphic file (type pdf)
 
-<use imagenes/vecinos2.pdf>
-Package pdftex.def Info: imagenes/vecinos2.pdf used on input line 522.
-(pdftex.def)             Requested size: 131.20683pt x 166.98668pt.
- [59 <./imagenes/vecinos1.pdf
+<use imagenes/vecinos4.pdf>
+Package pdftex.def Info: imagenes/vecinos4.pdf used on input line 533.
+(pdftex.def)             Requested size: 121.06438pt x 127.30917pt.
+
+<imagenes/vecinos5.pdf, id=1264, 97.36375pt x 102.3825pt>
+File: imagenes/vecinos5.pdf Graphic file (type pdf)
+
+<use imagenes/vecinos5.pdf>
+Package pdftex.def Info: imagenes/vecinos5.pdf used on input line 534.
+(pdftex.def)             Requested size: 121.06438pt x 127.30917pt.
+ [60 <./imagenes/vecinos1.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/vecinos1.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
@@ -2173,27 +2201,7 @@ ed.
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/vecinos2.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
 ed.
->] <imagenes/vecinos3.pdf, id=1258, 91.34125pt x 135.50626pt>
-File: imagenes/vecinos3.pdf Graphic file (type pdf)
-
-<use imagenes/vecinos3.pdf>
-Package pdftex.def Info: imagenes/vecinos3.pdf used on input line 531.
-(pdftex.def)             Requested size: 121.06438pt x 179.609pt.
-
-<imagenes/vecinos4.pdf, id=1259, 97.36375pt x 102.3825pt>
-File: imagenes/vecinos4.pdf Graphic file (type pdf)
-
-<use imagenes/vecinos4.pdf>
-Package pdftex.def Info: imagenes/vecinos4.pdf used on input line 532.
-(pdftex.def)             Requested size: 121.06438pt x 127.30917pt.
-
-<imagenes/vecinos5.pdf, id=1260, 97.36375pt x 102.3825pt>
-File: imagenes/vecinos5.pdf Graphic file (type pdf)
-
-<use imagenes/vecinos5.pdf>
-Package pdftex.def Info: imagenes/vecinos5.pdf used on input line 533.
-(pdftex.def)             Requested size: 121.06438pt x 127.30917pt.
- [60 <./imagenes/vecinos3.pdf
+> <./imagenes/vecinos3.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/vecinos3.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
@@ -2208,31 +2216,27 @@ ed.
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/vecinos5.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
 ed.
->] <imagenes/ec-1.pdf, id=1319, 175.2745pt x 115.14568pt>
+>] <imagenes/ec-1.pdf, id=1314, 175.2745pt x 115.14568pt>
 File: imagenes/ec-1.pdf Graphic file (type pdf)
 
 <use imagenes/ec-1.pdf>
-Package pdftex.def Info: imagenes/ec-1.pdf used on input line 587.
+Package pdftex.def Info: imagenes/ec-1.pdf used on input line 581.
 (pdftex.def)             Requested size: 187.8616pt x 123.41899pt.
 
-<imagenes/ec-2.pdf, id=1320, 175.27402pt x 133.06593pt>
+<imagenes/ec-2.pdf, id=1315, 175.27402pt x 133.06593pt>
 File: imagenes/ec-2.pdf Graphic file (type pdf)
 
 <use imagenes/ec-2.pdf>
-Package pdftex.def Info: imagenes/ec-2.pdf used on input line 588.
+Package pdftex.def Info: imagenes/ec-2.pdf used on input line 582.
 (pdftex.def)             Requested size: 187.8616pt x 142.62683pt.
 
-<imagenes/ec-3.pdf, id=1321, 175.39447pt x 118.67905pt>
+<imagenes/ec-3.pdf, id=1316, 175.39447pt x 118.67905pt>
 File: imagenes/ec-3.pdf Graphic file (type pdf)
 
 <use imagenes/ec-3.pdf>
-Package pdftex.def Info: imagenes/ec-3.pdf used on input line 589.
+Package pdftex.def Info: imagenes/ec-3.pdf used on input line 583.
 (pdftex.def)             Requested size: 333.97972pt x 226.0086pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[61]) (./partes/capitulo5.tex [62 <./imagenes/ec-1.pdf> <./imagenes/ec-2.pdf
+ [61] [62 <./imagenes/ec-1.pdf> <./imagenes/ec-2.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/ec-2.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
@@ -2240,16 +2244,16 @@ ltiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/ec-3.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
->]
+>]) (./partes/capitulo5.tex [63]
 Cap\'{\i }tulo 5.
 ------------------------------------------------------------------------------
  5 Uni\IeC {\'o}n de im\IeC {\'a}genes
 ------------------------------------------------------------------------------
-[63
+[64
 
-] [64
+] [65
 
-] <imagenes/grafo-completo.pdf, id=1406, 582.175pt x 234.8775pt>
+] <imagenes/grafo-completo.pdf, id=1429, 582.175pt x 234.8775pt>
 File: imagenes/grafo-completo.pdf Graphic file (type pdf)
 
 <use imagenes/grafo-completo.pdf>
@@ -2259,13 +2263,13 @@ Package pdftex.def Info: imagenes/grafo-completo.pdf used on input line 48.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[65] <imagenes/lab1.jpg, id=1419, 401.5pt x 378.41376pt>
+[66] <imagenes/lab1.jpg, id=1442, 401.5pt x 378.41376pt>
 File: imagenes/lab1.jpg Graphic file (type jpg)
 
 <use imagenes/lab1.jpg>
 Package pdftex.def Info: imagenes/lab1.jpg used on input line 65.
 (pdftex.def)             Requested size: 175.33792pt x 165.26112pt.
- <imagenes/lab2.jpg, id=1420, 501.875pt x 390.45876pt>
+ <imagenes/lab2.jpg, id=1443, 501.875pt x 390.45876pt>
 File: imagenes/lab2.jpg Graphic file (type jpg)
 
 <use imagenes/lab2.jpg>
@@ -2275,72 +2279,82 @@ Package pdftex.def Info: imagenes/lab2.jpg used on input line 66.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[66 <./imagenes/grafo-completo.pdf
+[67 <./imagenes/grafo-completo.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/grafo-completo.pdf): PDF inc
 lusion: invalid other resource which is no dict (key 'ProcSets', type <array>);
  ignored.
->] [67 <./imagenes/lab1.jpg> <./imagenes/lab2.jpg>] [68]
-<imagenes/blend1.pdf, id=1470, 301.125pt x 181.67876pt>
+>] [68 <./imagenes/lab1.jpg> <./imagenes/lab2.jpg>] [69]
+<imagenes/blend1.pdf, id=1492, 301.125pt x 181.67876pt>
 File: imagenes/blend1.pdf Graphic file (type pdf)
 
 <use imagenes/blend1.pdf>
-Package pdftex.def Info: imagenes/blend1.pdf used on input line 120.
+Package pdftex.def Info: imagenes/blend1.pdf used on input line 122.
 (pdftex.def)             Requested size: 250.48637pt x 151.13152pt.
- [69 <./imagenes/blend1.pdf
+ [70 <./imagenes/blend1.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/blend1.pdf): PDF inclusion: 
 invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
 .
->] <imagenes/piramidal1.pdf, id=1514, 539.01375pt x 202.7575pt>
+>] <imagenes/piramidal1.pdf, id=1536, 539.01375pt x 202.7575pt>
 File: imagenes/piramidal1.pdf Graphic file (type pdf)
 
 <use imagenes/piramidal1.pdf>
-Package pdftex.def Info: imagenes/piramidal1.pdf used on input line 135.
+Package pdftex.def Info: imagenes/piramidal1.pdf used on input line 137.
 (pdftex.def)             Requested size: 333.97972pt x 125.631pt.
 
-<imagenes/piramidal2.pdf, id=1516, 650.43pt x 415.5525pt>
+<imagenes/piramidal2.pdf, id=1537, 650.43pt x 415.5525pt>
 File: imagenes/piramidal2.pdf Graphic file (type pdf)
 
 <use imagenes/piramidal2.pdf>
-Package pdftex.def Info: imagenes/piramidal2.pdf used on input line 144.
+Package pdftex.def Info: imagenes/piramidal2.pdf used on input line 146.
 (pdftex.def)             Requested size: 333.97972pt x 213.38101pt.
- [70 <./imagenes/piramidal1.pdf
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[71 <./imagenes/piramidal1.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/piramidal1.pdf): PDF inclusi
 on: invalid other resource which is no dict (key 'ProcSets', type <array>); ign
 ored.
-> <./imagenes/piramidal2.pdf
+>] <imagenes/apple.jpg, id=1583, 513.92pt x 513.92pt>
+File: imagenes/apple.jpg Graphic file (type jpg)
+ <use imagenes/apple.jpg>
+Package pdftex.def Info: imagenes/apple.jpg used on input line 163.
+(pdftex.def)             Requested size: 125.24318pt x 125.24103pt.
+
+<imagenes/orange.jpg, id=1584, 513.92pt x 513.92pt>
+File: imagenes/orange.jpg Graphic file (type jpg)
+ <use imagenes/orange.jpg>
+Package pdftex.def Info: imagenes/orange.jpg used on input line 164.
+(pdftex.def)             Requested size: 125.24318pt x 125.24103pt.
+
+<imagenes/mask.pdf, id=1585, 385.44pt x 386.44376pt>
+File: imagenes/mask.pdf Graphic file (type pdf)
+ <use imagenes/mask.pdf>
+Package pdftex.def Info: imagenes/mask.pdf used on input line 166.
+(pdftex.def)             Requested size: 125.24318pt x 125.56914pt.
+
+<imagenes/apple-orange.jpg, id=1586, 513.92pt x 513.92pt>
+File: imagenes/apple-orange.jpg Graphic file (type jpg)
+
+<use imagenes/apple-orange.jpg>
+Package pdftex.def Info: imagenes/apple-orange.jpg used on input line 167.
+(pdftex.def)             Requested size: 125.24318pt x 125.24103pt.
+
+Overfull \hbox (3.24571pt too wide) in paragraph at lines 172--172
+[][][] []$\OT1/cmtt/m/n/10 https : / / compvisionlab . wordpress . com / 2013 /
+ 05 / 13 / image-[]blending-[]using-[]pyramid/$[]| 
+ []
+
+[72 <./imagenes/piramidal2.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/piramidal2.pdf): PDF inclusi
 on: invalid other resource which is no dict (key 'ProcSets', type <array>); ign
 ored.
->] <imagenes/apple.jpg, id=1595, 513.92pt x 513.92pt>
-File: imagenes/apple.jpg Graphic file (type jpg)
- <use imagenes/apple.jpg>
-Package pdftex.def Info: imagenes/apple.jpg used on input line 159.
-(pdftex.def)             Requested size: 125.24318pt x 125.24103pt.
-
-<imagenes/orange.jpg, id=1596, 513.92pt x 513.92pt>
-File: imagenes/orange.jpg Graphic file (type jpg)
- <use imagenes/orange.jpg>
-Package pdftex.def Info: imagenes/orange.jpg used on input line 160.
-(pdftex.def)             Requested size: 125.24318pt x 125.24103pt.
-
-<imagenes/mask.pdf, id=1597, 385.44pt x 386.44376pt>
-File: imagenes/mask.pdf Graphic file (type pdf)
- <use imagenes/mask.pdf>
-Package pdftex.def Info: imagenes/mask.pdf used on input line 162.
-(pdftex.def)             Requested size: 125.24318pt x 125.56914pt.
-
-<imagenes/apple-orange.jpg, id=1598, 513.92pt x 513.92pt>
-File: imagenes/apple-orange.jpg Graphic file (type jpg)
-
-<use imagenes/apple-orange.jpg>
-Package pdftex.def Info: imagenes/apple-orange.jpg used on input line 163.
-(pdftex.def)             Requested size: 125.24318pt x 125.24103pt.
- [71]) (./partes/capitulo6.tex [72 <./imagenes/apple.jpg> <./imagenes/orange.jp
-g> <./imagenes/mask.pdf
+>]) (./partes/capitulo6.tex [73 <./imagenes/apple.jpg> <./imagenes/orange.jpg> 
+<./imagenes/mask.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/mask.pdf): PDF inclusion: in
 valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
@@ -2349,16 +2363,16 @@ Cap\'{\i }tulo 6.
 ------------------------------------------------------------------------------
  6 Conclusiones y trabajos futuros
 ------------------------------------------------------------------------------
-) (./tesis.bbl [73
+) (./tesis.bbl [74
 
-] [74
+] [75
 
-] [75]) (./partes/apendiceA.tex [76]
+] [76]) (./partes/apendiceA.tex [77]
 Ap\'{e}ndice A.
 ------------------------------------------------------------------------------
  A Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias
 ------------------------------------------------------------------------------
-) [77
+) [78
 
 ]
 ------------------------------------------------------------------------------
@@ -2374,15 +2388,9 @@ LaTeX Info: Redefining \% on input line 27.
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 219.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 219.
+Package rerunfilecheck Info: File `tesis.out' has not changed.
+(rerunfilecheck)             Checksum: 2837111A3AADA342DCD8D381D99474F5;9726.
 
-
-Package rerunfilecheck Warning: File `tesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `tesis.out':
-(rerunfilecheck)             Before: BF6443393C2C7E8674DD149DF2281563;9726
-(rerunfilecheck)             After:  3E732941613D45ADE06456196CAE3A84;9726.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -2392,82 +2400,46 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 219.
  ) 
 Here is how much of TeX's memory you used:
- 28357 strings out of 493029
- 475861 string characters out of 6136234
- 577116 words of memory out of 5000000
- 30911 multiletter control sequences out of 15000+600000
- 22123 words of font info for 83 fonts, out of 8000000 for 9000
+ 28360 strings out of 493029
+ 475888 string characters out of 6136234
+ 575985 words of memory out of 5000000
+ 30920 multiletter control sequences out of 15000+600000
+ 24291 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,22n,54p,1575b,811s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{figure.caption.269} has been referenced but does 
-not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.268} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.267} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.261} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.280} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.279} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix.278} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.276} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.275} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.274} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.266} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.264} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmbxsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfti0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb
->
-Output written on tesis.pdf (88 pages, 11581551 bytes).
+ 55i,22n,54p,1575b,815s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbxsl10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfti0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.p
+fb>
+Output written on tesis.pdf (89 pages, 11658228 bytes).
 PDF statistics:
- 1830 PDF objects out of 2073 (max. 8388607)
- 1477 compressed objects within 15 object streams
- 408 named destinations out of 1000 (max. 500000)
+ 1845 PDF objects out of 2073 (max. 8388607)
+ 1482 compressed objects within 15 object streams
+ 400 named destinations out of 1000 (max. 500000)
  795 words of extra memory for PDF output out of 10000 (max. 10000000)
 
