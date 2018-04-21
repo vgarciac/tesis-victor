@@ -70,7 +70,7 @@ Conocido en ocasiones con el nombre de l*a*b, es un espacio derivado del \textit
 Este es un espacio de color tridimensional descrito por los ejes $a$, que extiende desde verde ($-a$) hasta rojo ($+a$), el eje $b$ que se extiende desde azul ($-b$) hasta amarillo ($+b$), y la luminancia $l$ que varia desde negro ($-l$) hasta blanco ($+l$). Esta representación se puede observar en la figura \ref{imagen:lab-color}.
 
 \subsection{Método de Reinhard}
-El objetivo de esta transformación de color es lograr que la distribución de los puntos en el espacio de color LAB se transfieran entre imágenes. Para lograrlo se utiliza la información de la media y desviación estándar sobre cada canal (L, A y B).
+El objetivo de esta transformación de color es lograr que la distribución de los puntos en el espacio de color LAB se transfieran entre imágenes. Para esto se utiliza la información de la media y desviación estándar sobre cada canal (L, A y B).
 
 Para un par de imágenes $I$ e $I^*$, donde $I$ es la imagen origen e $I^*$ es la imagen que se quiere corregir, se calcula la media y desviación estándar para cada canal.
 \begin{align*}
@@ -96,28 +96,48 @@ l^* &= l^* + \langle l \rangle \\
 a^* &= a^* + \langle a \rangle \\
 b^* &= b^* + \langle b \rangle
 \end{align*}
-Para lograr un mapeo de color correcto es necesario establecer la información que se comparten las imágenes. Para dos imágenes que se superponen, la información de desviación estándar es obtenida solo del área de intersección entre las imágenes $I\cap I^*$.
+Para lograr un mapeo de color correcto es necesario obtener la información de desviación estándar y media únicamente en el área de intersección entre las imágenes $I\cap I^*$. De esta forma se logra igualar estas regiones de la imagen que deben corresponder a la misma escena.
 
 
 \section{Fusión de imágenes}
 
+Una vez se logre determinar la mejor linea de corte, y aplicar una corrección de color, es posible que aun se cuenten con transiciones entre imágenes con cierto nivel de discontinuidad. En este caso es conveniente aplicar algoritmos que permitan una transición suavizada entre dichos bordes.
+
+Se tienen varias versiones de estos algoritmos que serán explicados a continuación: fusión ponderada simple o bajo un esquema piramidal.
+
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:blend-a}\includegraphics[width=.48\textwidth]{blend-types-1}}
-	\subfigure[]{\label{fig:blend-b}\includegraphics[width=.48\textwidth]{blend-types-2}}
+	\subfigure[]{\label{fig:blend-a}\includegraphics[width=.6\textwidth]{blend-types-1}}
 	\vspace{-0.3cm}
 	
-	\subfigure[]{\label{fig:blend-c}\includegraphics[width=.5\textwidth]{blend-types-3}}
+	\subfigure[]{\label{fig:blend-c}\includegraphics[width=.6\textwidth]{blend-types-3}}
 	
 	\caption[Tipos básicos de fusión]{Fusión ponderada}
 	\label{imagen:blend-types}
 \end{figure}
 
 \subsection{Fusión ponderada}
-Prueba
+Este tipo de algoritmos realiza una fusión que consiste en realizar un suma ponderada, en la cual se modifica el peso en función de la distancia de los puntos con el borde mas cercano a su imagen. Es decir, se realiza una suma de los valores de las imágenes ($\mathtt{I_1},\, \mathtt{I_2}$) en el área de intersección ($\mathtt{I_1}\cap \mathtt{I_2}$) para cada canal, dándole menor peso a los píxeles que se encuentren mas cercanos del extremo de la imagen. Cabe destacar que esta suma se normaliza para asegurar que no se supere el rango $0-255$ con el cual se representan los valores de la imagen final. La ecuación para la suma ponderada se muestra a continuación:
+\begin{displaymath}
+	F = \frac{(1-\alpha)\cdot \mathtt{I}_1 + \alpha\cdot \mathtt{I}_2}{512} 
+\end{displaymath} 
+Donde el parámetro $\alpha$ varia en el rango $0\to 1$, en este caso en función a la distancia, tal y como se ilustra en la figura \ref{imagen:blend-simple}.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\linewidth]{blend1.pdf}
+	\caption[Fusión ponderada simple]{Fusión ponderada simple, donde $\alpha_1$ y $\alpha_2$ corresponden con el factor multiplicativo de las imágenes 1 y 2 respectivamente ($\alpha_1 = 1 - \alpha_2$).}
+	\label{imagen:blend-simple}
+\end{figure}
+
+El algoritmo de fusión ponderada de transición presenta ciertas desventajas, entre estas el efecto fantasma, en el que se observan duplicados de los objetos en la escena pero con cierto grado de desvanecimiento. Si bien no será implementado, el estudio de su funcionamiento es necesario para comprender el algoritmo de fusión que trabaja bajo un esquema piramidal.
 
 \subsection{Fusión ponderada piramidal}
-Prueba
+
+
+
+Considerando este problema, y con el objetivo de realizar una unión mas robusta, se desarrolló un esquema piramidal de fusión ponderada. El proceso consiste en obtener una imagen laplaciana para distintos tamaños de escala, formando así una pirámide, al mismo tiempo se va creando para cada nivel de la pirámide una mascara difuminada por el efecto del filtro gaussiano de dicha escala. Luego para cada nivel de la pirámide se aplica el algoritmo de fusión ponderada descrito previamente donde la mascara  difuminada pondera el valor de cada píxel. Entre los trabajos que aplican este algoritmo obteniendo resultados notables se tiene \cite{multiband}, logrando reducir en gran medida el efecto duplicado en las regiones de superposición.
 
 \section{Resultados}
 
