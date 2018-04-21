@@ -8,9 +8,9 @@ Repeated entry---line 14 of file bibliografia.bib
  :                ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "danilo" isn't style-file defined
---line 266 of file bibliografia.bib
+--line 272 of file bibliografia.bib
 Warning--entry type for "said" isn't style-file defined
---line 271 of file bibliografia.bib
+--line 277 of file bibliografia.bib
 Warning--empty booktitle in harris
 Too many commas in name 1 of "Bay, H., Tuytelaars, T. y Van Gool, L" for entry surf
 while executing---line 944 of file unsrt.bst
@@ -28,45 +28,45 @@ Too many commas in name 1 of "Nuno Gracias, Art Gleason, Shahriar Negahdaripour,
 while executing---line 944 of file unsrt.bst
 Warning--empty journal in flann
 Warning--empty publisher in elibol
-You've used 34 entries,
+You've used 35 entries,
             1791 wiz_defined-function locations,
-            606 strings with 8505 characters,
-and the built_in function-call counts, 4946 in all, are:
-= -- 406
-> -- 182
+            609 strings with 8602 characters,
+and the built_in function-call counts, 5106 in all, are:
+= -- 418
+> -- 193
 < -- 1
-+ -- 81
-- -- 47
-* -- 165
-:= -- 870
-add.period$ -- 101
-call.type$ -- 34
-change.case$ -- 30
++ -- 85
+- -- 50
+* -- 173
+:= -- 900
+add.period$ -- 104
+call.type$ -- 35
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 37
-duplicate$ -- 285
-empty$ -- 550
-format.name$ -- 47
-if$ -- 1097
+cite$ -- 38
+duplicate$ -- 293
+empty$ -- 564
+format.name$ -- 50
+if$ -- 1131
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 37
-newline$ -- 171
-num.names$ -- 34
-pop$ -- 134
+int.to.str$ -- 35
+missing$ -- 38
+newline$ -- 176
+num.names$ -- 35
+pop$ -- 137
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 102
+skip$ -- 105
 stack$ -- 0
 substring$ -- 48
-swap$ -- 35
+swap$ -- 36
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 36
-width$ -- 36
-write$ -- 341
+while$ -- 37
+width$ -- 37
+write$ -- 351
 (There were 8 error messages)

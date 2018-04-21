@@ -178,6 +178,12 @@ Armagan Elibol, Nuno Gracias, and Rafael Garcia.
   volume~82.
 \newblock 01 2012.
 
+\bibitem{graph-cut}
+Y.~Boykov, O.~Veksler, and R.~Zabih.
+\newblock Fast approximate energy minimization via graph cuts.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  2001.
+
 \bibitem{graph-opencv}
 Vivek Kwatra, Arno Sch\"{o}dl, Irfan Essa, Greg Turk, and Aaron Bobick.
 \newblock Graphcut textures: Image and video synthesis using graph cuts.
