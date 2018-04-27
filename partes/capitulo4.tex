@@ -464,7 +464,7 @@ E^\alpha = (\max (\cos\alpha_{12},\, \cos\alpha_{23},\, \cos\alpha_{34},\, \cos\
 \end{equation}
 
 
-\subsection{Selección de puntos característicos}
+\subsection{Selección de puntos característicos}\label{seleccion-grid}
 
 Según se estudió en el método RANSAC, la estimación de una buena homografía depende de la distribución de los puntos en la escena. Es posible contar con una gran cantidad de puntos extraídos y emparejados en una sección de la escena que no corresponde con el mejor modelo del plano de ésta, lo que indica que la matriz de homografía se ajuste a dicha región por ofrecer menor peso en la función de coste. En cambio, el resultado esperado es que se tenga una mejor distribución de puntos en la escena de modo que se tenga una ponderación de igual magnitud para todas las regiones del suelo.
 
@@ -490,7 +490,7 @@ Refiriéndonos a la figura \ref{imagen:grid-plano}, se observa como en \ref{fig:
 
 Por otro lado, en la figura  \ref{fig:grid-plano-b} se observa como se puede mejorar la estimación de la transformación, al seleccionar solo las mejores parejas por cada región, de esta forma la ponderación se distribuye de mejor manera a lo largo del plano del suelo.
 
-\subsection{Seguimiento de puntos}\label{secccion-grid}
+\subsection{Seguimiento de puntos}\label{seguimiento-puntos}
 
 Ya hemos visto el proceso simple de relacionar dos imágenes, donde luego de aplicar la transformación a la nueva imagen, ésta presentará cierto nivel de distorsión, afectando que imágenes siguientes logren establecer una relación robusta de puntos.
 
@@ -603,20 +603,20 @@ En esta sección se presentan los resultados de aplicar los métodos descritos p
 \subsection*{Selección de puntos característicos}
 
 Se muestran los resultados tras aplicar el método descrito en la 
-sección \ref{secccion-grid}. Para esto se estudia tanto analíticamente como visual el resultado de aplicar esta técnica. Estudiaremos el el error de estimar una matriz de homografía sobre la distancia de los puntos correspondientes luego de aplicarla. 
+sección \ref{seleccion-grid}. Para esto se estudia tanto analíticamente como visual el resultado de aplicar esta técnica. Estudiaremos el el error de estimar una matriz de homografía sobre la distancia de los puntos correspondientes luego de aplicarla. 
 
 Para cada conjunto se seleccionó un par de imágenes con las que se busca ejemplificar las mejoras que este método ofrece en la etapa de registro de imágenes. Para una mejor visualización de los datos obtenidos, se propone un estudio de la distribución de las parejas según la distancia espacial que presenten, medida en píxeles. Conjuntamente se presenta para cada distribución las imágenes alineadas, donde se ilustran las parejas con mejor y peor distancia. Para lograr esta distinción se fijaron de color verde las pareas que presente mejor distancia, mientras que aquellas que tengan 3 veces mas distancia que la mejor, se denotan en color rojo. Para ambos casos se muestran de color azul los puntos correspondientes en la nueva imagen.
 
 Por otra parte se analiza numéricamente el error en función a la distancia en las parejas de puntos. Para esto se estudia el error cuadrático medio, el cual mide el promedio de la diferencia entre el valor deseado y el obtenido, y se calcula usando la ecuación \ref{eqn-ECM}.
 \begin{equation}\label{eqn-ECM}
-	\frac{1}{n} \sum_{i}^{n} \left( \hat{\mathbf{D}} - \mathbf{D} \right)^2
+	ECM = \frac{1}{n} \sum_{i}^{n} \left( \hat{\mathbf{D}} - \mathbf{D} \right)^2
 \end{equation}
 
 Donde $\hat{\mathbf{D}}$ es el valor deseado o esperado, y $\mathbf{D}$ es el valor obtenido. En este caso, se trabaja con la distancia como entre los puntos luego de aplicar la matriz de transformación. Lo ideal seria que al aplicar la matriz sobre los primeros puntos, con lo cual la distancia deseada entre ellos ($\hat{\mathbf{D}}$) se considera igual a cero ($\hat{\mathbf{D}}$=0).
 
-A continuación se muestran los resultados para imágenes de los conjuntos de datos \textit{Chuspa 1}, \textit{Chuspa 2}, \textit{Mochima} y \textit{Grava}. Es importante considerar que para todos los casos se utilizó el extractor de puntos SIFT y el emparejador FLANN, también que las imágenes se trabajaron con una resolución de $640 \times 480$, a excepción del conjunto \textit{Grava} que presentan una resolución de $1280 \times 760$.
+A continuación se muestran los resultados para imágenes de los conjuntos de datos \textit{Chuspa}, \textit{Mochima} y \textit{Grava}. Es importante considerar que para todos los casos se utilizó el extractor de puntos SIFT y el emparejador FLANN, también que las imágenes se trabajaron con una resolución de $640 \times 480$, a excepción del conjunto \textit{Grava} que presentan una resolución de $1280 \times 760$.
 
-\subsubsection*{Chuspa 1}
+\subsubsection*{Chuspa}
 
 En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0233-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0233-align} se observa para cada caso las imágenes alineadas en un mismo plano.
 
@@ -662,8 +662,8 @@ En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en
 
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=.40\textwidth]{resultados/grid/geo-big-1_2.pdf}}\hspace{3mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=.40\textwidth]{resultados/grid/geo-bigG-1_2.pdf}}
+	\subfigure[]{\label{fig:grid-geo-hist-a}\includegraphics[height=.40\textwidth]{resultados/grid/geo-big-1_2.pdf}}\hspace{3mm}%}
+	\subfigure[]{\label{fig:grid-geo-hist-b}\includegraphics[height=.40\textwidth]{resultados/grid/geo-bigG-1_2.pdf}}
 	
 	\caption[Histogramas 1]{Histogramas 1}
 	\label{imagen:grid:geo-hist}
@@ -679,36 +679,36 @@ En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en
 
 
 
-\subsubsection*{Chuspa 2}
+%\subsubsection*{Chuspa 2}
 
-En la figura \ref{imagen:grid:0234-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0234-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0234-align} se observa para cada caso las imágenes alineadas en un mismo plano.
+%En la figura \ref{imagen:grid:0234-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0234-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0234-align} se observa para cada caso las imágenes alineadas en un mismo plano.
 
-\begin{figure}[h]
-	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=1\textwidth]{resultados/grid/0234match}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=1\textwidth]{resultados/grid/0234matchG}}
+%\begin{figure}[h]
+%	\centering     %%% not \center
+%	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=1\textwidth]{resultados/grid/0234match}}\hspace{1mm}%}
+%	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=1\textwidth]{resultados/grid/0234matchG}}
 	
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:grid:0234-match}
-\end{figure}
+%	\caption[Histogramas 1]{Histogramas 1}
+%	\label{imagen:grid:0234-match}
+%\end{figure}
 
 
-\begin{figure}[h]
-	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=.35\textwidth]{resultados/grid/0234-4_5.pdf}}\hspace{3mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=.35\textwidth]{resultados/grid/0234-4_5G.pdf}}
+%\begin{figure}[h]
+%	\centering     %%% not \center
+%	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=.35\textwidth]{resultados/grid/0234-4_5.pdf}}\hspace{3mm}%}
+%	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=.35\textwidth]{resultados/grid/0234-4_5G.pdf}}
 	
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:grid:0234-hist}
-\end{figure}
-\begin{figure}[h]
-	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=.49\textwidth]{resultados/grid/0234-4_5.png}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=.49\textwidth]{resultados/grid/0234-4_5G.png}}
+%	\caption[Histogramas 1]{Histogramas 1}
+%	\label{imagen:grid:0234-hist}
+%\end{figure}
+%\begin{figure}[h]
+%	\centering     %%% not \center
+%	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=.49\textwidth]{resultados/grid/0234-4_5.png}}\hspace{1mm}%}
+%	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=.49\textwidth]{resultados/grid/0234-4_5G.png}}
 	
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:grid:0234-align}
-\end{figure}
+%	\caption[Histogramas 1]{Histogramas 1}
+%	\label{imagen:grid:0234-align}
+%\end{figure}
 
 
 \subsubsection*{Mochima}
@@ -741,39 +741,152 @@ En la figura \ref{imagen:grid:0752-match} se muestran las parejas detectadas, en
 	\label{imagen:grid:0752-align}
 \end{figure}
 
-\begin{table}[]\centering
+
+\begin{table}[h]
 	\centering
 	\caption{My caption}
-	\label{my-label}
-	\begin{tabular}{@{}lccccc@{}}
+	\label{tabla:ECM}
+	\begin{tabular}{@{}lcccc@{}}
 		\toprule
-		\multicolumn{2}{l}{}           			 & Chuspa 1 & Chuspa 2 & Grava & Mochima \\ \midrule
-		\multirow{2}{*}{ECM} &\hfill Antes \hfill\vline& 3.69     & 7.12     &7664.50& 4.98    \\
-							& Después      \vline& 3.46     & 1.53     & 20.06 & 3.92    \\
+		\multicolumn{2}{l}{}           			 & Chuspa  & Grava & Mochima \\ \midrule
+		\multirow{2}{*}{ECM} &\hfill Antes \hfill\vline& 3.69    &7664.50& 4.98    \\
+							& Después      \vline& 3.46    & 20.06 & 3.92    \\
 							
 		\bottomrule 
 	\end{tabular}
 \end{table}
 
-La distribución de puntos mostrada en los histogramas nos muestra la calidad de la transformación, el caso ideal se cumple cuando todos los puntos coinciden, es decir, todas las parejas tienen distancia igual a cero --- una sola barra agrupada a la izquierda ---, por lo tanto el algoritmo de selección está dirigido a este fin. 
+La distribución de puntos presentada en los histogramas nos revela información sobre la calidad de la transformación, donde el caso ideal se cumple cuando todos los puntos coinciden, es decir, todas las parejas tienen distancia igual a cero --- una sola barra agrupada a la izquierda ---, por lo tanto, buscar esta distribución debe ser el fin del presente algoritmo de selección, si bien so se puede lograr el caso ideal, se busca el mejor caso posible. 
 
-Para analizar de otra dorma los datos presentados en los histogramas, 
+Para realizar un correcto análisis de los datos presentados, es preciso estudiar la información de los histogramas en conjunto con las imágenes alineadas. De esta forma podemos apreciar la distribución de los puntos a lo largo de las imágenes, si bien es muy poco probable lograr el histograma ideal, es necesario contar con que los puntos agrupados hacia las distancias cortas (izquierda) se encuentren repartidos espacialmente por la mayor parte de las imágenes. Esto es para evitar que el modelo del plano resultante se ajuste dando mayor importancia a una pequeña región de la imagen.
 
-Un problema común cuando se realiza emparejamiento simple (todas las posibles) es que la cantidad de parejas con poca distancia se encuentren ubicadas en una misa región. Si bien se suelen tener pocas con mucha distancia, éstas suelen estar esparcidos por el resto de la imagen. Si bien esta distribución en la imagen según la distancia no es posible visualizarla en el histograma, en las imágenes alineadas se facilita dicha distinción. Considerando esto, cada histograma luego de aplicar la selección muestra una fuerte agrupación de buenas parejas y asegurando que la mayoría se encuentra distribuida a lo largo de toda la imagen.
+Esta distribución indeseada puede traer consigo un problema común cuando se realiza emparejamiento simple (todas las parejas posibles), y es que la cantidad de parejas con poca distancia se encuentren ubicadas en una misa región, dando mayor importancia a dicha región para la estimación de la matriz de transformación. Si bien se suelen tener pocos puntos con mucha distancia, éstos suelen estar esparcidos por el resto de la imagen para estos casos. Dado que esta distribución en la imagen según la distancia no es posible visualizarla en el histograma, en las imágenes alineadas se facilita dicha distinción.
 
-Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{ifg:sub-geo-b}) se muestra una cantidad importante de parejas con mucha distancia, estos corresponden con \textit{outliers} del modelo seleccionado. Si bien la cantidad parejas con muy poca distancia (\textit{inliers}) es elevada, estas se encuentran en una pequeña región de la imagen, esta distribución se aprecia en la figura \ref{imagen:grid:geo-align}. 
+Considerando este factor, se puede observar en cada histograma luego de aplicar la selección como muestra una fuerte agrupación de buenas parejas, y además se puede asegurar que la mayoría se encuentra distribuida a lo largo de toda la imagen. Para completar el análisis, y asegura la misma o una mejor relación de parejas con corta y grandes distancias se presenta en la tabla \ref{tabla:ECM} el error cuadrático medio sobre cada par de imágenes antes y después de aplicar el método. De esta forma dada la reducción de muestras, se puede asegurar que el promedio de la calidad de emparejamientos luego de la selección mejora para los casos mostrados.
+
+Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{ifg:sub-geo-b}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. Si bien la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
 
 Este error se produce ya que el terreno presente en la imagen esta compuesto por planos a distintas altitudes, con lo cual la matriz de transformación se ajusta a aquel plano que presente mayor cantidad de parejas, resultando en un par de imágenes con un fuerte error de alineación. 
 
-El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, si bien empeora un poco la alineación del plano presente a la derecha, el error global se minimiza en mayor medida. 
+El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución (histograma en la sub figura \ref{fig:grid-geo-hist-b}) la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, si bien empeora un poco la alineación del antiguo plano modelo (plano presente a la derecha), el error global se minimiza en mayor medida. 
 
 \subsection*{Seguimiento de puntos}
 
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seguimiento-puntos}. 
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.49\textwidth]{resultados/seguimiento/SR-old}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.49\textwidth]{resultados/seguimiento/SR-new}}
+	
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\begin{varwidth}{0.49\linewidth}  % this is a must
+		\subfigure[Frame 1]{\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-old-match}}\\
+		\subfigure[Frame 2]{\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-old}}
+	\end{varwidth}
+	\begin{varwidth}{0.50\linewidth}  % this is a must
+		\subfigure[Frame 3]{\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-new}}
+		\color{white}
+		\color{black}
+	\end{varwidth}
+	
+	\caption{caption.} 
+	\label{farraypicture}
+\end{figure}
+
+
 \subsection*{Relación con vecinos}
+prueba
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-old}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-new}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-newmap}}
+	
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
 
 \subsection*{Homografía promedio}
 
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.39\textwidth]{resultados/hpromedio/0234-ref1}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.59\textwidth]{resultados/hpromedio/0234-ref2}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.8\textwidth]{resultados/hpromedio/0234-avg}}
+	
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.30\textwidth]{resultados/hpromedio/SR-ref0}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.25\textwidth]{resultados/hpromedio/SR-ref1}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.30\textwidth]{resultados/hpromedio/SR-avg}}
+	
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
 \subsection*{Corrección euclidiana}
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-e}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-emap}}\hspace{1mm}%}
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.9\textwidth]{resultados/ec/0234-f}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.9\textwidth]{resultados/ec/0234-fmap}}\hspace{1mm}%}
+
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-ec}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-ecmap}}
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-e}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-emap}}\hspace{1mm}%}
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.9\textwidth]{resultados/ec/SR-f}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.9\textwidth]{resultados/ec/SR-fmap}}\hspace{1mm}%}
+	
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-ec}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-ecmap}}
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:seg:SR}
+\end{figure}
+
 
 \section{Resumen}
 Resumen

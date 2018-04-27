@@ -41,21 +41,21 @@
 \contentsline {subsection}{\numberline {4.3.4}Relaci\IeC {\'o}n con vecinos}{59}{subsection.204}
 \contentsline {section}{\numberline {4.4}Correcci\IeC {\'o}n euclidiana}{61}{section.234}
 \contentsline {section}{\numberline {4.5}Resultados}{63}{section.245}
-\contentsline {section}{\numberline {4.6}Resumen}{70}{section.293}
-\contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{73}{chapter.294}
-\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{73}{section.295}
-\contentsline {section}{\numberline {5.2}Linea de costura}{74}{section.296}
-\contentsline {subsection}{\numberline {5.2.1}Corte por grafo}{74}{subsection.297}
-\contentsline {section}{\numberline {5.3}Correcci\IeC {\'o}n de color}{76}{section.302}
-\contentsline {subsection}{\numberline {5.3.1}M\IeC {\'e}todo de Reinhard}{77}{subsection.307}
-\contentsline {section}{\numberline {5.4}Fusi\IeC {\'o}n de im\IeC {\'a}genes}{78}{section.308}
-\contentsline {subsection}{\numberline {5.4.1}Fusi\IeC {\'o}n ponderada}{79}{subsection.309}
-\contentsline {subsection}{\numberline {5.4.2}Fusi\IeC {\'o}n ponderada piramidal}{80}{subsection.311}
-\contentsline {section}{\numberline {5.5}Resultados}{82}{section.321}
-\contentsline {section}{\numberline {5.6}Resumen}{82}{section.322}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{83}{chapter.323}
+\contentsline {section}{\numberline {4.6}Resumen}{71}{section.320}
+\contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{81}{chapter.321}
+\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{81}{section.322}
+\contentsline {section}{\numberline {5.2}Linea de costura}{82}{section.323}
+\contentsline {subsection}{\numberline {5.2.1}Corte por grafo}{82}{subsection.324}
+\contentsline {section}{\numberline {5.3}Correcci\IeC {\'o}n de color}{84}{section.329}
+\contentsline {subsection}{\numberline {5.3.1}M\IeC {\'e}todo de Reinhard}{85}{subsection.334}
+\contentsline {section}{\numberline {5.4}Fusi\IeC {\'o}n de im\IeC {\'a}genes}{86}{section.335}
+\contentsline {subsection}{\numberline {5.4.1}Fusi\IeC {\'o}n ponderada}{87}{subsection.336}
+\contentsline {subsection}{\numberline {5.4.2}Fusi\IeC {\'o}n ponderada piramidal}{88}{subsection.338}
+\contentsline {section}{\numberline {5.5}Resultados}{90}{section.348}
+\contentsline {section}{\numberline {5.6}Resumen}{91}{section.352}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{92}{chapter.353}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{87}{appendix.325}
-\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{87}{section.326}
-\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{87}{subsection.327}
+\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{96}{appendix.355}
+\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{96}{section.356}
+\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{96}{subsection.357}
 \vspace {2em}
