@@ -381,7 +381,7 @@ Siguiendo este proceso se van construyendo sub mosaicos hasta que no se cuenten 
 
 
 
-\subsection{Matriz de transformación promedio}
+\subsection{Matriz de transformación promedio}\label{seccion-hpromedio}
 
 Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos sub mosaicos que se desean unir, los cuales son temporalmente continuos, en la imagen superior se observan los sub mosaicos $S_j,\,S_k$ (marcos verde oscuro y verde claro) alineados y considerando la imagen de referencia del primero (verde lleno) como imagen de referencia global. En el segundo caso se muestran ambos alineados pero considerando la imagen de referencia del segundo (rojo lleno) como imagen de referencia global. 
 \begin{figure}[h]
@@ -512,7 +512,7 @@ Definiendo $\vec{x}^1_i$ como los puntos que corresponden a la nueva imagen, $\v
 
 
 
-\subsection{Relación con vecinos}
+\subsection{Relación con vecinos}\label{seccion-vecinos}
 
 Tal y como se ha planteado el proceso de registro hasta este punto, consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición (ver figura \ref{fig:vecinos1-a}), con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estás condiciones no se cumplen, es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo de todas aquellas inmediatamente anteriores, y que tengan información en común (intersección), a las cuales llamaremos imágenes vecinas (ver figura \ref{fig:vecinos1-b}).
 
@@ -571,7 +571,7 @@ Considerando toda la información posible, se tiene un sistema que se adapta a u
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Corrección euclidiana}
+\section{Corrección euclidiana}\label{seccion-ec}
 
 La concatenación de un gran grupo de imágenes en la formación de un mosaico, suele traer consigo un error de distorsión acumulado producto de la estimación de la mejor matriz de homografía, afectando en muchos casos el tamaño original de las imágenes. Para resolver este problema \textit{A. Elibol y R. Garcia} en \cite{elibol} proponen un método de corrección global basado en transformaciones de isometría.
 
@@ -772,121 +772,179 @@ El algoritmo propuesto logra reducir este error, tal y como se observa en la nue
 
 \subsection*{Seguimiento de puntos}
 
-A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seguimiento-puntos}. 
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seguimiento-puntos}.
+
+En primer lugar se presenta un resultado utilizando el conjunto \textit{ScottReef 25}, para el cual se puede observar en la figura \ref{fig:seg:SR-a} un conjunto de imágenes alineadas usando el método que consiste en establecer el registro entre la nueva imagen, y el mosaico previo, es decir, se buscan relaciones de puntos en el conjunto de imágenes previamente deformadas. Por otra parte en la figura \ref{fig:seg:SR-b} se aprecia el mismo conjunto de imágenes alineadas con el método propuesto, en el cual el registro se establece con las imágenes sin deformar, y realizando el seguimiento de puntos utilizando la matriz correspondiente.
+
+Adicionalmente de la clara mejora en la transformación hallada, en el mosaico \ref{fig:seg:SR-a} no fue posible continuar alineando imágenes debido a la alta distorsión de los puntos característicos en la imagen. Caso contrario, en el nuevo mosaico es posible de continuar el crecimiento, conteniendo una imagen adicional, luego de la cual el proceso fue detenido intencionalmente. 
 
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.49\textwidth]{resultados/seguimiento/SR-old}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.49\textwidth]{resultados/seguimiento/SR-new}}
+	\subfigure[]{\label{fig:seg:SR-a}\includegraphics[width=0.35\textwidth]{resultados/seguimiento/SR-old}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:seg:SR-b}\includegraphics[width=0.35\textwidth]{resultados/seguimiento/SR-new}}
 	
-	\caption[Histogramas 1]{Histogramas 1}
+	\caption[Seguimiento de puntos: \textit{ScottReef 25}]{Mejora del seguimiento de puntos en conjunto \textit{ScottReef 25}. La figura (a) está compuesta por 5 imágenes, registro entre nueva imagen y mosaico (imágenes anteriores alineadas). La figura (b) está compuesta por 6 imágenes, registro entre nueva imagen e imagen anterior sin deformar}
 	\label{imagen:seg:SR}
 \end{figure}
 
-\begin{figure}[!h]
+Por otra parte, se presenta un resultado utilizando el conjunto \textit{Chuspa}. Similar al caso anterior, la cantidad de imágenes que se pueden añadir al mosaico utilizando el antiguo método de registro es muy limitada. Esto se puede observar en la figura \ref{fig:seg:0234-b}, ahí se presenta la máxima cantidad de imágenes que fue posible añadir con el antiguo método (6 imágenes), mientras que en la figura \ref{fig:seg:0234-a} se muestran la cantidad de puntos que fue posible relacionar, en este caso el mínimo necesario (4 puntos). 
+
+Luego de utilizar el método propuesto, la posibilidad de realizar el emparejamiento es muy elevada, ya que el registro no entre imágenes se realiza siempre en las mejores condiciones (imágenes sin deformar). En este caso se tiene como resultado el de la figura \ref{fig:seg:0234-c}, donde se muestra un total de 19 imágenes, luego de las cuales el proceso fe detenido intencionalmente.
+
+\begin{figure}[h]
 	\centering
 	\begin{varwidth}{0.49\linewidth}  % this is a must
-		\subfigure[Frame 1]{\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-old-match}}\\
-		\subfigure[Frame 2]{\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-old}}
+		\centering
+		\subfigure[]{\label{fig:seg:0234-a}\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-old-match}}\\
+		\subfigure[]{\label{fig:seg:0234-b}\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-old}}
 	\end{varwidth}
 	\begin{varwidth}{0.50\linewidth}  % this is a must
-		\subfigure[Frame 3]{\includegraphics[width=1\linewidth]{resultados/seguimiento/0234-new}}
+		\centering
+		\subfigure[]{\label{fig:seg:0234-c}\includegraphics[width=0.9\linewidth]{resultados/seguimiento/0234-new}}
 		\color{white}
 		\color{black}
 	\end{varwidth}
 	
 	\caption{caption.} 
-	\label{farraypicture}
+	\label{imagen:seg:0234}
 \end{figure}
 
 
 \subsection*{Relación con vecinos}
-prueba
+
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-vecinos}.
+
+En este caso se presenta un mosaico utilizando imágenes del conjunto \textit{Mochima}. En la figura \ref{fig:vec:0752-a} se tiene un mosaico construido bajo el esquema simple, en el cual se relaciona la nueva imagen con la última añadida. Tal y como se observa en el mapa de la trayectoria mostrado en \ref{fig:vec:0752-c} hay un cambio en el recorrido --- La segunda imagen se posiciona debajo de la numero 1, luego la número 3 cambia el movimiento hacia arriba, donde el resto continúa con la trayectoria ---. Esto produce que la tercera imagen se relacione con la segunda solo bajo una pequeña área de superposición, produciendo el error de alineación (mostrada en la sección marcada).
+
+En la figura \ref{fig:vec:0752-b} se muestra el resultado de un esquema que establece el registro de imágenes aprovechando la información de aquellas que se encuentren espacialmente cercanas. En este sentido, destacando la sección marcada es posible observar la mejora que éste método ofrece para este particular caso, logrando alinear correctamente la tercera imagen, utilizando la primera, con la cual comparte gran área de superposición.  
+
+
+
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-old}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-new}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-newmap}}
+	\subfigure[]{\label{fig:vec:0752-a}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-old}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:vec:0752-b}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-new}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:vec:0752-c}\includegraphics[width=0.29\textwidth]{resultados/vecinos/0752-newmap}}
 	
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
+	\caption[Busqueda de vecinos: \textit{Búsqueda por vecinos: \textit{Mochima}}]{Búsqueda por vecinos en mosaico compuesto por 8 imágenes. En (a) se muestra el registro de la nueva imagen con la anterior. En (b) el registro de la nueva imagen con las anteriores espacialmente cercanas. En (c) se muestra el mapa del mosaico en (b). Los puntos corresponden con el centro de la imagen, y el número con el orden de inclusión en el mosaico.}
+	\label{imagen:vecinos:0752}
 \end{figure}
 
 
 \subsection*{Homografía promedio}
 
-\begin{figure}[h]
-	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.39\textwidth]{resultados/hpromedio/0234-ref1}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.59\textwidth]{resultados/hpromedio/0234-ref2}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.8\textwidth]{resultados/hpromedio/0234-avg}}
-	
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
-\end{figure}
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-hpromedio}.
+
+En el primer caso se muestra la unión de dos sub mosaicos del conjunto de imágenes \textit{Chuspa}. En la figura \ref{fig:h:0234-a} se observa dos sub mosaicos alineados en un mismo plano, y considerando la imágen de referencia del primero (cuadro marcado) como referencia global. Por otro lado en la figura \ref{fig:h:0234-b} se observa el mismo sub mosaico, pero considerando la imagen de referencia del segundo (cuadro marcado) como referencia global. 
+
+Como se puede apreciar, ambos sub mosaicos presentan un elevado nivel de distorsión producto de la mala elección de la imagen de referencia. Ahora bien, al utilizar el método descrito anteriormente, es posible alinearlos logrando reducir el error de distorsión, tal y como se observa el resultado en la figura \ref{fig:h:0234-c}. 
+
+En este caso el error fue obtenido según la ecuación \ref{eq-error}, donde se obtuvo un error de 2.56838 para el sub mosaico en \ref{fig:h:0234-a}, un error de 3.09599 para el sub mosaico en \ref{fig:h:0234-b}, y finalmente se logró reducir el error hasta 2.06248 para obtener el mosaico en \ref{fig:h:0234-c}.
 
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[width=0.30\textwidth]{resultados/hpromedio/SR-ref0}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.25\textwidth]{resultados/hpromedio/SR-ref1}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[width=0.30\textwidth]{resultados/hpromedio/SR-avg}}
+	\subfigure[]{\label{fig:h:0234-a}\includegraphics[width=0.32\textwidth]{resultados/hpromedio/0234-ref1}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:h:0234-b}\includegraphics[width=0.50\textwidth]{resultados/hpromedio/0234-ref2}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:h:0234-c}\includegraphics[width=0.66\textwidth]{resultados/hpromedio/0234-avg}}
 	
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
+	\caption[Homografía promedio: \textit{Mochima}]{Homografía promedio. (e) es el resultado luego de aplicar el método iterativo RANSAC sobre los sub mosaicos (a) y (b).}
+	\label{imagen:avgh:0234}
 \end{figure}
+
+Otro resultado interesante se obtuvo utilizando imágenes del conjunto \textit{ScottReef 25}. En la figura \ref{fig:h:SR-a} se muestran dos sub mosaicos que consideran como referencia la imagen marcada con el cuadro verde, por otro lado el segundo sub mosaico está compuesto por una sola imágen, con lo cual se toma esta como referencia para realizar la segunda etapa de alineación, mosatrada en la figura \ref{fig:h:SR-b}. Finalmente, en la sigura \ref{fig:h:SR-c} se ilustra el par de sub mosaicos alineados según la homografía promedio que logra reducir en mayor medida el error de distorsión global. 
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:h:SR-a}\includegraphics[width=0.25\textwidth]{resultados/hpromedio/SR-ref0}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:h:SR-b}\includegraphics[width=0.20\textwidth]{resultados/hpromedio/SR-ref1}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:h:SR-c}\includegraphics[width=0.25\textwidth]{resultados/hpromedio/SR-avg}}
+	
+	\caption[Homografía promedio: \textit{ScottReef 25}]{Homografía promedio. }
+	\label{imagen:avgh:SR}
+\end{figure}
+
+Un mosaico puede estar compuesto por una gran cantidad de sub mosaicos, si bien el proceso para unirlos ya se ilustró, se muestra el criterio para la selección sobre cuales se deben unir en primer lugar. Para esto se selecciona el par se sub mosaicos que presente mayor área de superposición, a medida que se va construyendo. Es importante destacar que cuando se evalúan dos sub mosaicos ya corregidos, se considera la matriz de homografía promedio para determinar el área de superposición.
+
+En la figura \ref{imagen:jerarquia0234} se observa la jerarquía con la que se seleccionan los sub mosaicos para ser alineados en el mosaico final. En este caso se redujo el criterio para detener el proceso de construcción de un sub mosaico, de modo que se cuente con una mayor cantidad de ellos y se ilustre de mejor manera el proceso.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{resultados/jerarquia-reducido.pdf}
+	\caption[Selección de sub mosaicos]{Jerarquía para selección de sub mosaicos}
+	\label{imagen:jerarquia0234}
+\end{figure}
+
+Se muestran 9 sub mosaicos, compuestos por un total de  23 imágenes. Se observa como se unen los primeros cuatro sub mosaicos (desde izquierda a derecha) hasta un punto que se tiene otro par que presenta mayor área de superposición, con lo cual el proceso continúa con éstos. Siguiendo ese orden se tiene finalmente en la parte superior de la imagen el mosaico final.
 
 \subsection*{Corrección euclidiana}
 
-\begin{figure}[h]
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-ec}. Los cuales buscan reducir el error sobre el tamaño de las imágenes producto de la suma de errores al estimar la matriz de homografía. 
+
+En primer lugar se muestra un resultado utilizando 12 imágenes del conjunto \textit{ScottReef 25}. En la figura \ref{imagen:ec:SR_1} se observa el mosaico construido únicamente con transformaciones de isometría. A la izquierda de observa el mosaico a color, y a la derecha el mapa con las coordenadas medidas en píxeles.
+
+En el mapa (\ref{fig:ec:SRE-a}) se muestran los 4 puntos marcados con color verde que corresponden con el borde del mosaico. Por otro lado se muestra en la figura \ref{fig:ec:SRP-b} el mapa del mosaico creado usando transformaciones de perspectiva sin ningún tipo de correcciones. También se muestra en esa misma imagen en color rojo los 4 puntos correspondientes a los extremos del mosaico. Ahora bien, teniendo esta correspondencia de 4 pares de puntos, es posible hallar una matriz de transformación de perspectiva para lograr alinear los extremos del mosaico en \ref{fig:ec:SRP-b} con el \ref{fig:ec:SRP-a}. 
+
+Luego de encontrar dicha transformación y aplicarla al segundo mosaico se obtiene el mosaico mostrado en la figura  \ref{imagen:ec:SR_3}.
+
+Se puede observar en los tres mapas de coordenadas la ubicación relativa de los puntos frontera del mosaico. Considerando el origen en la esquina superior izquierda, se tiene que el mosaico construido con matrices de isometria no supera los 3.000 píxeles de longitud en el eje $y$, mientras que el construido con matrices de perspectiva logra superar los 11.000 píxeles. finalmente luego de la corrección la distancia entre los puntos del extremo logran coincidir en ambos mosaicos.
+
+
+Se presenta otro resultado utilizando 30 imágenes del conjunto \textit{Chuspa}. Similar al caso anterior se muestran en las figuras \ref{imagen:ec:0234_1}, \ref{imagen:ec:0234_2} y \ref{imagen:ec:0234_3} el mosaico construido con matrices de isometría, matrices de perspectiva y el mosaico corregido respectivamente.
+
+\begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-e}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-emap}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec:SRE-a}\includegraphics[height=0.6\textwidth]{resultados/ec/SR-e}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec:SRE-b}\includegraphics[height=0.6\textwidth]{resultados/ec/SR-emap}}\hspace{1mm}%}
 	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
+	\label{imagen:ec:SR_1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering     %%% not \center
 	
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.9\textwidth]{resultados/ec/0234-f}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.9\textwidth]{resultados/ec/0234-fmap}}\hspace{1mm}%}
-
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
-\end{figure}
-\begin{figure}[h]
-	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-ec}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/0234-ecmap}}
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
-\end{figure}
-
-\begin{figure}[h]
-	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-e}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-emap}}\hspace{1mm}%}
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
-\end{figure}
-
-\begin{figure}[h]
-	\centering     %%% not \center
-	
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.9\textwidth]{resultados/ec/SR-f}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.9\textwidth]{resultados/ec/SR-fmap}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec:SRP-a}\includegraphics[height=0.6\textwidth]{resultados/ec/SR-f}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec:SRP-b}\includegraphics[height=0.6\textwidth]{resultados/ec/SR-fmap}}\hspace{1mm}%}
 	
 	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
-\end{figure}
-\begin{figure}[h]
-	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-ec}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.8\textwidth]{resultados/ec/SR-ecmap}}
-	\caption[Histogramas 1]{Histogramas 1}
-	\label{imagen:seg:SR}
+	\label{imagen:ec:SR_2}
 \end{figure}
 
+\begin{figure}[H]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:ec:SRC-a}\includegraphics[height=0.6\textwidth]{resultados/ec/SR-ec}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec:SRC-b}\includegraphics[height=0.6\textwidth]{resultados/ec/SR-ecmap}}
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:ec:SR_3}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.60\textwidth]{resultados/ec/0234-e}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.60\textwidth]{resultados/ec/0234-emap}}\hspace{1mm}%}
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:ec:0234_1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering     %%% not \center
+	
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.6\textwidth]{resultados/ec/0234-f}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.6\textwidth]{resultados/ec/0234-fmap}}\hspace{1mm}%}
+	
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:ec:0234_2}
+\end{figure}
+
+\begin{figure}[h]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.70\textwidth]{resultados/ec/0234-ec}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.70\textwidth]{resultados/ec/0234-ecmap}}
+	\caption[Histogramas 1]{Histogramas 1}
+	\label{imagen:ec:0234_3}
+\end{figure}
+
+Con respecto a las coordenadas del mosaico corregido, si bien la posición de los puntos con coincide totalmente, la distancia entre estos si lo hace. Esto es debido a un desplazamiento del mosaico corregido para poder definirlo completamente con coordenadas positivas. 
 
 \section{Resumen}
 Resumen
