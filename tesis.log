@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  1 MAY 2018 21:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.9)  2 MAY 2018 04:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3040,180 +3040,185 @@ Overfull \hbox (3.24571pt too wide) in paragraph at lines 172--172
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/piramidal2.pdf): PDF inclusi
 on: invalid other resource which is no dict (key 'ProcSets', type <array>); ign
 ored.
->] <imagenes/resultados/cut/0233-simple.jpg, id=2092, 670.505pt x 604.2575pt>
+>]
+<imagenes/resultados/cut/0233-simple.jpg, id=2092, 335.2525pt x 302.12875pt>
 File: imagenes/resultados/cut/0233-simple.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0233-simple.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0233-simple.jpg used on input 
 line 181.
-(pdftex.def)             Requested size: 204.56409pt x 184.34898pt.
+(pdftex.def)             Requested size: 204.56409pt x 184.34897pt.
 
-<imagenes/resultados/cut/0233-mask.jpg, id=2093, 642.4pt x 484.81125pt>
+<imagenes/resultados/cut/0233-mask.jpg, id=2093, 321.2pt x 242.9075pt>
 File: imagenes/resultados/cut/0233-mask.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0233-mask.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0233-mask.jpg used on input li
 ne 182.
-(pdftex.def)             Requested size: 187.8616pt x 141.77527pt.
+(pdftex.def)             Requested size: 187.8616pt x 142.07251pt.
 
-<imagenes/resultados/cut/0233-redline.jpg, id=2094, 670.505pt x 604.2575pt>
+<imagenes/resultados/cut/0233-redline.jpg, id=2094, 335.2525pt x 302.12875pt>
 File: imagenes/resultados/cut/0233-redline.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0233-redline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0233-redline.jpg used on input
  line 184.
-(pdftex.def)             Requested size: 204.56409pt x 184.34898pt.
+(pdftex.def)             Requested size: 204.56409pt x 184.34897pt.
 
-<imagenes/resultados/cut/0233-cutline.jpg, id=2095, 670.505pt x 604.2575pt>
+<imagenes/resultados/cut/0233-cutline.jpg, id=2095, 335.2525pt x 302.12875pt>
 File: imagenes/resultados/cut/0233-cutline.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0233-cutline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0233-cutline.jpg used on input
  line 185.
-(pdftex.def)             Requested size: 204.56409pt x 184.34898pt.
+(pdftex.def)             Requested size: 204.56409pt x 184.34897pt.
  [91 <./imagenes/apple.jpg> <./imagenes/orange.jpg> <./imagenes/mask.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./imagenes/mask.pdf): PDF inclusion: in
 valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
 > <./imagenes/apple-orange.jpg>]
-<imagenes/resultados/cut/0234-simple.jpg, id=2108, 718.685pt x 693.59125pt>
+<imagenes/resultados/cut/0234-simple.jpg, id=2108, 359.3425pt x 347.2975pt>
 File: imagenes/resultados/cut/0234-simple.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0234-simple.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0234-simple.jpg used on input 
 line 193.
-(pdftex.def)             Requested size: 204.56409pt x 197.42155pt.
+(pdftex.def)             Requested size: 204.56409pt x 197.71255pt.
 
-<imagenes/resultados/cut/0234-mask.jpg, id=2109, 662.475pt x 483.8075pt>
+<imagenes/resultados/cut/0234-mask.jpg, id=2109, 331.2375pt x 241.90375pt>
 File: imagenes/resultados/cut/0234-mask.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0234-mask.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0234-mask.jpg used on input li
 ne 194.
-(pdftex.def)             Requested size: 183.68916pt x 134.14374pt.
+(pdftex.def)             Requested size: 183.68916pt x 134.14743pt.
 
-<imagenes/resultados/cut/0234-redline.jpg, id=2110, 718.685pt x 693.59125pt>
+<imagenes/resultados/cut/0234-redline.jpg, id=2110, 359.3425pt x 347.2975pt>
 File: imagenes/resultados/cut/0234-redline.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0234-redline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0234-redline.jpg used on input
  line 196.
-(pdftex.def)             Requested size: 204.56409pt x 197.42155pt.
+(pdftex.def)             Requested size: 204.56409pt x 197.71255pt.
 
-<imagenes/resultados/cut/0234-cutline.jpg, id=2111, 718.685pt x 693.59125pt>
+<imagenes/resultados/cut/0234-cutline.jpg, id=2111, 359.3425pt x 347.2975pt>
 File: imagenes/resultados/cut/0234-cutline.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/0234-cutline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/0234-cutline.jpg used on input
  line 197.
-(pdftex.def)             Requested size: 204.56409pt x 197.42155pt.
+(pdftex.def)             Requested size: 204.56409pt x 197.71255pt.
  [92 <./imagenes/resultados/cut/0233-simple.jpg> <./imagenes/resultados/cut/023
 3-mask.jpg> <./imagenes/resultados/cut/0233-redline.jpg> <./imagenes/resultados
 /cut/0233-cutline.jpg>]
-<imagenes/resultados/cut/geo-simple.jpg, id=2122, 1568.86125pt x 1582.91376pt>
+<imagenes/resultados/cut/geo-simple.jpg, id=2122, 784.9325pt x 791.95876pt>
 File: imagenes/resultados/cut/geo-simple.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/geo-simple.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/geo-simple.jpg used on input l
 ine 205.
-(pdftex.def)             Requested size: 204.56409pt x 206.38985pt.
+(pdftex.def)             Requested size: 204.56409pt x 206.38779pt.
 
-<imagenes/resultados/cut/geo-mask.jpg, id=2123, 1300.86pt x 1083.04625pt>
+<imagenes/resultados/cut/geo-mask.jpg, id=2123, 650.43pt x 542.025pt>
 File: imagenes/resultados/cut/geo-mask.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/geo-mask.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/geo-mask.jpg used on input lin
 e 206.
-(pdftex.def)             Requested size: 162.81424pt x 135.5457pt.
+(pdftex.def)             Requested size: 162.81424pt x 135.6796pt.
 
-<imagenes/resultados/cut/geo-redline.jpg, id=2124, 1568.86125pt x 1582.91376pt>
+<imagenes/resultados/cut/geo-redline.jpg, id=2124, 784.9325pt x 791.95876pt>
 File: imagenes/resultados/cut/geo-redline.jpg Graphic file (type jpg)
+
 <use imagenes/resultados/cut/geo-redline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/geo-redline.jpg used on input 
 line 208.
-(pdftex.def)             Requested size: 204.56409pt x 206.38985pt.
+(pdftex.def)             Requested size: 204.56409pt x 206.38779pt.
 
-<imagenes/resultados/cut/geo-cutline.jpg, id=2125, 1568.86125pt x 1582.91376pt>
+<imagenes/resultados/cut/geo-cutline.jpg, id=2125, 784.9325pt x 791.95876pt>
 File: imagenes/resultados/cut/geo-cutline.jpg Graphic file (type jpg)
+
 <use imagenes/resultados/cut/geo-cutline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/geo-cutline.jpg used on input 
 line 209.
-(pdftex.def)             Requested size: 204.56409pt x 206.38985pt.
+(pdftex.def)             Requested size: 204.56409pt x 206.38779pt.
  [93 <./imagenes/resultados/cut/0234-simple.jpg> <./imagenes/resultados/cut/023
 4-mask.jpg> <./imagenes/resultados/cut/0234-redline.jpg> <./imagenes/resultados
 /cut/0234-cutline.jpg>]
-<imagenes/resultados/cut/Espenky-simple.jpg, id=2134, 735.74875pt x 947.54pt>
+<imagenes/resultados/cut/Espenky-simple.jpg, id=2134, 368.37625pt x 473.77pt>
 File: imagenes/resultados/cut/Espenky-simple.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/Espenky-simple.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/Espenky-simple.jpg used on inp
 ut line 217.
-(pdftex.def)             Requested size: 204.56409pt x 263.44426pt.
+(pdftex.def)             Requested size: 204.56409pt x 263.09004pt.
 
-<imagenes/resultados/cut/Espenky-redline.jpg, id=2135, 735.74875pt x 947.54pt>
+<imagenes/resultados/cut/Espenky-redline.jpg, id=2135, 368.37625pt x 473.77pt>
 File: imagenes/resultados/cut/Espenky-redline.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/Espenky-redline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/Espenky-redline.jpg used on in
 put line 218.
-(pdftex.def)             Requested size: 204.56409pt x 263.44426pt.
+(pdftex.def)             Requested size: 204.56409pt x 263.09004pt.
 
-<imagenes/resultados/cut/Espenky-cutline.jpg, id=2136, 735.74875pt x 947.54pt>
+<imagenes/resultados/cut/Espenky-cutline.jpg, id=2136, 368.37625pt x 473.77pt>
 File: imagenes/resultados/cut/Espenky-cutline.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/cut/Espenky-cutline.jpg>
 Package pdftex.def Info: imagenes/resultados/cut/Espenky-cutline.jpg used on in
 put line 220.
-(pdftex.def)             Requested size: 204.56409pt x 263.44426pt.
+(pdftex.def)             Requested size: 204.56409pt x 263.09004pt.
  [94 <./imagenes/resultados/cut/geo-simple.jpg> <./imagenes/resultados/cut/geo-
 mask.jpg> <./imagenes/resultados/cut/geo-redline.jpg> <./imagenes/resultados/cu
 t/geo-cutline.jpg>]
-<imagenes/resultados/color/geo-no.jpg, id=2145, 455.7025pt x 423.5825pt>
+<imagenes/resultados/color/geo-no.jpg, id=2145, 227.85126pt x 211.79124pt>
 File: imagenes/resultados/color/geo-no.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/color/geo-no.jpg>
 Package pdftex.def Info: imagenes/resultados/color/geo-no.jpg used on input lin
 e 231.
-(pdftex.def)             Requested size: 204.56409pt x 190.145pt.
+(pdftex.def)             Requested size: 204.56409pt x 190.14822pt.
 
-<imagenes/resultados/color/geo-si.jpg, id=2146, 455.7025pt x 423.5825pt>
+<imagenes/resultados/color/geo-si.jpg, id=2146, 227.85126pt x 211.79124pt>
 File: imagenes/resultados/color/geo-si.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/color/geo-si.jpg>
 Package pdftex.def Info: imagenes/resultados/color/geo-si.jpg used on input lin
 e 232.
-(pdftex.def)             Requested size: 204.56409pt x 190.145pt.
+(pdftex.def)             Requested size: 204.56409pt x 190.14822pt.
  [95 <./imagenes/resultados/cut/Espenky-simple.jpg> <./imagenes/resultados/cut/
 Espenky-redline.jpg> <./imagenes/resultados/cut/Espenky-cutline.jpg>]
-<imagenes/resultados/color/0233-no.jpg, id=2154, 926.46124pt x 837.1275pt>
+<imagenes/resultados/color/0233-no.jpg, id=2154, 463.7325pt x 418.56375pt>
 File: imagenes/resultados/color/0233-no.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/color/0233-no.jpg>
 Package pdftex.def Info: imagenes/resultados/color/0233-no.jpg used on input li
 ne 240.
-(pdftex.def)             Requested size: 204.56409pt x 184.83284pt.
+(pdftex.def)             Requested size: 204.56409pt x 184.64124pt.
 
-<imagenes/resultados/color/0233-si.jpg, id=2155, 926.46124pt x 837.1275pt>
+<imagenes/resultados/color/0233-si.jpg, id=2155, 463.7325pt x 418.56375pt>
 File: imagenes/resultados/color/0233-si.jpg Graphic file (type jpg)
 
 <use imagenes/resultados/color/0233-si.jpg>
 Package pdftex.def Info: imagenes/resultados/color/0233-si.jpg used on input li
 ne 241.
-(pdftex.def)             Requested size: 204.56409pt x 184.83284pt.
+(pdftex.def)             Requested size: 204.56409pt x 184.64124pt.
 
-<imagenes/resultados/color/espenky-no.jpg, id=2156, 1675.25874pt x 671.50874pt>
+<imagenes/resultados/color/espenky-no.jpg, id=2156, 838.13126pt x 336.25626pt>
 File: imagenes/resultados/color/espenky-no.jpg Graphic file (type jpg)
+
 <use imagenes/resultados/color/espenky-no.jpg>
 Package pdftex.def Info: imagenes/resultados/color/espenky-no.jpg used on input
  line 249.
-(pdftex.def)             Requested size: 333.97972pt x 133.86902pt.
+(pdftex.def)             Requested size: 333.97972pt x 133.99216pt.
 
-<imagenes/resultados/color/espenky-si.jpg, id=2157, 1675.25874pt x 671.50874pt>
+<imagenes/resultados/color/espenky-si.jpg, id=2157, 838.13126pt x 336.25626pt>
 File: imagenes/resultados/color/espenky-si.jpg Graphic file (type jpg)
+
 <use imagenes/resultados/color/espenky-si.jpg>
 Package pdftex.def Info: imagenes/resultados/color/espenky-si.jpg used on input
  line 250.
-(pdftex.def)             Requested size: 333.97972pt x 133.86902pt.
+(pdftex.def)             Requested size: 333.97972pt x 133.99216pt.
  [96 <./imagenes/resultados/color/geo-no.jpg> <./imagenes/resultados/color/geo-
 si.jpg> <./imagenes/resultados/color/0233-no.jpg> <./imagenes/resultados/color/
 0233-si.jpg>])
@@ -3265,7 +3270,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 223.
 Here is how much of TeX's memory you used:
  28987 strings out of 493029
  492803 string characters out of 6136234
- 580628 words of memory out of 5000000
+ 580627 words of memory out of 5000000
  31329 multiletter control sequences out of 15000+600000
  24291 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3299,7 +3304,7 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public
 /cm-super/sfti0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.p
 fb>
-Output written on tesis.pdf (113 pages, 36974537 bytes).
+Output written on tesis.pdf (113 pages, 33030747 bytes).
 PDF statistics:
  2410 PDF objects out of 2487 (max. 8388607)
  1920 compressed objects within 20 object streams
