@@ -45,17 +45,17 @@
 \contentsline {chapter}{\numberline {5}Uni\IeC {\'o}n de im\IeC {\'a}genes}{82}{chapter.322}
 \contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{82}{section.323}
 \contentsline {section}{\numberline {5.2}Linea de costura}{83}{section.324}
-\contentsline {subsection}{\numberline {5.2.1}Corte por grafo}{83}{subsection.325}
+\contentsline {subsection}{\numberline {5.2.1}Modelo por grafo}{83}{subsection.325}
 \contentsline {section}{\numberline {5.3}Correcci\IeC {\'o}n de color}{85}{section.330}
 \contentsline {subsection}{\numberline {5.3.1}M\IeC {\'e}todo de Reinhard}{86}{subsection.335}
 \contentsline {section}{\numberline {5.4}Fusi\IeC {\'o}n de im\IeC {\'a}genes}{87}{section.336}
 \contentsline {subsection}{\numberline {5.4.1}Fusi\IeC {\'o}n ponderada}{88}{subsection.337}
 \contentsline {subsection}{\numberline {5.4.2}Fusi\IeC {\'o}n ponderada piramidal}{89}{subsection.339}
 \contentsline {section}{\numberline {5.5}Resultados}{91}{section.349}
-\contentsline {section}{\numberline {5.6}Resumen}{97}{section.381}
-\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{98}{chapter.382}
+\contentsline {section}{\numberline {5.6}Resumen}{99}{section.386}
+\contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{100}{chapter.387}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{102}{appendix.384}
-\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{102}{section.385}
-\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{102}{subsection.386}
+\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{104}{appendix.389}
+\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{104}{section.390}
+\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{104}{subsection.391}
 \vspace {2em}

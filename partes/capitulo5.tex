@@ -12,13 +12,13 @@ Por ultimo, al final del capítulo se muestran los resultados con su respectivo 
 \clearpage
 
 
-\section{Linea de costura}
+\section{Linea de costura}\label{seccion-corte}
 
 Este es el primer algoritmo aplicado al mosaico luego de todas las correcciones geométricas, ya que el resto de métodos requieren conocer de antemano los límites de cada imagen. 
 A diferencia de los anteriores, este tipo de algoritmos es el único que toma en cuenta la información que comparten las imágenes en el área que tienen en común, con lo cual su implementación logra corregir la mayor cantidad de imperfecciones. 
 
 
-\subsection{Corte por grafo}
+\subsection{Modelo por grafo}
 
 Este es un método derivado de la teoría de grafos, donde la idea es separar un grafo con conexiones simples en dos grafos separados con un mínimo costo de separación. Se define un grafo $\mathcal{G} = \langle \mathcal{N}, \mathcal{E} \rangle$ como un conjunto de nodos $\mathcal{N}$, conectados por enlaces $\mathcal{E}$. Cada enlace conecta dos nodos y tiene asociado un costo o peso $\mathcal{W}(p, q) \,\, p,q \in \mathcal{N}$ --- cuando se habla de conexión simple, se refiere a que el costo en los enlaces está asociado para ambas direcciones $\mathcal{W}(p, q) = \mathcal{W}(p, q)$ ---. Se dice que dos grafos están separados si no se tiene ningún enlace que conecte dos nodos entre los grafos. Definimos $\mathcal{S}$ y $\mathcal{T}$ como los grafos separados que se tienen luego de aplicar el corte en $\mathcal{G}$. El método para determinar el mejor corte, se basa en encontrar el camino entre los enlaces que logra separa un grafo en dos, con el mínimo costo de corte \cite{graph-cut}, donde el costo del corte es la suma de los pesos de todos los enlaces del camino seleccionado.
 
@@ -53,7 +53,7 @@ Donde $\sigma$ es la desviación estándar de la imagen, y siendo válido para l
 Refiriéndonos a la figura \ref{imagen:grafo}, se observa el proceso de modelar una imagen mediante un grafo con conexiones simples y usando un esquema de 4 vecindad --- 4 vecindad solo considera a los píxeles superior, inferior y laterales como vecinos ---, donde cada cuadro está compuesto por el inverso de la diferencia de intensidades entre dos imágenes, representado en escala de grises. Al final se tiene una imagen compuesta por dos grafos separados, donde $\mathtt{I} \in \mathcal{S}$ y $\mathtt{F} \in \mathcal{T}$ donde a cada nodo del grafo se le asigna un valor binario dependiendo de la etiqueta resultante el algoritmo de minimización del costo de corte.
 
 
-\section{Corrección de color}
+\section{Corrección de color}\label{seccion-color}
 Cuando se tienen imágenes capturadas desde distintos puntos de vista, se suelen tener en la composición final cambios de intensidades, debido a cambios de exposición de luz en la escena. Por ellos es necesario implementar algoritmos que logran reducir la diferencia de intensidades y color entre los bordes de las imágenes. Para esto se implementa un algoritmo de mapeo de color llamado método de \textit{Reinhard} \cite{reinhard} que trabaja en el espacio de color CIELAB, descrito a continuación. 
 
 \subsubsection*{Espacio de color CIELAB}
@@ -103,7 +103,7 @@ b^* &= b^* + \langle b \rangle
 Para lograr un mapeo de color correcto es necesario obtener la información de desviación estándar y media únicamente en el área de intersección entre las imágenes $I\cap I^*$. De esta forma se logra igualar estas regiones de la imagen que deben corresponder a la misma escena.
 
 
-\section{Fusión de imágenes}
+\section{Fusión de imágenes}\label{seccion-fusion}
 
 Una vez se logre determinar la mejor linea de corte, y aplicar una corrección de color, es posible que aun se cuenten con transiciones entre imágenes con cierto nivel de discontinuidad. En este caso es conveniente aplicar algoritmos que permitan una transición suavizada entre dichos bordes.
 
@@ -172,41 +172,50 @@ En la figura \ref{imagen:blend-apple} se puede observar el resultado de aplicar 
 \footnotetext{ \url{https://compvisionlab.wordpress.com/2013/05/13/image-blending-using-pyramid/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados}
-test
+
+En esta sección se presentan los resultados de los algoritmos descritos en este capítulo, los cuales buscan reducir las discontinuidades y el error fotométrico en el mosaico final. Puesto que con este capítulo culmina la exposición de los módulos implementados, se presenta en la ultima parte resultados de los mosaicos obtenidos al emplear todo el sistema descrito. De esta forma se puede estudiar el rendimiento del sistema de generación de mosaico para distintos tipos de condiciones, y bajo distintas combinaciones de algoritmos.
 
 \subsection*{Linea de corte}
 
+A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-corte}.
+
+En primer lugar estudiamos el caso en el que se tienen objetos en movimiento en el transcurso de la captura de imágenes. En la figura \ref{fig:corte:0233-a} se observa un par de imágenes alineadas según el esquema simple, en el cual se muestra completamente la ultima imagen añadida y ésta determina el borde entre las imágenes. Por otro lado en la figura \ref{fig:corte:0233-d} se muestra el mismo par unidas por la linea de corte que minimiza la diferencia entre dichas imágenes. Se aprecia también en las figuras \ref{fig:corte:0233-b} y \ref{fig:corte:0233-c} el etiquetado de píxeles (mascara) y la linea de corte respectivamente.
+
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/0233-simple.jpg}}\hspace{0.005\textwidth}%
-	\subfigure[]{\label{fig:orange}\includegraphics[width=.45\textwidth]{resultados/cut/0233-mask.jpg}}
+	\subfigure[]{\label{fig:corte:0233-a}\includegraphics[width=.49\textwidth]{resultados/cut/0233-simple.jpg}}\hspace{0.005\textwidth}%
+	\subfigure[]{\label{fig:corte:0233-b}\includegraphics[width=.45\textwidth]{resultados/cut/0233-mask.jpg}}
 	
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/0233-redline.jpg}}
-	\subfigure[]{\label{fig:orange}\includegraphics[width=.49\textwidth]{resultados/cut/0233-cutline.jpg}}
+	\subfigure[]{\label{fig:corte:0233-c}\includegraphics[width=.49\textwidth]{resultados/cut/0233-redline.jpg}}
+	\subfigure[]{\label{fig:corte:0233-d}\includegraphics[width=.49\textwidth]{resultados/cut/0233-cutline.jpg}}
 
 	\caption[Ejemplo de fusión pirámidal]{}
 	\label{imagen:cut:0233}
 \end{figure}
 
+Una mejora importante que presenta este algoritmo, es que logra reducir y hasta eliminar el error producido por el efecto paralaje. En la figura \ref{fig:corte:0234-a} se observa un par de imágenes con un error de alineación producto de un objeto a distinta altura. Por otro lado en la figura \ref{fig:corte:0233-d} se puede ver como la mejor linea de corte logra eliminar el error anterior.
+
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/0234-simple.jpg}}\hspace{0.05\textwidth}%
-	\subfigure[]{\label{fig:orange}\includegraphics[width=.44\textwidth]{resultados/cut/0234-mask.jpg}}
+	\subfigure[]{\label{fig:corte:0234-a}\includegraphics[width=.49\textwidth]{resultados/cut/0234-simple.jpg}}\hspace{0.05\textwidth}%
+	\subfigure[]{\label{fig:corte:0234-b}\includegraphics[width=.44\textwidth]{resultados/cut/0234-mask.jpg}}
 	
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/0234-redline.jpg}}
-	\subfigure[]{\label{fig:orange}\includegraphics[width=.49\textwidth]{resultados/cut/0234-cutline.jpg}}
+	\subfigure[]{\label{fig:corte:0234-c}\includegraphics[width=.49\textwidth]{resultados/cut/0234-redline.jpg}}
+	\subfigure[]{\label{fig:corte:0234-d}\includegraphics[width=.49\textwidth]{resultados/cut/0234-cutline.jpg}}
 	
 	\caption[Ejemplo de fusión pirámidal]{}
 	\label{imagen:cut:0234}
 \end{figure}
 
+Ya hemos comentado sobre los posibles errores de alineación cuando se cuenta con distintos planos en una misma imagen. En la figura \ref{fig:corte:geo-a} se observa un par de imágenes que presentan un importante error de alineación sobre el plano en la parte inferior, mientras que en la parte superior, la sección elevada logra coincidir con el modelo hallado. En la figura \ref{fig:corte:geo-d} se aprecia el par de imágenes luego de unirse por la mejor linea de corte. Si bien se tiene un pequeño error en el costado izquierdo, se logra un par de imágenes sin discontinuidades entre ellas.
+
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/geo-simple.jpg}}\hspace{0.1\textwidth}%
-	\subfigure[]{\label{fig:orange}\includegraphics[width=.39\textwidth]{resultados/cut/geo-mask.jpg}}
+	\subfigure[]{\label{fig:corte:geo-a}\includegraphics[width=.49\textwidth]{resultados/cut/geo-simple.jpg}}\hspace{0.1\textwidth}%
+	\subfigure[]{\label{fig:corte:geo-b}\includegraphics[width=.39\textwidth]{resultados/cut/geo-mask.jpg}}
 	
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/geo-redline.jpg}}
-	\subfigure[]{\label{fig:orange}\includegraphics[width=.49\textwidth]{resultados/cut/geo-cutline.jpg}}
+	\subfigure[]{\label{fig:corte:geo-c}\includegraphics[width=.49\textwidth]{resultados/cut/geo-redline.jpg}}
+	\subfigure[]{\label{fig:corte:geo-d}\includegraphics[width=.49\textwidth]{resultados/cut/geo-cutline.jpg}}
 	
 	\caption[Ejemplo de fusión pirámidal]{}
 	\label{imagen:cut:geo}
@@ -214,10 +223,10 @@ test
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/Espenky-simple.jpg}}
-	\subfigure[]{\label{fig:orange}\includegraphics[width=.49\textwidth]{resultados/cut/Espenky-redline.jpg}}
+	\subfigure[]{\label{fig:corte:espenky-a}\includegraphics[width=.49\textwidth]{resultados/cut/Espenky-simple.jpg}}
+	\subfigure[]{\label{fig:corte:espenky-b}\includegraphics[width=.49\textwidth]{resultados/cut/Espenky-redline.jpg}}
 	
-	\subfigure[]{\label{fig:apple}\includegraphics[width=.49\textwidth]{resultados/cut/Espenky-cutline.jpg}}
+	\subfigure[]{\label{fig:corte:espenky-c}\includegraphics[width=.49\textwidth]{resultados/cut/Espenky-cutline.jpg}}
 	
 	\caption[Ejemplo de fusión pirámidal]{}
 	\label{imagen:cut:espenky}
@@ -254,6 +263,25 @@ test
 \end{figure}
 
 \subsection*{Fusión ponderada}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{/resultados/blend/blend-espenky2.pdf}
+	\caption[Fusión pirámidal]{Fusión pirámidal}
+	\label{imagen:blend:espenky}
+\end{figure}
+
+\begin{figure}[H]
+	\centering     %%% not \center
+	\subfigure[]{\label{fig:apple}\includegraphics[width=0.49\textwidth]{resultados/blend/canny00.jpg}}
+	\subfigure[]{\label{fig:orange}\includegraphics[width=0.49\textwidth]{resultados/blend/canny09.jpg}}
+	
+	\caption[Fusión pirámidal]{}
+	\label{imagen:blend:laplacian}
+\end{figure}
+
+\subsection*{Mosaicos completos}
+
 test
 
 \section{Resumen}
