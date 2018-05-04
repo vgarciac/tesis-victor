@@ -81,6 +81,7 @@
 \contentsline {figure}{\numberline {4.21}{\ignorespaces Histogramas 1}}{70}{figure.caption.275}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{70}{figure.caption.275}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{70}{figure.caption.275}
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {4.22}{\ignorespaces Seguimiento de puntos: \textit {ScottReef 25}}}{72}{figure.caption.280}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}{figure.caption.280}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}{figure.caption.280}
@@ -184,5 +185,25 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{106}{figure.caption.402}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{106}{figure.caption.402}
 \contentsline {figure}{\numberline {5.22}{\ignorespaces Mosaico del conjunto \textit {ScottReef 25} por el \textit {ACFR}}}{107}{figure.caption.405}
+=======
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Histogramas 1}}{71}{figure.caption.279}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{71}{figure.caption.279}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{71}{figure.caption.279}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Histogramas 1}}{71}{figure.caption.282}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{71}{figure.caption.282}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{71}{figure.caption.282}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Histogramas 1}}{72}{figure.caption.285}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}{figure.caption.285}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}{figure.caption.285}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Corte por grafo}}{76}{figure.caption.301}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Espacio de color CIELAB}}{77}{figure.caption.304}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{77}{figure.caption.304}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{77}{figure.caption.304}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Fusi\IeC {\'o}n ponderada simple}}{79}{figure.caption.310}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Construcci\IeC {\'o}n de pir\IeC {\'a}mide de gaussianas}}{80}{figure.caption.312}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Construcci\IeC {\'o}n de pir\IeC {\'a}mide de laplacianas}}{81}{figure.caption.313}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{82}{figure.caption.314}
+>>>>>>> f41916e0ec295c6216163169c26c03a77115ff79
 \addvspace {10\p@ }
 \addvspace {10\p@ }
