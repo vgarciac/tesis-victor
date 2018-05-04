@@ -252,8 +252,8 @@ Del ejemplo anterior se tiene que la imagen irregular presenta poca iluminación
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:color:0233-a}\includegraphics[width=0.49\textwidth]{resultados/color/0233-no.jpg}}
-	\subfigure[]{\label{fig:color:0233-b}\includegraphics[width=0.49\textwidth]{resultados/color/0233-si.jpg}}
+	\subfigure[]{\label{fig:color:0233-a}\includegraphics[width=0.42\textwidth]{resultados/color/0233-no.jpg}}
+	\subfigure[]{\label{fig:color:0233-b}\includegraphics[width=0.42\textwidth]{resultados/color/0233-si.jpg}}
 	
 	\caption[Resultado de corrección de color]{Corrección de color para imagen con mucha iluminación}
 	\label{imagen:color:0233}
@@ -261,36 +261,41 @@ Del ejemplo anterior se tiene que la imagen irregular presenta poca iluminación
 
 Para los mosaicos anteriores se estudiaron casos en los que se tenia un cambio de iluminación uniformemente distribuido a lo largo de toda la imagen, con lo cual el se lograba un resultado deseado al utilizar un método de corrección de color lineal.
 
-A continuación se presenta el caso en el cual este cambio de iluminación se produce en secciones de una imagen. En la figura \ref{fig:color:espenky-a} se observa un mosaico que presenta diversas variaciones de iluminación, tanto entre imágenes como también entre secciones de algunas de estas. Luego de aplicar la corrección de color se logra el mosaico de la figura \ref{fig:color:espenky-b}. Si bien se obtiene una mejora global en la intensidad de iluminación, se tienen regiones en las cuales esta diferencia se acentúa.
-
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:color:espenky-a}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-no.jpg}}
-	\subfigure[]{\label{fig:color:espenky-b}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-si.jpg}}
+	\subfigure[]{\label{fig:color:espenky-a}\includegraphics[width=0.75\textwidth]{resultados/color/espenky-no.jpg}}
+	\subfigure[]{\label{fig:color:espenky-b}\includegraphics[width=0.75\textwidth]{resultados/color/espenky-si.jpg}}
 	
 	\caption[Resultado de corrección de color: \textit{Espenky}]{Corrección de color de un conjunto de imágenes con iluminación no uniforme}
 	\label{imagen:color:espenky}
 \end{figure}
 
+A continuación se presenta el caso en el cual este cambio de iluminación se produce en secciones de una imagen. En la figura \ref{fig:color:espenky-a} se observa un mosaico que presenta diversas variaciones de iluminación, tanto entre imágenes como también entre secciones de algunas de estas. Luego de aplicar la corrección de color se logra el mosaico de la figura \ref{fig:color:espenky-b}. Si bien se obtiene una mejora global en la intensidad de iluminación, se tienen regiones en las cuales esta diferencia se acentúa.
+
+
+
 \subsection*{Fusión ponderada}
 
-A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-fusion}. Ya se ha observado como los algoritmos presentados anteriormente logran solventar la mayoría de inconvenientes y errores de alineación en las imágenes. Pero también se observó como se presentan casos ante los cuales los resultados no se corresponden con una completa fusión entre imágenes, teniendo aún bordes perceptibles.
-
-El siguiente ejemplo ilustra un conjunto de imágenes estudiadas anteriormente, y como se logra resolver a través de este algoritmo los errores de discontinuidad que no pudieron ser corregidos en dichas secciones. En la figura \ref{imagen:blend:espenky} se observa como se logra reducir la discontinuidad producida por un cambio de iluminación, aplicando la fusión piramidal para distintos niveles de escalas.
-
-\begin{figure}[h]
+A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-fusion}. Ya se ha observado como los algoritmos presentados anteriormente logran solventar la mayoría de inconvenientes y errores de alineación en las imágenes. \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{/resultados/blend/blend-espenky3.pdf}
+	\includegraphics[width=0.65\linewidth]{/resultados/blend/blend-espenky3.pdf}
 	\caption[Resultado de fusión pirámidal: \textit{Espenky}]{Fusión piramidal para distintos niveles de escala, donde $n$ representa el número de escalas.}
 	\label{imagen:blend:espenky}
 \end{figure}
+Pero también se observó como se presentan casos ante los cuales los resultados no se corresponden con una completa fusión entre imágenes, teniendo aún bordes perceptibles.
+
+
+
+El siguiente ejemplo ilustra un conjunto de imágenes estudiadas anteriormente, y como se logra resolver a través de este algoritmo los errores de discontinuidad que no pudieron ser corregidos en dichas secciones. En la figura \ref{imagen:blend:espenky} se observa como se logra reducir la discontinuidad producida por un cambio de iluminación, aplicando la fusión piramidal para distintos niveles de escalas.
+
+
 
 Es posible evaluar la calidad de la fusión de las imágenes utilizando la derivada de la imagen final, con la cual se puede identificar bordes debido a cambios o discontinuidades entre estas. En la figura \ref{imagen:blend:laplacian} se ilustra el cambio producido en la derivada de la imagen antes de aplicar el algoritmo de fusión, por otro lado en la figura \ref{fig:blend:laplacian-b} se observa como el borde es difuminado completamente, logrando una transición suavizada y una línea de corte indetectable en la imagen final. 
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:blend:laplacian-a}\includegraphics[width=0.49\textwidth]{resultados/blend/canny00.jpg}}
-	\subfigure[]{\label{fig:blend:laplacian-b}\includegraphics[width=0.49\textwidth]{resultados/blend/canny09.jpg}}
+	\subfigure[]{\label{fig:blend:laplacian-a}\includegraphics[width=0.36\textwidth]{resultados/blend/canny00.jpg}}
+	\subfigure[]{\label{fig:blend:laplacian-b}\includegraphics[width=0.36\textwidth]{resultados/blend/canny09.jpg}}
 	
 	\caption[Resultado de fusión pirámidal: \textit{Espenky}]{Derivada en $x$ e $y$ de la imagen antes (a) y después (b) de aplicar la fusión piramidal}
 	\label{imagen:blend:laplacian}
@@ -300,7 +305,7 @@ Es posible evaluar la calidad de la fusión de las imágenes utilizando la deriv
 
 A continuación se presentan resultados para un conjunto mayor de imágenes, aplicando en conjunto los algoritmos descritos en el presente trabajo. Para algunos casos se emplean todos los módulos, mientras que en otros se excluyen algunos no necesarios, estos se indicarán en cada resultado.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.9\textwidth]{resultados/full/geo2-00.jpg}}
 	\subfigure[]{\label{fig:orange}\includegraphics[width=0.9\textwidth]{resultados/full/geo2-1.jpg}}
@@ -310,7 +315,7 @@ A continuación se presentan resultados para un conjunto mayor de imágenes, apl
 	\label{imagen:full:geo2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.50\textwidth]{resultados/full/0234-blend.jpg}}
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.41\textwidth]{resultados/full/0234-hugin.png}}
@@ -320,14 +325,14 @@ A continuación se presentan resultados para un conjunto mayor de imágenes, apl
 	\label{imagen:full:0234-map}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{resultados/full/0234-1.jpg}
 	\caption[Mosaico mejorado visualmente del conjunto \textit{Chuspa}]{Mismo mosaico anterior (figura \ref{imagen:full:0234-map}) pero aplicado un algoritmo de ecualización adaptativa de histograma para obtener una mejora visual.}
 	\label{imagen:full:0234-1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.49\textwidth]{resultados/full/SR-1.pdf}}
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.50\textwidth]{resultados/full/SR-map.jpg}}
@@ -338,7 +343,7 @@ A continuación se presentan resultados para un conjunto mayor de imágenes, apl
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering     
 	
 	\subfigure[]{\label{fig:espenky-a}\includegraphics[width=0.49\textwidth]{resultados/full/espenky-map.jpg}}\hspace{10mm}%
@@ -347,7 +352,7 @@ A continuación se presentan resultados para un conjunto mayor de imágenes, apl
 	\label{imagen:full:espenky}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering     
 	
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.50\textwidth]{resultados/full/SR2-map.jpg}}\hspace{10mm}%
@@ -357,12 +362,16 @@ A continuación se presentan resultados para un conjunto mayor de imágenes, apl
 	\label{imagen:full:SR2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{resultados/sr-original.pdf}
+	\includegraphics[width=0.69\linewidth]{resultados/sr-original.pdf}
 	\caption[Mosaico del conjunto \textit{ScottReef 25} por el \textit{ACFR}]{Recorrido del mosaico en la figura sobre la solución del \textit{ACFR}, el recorrido se muestra con la linea punteada de color rojo.}
 	\label{imagen:full:SR-original}
 \end{figure}
 
 \section{Resumen}
-test
+
+En esta sección se presentan los errores resultantes de las etapas de alineación, y que evitan que se logra un  mosaico que cumpla con el objetivo de aparentar ser una misma imagen. Luego del planteamiento del problema se exponen y describen distintos algoritmos que buscan una solución a estos.
+
+En su mayoría estos algoritmos buscan reducir las discontinuidades entre imágenes producto de objetos en movimiento dentro de la escena, errores de alineación de objetos y texturas, y diferencias de iluminación. Al final del capítulo se presentaron los distintos resultados que muestran la efectividad de los algoritmos descritos, en primer lugar resultados concretos de los módulos por separado y finalmente con resultados de mosaicos completos de los conjunto de datos estudiados, aplicando para estos el sistema completo especificado al inicio del presente proyecto.
+
