@@ -81,14 +81,14 @@
 \contentsline {figure}{\numberline {4.21}{\ignorespaces Histogramas 1}}{70}{figure.caption.275}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{70}{figure.caption.275}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{70}{figure.caption.275}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Seguimiento de puntos: \textit {ScottReef 25}}}{71}{figure.caption.280}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{71}{figure.caption.280}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{71}{figure.caption.280}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Seguimiento de puntos: \textit {ScottReef 25}}}{72}{figure.caption.280}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}{figure.caption.280}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}{figure.caption.280}
 \contentsline {figure}{\numberline {4.23}{\ignorespaces caption.\relax }}{72}{figure.caption.283}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}{figure.caption.283}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}{figure.caption.283}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{72}{figure.caption.283}
 \contentsline {figure}{\numberline {4.24}{\ignorespaces Busqueda de vecinos: \textit {B\IeC {\'u}squeda por vecinos: \textit {Mochima}}}}{73}{figure.caption.288}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{73}{figure.caption.288}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{73}{figure.caption.288}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{73}{figure.caption.288}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{73}{figure.caption.288}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{73}{figure.caption.288}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{73}{figure.caption.288}
@@ -100,7 +100,7 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{76}{figure.caption.297}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{76}{figure.caption.297}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{76}{figure.caption.297}
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Selecci\IeC {\'o}n de sub mosaicos}}{77}{figure.caption.301}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Selecci\IeC {\'o}n de sub mosaicos}}{76}{figure.caption.301}
 \contentsline {figure}{\numberline {4.28}{\ignorespaces Histogramas 1}}{78}{figure.caption.303}
 \contentsline {figure}{\numberline {4.29}{\ignorespaces Histogramas 1}}{78}{figure.caption.306}
 \contentsline {figure}{\numberline {4.30}{\ignorespaces Histogramas 1}}{79}{figure.caption.309}
@@ -128,59 +128,61 @@
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Construcci\IeC {\'o}n de pir\IeC {\'a}mide de gaussianas}}{89}{figure.caption.340}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Construcci\IeC {\'o}n de pir\IeC {\'a}mide de laplacianas}}{90}{figure.caption.341}
 \contentsline {figure}{\numberline {5.6}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{91}{figure.caption.342}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{92}{figure.caption.351}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{93}{figure.caption.356}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{94}{figure.caption.361}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{95}{figure.caption.366}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{96}{figure.caption.371}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{97}{figure.caption.374}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Ejemplo de fusi\IeC {\'o}n pir\IeC {\'a}midal}}{98}{figure.caption.377}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Fusi\IeC {\'o}n pir\IeC {\'a}midal}}{99}{figure.caption.381}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Resultado de linea de corte: \textit {Chuspa}}}{92}{figure.caption.351}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Resultado de linea de corte: \textit {Chuspa}}}{93}{figure.caption.356}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Resultado de linea de corte: \textit {Grava}}}{94}{figure.caption.361}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Resultado de linea de corte: \textit {Espenky}}}{95}{figure.caption.366}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Resultados de correcci\IeC {\'o}n de color: \textit {Grava}}}{96}{figure.caption.371}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Resultado de correcci\IeC {\'o}n de color}}{97}{figure.caption.374}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Resultado de correcci\IeC {\'o}n de color: \textit {Espenky}}}{98}{figure.caption.377}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Resultado de fusi\IeC {\'o}n pir\IeC {\'a}midal: \textit {Espenky}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{99}{figure.caption.381}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{99}{figure.caption.381}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{99}{figure.caption.381}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Fusi\IeC {\'o}n pir\IeC {\'a}midal}}{100}{figure.caption.382}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Fusi\IeC {\'o}n pir\IeC {\'a}midal}}{101}{figure.caption.386}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Resultado de fusi\IeC {\'o}n pir\IeC {\'a}midal: \textit {Espenky}}}{100}{figure.caption.382}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Mosaico del conjunto \textit {Grava}}}{101}{figure.caption.386}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{101}{figure.caption.386}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{101}{figure.caption.386}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{101}{figure.caption.386}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{101}{figure.caption.386}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{101}{figure.caption.386}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Fusi\IeC {\'o}n pir\IeC {\'a}midal}}{102}{figure.caption.390}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Mosaico del conjunto \textit {Chuspa}}}{102}{figure.caption.390}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{102}{figure.caption.390}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{102}{figure.caption.390}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Construcci\IeC {\'o}n de pir\IeC {\'a}mide de laplacianas}}{103}{figure.caption.393}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Fusi\IeC {\'o}n pir\IeC {\'a}midal}}{104}{figure.caption.394}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{104}{figure.caption.394}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{104}{figure.caption.394}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{104}{figure.caption.394}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Fusi\IeC {\'o}n pir\IeC {\'a}midal}}{105}{figure.caption.398}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{105}{figure.caption.398}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{105}{figure.caption.398}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Fusi\IeC {\'o}n pir\IeC {\'a}midal}}{106}{figure.caption.401}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{106}{figure.caption.401}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{106}{figure.caption.401}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{102}{figure.caption.390}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Mosaico mejorado visualmente del conjunto \textit {Chuspa}}}{103}{figure.caption.394}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Mosaico del conjunto \textit {ScottReef 25}}}{104}{figure.caption.395}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{104}{figure.caption.395}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{104}{figure.caption.395}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{104}{figure.caption.395}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Mosaico del conjunto \textit {Espenky}}}{105}{figure.caption.399}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{105}{figure.caption.399}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{105}{figure.caption.399}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Mosaico del conjunto \textit {ScottReef 25}}}{106}{figure.caption.402}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{106}{figure.caption.402}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{106}{figure.caption.402}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Mosaico del conjunto \textit {ScottReef 25} por el \textit {ACFR}}}{107}{figure.caption.405}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

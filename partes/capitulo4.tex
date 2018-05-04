@@ -603,16 +603,16 @@ En esta sección se presentan los resultados de aplicar los métodos descritos p
 \subsection*{Selección de puntos característicos}
 
 Se muestran los resultados tras aplicar el método descrito en la 
-sección \ref{seleccion-grid}. Para esto se estudia tanto analíticamente como visual el resultado de aplicar esta técnica. Estudiaremos el el error de estimar una matriz de homografía sobre la distancia de los puntos correspondientes luego de aplicarla. 
+sección \ref{seleccion-grid}. Para esto se estudia tanto analítica como visualmente el resultado de aplicar esta técnica. Al mismo tiempo se analiza el error de estimar una matriz de homografía según la distancia de los puntos correspondientes luego de aplicarla. 
 
-Para cada conjunto se seleccionó un par de imágenes con las que se busca ejemplificar las mejoras que este método ofrece en la etapa de registro de imágenes. Para una mejor visualización de los datos obtenidos, se propone un estudio de la distribución de las parejas según la distancia espacial que presenten, medida en píxeles. Conjuntamente se presenta para cada distribución las imágenes alineadas, donde se ilustran las parejas con mejor y peor distancia. Para lograr esta distinción se fijaron de color verde las pareas que presente mejor distancia, mientras que aquellas que tengan 3 veces mas distancia que la mejor, se denotan en color rojo. Para ambos casos se muestran de color azul los puntos correspondientes en la nueva imagen.
+Para cada conjunto se seleccionó un par de imágenes con las que se busca ejemplificar las mejoras que este método ofrece en la etapa de registro. Para una mejor visualización de los datos obtenidos, se propone un estudio de la distribución de las parejas según la distancia espacial que presenten, medida en píxeles. Conjuntamente se presenta para cada distribución las imágenes alineadas, donde se ilustran las parejas con mejor y peor distancia. Para lograr esta distinción se fijaron de color verde las pareas que presente mejor distancia, mientras que aquellas que tengan 3 veces mas distancia que la mejor, se denotan en color rojo. Para ambos casos se muestran de color azul los puntos correspondientes en la nueva imagen.
 
 Por otra parte se analiza numéricamente el error en función a la distancia en las parejas de puntos. Para esto se estudia el error cuadrático medio, el cual mide el promedio de la diferencia entre el valor deseado y el obtenido, y se calcula usando la ecuación \ref{eqn-ECM}.
 \begin{equation}\label{eqn-ECM}
 	ECM = \frac{1}{n} \sum_{i}^{n} \left( \hat{\mathbf{D}} - \mathbf{D} \right)^2
 \end{equation}
 
-Donde $\hat{\mathbf{D}}$ es el valor deseado o esperado, y $\mathbf{D}$ es el valor obtenido. En este caso, se trabaja con la distancia como entre los puntos luego de aplicar la matriz de transformación. Lo ideal seria que al aplicar la matriz sobre los primeros puntos, con lo cual la distancia deseada entre ellos ($\hat{\mathbf{D}}$) se considera igual a cero ($\hat{\mathbf{D}}$=0).
+Donde $\hat{\mathbf{D}}$ es el valor deseado o esperado, y $\mathbf{D}$ es el valor obtenido, en este caso se trabaja con la distancia entre los puntos luego de aplicar la matriz de transformación. Lo ideal seria que al aplicar la matriz sobre los primeros puntos, con lo cual la distancia deseada entre ellos se considera igual a cero ($\hat{\mathbf{D}}$=0).
 
 A continuación se muestran los resultados para imágenes de los conjuntos de datos \textit{Chuspa}, \textit{Mochima} y \textit{Grava}. Es importante considerar que para todos los casos se utilizó el extractor de puntos SIFT y el emparejador FLANN, también que las imágenes se trabajaron con una resolución de $640 \times 480$, a excepción del conjunto \textit{Grava} que presentan una resolución de $1280 \times 760$.
 
@@ -756,42 +756,42 @@ En la figura \ref{imagen:grid:0752-match} se muestran las parejas detectadas, en
 	\end{tabular}
 \end{table}
 
-La distribución de puntos presentada en los histogramas nos revela información sobre la calidad de la transformación, donde el caso ideal se cumple cuando todos los puntos coinciden, es decir, todas las parejas tienen distancia igual a cero --- una sola barra agrupada a la izquierda ---, por lo tanto, buscar esta distribución debe ser el fin del presente algoritmo de selección, si bien so se puede lograr el caso ideal, se busca el mejor caso posible. 
+La distribución de puntos presentada en los histogramas nos revela información sobre la calidad de la transformación, donde el caso ideal se cumple cuando todos los puntos coinciden, es decir, todas las parejas tienen distancia igual a cero --- una sola barra agrupada a la izquierda ---, por lo tanto, buscar esta distribución debe ser el fin del presente algoritmo de selección, si bien no es posible lograr el caso ideal, se busca el mejor caso posible. 
 
-Para realizar un correcto análisis de los datos presentados, es preciso estudiar la información de los histogramas en conjunto con las imágenes alineadas. De esta forma podemos apreciar la distribución de los puntos a lo largo de las imágenes, si bien es muy poco probable lograr el histograma ideal, es necesario contar con que los puntos agrupados hacia las distancias cortas (izquierda) se encuentren repartidos espacialmente por la mayor parte de las imágenes. Esto es para evitar que el modelo del plano resultante se ajuste dando mayor importancia a una pequeña región de la imagen.
+Para realizar un correcto análisis de los datos presentados, es preciso estudiar la información de los histogramas en conjunto con las imágenes alineadas, de esta forma podemos apreciar la distribución de los puntos según la calidad a lo largo de las imágenes. Si bien es muy poco probable lograr el histograma ideal, es necesario contar con que los puntos agrupados hacia las distancias cortas (izquierda) se encuentren repartidos espacialmente por la mayor parte de las imágenes. Esto es para evitar que el modelo del plano resultante se ajuste dando mayor importancia a una pequeña región de la imagen.
 
 Esta distribución indeseada puede traer consigo un problema común cuando se realiza emparejamiento simple (todas las parejas posibles), y es que la cantidad de parejas con poca distancia se encuentren ubicadas en una misa región, dando mayor importancia a dicha región para la estimación de la matriz de transformación. Si bien se suelen tener pocos puntos con mucha distancia, éstos suelen estar esparcidos por el resto de la imagen para estos casos. Dado que esta distribución en la imagen según la distancia no es posible visualizarla en el histograma, en las imágenes alineadas se facilita dicha distinción.
 
-Considerando este factor, se puede observar en cada histograma luego de aplicar la selección como muestra una fuerte agrupación de buenas parejas, y además se puede asegurar que la mayoría se encuentra distribuida a lo largo de toda la imagen. Para completar el análisis, y asegura la misma o una mejor relación de parejas con corta y grandes distancias se presenta en la tabla \ref{tabla:ECM} el error cuadrático medio sobre cada par de imágenes antes y después de aplicar el método. De esta forma dada la reducción de muestras, se puede asegurar que el promedio de la calidad de emparejamientos luego de la selección mejora para los casos mostrados.
+Considerando este factor, se puede observar en cada histograma que luego de aplicar la selección planteada, se muestra una fuerte agrupación de buenas parejas, y además se puede asegurar que la mayoría se encuentra distribuida a lo largo de toda la imagen. Para complementar el análisis, de forma que se pueda asegurar la misma o una mejor relación de parejas con corta y grandes distancias se presenta en la tabla \ref{tabla:ECM} el error cuadrático medio sobre cada par de imágenes antes y después de aplicar el método. De esta forma dada la reducción de muestras, se puede asegurar que el promedio de la calidad de emparejamientos luego de la selección mejora para los casos mostrados.
 
-Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{ifg:sub-geo-b}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. Si bien la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
+Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{fig:sub-geo-b}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. Si bien la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
 
 Este error se produce ya que el terreno presente en la imagen esta compuesto por planos a distintas altitudes, con lo cual la matriz de transformación se ajusta a aquel plano que presente mayor cantidad de parejas, resultando en un par de imágenes con un fuerte error de alineación. 
 
 El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución (histograma en la sub figura \ref{fig:grid-geo-hist-b}) la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, si bien empeora un poco la alineación del antiguo plano modelo (plano presente a la derecha), el error global se minimiza en mayor medida. 
 
+Analizando el histograma resultante para el resto de casos, se tiene una leve mejora en la distribución de parejas, logrando una reducción relativa de parejas con distancia elevada, y como se planteó anteriormente, se asegura también una distribución correcta de las nuevas parejas en toda la imagen, aseveración que no es posible realizar con el primer histograma. La reducción relativa de parejas con altas distancias se evidencia en la tabla \ref{tabla:ECM}, donde el error cuadrático medio se reduce para todos los casos evaluados. Esto indica que el promedio de las distancias (relación de cortas y largas distancias en las parejas) disminuye.
+
 \subsection*{Seguimiento de puntos}
 
-A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seguimiento-puntos}.
-
-En primer lugar se presenta un resultado utilizando el conjunto \textit{ScottReef 25}, para el cual se puede observar en la figura \ref{fig:seg:SR-a} un conjunto de imágenes alineadas usando el método que consiste en establecer el registro entre la nueva imagen, y el mosaico previo, es decir, se buscan relaciones de puntos en el conjunto de imágenes previamente deformadas. Por otra parte en la figura \ref{fig:seg:SR-b} se aprecia el mismo conjunto de imágenes alineadas con el método propuesto, en el cual el registro se establece con las imágenes sin deformar, y realizando el seguimiento de puntos utilizando la matriz correspondiente.
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seguimiento-puntos}. En primer lugar se presenta un resultado utilizando el conjunto \textit{ScottReef 25}, para el cual se observa en la figura \ref{fig:seg:SR-a} un conjunto de imágenes alineadas usando el método que consiste en establecer el registro entre la nueva imagen, y el mosaico previo, es decir, se buscan relaciones de puntos en el conjunto de imágenes previamente deformadas. Por otra parte en la figura \ref{fig:seg:SR-b} se aprecia el mismo conjunto de imágenes alineadas con el método propuesto, en el cual el registro se establece con las imágenes sin deformar, y realizando el seguimiento de puntos utilizando la matriz correspondiente.
 
 Adicionalmente de la clara mejora en la transformación hallada, en el mosaico \ref{fig:seg:SR-a} no fue posible continuar alineando imágenes debido a la alta distorsión de los puntos característicos en la imagen. Caso contrario, en el nuevo mosaico es posible de continuar el crecimiento, conteniendo una imagen adicional, luego de la cual el proceso fue detenido intencionalmente. 
 
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:seg:SR-a}\includegraphics[width=0.35\textwidth]{resultados/seguimiento/SR-old}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:seg:SR-b}\includegraphics[width=0.35\textwidth]{resultados/seguimiento/SR-new}}
+	\subfigure[]{\label{fig:seg:SR-a}\includegraphics[width=0.30\textwidth]{resultados/seguimiento/SR-old}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:seg:SR-b}\includegraphics[width=0.30\textwidth]{resultados/seguimiento/SR-new}}
 	
 	\caption[Seguimiento de puntos: \textit{ScottReef 25}]{Mejora del seguimiento de puntos en conjunto \textit{ScottReef 25}. La figura (a) está compuesta por 5 imágenes, registro entre nueva imagen y mosaico (imágenes anteriores alineadas). La figura (b) está compuesta por 6 imágenes, registro entre nueva imagen e imagen anterior sin deformar}
 	\label{imagen:seg:SR}
 \end{figure}
 
-Por otra parte, se presenta un resultado utilizando el conjunto \textit{Chuspa}. Similar al caso anterior, la cantidad de imágenes que se pueden añadir al mosaico utilizando el antiguo método de registro es muy limitada. Esto se puede observar en la figura \ref{fig:seg:0234-b}, ahí se presenta la máxima cantidad de imágenes que fue posible añadir con el antiguo método (6 imágenes), mientras que en la figura \ref{fig:seg:0234-a} se muestran la cantidad de puntos que fue posible relacionar, en este caso el mínimo necesario (4 puntos). 
+Por otra parte, se presenta un resultado utilizando el conjunto \textit{Chuspa}. Similar al caso anterior, la cantidad de imágenes que se pueden añadir al mosaico utilizando el método de registro simple es muy limitada. Esto se puede observar en la figura \ref{fig:seg:0234-b}, ahí se presenta la máxima cantidad de imágenes que fue posible añadir (6 imágenes), mientras que en la figura \ref{fig:seg:0234-a} se muestran la cantidad de puntos que fue posible relacionar, en este caso el mínimo necesario (4 puntos). 
 
 Luego de utilizar el método propuesto, la posibilidad de realizar el emparejamiento es muy elevada, ya que el registro no entre imágenes se realiza siempre en las mejores condiciones (imágenes sin deformar). En este caso se tiene como resultado el de la figura \ref{fig:seg:0234-c}, donde se muestra un total de 19 imágenes, luego de las cuales el proceso fe detenido intencionalmente.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\begin{varwidth}{0.49\linewidth}  % this is a must
 		\centering
@@ -812,9 +812,7 @@ Luego de utilizar el método propuesto, la posibilidad de realizar el emparejami
 
 \subsection*{Relación con vecinos}
 
-A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-vecinos}.
-
-En este caso se presenta un mosaico utilizando imágenes del conjunto \textit{Mochima}. En la figura \ref{fig:vec:0752-a} se tiene un mosaico construido bajo el esquema simple, en el cual se relaciona la nueva imagen con la última añadida. Tal y como se observa en el mapa de la trayectoria mostrado en \ref{fig:vec:0752-c} hay un cambio en el recorrido --- La segunda imagen se posiciona debajo de la numero 1, luego la número 3 cambia el movimiento hacia arriba, donde el resto continúa con la trayectoria ---. Esto produce que la tercera imagen se relacione con la segunda solo bajo una pequeña área de superposición, produciendo el error de alineación (mostrada en la sección marcada).
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-vecinos}. En este caso se presenta un mosaico utilizando imágenes del conjunto \textit{Mochima}. En la figura \ref{fig:vec:0752-a} se tiene un mosaico construido bajo el esquema simple, en el cual se relaciona la nueva imagen con la última añadida. Tal y como se observa en el mapa de la trayectoria mostrado en \ref{fig:vec:0752-c} hay un cambio en el recorrido --- La segunda imagen se posiciona debajo de la numero 1, luego la número 3 cambia el movimiento hacia arriba, donde el resto continúa con la trayectoria ---. Esto produce que la tercera imagen se relacione con la segunda solo bajo una pequeña área de superposición, produciendo el error de alineación (mostrada en la sección marcada).
 
 En la figura \ref{fig:vec:0752-b} se muestra el resultado de un esquema que establece el registro de imágenes aprovechando la información de aquellas que se encuentren espacialmente cercanas. En este sentido, destacando la sección marcada es posible observar la mejora que éste método ofrece para este particular caso, logrando alinear correctamente la tercera imagen, utilizando la primera, con la cual comparte gran área de superposición.  
 
@@ -833,9 +831,7 @@ En la figura \ref{fig:vec:0752-b} se muestra el resultado de un esquema que esta
 
 \subsection*{Homografía promedio}
 
-A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-hpromedio}.
-
-En el primer caso se muestra la unión de dos sub mosaicos del conjunto de imágenes \textit{Chuspa}. En la figura \ref{fig:h:0234-a} se observa dos sub mosaicos alineados en un mismo plano, y considerando la imágen de referencia del primero (cuadro marcado) como referencia global. Por otro lado en la figura \ref{fig:h:0234-b} se observa el mismo sub mosaico, pero considerando la imagen de referencia del segundo (cuadro marcado) como referencia global. 
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-hpromedio}. En el primer caso se muestra la unión de dos sub mosaicos del conjunto de imágenes \textit{Chuspa}. En la figura \ref{fig:h:0234-a} se observa dos sub mosaicos alineados en un mismo plano, y considerando la imágen de referencia del primero (cuadro marcado) como referencia global. Por otro lado en la figura \ref{fig:h:0234-b} se observa el mismo sub mosaico, pero considerando la imagen de referencia del segundo (cuadro marcado) como referencia global. 
 
 Como se puede apreciar, ambos sub mosaicos presentan un elevado nivel de distorsión producto de la mala elección de la imagen de referencia. Ahora bien, al utilizar el método descrito anteriormente, es posible alinearlos logrando reducir el error de distorsión, tal y como se observa el resultado en la figura \ref{fig:h:0234-c}. 
 
@@ -863,18 +859,20 @@ Otro resultado interesante se obtuvo utilizando imágenes del conjunto \textit{S
 	\label{imagen:avgh:SR}
 \end{figure}
 
-Un mosaico puede estar compuesto por una gran cantidad de sub mosaicos, si bien el proceso para unirlos ya se ilustró, se muestra el criterio para la selección sobre cuales se deben unir en primer lugar. Para esto se selecciona el par se sub mosaicos que presente mayor área de superposición, a medida que se va construyendo. Es importante destacar que cuando se evalúan dos sub mosaicos ya corregidos, se considera la matriz de homografía promedio para determinar el área de superposición.
+Un mosaico puede estar compuesto por una gran cantidad de sub mosaicos, si bien el proceso para unirlos ya se ilustró, se muestra el criterio para la selección sobre cuales se deben unir en primer lugar. Para esto se selecciona el par de sub mosaicos que presente mayor área de superposición a medida que se va construyendo. Es importante destacar que cuando se evalúan dos sub mosaicos ya corregidos, se considera la matriz de homografía promedio para determinar el área de superposición.
 
 En la figura \ref{imagen:jerarquia0234} se observa la jerarquía con la que se seleccionan los sub mosaicos para ser alineados en el mosaico final. En este caso se redujo el criterio para detener el proceso de construcción de un sub mosaico, de modo que se cuente con una mayor cantidad de ellos y se ilustre de mejor manera el proceso.
 
-\begin{figure}[h]
+Se muestran 9 sub mosaicos, compuestos por un total de  23 imágenes. Se observa como se unen los primeros cuatro sub mosaicos (desde izquierda a derecha) hasta un punto que se tiene otro par que presenta mayor área de superposición, con lo cual el proceso continúa con éstos. Siguiendo ese orden se tiene finalmente en la parte superior de la imagen el mosaico final.
+
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{resultados/jerarquia-reducido.pdf}
+	\includegraphics[width=1\linewidth]{resultados/jerarquia-reducido.pdf}
 	\caption[Selección de sub mosaicos]{Jerarquía para selección de sub mosaicos}
 	\label{imagen:jerarquia0234}
 \end{figure}
 
-Se muestran 9 sub mosaicos, compuestos por un total de  23 imágenes. Se observa como se unen los primeros cuatro sub mosaicos (desde izquierda a derecha) hasta un punto que se tiene otro par que presenta mayor área de superposición, con lo cual el proceso continúa con éstos. Siguiendo ese orden se tiene finalmente en la parte superior de la imagen el mosaico final.
+
 
 \subsection*{Corrección euclidiana}
 
@@ -882,9 +880,7 @@ A continuación se muestran resultados obtenidos tras aplicar el método descrit
 
 En primer lugar se muestra un resultado utilizando 12 imágenes del conjunto \textit{ScottReef 25}. En la figura \ref{imagen:ec:SR_1} se observa el mosaico construido únicamente con transformaciones de isometría. A la izquierda de observa el mosaico a color, y a la derecha el mapa con las coordenadas medidas en píxeles.
 
-En el mapa (\ref{fig:ec:SRE-a}) se muestran los 4 puntos marcados con color verde que corresponden con el borde del mosaico. Por otro lado se muestra en la figura \ref{fig:ec:SRP-b} el mapa del mosaico creado usando transformaciones de perspectiva sin ningún tipo de correcciones. También se muestra en esa misma imagen en color rojo los 4 puntos correspondientes a los extremos del mosaico. Ahora bien, teniendo esta correspondencia de 4 pares de puntos, es posible hallar una matriz de transformación de perspectiva para lograr alinear los extremos del mosaico en \ref{fig:ec:SRP-b} con el \ref{fig:ec:SRP-a}. 
-
-Luego de encontrar dicha transformación y aplicarla al segundo mosaico se obtiene el mosaico mostrado en la figura  \ref{imagen:ec:SR_3}.
+En el mapa (\ref{fig:ec:SRE-a}) se muestran los 4 puntos marcados con color verde que corresponden con el borde del mosaico. Por otro lado se muestra en la figura \ref{fig:ec:SRP-b} el mapa del mosaico creado usando transformaciones de perspectiva sin ningún tipo de correcciones. También se muestra en esa misma imagen en color rojo los 4 puntos correspondientes a los extremos del mosaico. Ahora bien, teniendo esta correspondencia de 4 pares de puntos, es posible hallar una matriz de transformación de perspectiva para lograr alinear los extremos del mosaico en \ref{fig:ec:SRP-b} con el \ref{fig:ec:SRP-a}. Luego de encontrar dicha transformación y aplicarla al segundo mosaico se obtiene el mosaico mostrado en la figura  \ref{imagen:ec:SR_3}.
 
 Se puede observar en los tres mapas de coordenadas la ubicación relativa de los puntos frontera del mosaico. Considerando el origen en la esquina superior izquierda, se tiene que el mosaico construido con matrices de isometria no supera los 3.000 píxeles de longitud en el eje $y$, mientras que el construido con matrices de perspectiva logra superar los 11.000 píxeles. finalmente luego de la corrección la distancia entre los puntos del extremo logran coincidir en ambos mosaicos.
 
@@ -920,8 +916,8 @@ Se presenta otro resultado utilizando 30 imágenes del conjunto \textit{Chuspa}.
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.60\textwidth]{resultados/ec/0234-e}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.60\textwidth]{resultados/ec/0234-emap}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec0234-a}\includegraphics[height=0.60\textwidth]{resultados/ec/0234-e}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec0234-b}\includegraphics[height=0.60\textwidth]{resultados/ec/0234-emap}}\hspace{1mm}%}
 	\caption[Histogramas 1]{Histogramas 1}
 	\label{imagen:ec:0234_1}
 \end{figure}
@@ -929,8 +925,8 @@ Se presenta otro resultado utilizando 30 imágenes del conjunto \textit{Chuspa}.
 \begin{figure}[H]
 	\centering     %%% not \center
 	
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.6\textwidth]{resultados/ec/0234-f}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-a}\includegraphics[height=0.6\textwidth]{resultados/ec/0234-fmap}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec1-a}\includegraphics[height=0.6\textwidth]{resultados/ec/0234-f}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec1-b}\includegraphics[height=0.6\textwidth]{resultados/ec/0234-fmap}}\hspace{1mm}%}
 	
 	\caption[Histogramas 1]{Histogramas 1}
 	\label{imagen:ec:0234_2}
@@ -938,8 +934,8 @@ Se presenta otro resultado utilizando 30 imágenes del conjunto \textit{Chuspa}.
 
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.70\textwidth]{resultados/ec/0234-ec}}\hspace{1mm}%}
-	\subfigure[]{\label{fig:hist1-b}\includegraphics[height=0.70\textwidth]{resultados/ec/0234-ecmap}}
+	\subfigure[]{\label{fig:ec2-a}\includegraphics[height=0.70\textwidth]{resultados/ec/0234-ec}}\hspace{1mm}%}
+	\subfigure[]{\label{fig:ec2-b}\includegraphics[height=0.70\textwidth]{resultados/ec/0234-ecmap}}
 	\caption[Histogramas 1]{Histogramas 1}
 	\label{imagen:ec:0234_3}
 \end{figure}

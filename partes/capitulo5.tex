@@ -171,13 +171,11 @@ En la figura \ref{imagen:blend-apple} se puede observar el resultado de aplicar 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resultados}
 
-En esta sección se presentan los resultados de los algoritmos descritos en este capítulo, los cuales buscan reducir las discontinuidades y el error fotométrico en el mosaico final. Puesto que con este capítulo culmina la exposición de los módulos implementados, se presenta en la ultima parte resultados de los mosaicos obtenidos al emplear todo el sistema descrito. De esta forma se puede estudiar el rendimiento del sistema de generación de mosaico para distintos tipos de condiciones, y bajo distintas combinaciones de algoritmos.
+En esta sección se presentan los resultados de los algoritmos descritos en este capítulo, los cuales buscan reducir las discontinuidades y el error fotométrico en el mosaico final. Puesto que con este capítulo culmina la exposición de los módulos implementados, se presenta en la ultima parte resultados de los mosaicos obtenidos al emplear todo el sistema general para la generación de mosaicos. De esta forma se puede estudiar el rendimiento del sistema para distintos tipos de condiciones, y bajo distintas combinaciones de algoritmos.
 
 \subsection*{Linea de corte}
 
-A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-corte}.
-
-En primer lugar estudiamos el caso en el que se tienen objetos en movimiento en el transcurso de la captura de imágenes. En la figura \ref{fig:corte:0233-a} se observa un par de imágenes alineadas según el esquema simple, en el cual se muestra completamente la ultima imagen añadida y ésta determina el borde entre las imágenes. Por otro lado en la figura \ref{fig:corte:0233-d} se muestra el mismo par unidas por la linea de corte que minimiza la diferencia entre dichas imágenes. Se aprecia también en las figuras \ref{fig:corte:0233-b} y \ref{fig:corte:0233-c} el etiquetado de píxeles (mascara) y la linea de corte respectivamente.
+A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-corte}. En primer lugar estudiamos el caso en el que se tienen objetos en movimiento en el transcurso de la captura de imágenes. En la figura \ref{fig:corte:0233-a} se observa un par de imágenes alineadas según el esquema simple, en el cual se muestra completamente la ultima imagen añadida y ésta determina el borde entre las imágenes. Por otro lado en la figura \ref{fig:corte:0233-d} se muestra el mismo par unidas por la linea de corte que minimiza la diferencia entre dichas imágenes. Se aprecia también en las figuras \ref{fig:corte:0233-b} y \ref{fig:corte:0233-c} el etiquetado de píxeles (mascara) y la linea de corte respectivamente.
 
 \begin{figure}[H]
 	\centering     %%% not \center
@@ -187,7 +185,7 @@ En primer lugar estudiamos el caso en el que se tienen objetos en movimiento en 
 	\subfigure[]{\label{fig:corte:0233-c}\includegraphics[width=.45\textwidth]{resultados/cut/0233-redline.jpg}}
 	\subfigure[]{\label{fig:corte:0233-d}\includegraphics[width=.45\textwidth]{resultados/cut/0233-cutline.jpg}}
 
-	\caption[Ejemplo de fusión pirámidal]{}
+	\caption[Resultado de linea de corte: \textit{Chuspa}]{Resultado de linea de corte. (a) superposición de imágenes, (b) mascara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
 	\label{imagen:cut:0233}
 \end{figure}
 
@@ -201,7 +199,7 @@ Una mejora importante que presenta este algoritmo, es que logra reducir y hasta 
 	\subfigure[]{\label{fig:corte:0234-c}\includegraphics[width=.49\textwidth]{resultados/cut/0234-redline.jpg}}
 	\subfigure[]{\label{fig:corte:0234-d}\includegraphics[width=.49\textwidth]{resultados/cut/0234-cutline.jpg}}
 	
-	\caption[Ejemplo de fusión pirámidal]{}
+	\caption[Resultado de linea de corte: \textit{Chuspa}]{Resultado de linea de corte. (a) superposición de imágenes, (b) mascara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
 	\label{imagen:cut:0234}
 \end{figure}
 
@@ -209,37 +207,35 @@ Ya hemos comentado sobre los posibles errores de alineación cuando se cuenta co
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:corte:geo-a}\includegraphics[width=.49\textwidth]{resultados/cut/geo-simple.jpg}}\hspace{0.1\textwidth}%
-	\subfigure[]{\label{fig:corte:geo-b}\includegraphics[width=.39\textwidth]{resultados/cut/geo-mask.jpg}}
+	\subfigure[]{\label{fig:corte:geo-a}\includegraphics[width=.42\textwidth]{resultados/cut/geo-simple.jpg}}\hspace{0.1\textwidth}%
+	\subfigure[]{\label{fig:corte:geo-b}\includegraphics[width=.32\textwidth]{resultados/cut/geo-mask.jpg}}
 	
-	\subfigure[]{\label{fig:corte:geo-c}\includegraphics[width=.49\textwidth]{resultados/cut/geo-redline.jpg}}
-	\subfigure[]{\label{fig:corte:geo-d}\includegraphics[width=.49\textwidth]{resultados/cut/geo-cutline.jpg}}
+	\subfigure[]{\label{fig:corte:geo-c}\includegraphics[width=.42\textwidth]{resultados/cut/geo-redline.jpg}}
+	\subfigure[]{\label{fig:corte:geo-d}\includegraphics[width=.42\textwidth]{resultados/cut/geo-cutline.jpg}}
 	
-	\caption[Ejemplo de fusión pirámidal]{}
+	\caption[Resultado de linea de corte: \textit{Grava}]{Resultado de linea de corte. (a) superposición de imágenes, (b) mascara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
 	\label{imagen:cut:geo}
 \end{figure}
 
-Hasta ahora se han presentado casos en los que se lidia con un par de imágenes. En esta oportunidad de tiene un mosaico compuesto por tres imágenes, en las cuales se tiene un error producto del efecto paralaje. En este caso el algoritmo busca por la mejor linea de corte para cada par de imágenes por separado, pero logrando un mosaico final sin errores de discontinuidades.
+Hasta ahora se han presentado casos en los que se lidia con un par de imágenes. Por lo tanto se presenta un mosaico compuesto por tres imágenes del conjunto \textit{Espenky}, adicionalmente se tiene un error producido por el efecto paralaje. En este caso el algoritmo busca por la mejor linea de corte para cada par de imágenes por separado, pero logrando un mosaico final sin errores de discontinuidades.
 
-En este ejemplo en particular se logra evidenciar una debilidad que tiene este algoritmo. Si bien es muy robusto bordeando objetos por la diferencia de texturas y bordes, es común que se cuente con discontinuidades visuales producto de cambios de iluminación.
+En este ejemplo en particular se logra evidenciar una debilidad que tiene este algoritmo. Si bien es muy robusto al evadir objetos por la diferencia de texturas y bordes, es común que se cuente con discontinuidades visuales producto de cambios de iluminación.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:corte:espenky-a}\includegraphics[width=.47\textwidth]{resultados/cut/Espenky-simple.jpg}}
-	\subfigure[]{\label{fig:corte:espenky-b}\includegraphics[width=.47\textwidth]{resultados/cut/Espenky-redline.jpg}}
+	\subfigure[]{\label{fig:corte:espenky-a}\includegraphics[width=.40\textwidth]{resultados/cut/Espenky-simple.jpg}}
+	\subfigure[]{\label{fig:corte:espenky-b}\includegraphics[width=.40\textwidth]{resultados/cut/Espenky-redline.jpg}}
 	
 	\subfigure[]{\label{fig:corte:espenky-c}\includegraphics[width=.47\textwidth]{resultados/cut/Espenky-cutline.jpg}}
 	
-	\caption[Ejemplo de fusión pirámidal]{}
+	\caption[Resultado de linea de corte: \textit{Espenky}]{Resultado de linea de corte. (a) superposición de imágenes, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
 	\label{imagen:cut:espenky}
 \end{figure}
 
 
 \subsection*{Corrección de color}
 
-A continuación se presentan los resultados de aplicar el algoritmo en la sección \ref{seccion-color}.
-
-De los resultados del algoritmo que busca la mejor linea de corte, se tiene que es susceptible a errores de discontinuidad producto de cambios en la exposición de luz entre imágenes, con lo cual es necesario equilibrar tal diferencia para lograr mejor continuidad en el mosaico final.
+A continuación se presentan los resultados de aplicar el algoritmo descrito en la sección \ref{seccion-color}. De los resultados del algoritmo que busca la mejor linea de corte, se tiene que es susceptible a errores de discontinuidad producto de cambios en la exposición de luz entre imágenes, con lo cual es necesario equilibrar tal diferencia para lograr mejor continuidad en el mosaico final.
 
 En la figura \ref{fig:color:geo-a} se observa un mosaico compuesto por tres imágenes, donde una de ellas presenta un cambio importante en la intensidad de luz. Aplicando el método descrito es posible reducir este error, tal y como se muestra en la figura \ref{fig:color:geo-b}.
 
@@ -248,7 +244,7 @@ En la figura \ref{fig:color:geo-a} se observa un mosaico compuesto por tres imá
 	\subfigure[]{\label{fig:color:geo-a}\includegraphics[width=.49\textwidth]{resultados/color/geo-no.jpg}}
 	\subfigure[]{\label{fig:color:geo-b}\includegraphics[width=.49\textwidth]{resultados/color/geo-si.jpg}}
 	
-	\caption[Ejemplo de fusión pirámidal]{}
+	\caption[Resultados de corrección de color: \textit{Grava}]{Corrección de color para imagen con poca iluminación}
 	\label{imagen:color:geo}
 \end{figure}
 
@@ -259,91 +255,95 @@ Del ejemplo anterior se tiene que la imagen irregular presenta poca iluminación
 	\subfigure[]{\label{fig:color:0233-a}\includegraphics[width=0.49\textwidth]{resultados/color/0233-no.jpg}}
 	\subfigure[]{\label{fig:color:0233-b}\includegraphics[width=0.49\textwidth]{resultados/color/0233-si.jpg}}
 	
-	\caption[Ejemplo de fusión pirámidal]{}
+	\caption[Resultado de corrección de color]{Corrección de color para imagen con mucha iluminación}
 	\label{imagen:color:0233}
 \end{figure}
 
 Para los mosaicos anteriores se estudiaron casos en los que se tenia un cambio de iluminación uniformemente distribuido a lo largo de toda la imagen, con lo cual el se lograba un resultado deseado al utilizar un método de corrección de color lineal.
 
-A continuación se presenta el caso en los que este cambio se produce en secciones de una imagen. En la figura \ref{fig:color:espenky-a} se observa un mosaico que presenta diversas variaciones de iluminación, tanto entre imágenes como también entre secciones de algunas de estas. Luego de aplicar la corrección de color se logra el mosaico de la figura \ref{fig:color:espenky-b}, donde si bien se observa una mejora global en la intensidad de iluminación, se tienen regiones en las cuales esta diferencia se acentúa.
+A continuación se presenta el caso en el cual este cambio de iluminación se produce en secciones de una imagen. En la figura \ref{fig:color:espenky-a} se observa un mosaico que presenta diversas variaciones de iluminación, tanto entre imágenes como también entre secciones de algunas de estas. Luego de aplicar la corrección de color se logra el mosaico de la figura \ref{fig:color:espenky-b}. Si bien se obtiene una mejora global en la intensidad de iluminación, se tienen regiones en las cuales esta diferencia se acentúa.
 
 \begin{figure}[H]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:color:espenky-a}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-no.jpg}}
 	\subfigure[]{\label{fig:color:espenky-b}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-si.jpg}}
 	
-	\caption[Ejemplo de fusión pirámidal]{}
+	\caption[Resultado de corrección de color: \textit{Espenky}]{Corrección de color de un conjunto de imágenes con iluminación no uniforme}
 	\label{imagen:color:espenky}
 \end{figure}
 
 \subsection*{Fusión ponderada}
 
-A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-fusion}.
+A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-fusion}. Ya se ha observado como los algoritmos presentados anteriormente logran solventar la mayoría de inconvenientes y errores de alineación en las imágenes. Pero también se observó como se presentan casos ante los cuales los resultados no se corresponden con una completa fusión entre imágenes, teniendo aún bordes perceptibles.
 
-Ya se ha observado como los algoritmos presentados anteriormente logran solventar la mayoría de inconvenientes y errores de alineación en las imágenes. Pero también se observó como se presentan casos ante los cuales los resultados no corresponden con los deseados. El siguiente ejemplo ilustra un conjunto de imágenes estudiadas anteriormente, y como se logra resolver a través de este algoritmo los errores de discontinuidad que no pudieron ser corregidos en pasos anteriores. En la figura \ref{imagen:blend:espenky} se observa como se logra reducir la discontinuidad producida por un cambio de iluminación, aplicando la fusión piramidal para distintos niveles de escalas.
+El siguiente ejemplo ilustra un conjunto de imágenes estudiadas anteriormente, y como se logra resolver a través de este algoritmo los errores de discontinuidad que no pudieron ser corregidos en dichas secciones. En la figura \ref{imagen:blend:espenky} se observa como se logra reducir la discontinuidad producida por un cambio de iluminación, aplicando la fusión piramidal para distintos niveles de escalas.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\linewidth]{/resultados/blend/blend-espenky3.pdf}
-	\caption[Fusión pirámidal]{Fusión pirámidal}
+	\caption[Resultado de fusión pirámidal: \textit{Espenky}]{Fusión piramidal para distintos niveles de escala, donde $n$ representa el número de escalas.}
 	\label{imagen:blend:espenky}
 \end{figure}
 
-Es posible evaluar la calidad de la fusión de las imágenes utilizando la derivada de la imagen final, con la cual es posible identificar bordes debido a cambios o discontinuidades entre estas. En la figura \ref{imagen:blend:laplacian} podemos identificar el cambio producido en la derivada de la imagen luego de aplicar el algoritmo de fusión, donde podemos observar en la figura \ref{fig:blend:laplacian-b} como el borde es difuminado completamente, logrando una transición suavizada y una línea de corte indetectable en la imagen final. 
+Es posible evaluar la calidad de la fusión de las imágenes utilizando la derivada de la imagen final, con la cual se puede identificar bordes debido a cambios o discontinuidades entre estas. En la figura \ref{imagen:blend:laplacian} se ilustra el cambio producido en la derivada de la imagen antes de aplicar el algoritmo de fusión, por otro lado en la figura \ref{fig:blend:laplacian-b} se observa como el borde es difuminado completamente, logrando una transición suavizada y una línea de corte indetectable en la imagen final. 
 
 \begin{figure}[H]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:blend:laplacian-a}\includegraphics[width=0.49\textwidth]{resultados/blend/canny00.jpg}}
 	\subfigure[]{\label{fig:blend:laplacian-b}\includegraphics[width=0.49\textwidth]{resultados/blend/canny09.jpg}}
 	
-	\caption[Fusión pirámidal]{}
+	\caption[Resultado de fusión pirámidal: \textit{Espenky}]{Derivada en $x$ e $y$ de la imagen antes (a) y después (b) de aplicar la fusión piramidal}
 	\label{imagen:blend:laplacian}
 \end{figure}
 
 \subsection*{Mosaicos completos}
 
+A continuación se presentan resultados para un conjunto mayor de imágenes, aplicando en conjunto los algoritmos descritos en el presente trabajo. Para algunos casos se emplean todos los módulos, mientras que en otros se excluyen algunos no necesarios, estos se indicarán en cada resultado.
+
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:apple}\includegraphics[width=0.9\textwidth]{resultados/full/geo2-0.jpg}}
+	\subfigure[]{\label{fig:apple}\includegraphics[width=0.9\textwidth]{resultados/full/geo2-00.jpg}}
 	\subfigure[]{\label{fig:orange}\includegraphics[width=0.9\textwidth]{resultados/full/geo2-1.jpg}}
 	\subfigure[]{\label{fig:orange}\includegraphics[width=0.8\textwidth]{resultados/full/geo2-map.jpg}}
 		
-	\caption[Fusión pirámidal]{}
+	\caption[Mosaico del conjunto \textit{Grava}]{Mosaico con 19 imágenes del conjunto \textit{Grava}, con resolución de $1280\times 720$ por imagen. (a) mosaico sin corrección geométrica ni de color, (b) mosaico final corregido, (c) mapa del mosaico con las unidades en píxeles}
 	\label{imagen:full:geo2}
 \end{figure}
 
 \begin{figure}[h]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:apple}\includegraphics[width=0.53\textwidth]{resultados/full/0234-0.jpg}}
-	\subfigure[]{\label{fig:orange}\includegraphics[width=0.53\textwidth]{resultados/full/0234-map.jpg}}
+	\subfigure[]{\label{fig:apple}\includegraphics[width=0.50\textwidth]{resultados/full/0234-blend.jpg}}
+	\subfigure[]{\label{fig:apple}\includegraphics[width=0.41\textwidth]{resultados/full/0234-hugin.png}}
+	\subfigure[]{\label{fig:orange}\includegraphics[width=0.45\textwidth]{resultados/full/0234-map.jpg}}
 	
-	\caption[Fusión pirámidal]{}
+	\caption[Mosaico del conjunto \textit{Chuspa}]{En (a) mosaico producido con el sistema propuesto, en (b) mosaico obtenido mediante selección y alineación manual usando el software \textit{Hugin} para una sección del mosaico en (a). En (c) mapa del mosaico en (a) con las unidades en píxeles}
 	\label{imagen:full:0234-map}
 \end{figure}
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{resultados/full/0234-1.jpg}
-	\caption[Construcción de pirámide de laplacianas]{Construcción de pirámide de laplacianas}
+	\caption[Mosaico mejorado visualmente del conjunto \textit{Chuspa}]{Mismo mosaico anterior (figura \ref{imagen:full:0234-map}) pero aplicado un algoritmo de ecualización adaptativa de histograma para obtener una mejora visual.}
 	\label{imagen:full:0234-1}
 \end{figure}
 
 \begin{figure}[h]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.49\textwidth]{resultados/full/SR-1.pdf}}
-	\subfigure[]{\label{fig:apple}\includegraphics[width=0.49\textwidth]{resultados/full/SR-map.jpg}}
+	\subfigure[]{\label{fig:apple}\includegraphics[width=0.50\textwidth]{resultados/full/SR-map.jpg}}
 	\subfigure[]{\label{fig:orange}\includegraphics[width=01\textwidth]{resultados/full/SR-crop2.jpg}}
 	
-	\caption[Fusión pirámidal]{}
+	\caption[Mosaico del conjunto \textit{ScottReef 25}]{En (a) mosaico compuesto por 56 imágenes, en (b) mapa del mosaico con las unidades en píxeles, en (c) sección del mosaico en (a) marcada con el rectángulo negro sin corrección de color ni linea de corte.}
 	\label{imagen:full:SR}
 \end{figure}
+
 
 \begin{figure}[h]
 	\centering     
 	
-	\subfigure[]{\label{fig:apple}\includegraphics[width=0.49\textwidth]{resultados/full/espenky-map.jpg}}\hspace{10mm}%
-	\subfigure[]{\label{fig:apple}\includegraphics[width=0.335\textwidth]{resultados/full/espenky-1.jpg}}
-	
-	\caption[Fusión pirámidal]{}
+	\subfigure[]{\label{fig:espenky-a}\includegraphics[width=0.49\textwidth]{resultados/full/espenky-map.jpg}}\hspace{10mm}%
+	\subfigure[]{\label{fig:espenky-b}\includegraphics[width=0.34\textwidth]{resultados/full/espenky-1.jpg}}
+	\caption[Mosaico del conjunto \textit{Espenky}]{Mosaico compuesto por 19 imágenes utilizando el sistema con todas las correcciones. En (a) mapa del mosaico, en (b) mosaico final.}
 	\label{imagen:full:espenky}
 \end{figure}
 
@@ -353,8 +353,15 @@ Es posible evaluar la calidad de la fusión de las imágenes utilizando la deriv
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.50\textwidth]{resultados/full/SR2-map.jpg}}\hspace{10mm}%
 	\subfigure[]{\label{fig:apple}\includegraphics[width=0.38\textwidth]{resultados/full/SR2-1.jpg}}
 	
-	\caption[Fusión pirámidal]{}
+	\caption[Mosaico del conjunto \textit{ScottReef 25}]{Mosaico compuesto por 177 imágenes utilizando únicamente matrices de isometría.}
 	\label{imagen:full:SR2}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{resultados/sr-original.pdf}
+	\caption[Mosaico del conjunto \textit{ScottReef 25} por el \textit{ACFR}]{Recorrido del mosaico en la figura sobre la solución del \textit{ACFR}, el recorrido se muestra con la linea punteada de color rojo.}
+	\label{imagen:full:SR-original}
 \end{figure}
 
 \section{Resumen}
