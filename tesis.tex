@@ -12,6 +12,7 @@
 \usepackage{enumitem}
 \usepackage{textcomp}
 \usepackage{csquotes}
+\usepackage{longtable}
 
 %Tablas
 \usepackage{caption}
@@ -27,6 +28,15 @@
 % Para incluir código (básico)
 \usepackage{verbatim}
 \usepackage{fancyvrb}
+\usepackage{listings}
+\definecolor{custom}{RGB}{245,245,245}
+\lstset{
+	language=bash,
+	basicstyle=\ttfamily,
+	frame=none,
+	backgroundcolor=\color{custom}
+}
+
 
 % Para incluir hipervínculos
 \usepackage{hyperref}
@@ -154,25 +164,67 @@
 \setstretch{1.5}
 \clearpage
 \lhead{\emph{Acrónimos y símbolos}}
-\listofsymbols{ll}
+
+\listofsymbols{}
 {
-				
-	% Aquí van las siglas
-	% \textbf{SIFT} & Transformacion de caracteristicas invariante a la escala (del inglés: \textbf{S}cale \textbf{I}nvariant \textbf{T}eature \textbf{T}ransform)\\
-	% \textbf{SURF} & Transformacion de caracteristicas Robusto y acelerado (del inglés: \textbf{S}peed-\textbf{U}up \textbf{R}obust \textbf{F}eatures)\\
-	% \textbf{FAST} & Caracteristicas de pruebas de segmentos aceleradas (del inglés: \textbf{F}eatures from \textbf{A}ccelerated \textbf{S}egment \textbf{T}est)\\
-	% \textbf{BRIEF} & Características elementales independientes robustas binarias (del inglés: \textbf{B}inary \textbf{R}obust \textbf{I}ndependent \textbf{E}lementary) \textbf{F}eatures) \\
-	% \textbf{ORB} & FAST orientado y BRIEF rotado (del inglés: \textbf{O}riented for FAST and \textbf{R}otated \textbf{B}RIEF)\\
-	% &\\
-	% \hline
-	% &\\
-				
-	% Aquí van los símbolos
-	% $\iff$ & doble implicación, si y sólo si\\
-	% $\Rightarrow$ & implicación lógica\\
-	% $[u:=v]$ & sustitución textual de $u$ por $v$
-}
+%\begin{longtable}{lp{0.8\textwidth}}
 	
+	\textbf{2D} & Dos Dimensiones\\
+	
+	\textbf{GIDM} & Grupo de Investigación y Desarrollo en Mecatrónica\\
+	
+	\textbf{ROV} & Vehículo Operado Remotamente (del inglés: Remotely Operated Vehicle)\\
+	
+	\textbf{AUV} & Vehículo Submarino Autónomo (del inglés: Automated Underwater Vehicle)\\
+		
+	\textbf{UAV} & Vehículo aéreo no tripulado (del inglés: Unmanned Aereal Vehicle)\\
+	
+	\textbf{SLAM} & Localización y Mapeo Simultaneo (del inglés: Simultaneous Localization and Mapping)\\
+	
+	\textbf{GPS} & Sistema de Posicionamiento Global (del inglés: Global Positioning System)\\
+	
+	\textbf{IMU} & Unidad de Medición Inercial (del inglés: Inertial Measurement Unit)\\
+	
+	\textbf{OpenCV} & Librería Abierta de Visión por Computadora (del inglés: Open Source Computer Vision)\\
+	
+	\textbf{CUDA} &  Arquitectura de Computo de Dispositivos unificados (del inglés: Compute Unified Device Architecture)\\	
+	
+	\textbf{SIFT} & Transformación de características invariante a la escala (del inglés: Scale Invariant Feature Transform)\\
+	
+	\textbf{SURF} & Transformación de caracteristicas Robusto y acelerado (del inglés: Speed-Uup Robust Features)\\
+	
+	\textbf{FAST} & Características de pruebas de segmentos aceleradas (del inglés: Features from Accelerated Segment Test)\\
+	
+	\textbf{BRIEF} & Características elementales independientes robustas binarias (del inglés: Binary Bobust Independent Elementary) Features) \\
+	
+	\textbf{ORB} & FAST orientado y BRIEF rotado (del inglés: Oriented for FAST and Rotated BRIEF)\\
+	
+	\textbf{DoG} & Diferencia de Gausianas (del inglés: Difference of Gaussians)\\
+	
+	\textbf{LoG} & Laplaciano de Gausianas (del inglés: Laplacian of Gaussians)\\
+	
+	\textbf{DoF} & Grados de Libertad (del inglés: Degrees of Freedom)\\
+	
+	\textbf{FLANN} & Librería de Aproximación por Vecinos mas Cercanos (del inglés: Fast Library for Aproximate Nearest Neighbors)\\
+	
+	\textbf{RANSAC} & Consenso de muestras aleatorias (del inglés: Random Sample Consensus)\\
+
+	\textbf{RGB} & Rojo, Verde y Azul (del inglés: Red, Green and Blue)\\
+	
+	&\\
+	\hline
+	&\\	
+			
+	% Aquí van los símbolos
+	${\rm I\!P}$ & Espacio proyectivo\\
+	${\rm I\!R}$ & Espacio real\\
+	
+	%$\Rightarrow$ & implicación lógica\\
+	%$[u:=v]$ & sustitución textual de $u$ por $v$
+%\end{longtable}
+}
+
+
 %% ----------------------------------------------------------------
 % End of the pre-able, contents and lists of things
 % Begin the Dedication page

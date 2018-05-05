@@ -266,7 +266,7 @@
 \renewcommand\listoffigures{
 \btypeout{Índice de Figuras}
 \addtotoc{Índice de Figuras}
-\begin{spacing}{1}{
+\begin{spacing}{0.99}{
     \setlength{\parskip}{1pt}
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -307,7 +307,7 @@
     \chapter*{\listsymbolname
       \@mkboth{
           \MakeUppercase\listsymbolname}{\MakeUppercase\listsymbolname}}
-\begin{longtable}[c]{#1}#2\end{longtable}\par
+\begin{longtable}[c]{lp{0.8\textwidth}}{#1}#2\end{longtable}\par
     \cleardoublepage
 }
 \newcommand\listconstants{Physical Constants}

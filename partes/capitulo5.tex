@@ -250,7 +250,7 @@ En la figura \ref{fig:color:geo-a} se observa un mosaico compuesto por tres imá
 
 Del ejemplo anterior se tiene que la imagen irregular presenta poca iluminación con respecto al resto. Caso distinto se tiene para el siguiente conjunto presentado en la figura \ref{imagen:color:0233}, donde se muestra en \ref{fig:color:geo-a} y \ref{fig:color:geo-b} el mosaico sin y con corrección de color respectivamente. 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:color:0233-a}\includegraphics[width=0.42\textwidth]{resultados/color/0233-no.jpg}}
 	\subfigure[]{\label{fig:color:0233-b}\includegraphics[width=0.42\textwidth]{resultados/color/0233-si.jpg}}
@@ -263,8 +263,8 @@ Para los mosaicos anteriores se estudiaron casos en los que se tenia un cambio d
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:color:espenky-a}\includegraphics[width=0.75\textwidth]{resultados/color/espenky-no.jpg}}
-	\subfigure[]{\label{fig:color:espenky-b}\includegraphics[width=0.75\textwidth]{resultados/color/espenky-si.jpg}}
+	\subfigure[]{\label{fig:color:espenky-a}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-no.jpg}}
+	\subfigure[]{\label{fig:color:espenky-b}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-si.jpg}}
 	
 	\caption[Resultado de corrección de color: \textit{Espenky}]{Corrección de color de un conjunto de imágenes con iluminación no uniforme}
 	\label{imagen:color:espenky}
@@ -294,8 +294,8 @@ Es posible evaluar la calidad de la fusión de las imágenes utilizando la deriv
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:blend:laplacian-a}\includegraphics[width=0.36\textwidth]{resultados/blend/canny00.jpg}}
-	\subfigure[]{\label{fig:blend:laplacian-b}\includegraphics[width=0.36\textwidth]{resultados/blend/canny09.jpg}}
+	\subfigure[]{\label{fig:blend:laplacian-a}\includegraphics[width=0.40\textwidth]{resultados/blend/canny00.jpg}}
+	\subfigure[]{\label{fig:blend:laplacian-b}\includegraphics[width=0.40\textwidth]{resultados/blend/canny09.jpg}}
 	
 	\caption[Resultado de fusión pirámidal: \textit{Espenky}]{Derivada en $x$ e $y$ de la imagen antes (a) y después (b) de aplicar la fusión piramidal}
 	\label{imagen:blend:laplacian}
@@ -371,7 +371,7 @@ A continuación se presentan resultados para un conjunto mayor de imágenes, apl
 
 \section{Resumen}
 
-En esta sección se presentan los errores resultantes de las etapas de alineación, y que evitan que se logra un  mosaico que cumpla con el objetivo de aparentar ser una misma imagen. Luego del planteamiento del problema se exponen y describen distintos algoritmos que buscan una solución a estos.
+En esta sección se presentan los errores resultantes de las etapas de alineación, y que evitan que se logre un  mosaico que cumpla con el objetivo de aparentar ser una misma imagen. Luego del planteamiento del problema se exponen y describen distintos algoritmos que buscan una solución a estos.
 
 En su mayoría estos algoritmos buscan reducir las discontinuidades entre imágenes producto de objetos en movimiento dentro de la escena, errores de alineación de objetos y texturas, y diferencias de iluminación. Al final del capítulo se presentaron los distintos resultados que muestran la efectividad de los algoritmos descritos, en primer lugar resultados concretos de los módulos por separado y finalmente con resultados de mosaicos completos de los conjunto de datos estudiados, aplicando para estos el sistema completo especificado al inicio del presente proyecto.
 

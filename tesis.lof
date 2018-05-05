@@ -33,7 +33,7 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{48}{figure.caption.145}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{48}{figure.caption.145}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Mejor modelo - RANSAC}}{51}{figure.caption.149}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Gerenaci\IeC {\'o}n de sub mosaicos}}{52}{figure.caption.166}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Generaci\IeC {\'o}n de sub mosaicos}}{52}{figure.caption.166}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Estimaci\IeC {\'o}n de homografia promedio}}{54}{figure.caption.168}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Distorsion de imagen}}{54}{figure.caption.190}
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Selecci\IeC {\'o}n de mejores parejas}}{56}{figure.caption.196}
@@ -84,7 +84,7 @@
 \contentsline {figure}{\numberline {4.22}{\ignorespaces Seguimiento de puntos: \textit {ScottReef 25}}}{72}{figure.caption.280}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}{figure.caption.280}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}{figure.caption.280}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces caption.\relax }}{72}{figure.caption.283}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Mejora de aplicar seguimiento de puntos}}{72}{figure.caption.283}
 \contentsline {figure}{\numberline {4.24}{\ignorespaces Busqueda de vecinos: \textit {B\IeC {\'u}squeda por vecinos: \textit {Mochima}}}}{73}{figure.caption.288}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{73}{figure.caption.288}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{73}{figure.caption.288}
@@ -101,26 +101,26 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{76}{figure.caption.297}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{76}{figure.caption.297}
 \contentsline {figure}{\numberline {4.27}{\ignorespaces Selecci\IeC {\'o}n de sub mosaicos}}{76}{figure.caption.301}
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Histogramas 1}}{78}{figure.caption.303}
-\contentsline {figure}{\numberline {4.29}{\ignorespaces Histogramas 1}}{78}{figure.caption.306}
-\contentsline {figure}{\numberline {4.30}{\ignorespaces Histogramas 1}}{79}{figure.caption.309}
-\contentsline {figure}{\numberline {4.31}{\ignorespaces Histogramas 1}}{79}{figure.caption.312}
-\contentsline {figure}{\numberline {4.32}{\ignorespaces Histogramas 1}}{80}{figure.caption.315}
-\contentsline {figure}{\numberline {4.33}{\ignorespaces Histogramas 1}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}{figure.caption.318}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}{figure.caption.318}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Mosaico con transformaciones de Isometria}}{78}{figure.caption.303}
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Mosaico con transformaciones de Perspectiva}}{78}{figure.caption.306}
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Mosaico con correcci\IeC {\'o}n de Isometria}}{79}{figure.caption.309}
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Mosaico con transformaciones de Isometria}}{79}{figure.caption.312}
+\contentsline {figure}{\numberline {4.32}{\ignorespaces Mosaico con transformaciones de Perspectiva}}{80}{figure.caption.315}
+\contentsline {figure}{\numberline {4.33}{\ignorespaces Mosaico con correcci\IeC {\'o}n de Perspectiva}}{80}{figure.caption.318}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Corte por grafo}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{85}{figure.caption.329}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{85}{figure.caption.329}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Espacio de color CIELAB}}{86}{figure.caption.332}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{86}{figure.caption.332}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{86}{figure.caption.332}
@@ -134,6 +134,29 @@
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Resultado de linea de corte: \textit {Espenky}}}{95}{figure.caption.366}
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Resultados de correcci\IeC {\'o}n de color: \textit {Grava}}}{96}{figure.caption.371}
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Resultado de correcci\IeC {\'o}n de color}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{97}{figure.caption.374}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{97}{figure.caption.374}
 \contentsline {figure}{\numberline {5.13}{\ignorespaces Resultado de correcci\IeC {\'o}n de color: \textit {Espenky}}}{97}{figure.caption.377}
 \contentsline {figure}{\numberline {5.14}{\ignorespaces Resultado de fusi\IeC {\'o}n pir\IeC {\'a}midal: \textit {Espenky}}}{98}{figure.caption.381}
 \contentsline {figure}{\numberline {5.15}{\ignorespaces Resultado de fusi\IeC {\'o}n pir\IeC {\'a}midal: \textit {Espenky}}}{99}{figure.caption.382}

@@ -6,22 +6,108 @@
 % comprensión básica del trabajo, pero provea ejemplos y casos de estudio
 % extendidos que permitan un análisis más exhaustivo.
 
-\section{@sección}
+\section{Instalación en el SO Linux bajo la distribución Ubuntu 16.04}
 
-\subsection{@subsección}
+\section*{Dependencias}
 
-``Saludo''.
+\subsection*{Esenciales}
 
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[width=0.5\textwidth]{grafo.pdf}
-%\caption[Grafo]{Grafo gris.}
-%\label{imagen:grafo}
-%\end{figure}
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install build-essential cmake pkg-config
+\end{lstlisting}
 
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[width=\textwidth]{grafocolor.pdf}
-%\caption[Grafo coloreado (esto sale en la tabla de contenidos)]{Grafo con color.}
-%\label{imagen:grafodecolores}
-%\end{figure}
+\subsection*{Codificador de imágenes}
+
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install libjpeg8-dev libtiff5-dev 
+libjasper-dev libpng12-dev
+\end{lstlisting}
+
+\subsection*{Codificador de vídeos}
+
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install libavcodec-dev libavformat-dev 
+libswscale-dev libv4l-dev
+$ sudo apt-get install libxvidcore-dev libx264-dev
+\end{lstlisting}
+
+\subsection*{Interfaz de usuario con GTK}
+
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install libgtk-3-dev
+\end{lstlisting}
+
+\subsection*{Para operaciones con matrices}
+
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install libatlas-base-dev gfortran
+\end{lstlisting}
+
+\section*{OpenCV 3.2}
+
+\subsection*{Seleccionar una ruta para la instalación}
+
+\begin{lstlisting}[language=bash]
+$ cd <ruta_elegida>
+\end{lstlisting}
+
+\subsection*{Descargar el código fuente de OpenCV desde el repositorio oficial}
+
+\begin{lstlisting}[language=bash]
+$ wget https://github.com/opencv/opencv/archive/3.2.0.-
+tar.gz .
+$ tar xvf opencv-3.2.0.tar.gz 
+\end{lstlisting}
+
+\subsection*{Descargar las librerías de los contribuidores}
+
+\begin{lstlisting}[language=bash]
+$ wget https://codeload.github.com/opencv/opencv_con-
+trib/zip/master -O opencv_contrib-master.zip
+$ unzip opencv_contrib-master.zip
+\end{lstlisting}
+
+\subsection*{Soporte para OpenCL}
+
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install libgtkglext1 libgtkglext1-dev
+\end{lstlisting}
+\newpage
+\subsection*{Instalar}
+
+\begin{lstlisting}
+$ cd opencv-3.2.0/
+$ mkdir build
+$ cd build
+	
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+  -D CMAKE_INSTALL_PREFIX=/usr/local \
+  -D WITH_OPENGL=ON \
+  -D WITH_CUDA=OFF \
+  -D ENABLE_FAST_MATH=1 \
+  -D CUDA_FAST_MATH=0 \
+  -D WITH_CUBLAS=1 \
+  -D INSTALL_PYTHON_EXAMPLES=OFF \
+  -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-
+     master/modules \
+  -DBUILD_PNG=ON \
+  -DBUILD_TIFF=ON \
+  -DBUILD_JPEG=OFF \
+  -DBUILD_ZLIB=ON \
+  -DWITH_OPENCL=ON \
+  -DWITH_OPENMP=ON \
+  -DWITH_FFMPEG=ON \
+  -DWITH_GTK=ON \
+  -DWITH_VTK=ON \
+  -DWITH_TBB=ON \
+  -DINSTALL_C_EXAMPLES=ON \
+  -DINSTALL_TESTS=OFF \
+  -D BUILD_DOCS=OFF \
+  -D OPENCV_ENABLE_NONFREE=ON \
+  -D BUILD_EXAMPLES=OFF ..
+	
+$ make
+$ sudo make install
+\end{lstlisting} 
+
+

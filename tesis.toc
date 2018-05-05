@@ -55,7 +55,6 @@
 \contentsline {section}{\numberline {5.6}Resumen}{106}{section.406}
 \contentsline {chapter}{\numberline {6}Conclusiones y trabajos futuros}{107}{chapter.407}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{111}{appendix.409}
-\contentsline {section}{\numberline {A.1}@secci\IeC {\'o}n}{111}{section.410}
-\contentsline {subsection}{\numberline {A.1.1}@subsecci\IeC {\'o}n}{111}{subsection.411}
+\contentsline {chapter}{\numberline {A}Instalaci\IeC {\'o}n de librer\IeC {\'\i }a OpenCV y dependencias}{113}{appendix.409}
+\contentsline {section}{\numberline {A.1}Instalaci\IeC {\'o}n en el SO Linux bajo la distribuci\IeC {\'o}n Ubuntu 16.04}{113}{section.410}
 \vspace {2em}

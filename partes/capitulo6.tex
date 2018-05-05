@@ -5,5 +5,45 @@
 En este trabajo se presentó una implementación y análisis de un sistema automatizado que permite la reconstrucción de un mapa en dos dimensiones del suelo recorrido por un robot. A partir de los algoritmos desarrollados y de los resultados obtenidos se puede concluir lo siguiente:
 
 \begin{itemize}
-	\item primer item
+	\item Se logró reunir e implementar algoritmos del actual estado del arte, y combinarlos para obtener un sistema de generación de mosaico modular y robusto ante diversos tipos de ambientes.
+	
+	\item Se evidenció que el algoritmo propuesto logra replicar satisfactoriamente resultados obtenidos mediante técnicas manuales en una fracción del tiempo, utilizando programas dedicados para la construcción de mosaicos. 
+	
+	\item El tipo de descriptores en los algoritmos de extracción de puntos característicos determinan tanto la efectividad como el tiempo de computo, siendo inversa esta relación.
+	
+	\item La selección parejas considerando la distribución espacial sobre la imagen ofrece una clara mejora sobre la estimación de la mejor matriz de transformación geométrica.
+	
+	\item Debido a la naturaleza no plana de las escenas, no es posible construir el mosaico perfecto que logra alinear las imágenes sobre el mismo plano, sin embargo, las técnicas aquí estudiadas permiten una buena aproximación sobre el plano promedio del suelo.
+	
+	\item Es posible evaluar la calidad de un mosaico a partir de la distorsión geométrica que presentan sus imágenes obteniendo buenos resultados, métrica utilizada para el calculo del mejor plano de referencia.
+	
+	\item Debido al enfoque del esquema planteado para imágenes vecinas, es posible relacionar imágenes que correspondan con la misma región para trayectorias cerradas, en el caso de contar con un gran ciclo, se corre el riesgo de perder la relación de imágenes espacialmente cercanas.
+	
+	\item El uso conjunto de los algoritmos para encontrar linea de corte con la fusión piramidal presentan siempre un mejor resultado visual que la fusión simple por superposición.
+		
 \end{itemize}
+
+En función al tipo de mosaico que se desee construir, evaluando las condiciones de la escena es necesario tomar en cuenta las siguientes observaciones:
+
+\begin{itemize}
+	\item Para trayectorias en las que se controle la profundidad o elevación del robot, además de los ángulos cabeceo y balanceo es posible aproximar el movimiento con transformaciones geométricas de isometría (con tres grados de libertad) obteniendo buenos resultados.
+	
+	\item Al no contar con datos de navegación, es posible contar con desviaciones importantes sobre la trayectoria real al utilizar recorridos de larga distancia, y aún mas error si se aproxima el movimiento con transformaciones con menos de 8 grados de libertad.
+	
+	\item En el caso de realizar recorridos sobre una superficie plana, además de utilizar detectores menos robustos por requerir una alta velocidad de computo, es posible prescindir del algoritmo de selección de puntos, de esta forma se aprovechan los pocos puntos detectados donde la mayoría debe coincidir con el mejor modelo del plano.
+	
+	\item Para los casos en los que la trayectoria del robot se describe con una recta, la corrección con transformaciones de isometría ofrecen el mejor resultado, mientras que para trayectorias circulares se logra una mejor corrección utilizando los bordes laterales, superior e inferior.
+	
+	\item Si bien el algoritmo de corrección de color no presenta el mejor resultado para casos de iluminación no uniforme, su uso en conjunto con la fusión piramidal presenta mejores resultados que no aplicar ajuste alguno.
+\end{itemize}
+
+Si bien se lograron buenos resultados con el sistema planteado, es posible implementar mejoras tomando como referencia el presente trabajo para avanzar sobre esta linea de investigación. Para esto se consideran las siguientes recomendaciones:
+
+\begin{itemize}
+	\item Para reducir el tiempo de computo en el algoritmo para la búsqueda de una linea de corte, se recomienda implementar una reducción del espacio de nodos usando \textit{super-pixeles} mediante el algoritmo de segmentación \textit{watershed}.
+	
+	\item La implementación del proyecto con la librería \textit{OpenCV} utilizando el lenguaje \textit{C++}, permite adaptar el código para su uso con la plataforma \textit{CUDA}, de esta forma se aprovechan las unidades de procesamiento gráfico para acelerar la velocidad computacional del sistema.
+	
+	\item Con el objetivo de implementar una solución para casos de cierre de lazo (loop-closure), se recomienda realizar un mapa del recorrido para considerar como imágenes vecinas aquellas que no sean temporalmente cercanas pero que correspondan con la misma región.
+\end{itemize}
+

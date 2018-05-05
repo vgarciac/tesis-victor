@@ -35,7 +35,7 @@ Si bien, se han propuesto una gran cantidad de algoritmos por parte de distintos
 
 Específicamente la etapa para estimar correspondencias entre las imágenes es un problema complicado, en principio debido a la naturaleza no plana de los suelos estudiados; por otro lado la reducción de discontinuidades, o inconsistencias entre imágenes consecutivas sigue siendo una tarea desafiante, en este caso debido a fuertes cambios de exposición o errores en la etapa de registro. Es por esto que la mayoría de avances e implementaciones en esta área, están encaminados en resolver estos dos problemas principales, o bien mejorar los resultados de trabajos previos.
 
-De esta forma se propone una clasificación de los algoritmos de mosaicos, basada en como estos abordan los procesos de registro y fusión. Además, para cada clasificación se realiza una breve revisión teórica de cada categoría, así como también los diferentes métodos y modificaciones que han aplicado diversos desarrolladores. en la figura \ref{imagen:clasificacion} se puede apreciar esta clasificación.
+De esta forma se propone una clasificación de los algoritmos de mosaicos, basada en como estos abordan los procesos de registro y fusión. Además, para cada clasificación se realiza una breve revisión teórica de cada categoría, así como también los diferentes métodos y modificaciones que han aplicado diversos desarrolladores. En la figura \ref{imagen:clasificacion} se puede apreciar esta clasificación.
 
 
 \begin{figure}
@@ -90,7 +90,7 @@ Ya se ha visto que los algoritmos que operan en el dominio espacial cubren la ma
 
 Estos algoritmos utilizan la propiedad de correlación de fase para lograr su objetivo. Teniendo un par de imágenes que se encuentran relacionadas por una simple traslación, el funcionamiento consiste en calcular la correspondiente transformada de \textit{Fourier}, luego el espectro de la potencia cruzada entre ambas. De aquí, se asegura que la fase del espectro de la potencia cruzada corresponde con la diferencia de traslación entre las dos imágenes. Finalmente el proceso continua similarmente a los métodos anteriores, alineando las imágenes según la transformación obtenida, seguido del proceso de fusionarlas.
 
-Tal y como se explicó este proceso para una traslación, se tienen diversos trabajos como \cite{phase-rot} que añaden modificaciones para permitir otro tipo de transformaciones como la rotación, e incluso otros que admiten cambios en la escala \cite{phase-scale}. Si bien, los trabajos mencionados presentaron importantes, se requiere de un buen porcentaje de cobertura entre las imágenes, y además presentan limitaciones en los grados de libertad de las transformaciones geométricas que se pueden estimar.
+Tal y como se explicó este proceso para una traslación, se tienen diversos trabajos como \cite{phase-rot} que añaden modificaciones para permitir otro tipo de transformaciones como la rotación, e incluso otros que admiten cambios en la escala \cite{phase-scale}. Si bien, los trabajos mencionados presentaron resultados importantes, se requiere de un buen porcentaje de cobertura entre las imágenes, y además presentan limitaciones en los grados de libertad de las transformaciones geométricas que se pueden estimar.
 
 
 \section*{Clasificación basada en la fusión de imágenes}
