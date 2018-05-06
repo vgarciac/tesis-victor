@@ -4,7 +4,7 @@
 
 
 \section{Introducción}
-El objetivo final de la creación de un mosaico, es lograr un mapa que represente de la mejor forma la trayectoria recorrida. Esto es, que sea visualmente congruente y que no presente ningún tipo de discontinuidades de modo que todo parezca una misma imagen. De las primeras etapas se manifiestan muchos errores producto de los problemas ya planteados, si bien a lo largo del proceso éstos se intentan reducir lo mas posible, siempre es necesaria la etapa final de fusión para lograr los objetivos propuestos.
+El objetivo final de la creación de un mosaico es lograr un mapa que represente de la mejor forma la superficie recorrida. Esto es, que sea visualmente congruente y que no presente ningún tipo de discontinuidades de modo que todo parezca una misma imagen. De las primeras etapas se manifiestan muchos errores producto de los problemas ya planteados, que aunque a lo largo del proceso éstos se intentan reducir lo mas posible, siempre es necesaria la etapa final de fusión para lograr los objetivos propuestos.
 
 En esta sección se describen los algoritmos utilizados para lograr fusionar las imágenes del mosaico. Como ya se especificó, fueron seleccionados aquellos que presentaron resultados importantes en diversos estudios externos, y se implementaron en conjunto para lograr resultados mucho mas robustos. Estos se detallan a continuación en el orden de aplicación sobre el mosaico: linea de corte, ajuste de color y finalmente la fusión ponderada.
 
@@ -14,13 +14,11 @@ Por ultimo, al final del capítulo se muestran los resultados con su respectivo 
 
 \section{Linea de costura}\label{seccion-corte}
 
-Este es el primer algoritmo aplicado al mosaico luego de todas las correcciones geométricas, ya que el resto de métodos requieren conocer de antemano los límites de cada imagen. 
-A diferencia de los anteriores, este tipo de algoritmos es el único que toma en cuenta la información que comparten las imágenes en el área que tienen en común, con lo cual su implementación logra corregir la mayor cantidad de imperfecciones. 
-
+Este es el primer algoritmo aplicado al mosaico luego de todas las correcciones geométricas, ya que el resto de métodos requieren conocer de antemano los límites de cada imagen. A diferencia de los anteriores, este tipo de algoritmos es el único que toma en cuenta la información que comparten las imágenes en el área que tienen en común, con lo cual su implementación logra corregir la mayor cantidad de imperfecciones. 
 
 \subsection{Modelo por grafo}
 
-Este es un método derivado de la teoría de grafos, donde la idea es separar un grafo con conexiones simples en dos grafos separados con un mínimo costo de separación. Se define un grafo $\mathcal{G} = \langle \mathcal{N}, \mathcal{E} \rangle$ como un conjunto de nodos $\mathcal{N}$, conectados por enlaces $\mathcal{E}$. Cada enlace conecta dos nodos y tiene asociado un costo o peso $\mathcal{W}(p, q) \,\, p,q \in \mathcal{N}$ --- cuando se habla de conexión simple, se refiere a que el costo en los enlaces está asociado para ambas direcciones $\mathcal{W}(p, q) = \mathcal{W}(p, q)$ ---. Se dice que dos grafos están separados si no se tiene ningún enlace que conecte dos nodos entre los grafos. Definimos $\mathcal{S}$ y $\mathcal{T}$ como los grafos separados que se tienen luego de aplicar el corte en $\mathcal{G}$. El método para determinar el mejor corte, se basa en encontrar el camino entre los enlaces que logra separa un grafo en dos, con el mínimo costo de corte \cite{graph-cut}, donde el costo del corte es la suma de los pesos de todos los enlaces del camino seleccionado.
+Es un método derivado de la teoría de grafos, donde la idea es separar un grafo con conexiones simples en dos grafos separados con un mínimo costo de separación. Se define un grafo $\mathcal{G} = \langle \mathcal{N}, \mathcal{E} \rangle$ como un conjunto de nodos $\mathcal{N}$, conectados por enlaces $\mathcal{E}$. Cada enlace conecta dos nodos y tiene asociado un costo o peso $\mathcal{W}(p, q) \,\, p,q \in \mathcal{N}$ --- cuando se habla de conexión simple, se refiere a que el costo en los enlaces está asociado para ambas direcciones $\mathcal{W}(p, q) = \mathcal{W}(p, q)$ ---. Se dice que dos grafos están separados si no se tiene ningún enlace que conecte dos nodos entre los grafos. Definimos $\mathcal{S}$ y $\mathcal{T}$ como los grafos separados que se tienen luego de aplicar el corte en $\mathcal{G}$. El método para determinar el mejor corte, se basa en encontrar el camino entre los enlaces que logra separa un grafo en dos, con el mínimo costo de corte \cite{graph-cut}, donde el costo del corte es la suma de los pesos de todos los enlaces del camino seleccionado.
 
 En el conjunto de nodos presentes en el grafo se cuentan con dos especiales llamados nodos terminales, el inicio ($\mathtt{I}$) y el final ($\mathtt{F}$), donde el resto de píxeles en la imagen corresponden con un nodo no terminal. En aplicaciones de visión por computadora, cuando se desea unir dos imágenes en una región de intersección, lo que se busca es lograr un etiquetado de píxeles que permita distinguir que nodos corresponden a cada imagen en el área de intersección.
 
@@ -46,11 +44,11 @@ Donde $\sigma$ es la desviación estándar de la imagen, y siendo válido para l
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{grafo-completo.pdf}
-	\caption[Corte por grafo]{De izquierda a derecha: imagen original, creación de nodos y enlaces, se asignan los pesos y se halla la linea de corte, finalmente se binariza la imagen según las etiquetas para crear una mascara.}
+	\caption[Corte por grafo]{De izquierda a derecha: imagen original, creación de nodos y enlaces, se asignan los pesos y se halla la linea de corte, finalmente se binariza la imagen según las etiquetas para crear una máscara.}
 	\label{imagen:grafo}
 \end{figure}
 
-Refiriéndonos a la figura \ref{imagen:grafo}, se observa el proceso de modelar una imagen mediante un grafo con conexiones simples y usando un esquema de 4 vecindad --- 4 vecindad solo considera a los píxeles superior, inferior y laterales como vecinos ---, donde cada cuadro está compuesto por el inverso de la diferencia de intensidades entre dos imágenes, representado en escala de grises. Al final se tiene una imagen compuesta por dos grafos separados, donde $\mathtt{I} \in \mathcal{S}$ y $\mathtt{F} \in \mathcal{T}$ donde a cada nodo del grafo se le asigna un valor binario dependiendo de la etiqueta resultante del algoritmo de minimización del costo de corte.
+Refiriéndonos a la figura \ref{imagen:grafo}, se observa el proceso de modelar una imagen mediante un grafo con conexiones simples y usando un esquema de 4 vecindad --- solo se consideran a los píxeles superior, inferior y laterales como vecinos ---, donde cada cuadro está compuesto por el inverso de la diferencia de intensidades entre dos imágenes, representado en escala de grises. Al final se tiene una imagen compuesta por dos grafos separados, donde $\mathtt{I} \in \mathcal{S}$ y $\mathtt{F} \in \mathcal{T}$ donde a cada nodo del grafo se le asigna un valor binario dependiendo de la etiqueta resultante el algoritmo de minimización del costo de corte.
 
 
 \section{Corrección de color}\label{seccion-color}
@@ -105,7 +103,7 @@ Para lograr un mapeo de color correcto es necesario obtener la información de d
 
 \section{Fusión de imágenes}\label{seccion-fusion}
 
-Una vez se logre determinar la mejor linea de corte, y aplicar una corrección de color, es posible que aun se cuenten con transiciones entre imágenes con cierto nivel de discontinuidad. En este caso es conveniente aplicar algoritmos que permitan una transición suavizada entre dichos bordes.
+Una vez se logra determinar la mejor linea de corte y aplicar una corrección de color, es posible que aun se cuenten con transiciones entre imágenes con cierto nivel de discontinuidad. En este caso es conveniente aplicar algoritmos que permitan una transición suavizada entre dichos bordes.
 
 Se tienen varias versiones de estos algoritmos que serán explicados a continuación: fusión ponderada simple o bajo un esquema piramidal.
 
@@ -148,11 +146,11 @@ Esta técnica es llamada fusión piramidal o fusión multibanda, y su proceso co
 
 Una vez se tiene la pirámide de gaussianas, se elabora una pirámide de laplacianas utilizando \textit{DoG}, es decir, cada nivel de esta pirámide se construye restando un nivel de la pirámide gaussiana con su nivel siguiente pero expandido (para lograr las mismas dimensiones). Al restar una imagen con ella misma pero aplicada un filtro gaussiano --- que remueve las componentes en bajas frecuencias ---, se logra una imagen que resalte las componentes en las frecuencias altas. Esta composición se puede observar en la figura \ref{imagen:piramidal2}, donde a cada imagen laplaciana $L_i$ se le sumó una constante para efectos de visualización, ya que presenta valores muy bajos al aplicar únicamente la resta.
 
-Como ya se mencionó, este proceso se aplica para imágenes que no comparten un área de superposición, con lo cual es necesario definir mediante una mascara binaria los límites de cada imagen. Convenientemente, el proceso de determinar la línea de corte ya nos ofrece esta máscara mediante el proceso de etiquetado, con lo cual se utiliza para definir las fronteras en esta fusión.
+Como ya se mencionó, este proceso se aplica para imágenes que no comparten un área de superposición, con lo cual es necesario definir mediante una máscara binaria los límites de cada imagen. Convenientemente, el proceso de determinar la línea de corte ya nos ofrece esta máscara mediante el proceso de etiquetado, con lo cual se utiliza para definir las fronteras en esta fusión.
 
 La pirámide gaussiana que se elaboró en un principio para cada imagen a fusionar, debe también crearse para la máscara, ya que la fusión debe realizarse en cada nivel de la pirámide. Finalmente para mostrar la imagen final en la resolución original, el proceso de fusión debe realizarse escalando cada nivel hasta las dimensiones originales.
 
-Éste proceso consiste en expandir el último nivel de la pirámide --- con su respectiva mascara---, una vez expandido se le suma el laplaciano correspondiente, devolviéndole la componente en alta frecuencia que le fue removida. En este punto se tiene el par de imágenes expandidas un nivel, además de la mascara aun afectada por el efecto del filtro gaussiano, con lo cual se efectúa una suma ponderada entre las dos imágenes similar que en la sección \ref{feathering}, pero en este caso se utiliza la mascara difuminada para determinar el peso de la suma, y donde el inverso de la mascara determina la ponderación de la segunda imagen.
+Éste proceso consiste en expandir el último nivel de la pirámide --- con su respectiva máscara---, una vez expandido se le suma el laplaciano correspondiente, devolviéndole la componente en alta frecuencia que le fue removida. En este punto se tiene el par de imágenes expandidas un nivel, además de la máscara aun afectada por el efecto del filtro gaussiano, con lo cual se efectúa una suma ponderada entre las dos imágenes similar que en la sección \ref{feathering}, pero en este caso se utiliza la máscara difuminada para determinar el peso de la suma, y donde el inverso de la máscara determina la ponderación de la segunda imagen.
 
 En la figura \ref{imagen:blend-apple} se puede observar el resultado de aplicar una fusión bajo el esquema piramidal.
 
@@ -175,7 +173,7 @@ En esta sección se presentan los resultados de los algoritmos descritos en este
 
 \subsection*{Linea de corte}
 
-A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-corte}. En primer lugar estudiamos el caso en el que se tienen objetos en movimiento en el transcurso de la captura de imágenes. En la figura \ref{fig:corte:0233-a} se observa un par de imágenes alineadas según el esquema simple, en el cual se muestra completamente la ultima imagen añadida y ésta determina el borde entre las imágenes. Por otro lado en la figura \ref{fig:corte:0233-d} se muestra el mismo par unidas por la linea de corte que minimiza la diferencia entre dichas imágenes. Se aprecia también en las figuras \ref{fig:corte:0233-b} y \ref{fig:corte:0233-c} el etiquetado de píxeles (mascara) y la linea de corte respectivamente.
+A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-corte}. En primer lugar estudiamos el caso en el que se tienen objetos en movimiento en el transcurso de la captura de imágenes. En la figura \ref{fig:corte:0233-a} se observa un par de imágenes alineadas según el esquema simple, en el cual se muestra completamente la ultima imagen añadida y ésta determina el borde entre las imágenes. Por otro lado en la figura \ref{fig:corte:0233-d} se muestra el mismo par unidas por la linea de corte que minimiza la diferencia entre dichas imágenes. Se aprecia también en las figuras \ref{fig:corte:0233-b} y \ref{fig:corte:0233-c} el etiquetado de píxeles (máscara) y la linea de corte respectivamente.
 
 \begin{figure}[H]
 	\centering     %%% not \center
@@ -185,11 +183,11 @@ A continuación se presentan los resultados del algoritmo descrito en la secció
 	\subfigure[]{\label{fig:corte:0233-c}\includegraphics[width=.45\textwidth]{resultados/cut/0233-redline.jpg}}
 	\subfigure[]{\label{fig:corte:0233-d}\includegraphics[width=.45\textwidth]{resultados/cut/0233-cutline.jpg}}
 
-	\caption[Resultado de linea de corte: \textit{Chuspa}]{Resultado de linea de corte. (a) superposición de imágenes, (b) mascara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
+	\caption[Resultado de linea de corte: \textit{Chuspa}]{Resultado de linea de corte. (a) superposición de imágenes, (b) máscara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
 	\label{imagen:cut:0233}
 \end{figure}
 
-Una mejora importante que presenta este algoritmo, es que logra reducir y hasta eliminar el error producido por el efecto paralaje. En la figura \ref{fig:corte:0234-a} se observa un par de imágenes con un error de alineación producto de un objeto a distinta altura. Por otro lado en la figura \ref{fig:corte:0233-d} se puede ver como la mejor linea de corte logra eliminar el error anterior.
+Una mejora importante que presenta este algoritmo es que logra reducir y hasta eliminar el error producido por el efecto paralaje. En la figura \ref{fig:corte:0234-a} se observa un par de imágenes con un error de alineación producto de un objeto a distinta altura. Por otro lado en la figura \ref{fig:corte:0233-d} se puede ver como la mejor linea de corte logra eliminar el error anterior.
 
 \begin{figure}[H]
 	\centering     %%% not \center
@@ -199,7 +197,7 @@ Una mejora importante que presenta este algoritmo, es que logra reducir y hasta 
 	\subfigure[]{\label{fig:corte:0234-c}\includegraphics[width=.49\textwidth]{resultados/cut/0234-redline.jpg}}
 	\subfigure[]{\label{fig:corte:0234-d}\includegraphics[width=.49\textwidth]{resultados/cut/0234-cutline.jpg}}
 	
-	\caption[Resultado de linea de corte: \textit{Chuspa}]{Resultado de linea de corte. (a) superposición de imágenes, (b) mascara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
+	\caption[Resultado de linea de corte: \textit{Chuspa}]{Resultado de linea de corte. (a) superposición de imágenes, (b) máscara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
 	\label{imagen:cut:0234}
 \end{figure}
 
@@ -213,13 +211,13 @@ Ya hemos comentado sobre los posibles errores de alineación cuando se cuenta co
 	\subfigure[]{\label{fig:corte:geo-c}\includegraphics[width=.42\textwidth]{resultados/cut/geo-redline.jpg}}
 	\subfigure[]{\label{fig:corte:geo-d}\includegraphics[width=.42\textwidth]{resultados/cut/geo-cutline.jpg}}
 	
-	\caption[Resultado de linea de corte: \textit{Grava}]{Resultado de linea de corte. (a) superposición de imágenes, (b) mascara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
+	\caption[Resultado de linea de corte: \textit{Grava}]{Resultado de linea de corte. (a) superposición de imágenes, (b) máscara para la imagen inferior, (c) línea de corte identificada en rojo, (d) imagen unida por la mejor linea de corte}
 	\label{imagen:cut:geo}
 \end{figure}
 
 Hasta ahora se han presentado casos en los que se lidia con un par de imágenes. Por lo tanto se presenta un mosaico compuesto por tres imágenes del conjunto \textit{Espenky}, adicionalmente se tiene un error producido por el efecto paralaje. En este caso el algoritmo busca por la mejor linea de corte para cada par de imágenes por separado, pero logrando un mosaico final sin errores de discontinuidades.
 
-En este ejemplo en particular se logra evidenciar una debilidad que tiene este algoritmo. Si bien es muy robusto al evadir objetos por la diferencia de texturas y bordes, es común que se cuente con discontinuidades visuales producto de cambios de iluminación.
+En este ejemplo en particular se logra evidenciar una debilidad que tiene este algoritmo. A pesar de ser muy robusto al evadir objetos por la diferencia de texturas y bordes, es común que se cuente con discontinuidades visuales producto de cambios de iluminación.
 
 \begin{figure}[H]
 	\centering     %%% not \center
@@ -235,7 +233,7 @@ En este ejemplo en particular se logra evidenciar una debilidad que tiene este a
 
 \subsection*{Corrección de color}
 
-A continuación se presentan los resultados de aplicar el algoritmo descrito en la sección \ref{seccion-color}. De los resultados del algoritmo que busca la mejor linea de corte, se tiene que es susceptible a errores de discontinuidad producto de cambios en la exposición de luz entre imágenes, con lo cual es necesario equilibrar tal diferencia para lograr mejor continuidad en el mosaico final.
+A continuación se presentan los resultados de aplicar el algoritmo descrito en la sección \ref{seccion-color}. De los resultados de la búsqueda de la mejor linea de corte, se tiene que es susceptible a errores de discontinuidad producto de cambios en la exposición de luz entre imágenes, con lo cual es necesario equilibrar tal diferencia para lograr mejor continuidad en el mosaico final.
 
 En la figura \ref{fig:color:geo-a} se observa un mosaico compuesto por tres imágenes, donde una de ellas presenta un cambio importante en la intensidad de luz. Aplicando el método descrito es posible reducir este error, tal y como se muestra en la figura \ref{fig:color:geo-b}.
 
@@ -276,7 +274,7 @@ A continuación se presenta el caso en el cual este cambio de iluminación se pr
 
 \subsection*{Fusión ponderada}
 
-A continuación se presentan los resultados del algoritmo descrito en la sección \ref{seccion-fusion}. Ya se ha observado como los algoritmos presentados anteriormente logran solventar la mayoría de inconvenientes y errores de alineación en las imágenes. \begin{figure}[H]
+En esta subsección se presentan los resultados del algoritmo descrito en la sección \ref{seccion-fusion}. Ya se ha observado como los algoritmos presentados anteriormente logran solventar la mayoría de inconvenientes y errores de alineación en las imágenes. \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.65\linewidth]{/resultados/blend/blend-espenky3.pdf}
 	\caption[Resultado de fusión pirámidal: \textit{Espenky}]{Fusión piramidal para distintos niveles de escala, donde $n$ representa el número de escalas.}
@@ -303,7 +301,7 @@ Es posible evaluar la calidad de la fusión de las imágenes utilizando la deriv
 
 \subsection*{Mosaicos completos}
 
-A continuación se presentan resultados para un grupo mayor de imágenes, aplicando en conjunto los algoritmos descritos en el presente trabajo. Para algunos casos se emplean todos los módulos, mientras que en otros se excluyen algunos no necesarios, estos se indicarán en cada resultado.
+En las figuras \ref{imagen:full:geo2}-\ref{imagen:full:SR-original} se ilustran los resultados para un grupo mayor de imágenes, aplicando en conjunto los algoritmos descritos en el presente trabajo. Para algunos casos se emplean todos los módulos, mientras que en otros se excluyen algunos no necesarios, estos se encuentran debidamente indicados en cada resultado.
 
 \begin{figure}[H]
 	\centering     %%% not \center

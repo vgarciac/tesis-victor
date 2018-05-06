@@ -4,7 +4,7 @@
 
 \section{Introducción}
 
-De la sección anterior estudiamos la primera etapa del proceso de registro de imágenes, estableciendo la correspondencia de puntos entre éstas. Ahora bien, en esta sección se continúa la etapa de registro pero abordando el tema de las transformaciones geométricas, en primer lugar presentando una descripción y explicación de su estructura y seguido del proceso de su estimación a partir de los puntos previamente obtenidos. Una vez la etapa de registro este completa, se profundiza en el proceso para la alineación de imágenes en un plano común, presentando los algoritmos utilizados para su implementación, así como también técnicas para reducir el error acumulado de las etapas anteriores. Finalmente se presentas resultados por separado de cada proceso descrito, con su respectivo análisis.
+En la sección anterior se estudió la primera etapa del proceso de registro de imágenes, estableciendo la correspondencia de puntos entre estas. En la presente se describe la etapa de registro pero abordando el tema de las transformaciones geométricas, en primer lugar presentando una descripción y explicación de su estructura y seguido del proceso de su estimación a partir de los puntos previamente obtenidos. Una vez la etapa de registro este completa, se profundiza en el proceso para la alineación de imágenes en un plano común, presentando los algoritmos utilizados para su implementación, así como también técnicas para reducir el error acumulado de las etapas anteriores. Finalmente se presentan resultados por separado de cada proceso previamente descrito, con su respectivo análisis.
 
 \section{Revisión teórica}
 
@@ -12,7 +12,7 @@ A continuación se expone una revisión de los conceptos básicos que involucran
 
 \subsection{Transformaciones geométricas}
 
-El siguiente paso en el proceso de registro, luego de establecer la correspondencia entre las imágenes, es encontrar la transformación geométrica que permite alinearlas. Para comprender su funcionamiento primero es necesario introducir el concepto de espacio proyectivo, sobre el cual se efectuarán dichas transformaciones. En base a esto comenzaremos presentando la notación homogénea para puntos y lineas en este espacio.
+El siguiente paso en el proceso de registro, luego de establecer la correspondencia entre las imágenes, es encontrar la transformación geométrica que permite alinearlas. Para comprender su funcionamiento es necesario introducir el concepto de espacio proyectivo, sobre el cual se efectuarán dichas transformaciones. En base a esto comenzaremos presentando la convención de notación homogénea para puntos y lineas en este espacio.
 
 Una linea en el espacio representada por la ecuación $ax + by + c = 0$, se puede expresar en forma vectorial de la forma $(a,\, b,\, c)$. Así, los vectores $k(a,\, b,\, c)$ representan todo el conjunto de rectas que son equivalentes --- $(ka)x + (kb)y + (k)c = 0$ ---, para cualquier $k\neq0$. De esta forma, se conoce como un vector homogéneo al vector particular que pertenezca a un grupo de vectores bajo esta relación de equivalencia. En base a este concepto se introduce la definición \ref{espacio-p} de espacio proyectivo.
 
@@ -24,7 +24,7 @@ Una linea en el espacio representada por la ecuación $ax + by + c = 0$, se pued
 	\end{definition}
 \end{displayquote}
 
-Conociendo el espacio proyectivo, y la notación de vectores homogéneos, es importante introducir el concepto de puntos homogéneos, y establecer una relación que nos permita transformarlos a su espacio euclidiano original. 
+Conociendo el espacio proyectivo y la notación de vectores homogéneos, procede a definir el concepto de puntos homogéneos, y establecer una relación que nos permita transformarlos a su espacio euclidiano original. 
 
 Teniendo un punto $\vec{x}=(x,\, y)$, este pertenece a la recta $\vec{l}=(a,\, b,\, c)$ si logra satisfacer su ecuación --- $ax + by + c = 0$ ---. Si lo escribimos en forma vectorial, tendríamos $(x,\, y,\, 1)(a,\, b,\, c) = 0$, esto es añadiendo un 1 como tercer componente del punto $\vec{x}$. Similar al concepto previo de vectores homogéneos, se tiene que el conjunto de puntos $k(x,\, y,\, 1)$ son representaciones equivalentes del mismo punto, ya que todo ese conjunto pertenece a la misma recta --- $k(x,\, y,\, 1)(a,\, b,\, c) = 0 \to (ka)x + (kb)y + (k)c = 0$ ---. Así, añadiendo esta coordenada, tenemos que los puntos son representados como vectores homogéneos y pertenecen al espacio ${\rm I\!P}^2$. De esta forma se introduce la siguiente definición \ref{punto-homogeneo} que relaciona la siguiente conversión: ${\rm I\!P}^2 \to {\rm I\!R}^2$.
 \begin{displayquote}
@@ -44,11 +44,11 @@ Teniendo claros los conceptos de representación homogénea, se presenta formalm
 	\end{theorem} 
 \end{displayquote}
 
-Existen varias formas de describir las transformaciones geométricas, la primera es algebraica, en la cual se muestra la estructura de la matriz de transformación, y la segunda es analizando las variables que se preservan, o que se mantienen invariantes luego de aplicar dicha transformación. Adicionalmente, cada transformación geométrica está caracterizada por los grados de libertad, o la cantidad de parámetros que cada una puede variar sobre la imagen de entrada. Esta definición se introduce a continuación (\ref{def-dof}).
+Existen varias formas de describir las transformaciones geométricas, la primera es algebraica, en la cual se muestra la estructura de la matriz de transformación, y la segunda es analizando las variables que se mantienen invariantes luego de aplicar dicha transformación. Adicionalmente, cada transformación geométrica está caracterizada por los grados de libertad, o la cantidad de parámetros que cada una puede variar sobre la imagen de entrada. Esta definición se introduce a continuación (\ref{def-dof}).
 \begin{displayquote}
 	\vspace{-1.5cm}
 	\begin{definition}
-		Los grados de libertad \textit{DoF} (del inglés: Degrees of Freedom), son la cantidad mínima de parámetros independientes que pueden especificar el movimiento de un objeto. En otras palabras, es la mínima cantidad de movimientos independientes que puede realizar un objeto. En el caso de transformaciones geométricas, corresponde con el numero de componentes "libres" que permiten especificar dicha transformación.
+		Los grados de libertad \textit{DoF} (del inglés: Degrees of Freedom), son la cantidad mínima de parámetros independientes que pueden especificar el movimiento de un objeto. En otras palabras, es la mínima cantidad de movimientos independientes que puede realizar un objeto. En el caso de transformaciones geométricas corresponde con el numero de componentes "libres" que permiten especificar dicha transformación.
 		\label{def-dof}
 	\end{definition} 
 \end{displayquote}
@@ -135,7 +135,7 @@ Donde $ \mathtt{R} $ sería una matriz ortogonal de rotación $2\times2$, $s$ es
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{AFÍN}
 
-La transformación afín (también llamada afinidad) está compuesta por una transformación lineal (rotación, sesgo, homotecia), seguida de una translación. En está se tiene una transformación mas compleja que las anteriores, ya que se incluyen algunas deformaciones que no permiten conservar la forma original de los objetos. De igual forma puede incluirse un escalado, pero a diferencia de la anterior, éste puede ser de distinta magnitud en los ejes $x$ e $y$. La representación matricial se observa en la ecuación \ref{matriz-afin}.
+La transformación afín (también llamada afinidad) está compuesta por una transformación lineal (rotación, sesgo, homotecia), seguida de una traslación. En está se tiene una transformación mas compleja que las anteriores, ya que se incluyen algunas deformaciones que no permiten conservar la forma original de los objetos. De igual forma puede incluirse un escalado, pero a diferencia de la anterior, éste puede ser de distinta magnitud en los ejes $x$ e $y$. La representación matricial se observa en la ecuación \ref{matriz-afin}.
 
 \begin{equation}
 \begin{pmatrix}
@@ -253,7 +253,7 @@ En base a esto, siempre es posible encontrar una matriz de transformación que p
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Estimación de Homografía}
 
-El ultimo nivel de transformación estudiadas posee ocho grados de libertad (\textit{8-DoF}), con lo cual es posible estimar los parámetros de dicha transformación con tan solo 8 valores independientes. Por otro lado, conociendo que la homografía es una transformación que preserva la naturaleza de los objetos --- transforma puntos en puntos, lineas en lineas y planos en planos --, solo es posible relacionar dos imágenes mediante una homografía, siempre y cuando la escena que capturen corresponda con un plano. ver figura \ref{imagen:planos}.
+El ultimo nivel de transformación estudiadas posee ocho grados de libertad (\textit{8-DoF}), con lo cual es posible estimar los parámetros de dicha transformación con tan solo 8 valores independientes. Por otro lado, conociendo que la homografía es una transformación que preserva la naturaleza de los objetos --- transforma puntos en puntos, lineas en lineas y planos en planos --, solo es posible relacionar dos imágenes mediante una homografía, siempre y cuando la escena que capturen corresponda con un plano. ver figura \ref{imagen:planos}. Esta consideración es muy importante puesto que define restricciones de la validez de la misma para escenas donde las mismas violen dicha hipótesis.
 
 
 \begin{figure}[h]
@@ -313,7 +313,7 @@ Añadiendo la condición de 	 $\left | \mathtt{H} \right | = 1$ para evitar la s
 
 En este punto, la matriz encontrada se puede usar para transformar $\vec{x} \to \vec{x'}$, o bien se puede usar la inversa ($\mathtt{H^{-1}}$) para realizar el mapeo en sentido contrario.
 
-Dada la naturaleza no plana de las escenas del mundo real, o bien debido a la inexactitud al medir los puntos cuando se captura una imagen, es muy poco probable que los puntos correspondientes radiquen en un mismo plano. Por otra parte es muy común que para aplicaciones de mapeo automático se cuenten con una gran cantidad de puntos correspondientes, con lo cual se tiene un sistema sobre determinado. En este caso es necesario realizar aproximaciones que permitan encontrar ya no la única homografía, sino la mejor, en función a los datos con los que se cuenten. Para esto es usual el uso de algoritmos que estiman la matriz buscando minimizar alguna función de coste.
+Dada la naturaleza no plana de las escenas del mundo real, o bien debido a la inexactitud al medir los puntos cuando se captura una imagen, es muy poco probable que los puntos correspondientes residan en un mismo plano. Por otra parte es muy común que para aplicaciones de mapeo automático se cuenten con una gran cantidad de puntos correspondientes, con lo cual se tiene un sistema sobre determinado. En este caso es necesario realizar aproximaciones que permitan encontrar ya no la única homografía, sino la mejor, en función a los datos con los que se cuenten. Para esto es usual el uso de algoritmos que estiman la matriz buscando minimizar alguna función de coste.
 
 Uno de los algoritmos mas usados para encontrar el mejor modelo está basado en el método RANSAC (del inglés: Random Sample Consensus), el cual es explicado a continuación.
 
@@ -427,7 +427,7 @@ E = \max\limits_{I_i\in S_j\cap S_k} (E^O + E^C + E^A + E^\alpha)
 \end{equation}
 
 
-Siendo $I_i$ una imagen perteneciente al par de sub mosaicos $S_j,S_k$. Con lo cual se considera la imagen que presente mas distorsión en el sub mosaico que se intenta unir. Cada tipo de error se encuentra normalizado en el rango $0\to 1$. 
+Siendo $I_i$ una imagen perteneciente al par de sub mosaicos $S_j,S_k$; con lo cual se considera la imagen que presente mas distorsión en el sub mosaico que se intenta unir. El error de cada tipo de error se encuentra normalizado en el rango $0\to 1$. 
 
 \begin{figure}[h]
 	\centering
@@ -494,7 +494,7 @@ Por otro lado, en la figura  \ref{fig:grid-plano-b} se observa como se puede mej
 
 Ya hemos visto el proceso simple de relacionar dos imágenes, donde luego de aplicar la transformación a la nueva imagen, ésta presentará cierto nivel de distorsión, afectando que las imágenes siguientes logren establecer una relación robusta de puntos.
 
-La primera propuesta consiste en buscar parejas de puntos correspondientes entre la nueva imagen y el mosaico (todas las imágenes añadidas previamente), pero esto trae consigo un bajo desempeño computacionalmente cuando se cuenta con un mosaico de gran tamaño. Si bien se puede restringir el área de búsqueda hacia el mínimo cuadro que encierra la ultima imagen transformada, el efecto de distorsión mencionado afecta la detección e identificación de puntos correspondientes.
+La primera propuesta consiste en buscar parejas de puntos correspondientes entre la nueva imagen y el mosaico (todas las imágenes añadidas previamente), pero esto trae consigo un alto costo computacional cuando se cuenta con un mosaico de gran tamaño. Si bien se puede restringir el área de búsqueda hacia el mínimo cuadro que encierra la ultima imagen transformada, el efecto de distorsión mencionado afecta la detección e identificación de puntos correspondientes.
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -506,7 +506,7 @@ La primera propuesta consiste en buscar parejas de puntos correspondientes entre
 	\label{imagen:track}
 \end{figure}
 
-Para solucionar este problema se propone realizar una extracción de puntos característicos para todas las imágenes en su versión original, y una vez se conozca la matriz de transformación que ubica una imagen en el mosaico, se puede de igual forma transformar la ubicación de los puntos detectados hacia la nueva ubicación. Este proceso se encuentra ilustrado en la figura \ref{imagen:track}.
+Para solucionar este problema se propone realizar una extracción de puntos característicos para todas las imágenes en su versión original, y una vez se conozca la matriz de transformación que ubica una imagen en el mosaico. De igual forma se puede transformar la ubicación de los puntos detectados hacia la nueva ubicación. Este proceso se encuentra ilustrado en la figura \ref{imagen:track}.
 
 Definiendo $\vec{x}^1_i$ como los puntos que corresponden a la nueva imagen, $\vec{x}^2_i$ como los que corresponden a la última añadida con sus dimensiones y posición original, y $\vec{x}^{2*}_i$ serian aquellos de la ubicación en el mosaico. Primero se realiza la detección para encontrar la correspondencia $\vec{x}^1_i \leftrightarrow \vec{x}^2_i$, luego se transforman los puntos $x^2_i$ a su ubicación correspondiente en el mosaico $x^{2*} = \mathtt{H}^*\vec{x}^2$ ($\mathtt{H}^*$ conocida). Finalmente se encuentra la matriz de transformación para la nueva imagen con la siguiente relación: $\vec{x}^{2*} = \mathtt{H}\vec{x}^1$.
 
@@ -514,7 +514,7 @@ Definiendo $\vec{x}^1_i$ como los puntos que corresponden a la nueva imagen, $\v
 
 \subsection{Relación con vecinos}\label{seccion-vecinos}
 
-Tal y como se ha planteado el proceso de registro hasta este punto, consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición (ver figura \ref{fig:vecinos1-a}), con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estás condiciones no se cumplen, es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo de todas aquellas inmediatamente anteriores, y que tengan información en común (intersección), a las cuales llamaremos imágenes vecinas (ver figura \ref{fig:vecinos1-b}).
+Tal y como se ha planteado hasta este punto, el proceso de registro consiste establecer relación entre dos imágenes para estimar la homografía que permite alinearla. Esta practica es ideal cuando se tiene un movimiento continuo del robot al explorar el suelo, o bien cuando se tiene un bajo porcentaje de superposición (ver figura \ref{fig:vecinos1-a}), con lo cual se dificulta que una tercera imagen se relacione con la primera. Por otro lado, cuando estas condiciones no se cumplen, es necesario plantear soluciones que aprovechen toda la información posible de las imágenes para tener un sistema mucho mas robusto. En base a esto se planteó una técnica de búsqueda por vecinos para mejorar la etapa de registro, el proceso consiste en buscar relaciones de puntos entre imágenes que no sean temporalmente continuas, es decir, intentar relacionar una imagen con un grupo de todas aquellas inmediatamente anteriores, y que tengan información en común (intersección), a las cuales llamaremos imágenes vecinas (ver figura \ref{fig:vecinos1-b}).
 
 
 \begin{figure}[h]
@@ -605,7 +605,7 @@ En esta sección se presentan los resultados de aplicar los métodos descritos p
 A continuación se muestran los resultados de aplicar el método descrito en la 
 sección \ref{seleccion-grid}. Para esto se estudia tanto analítica como visualmente el resultado de aplicar esta técnica. Al mismo tiempo se analiza el error de estimar una matriz de homografía según la distancia de los puntos correspondientes luego de aplicarla. 
 
-Para cada conjunto se seleccionó un par de imágenes con las que se busca ejemplificar las mejoras que este método ofrece en la etapa de registro. Para una mejor visualización de los datos obtenidos, se propone un estudio de la distribución de las parejas según la distancia espacial que presenten, medida en píxeles. Conjuntamente se presenta para cada distribución las imágenes alineadas, donde se ilustran las parejas con mejor y peor distancia. Para lograr esta distinción se fijaron de color verde las pareas que presente mejor distancia, mientras que aquellas que tengan 3 veces mas distancia que la mejor, se denotan en color rojo. Para ambos casos se muestran de color azul los puntos correspondientes en la nueva imagen.
+Para cada conjunto se seleccionó un par de imágenes con las que se busca ejemplificar las mejoras que este método ofrece en la etapa de registro. Para una mejor visualización de los datos obtenidos, se propone un estudio de la distribución de las parejas según la distancia que presenten, medida en píxeles. Conjuntamente se presenta para cada distribución las imágenes alineadas, donde se ilustran las parejas con mejor y peor distancia. Para lograr esta distinción se fijaron de color verde las pareas que presente mejor distancia, mientras que aquellas que tengan 3 veces mas distancia que la mejor, se denotan en color rojo. Para ambos casos se muestran de color azul los puntos correspondientes en la nueva imagen.
 
 Por otra parte se analiza numéricamente el error en función a la distancia en las parejas de puntos. Para esto se estudia el error cuadrático medio, el cual mide el promedio de la diferencia entre el valor deseado y el obtenido, y se calcula usando la ecuación \ref{eqn-ECM}.
 \begin{equation}\label{eqn-ECM}
@@ -757,21 +757,21 @@ En la figura \ref{imagen:grid:0752-match} se muestran las parejas detectadas, en
 	\end{tabular}
 \end{table}
 
-La distribución de puntos presentada en los histogramas nos revela información sobre la calidad de la transformación, donde el caso ideal se cumple cuando todos los puntos coinciden, es decir, todas las parejas tienen distancia igual a cero --- una sola barra agrupada a la izquierda ---, por lo tanto, buscar esta distribución debe ser el fin del presente algoritmo de selección, si bien no es posible lograr el caso ideal, se busca el mejor caso posible. 
+La distribución de puntos presentada en los histogramas nos revela información sobre la calidad de la transformación, donde el caso ideal se cumple cuando todos los puntos coinciden, es decir, todas las parejas tienen distancia igual a cero --- una sola barra agrupada a la izquierda ---, por lo tanto, buscar esta distribución debe ser el fin del presente algoritmo de selección. 
 
-Para realizar un correcto análisis de los datos presentados, es preciso estudiar la información de los histogramas en conjunto con las imágenes alineadas, de esta forma podemos apreciar la distribución de los puntos según la calidad a lo largo de las imágenes. Si bien es muy poco probable lograr el histograma ideal, es necesario contar con que los puntos agrupados hacia las distancias cortas (izquierda) se encuentren repartidos espacialmente por la mayor parte de las imágenes. Esto es para evitar que el modelo del plano resultante se ajuste dando mayor importancia a una pequeña región de la imagen.
+Para realizar un correcto análisis de los datos presentados, es preciso estudiar la información de los histogramas en conjunto con las imágenes alineadas, de esta forma podemos apreciar la distribución de los puntos según la calidad a lo largo de las imágenes. Aunque es poco probable lograr el histograma ideal, es necesario contar con que los puntos agrupados hacia las distancias cortas (izquierda) se encuentren repartidos espacialmente por la mayor parte de las imágenes. Esto es para evitar que el modelo del plano resultante se ajuste dando mayor importancia a una pequeña región de la imagen.
 
-Esta distribución indeseada puede traer consigo un problema común cuando se realiza emparejamiento simple (todas las parejas posibles), y es que la cantidad de parejas con poca distancia se encuentren ubicadas en una misa región, ponderando dicha región con mayor peso para la estimación de la matriz de transformación. Si bien se suelen tener pocos puntos con mucha distancia, éstos suelen estar esparcidos por el resto de la imagen para estos casos. Dado que esta distribución en la imagen según la distancia no es posible visualizarla en el histograma, en las imágenes alineadas se facilita tal distinción.
+Esta distribución indeseada puede traer consigo un problema común cuando se realiza emparejamiento simple (todas las parejas posibles), y es que la cantidad de parejas con poca distancia se encuentren ubicadas en una misma región, dando mayor importancia a dicha región para la estimación de la matriz de transformación. Usualmente se tienen pocos puntos con mucha distancia, y éstos suelen estar esparcidos por el resto de la imagen para estos casos. Dado que esta distribución en la imagen según la distancia no es posible visualizarla en el histograma, en las imágenes alineadas se facilita dicha distinción.
 
-Considerando este factor, se puede observar en cada histograma que luego de aplicar la selección planteada, se muestra una fuerte agrupación de buenas parejas, y además se puede asegurar que la mayoría se encuentra distribuida a lo largo de toda la imagen. Para complementar el análisis, de forma que se pueda asegurar la misma o una mejor relación de parejas con corta y grandes distancias se presenta en la tabla \ref{tabla:ECM} el error cuadrático medio sobre cada par de imágenes antes y después de aplicar el método. De esta forma dada la reducción de muestras, se puede asegurar que el promedio de la calidad de emparejamientos luego de la selección mejora para los casos mostrados.
+Considerando este factor, se puede observar en cada histograma una fuerte agrupación de buenas parejas luego de aplicar la selección planteada, y además se puede asegurar que la mayoría se encuentra distribuida a lo largo de toda la imagen. Para complementar el análisis, de forma que se pueda asegurar la misma o una mejor relación de parejas con corta y grandes distancias, se presenta en la tabla \ref{tabla:ECM} el error cuadrático medio sobre cada par de imágenes antes y después de aplicar el método. Se puede asegurar que el promedio de la calidad de emparejamientos luego de la selección mejora para los casos mostrados.
 
-Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{fig:sub-geo-a}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. Si bien la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
+Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{fig:sub-geo-a}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. A pesar de que la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
 
 Este error se produce ya que el terreno presente en la imagen esta compuesto por planos a distintas altitudes, con lo cual la matriz de transformación se ajusta a aquel plano que presente mayor cantidad de parejas, resultando en un par de imágenes con un fuerte error de alineación. 
 
 El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución (histograma en la sub figura \ref{fig:sub-geo-b}), la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, si bien empeora un poco la alineación del antiguo plano modelo (plano presente a la derecha), el error global se minimiza en mayor medida. 
 
-Analizando el histograma resultante para el resto de casos, se tiene una leve mejora en la distribución de parejas, logrando una reducción relativa de parejas con distancia elevada, y como se planteó anteriormente, se asegura también una distribución correcta de las nuevas parejas en toda la imagen, aseveración que no es posible realizar con el primer histograma. La reducción relativa de parejas con altas distancias se evidencia en la tabla \ref{tabla:ECM}, donde el error cuadrático medio se reduce para todos los casos evaluados. Esto indica que el promedio de las distancias (relación de cortas y largas distancias en las parejas) disminuye.
+Analizando el histograma resultante para el resto de casos, se tiene una leve mejora en la distribución de parejas, logrando una reducción relativa de parejas con distancia elevada. Adicionalmente, se asegura también una distribución correcta de las nuevas parejas en toda la imagen, aseveración que no es posible realizar con el primer histograma. La reducción relativa de parejas con altas distancias se evidencia en la tabla \ref{tabla:ECM}, donde el error cuadrático medio se reduce para todos los casos evaluados. Esto indica que el promedio de las distancias (relación de cortas y largas distancias en las parejas) disminuye.
 
 \subsection*{Seguimiento de puntos}
 
@@ -877,7 +877,7 @@ Se muestran 9 sub mosaicos, compuestos por un total de  23 imágenes. Se observa
 
 \subsection*{Corrección euclidiana}
 
-A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-ec}. Los cuales buscan reducir el error sobre el tamaño de las imágenes producto de la suma de errores al estimar la matriz de homografía. 
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-ec}. Los mismos buscan reducir el error sobre el tamaño de las imágenes producto de la suma de errores al estimar la matriz de homografía. 
 
 En primer lugar se muestra un resultado utilizando 12 imágenes del conjunto \textit{ScottReef 25}. En la figura \ref{imagen:ec:SR_1} se observa el mosaico construido únicamente con transformaciones de isometría. A la izquierda de observa el mosaico a color, y a la derecha el mapa con las coordenadas medidas en píxeles.
 
