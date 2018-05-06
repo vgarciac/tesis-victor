@@ -4,7 +4,7 @@
 
 \section{Introducción}
 
-De la sección anterior estudiamos la primera etapa del proceso de registro de imágenes, estableciendo la correspondencia de puntos entre estas. Ahora bien, en esta sección se continúa la etapa de registro pero abordando el tema de las transformaciones geométricas, en primer lugar presentando una descripción y explicación de su estructura y seguido del proceso de su estimación a partir de los puntos previamente obtenidos. Una vez la etapa de registro este completa, se profundiza en el proceso para la alineación de imágenes en un plano común, presentando los algoritmos utilizados para su implementación, así como también técnicas para reducir el error acumulado de las etapas anteriores. Finalmente se presentas resultados por separado de cada proceso previamente descrito, con su respectivo análisis.
+De la sección anterior estudiamos la primera etapa del proceso de registro de imágenes, estableciendo la correspondencia de puntos entre éstas. Ahora bien, en esta sección se continúa la etapa de registro pero abordando el tema de las transformaciones geométricas, en primer lugar presentando una descripción y explicación de su estructura y seguido del proceso de su estimación a partir de los puntos previamente obtenidos. Una vez la etapa de registro este completa, se profundiza en el proceso para la alineación de imágenes en un plano común, presentando los algoritmos utilizados para su implementación, así como también técnicas para reducir el error acumulado de las etapas anteriores. Finalmente se presentas resultados por separado de cada proceso descrito, con su respectivo análisis.
 
 \section{Revisión teórica}
 
@@ -320,7 +320,7 @@ Uno de los algoritmos mas usados para encontrar el mejor modelo está basado en 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{RANSAC}
 
-Este es un método iterativo que permite calcular los parámetros de un modelo, a partir de un conjunto de datos que presentan valores atípicos. En nuestro caso, se tiene un conjunto sobre determinado de pares de puntos correspondientes, de los cuales se deben seleccionar los mejores 4 pares para estimar la mejor matriz de transformación, siendo la mejor aquella que logre minimizar la función de coste planteada.
+Éste es un método iterativo que permite calcular los parámetros de un modelo, a partir de un conjunto de datos que presentan valores atípicos. En nuestro caso, se tiene un conjunto sobre determinado de pares de puntos correspondientes, de los cuales se deben seleccionar los mejores 4 pares para estimar la mejor matriz de transformación, siendo la mejor aquella que logre minimizar la función de coste planteada.
 
 
 Como ya se ha mencionado, las escenas que se estudian no son completamente planas, lo que provoca una inexactitud al estimar la transformación. Para lograr establecer un modelo, el método RANSAC considera solo los mejores datos que se logren ajustar a él, en este sentido se definen los \textit{inliers} y \textit{outliers}, donde los \textit{inliers} son aquellos valores que logran encajar en el modelo deseado, mientras que los \textit{outliers} son aquellos que no logran hacerlo. Por ejemplo: si se tienen un conjunto de puntos cuya distribución corresponden con el plano del suelo, estos serian los \textit{inliers}, y por otro lado aquellos puntos que no pertenecen a este plano serian los \textit{outliers}, ya sea por un emparejamiento erróneo o que pertenezcan a un segmento de distinta altitud de la escena. En la figura \ref{imagen:ransac} se ilustra esta distinción.
@@ -364,7 +364,7 @@ Ahora bien es necesario establecer la función de costo que buscará minimizar e
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generación de sub-mosaicos}
 
-El proceso mas simple para la generación de un mosaico consiste en añadir imágenes siguiendo los procesos planteados previamente, estableciendo el registro, y luego aplicando la matriz de transformación para lograr referenciarlas en el plano del mosaico. Ahora bien para el caso del primer par de imágenes, esta practica implica que se hallo la transformación desde la nueva añadida hacia la primera, tomando esta primera como plano de referencia. Esto se conoce como el proceso básico para la elaboración de mosaicos, en el cual se considera la primera imagen como referencia global para la construcción del mapa. La selección errónea de una imagen de referencia puede generar grandes distorsiones en el mosaico (especialmente para mapas grandes), y considerando el sistema simple, si no se cuenta con una primera imagen que se encuentre muy bien alineada con el plano del suelo, se comprometerá gravemente el resultado final del mosaico.
+El proceso mas simple para la generación de un mosaico consiste en añadir imágenes siguiendo los procesos planteados previamente, estableciendo el registro, y luego aplicando la matriz de transformación para lograr referenciarlas en el plano del mosaico. Ahora bien, para el caso del primer par de imágenes, esta practica implica que se halló la transformación desde la nueva añadida hacia la primera, tomando esta primera como plano de referencia. Esto se conoce como el proceso básico para la elaboración de mosaicos, en el cual se considera la primera imagen como referencia global para la construcción del mapa. La selección errónea de una imagen de referencia puede generar grandes distorsiones en el mosaico (especialmente para mapas grandes), y considerando el sistema simple, si no se cuenta con una primera imagen que se encuentre muy bien alineada con el plano del suelo, se comprometerá gravemente el resultado final del mosaico.
 
 En busca de resolver este problema, \textit{Bellavia et. al.} en \cite{bellavia-ref,bellavia-ransac} plantean el modelo de sub mosaicos para lograr reducir el error geométrico producto de la mala selección de la imagen de referencia. Este sistema propone una estrategia para la selección del mejor plano de referencia que logre minimizar el error de distorsión, mediante la construcción de pequeños segmentos de mosaico que se alinean bajo el esquema básico, pero que poseen localmente poca distorsión geométrica.
 
@@ -383,7 +383,7 @@ Siguiendo este proceso se van construyendo sub mosaicos hasta que no se cuenten 
 
 \subsection{Matriz de transformación promedio}\label{seccion-hpromedio}
 
-Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos sub mosaicos que se desean unir, los cuales son temporalmente continuos, en la imagen superior se observan los sub mosaicos $S_j,\,S_k$ (marcos verde oscuro y verde claro) alineados y considerando la imagen de referencia del primero (verde lleno) como imagen de referencia global. En el segundo caso se muestran ambos alineados pero considerando la imagen de referencia del segundo (rojo lleno) como imagen de referencia global. 
+Refiriéndonos a la figura \ref{imagen:homografia-promedio}, se observan los dos sub mosaicos que se desean unir, los cuales deben ser temporalmente continuos. En la imagen superior se observan los sub mosaicos $S_j,\,S_k$ (marcos verde oscuro y verde claro) alineados y considerando la imagen de referencia del primero (verde lleno) como imagen de referencia global. En el segundo caso se muestran ambos alineados pero considerando la imagen de referencia del segundo (rojo lleno) como imagen de referencia global. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=8cm]{homografia-promedio.pdf}
@@ -427,7 +427,7 @@ E = \max\limits_{I_i\in S_j\cap S_k} (E^O + E^C + E^A + E^\alpha)
 \end{equation}
 
 
-Siendo $I_i$ una imagen perteneciente al par de sub mosaicos $S_j,S_k$. Con lo cual se considera la imagen que presente mas distorsión en el sub mosaico que se intenta unir. El error de cada tipo de error se encuentra normalizado en el rango $0\to 1$. 
+Siendo $I_i$ una imagen perteneciente al par de sub mosaicos $S_j,S_k$. Con lo cual se considera la imagen que presente mas distorsión en el sub mosaico que se intenta unir. Cada tipo de error se encuentra normalizado en el rango $0\to 1$. 
 
 \begin{figure}[h]
 	\centering
@@ -475,7 +475,7 @@ Según se estudió en el método RANSAC, la estimación de una buena homografía
 	\label{imagen:celdas}
 \end{figure}
 
-Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone una segmentación espacial de los puntos emparejados entre dos imágenes, seguida de un proceso de selección con el objetivo de mejorar la distribución, y de esta forma ponderar de igual forma todas las secciones del plano. Básicamente el proceso consiste en dividir la imagen en $n\times m$ celdas, y por cada celda seleccionar la mejor pareja de puntos. Teniendo como resultado un máximo de $n\times m$ parejas entre imágenes. Esta división y selección se puede observar en la figura \ref{imagen:celdas}.
+Para solucionar este problema, \textit{Eilbol et. al.} en \cite{grid} propone una segmentación espacial de los puntos emparejados entre dos imágenes, seguida de un proceso de selección con el objetivo de mejorar la distribución, y así ponderar de igual forma todas las secciones de la superficie. Básicamente el proceso consiste en dividir la imagen en $n\times m$ celdas, y por cada celda seleccionar la mejor pareja de puntos. Teniendo como resultado un máximo de $n\times m$ parejas entre imágenes. Esta división y selección se puede observar en la figura \ref{imagen:celdas}.
 
 \begin{figure}[ht]
 	\centering     %%% not \center
@@ -492,7 +492,7 @@ Por otro lado, en la figura  \ref{fig:grid-plano-b} se observa como se puede mej
 
 \subsection{Seguimiento de puntos}\label{seguimiento-puntos}
 
-Ya hemos visto el proceso simple de relacionar dos imágenes, donde luego de aplicar la transformación a la nueva imagen, ésta presentará cierto nivel de distorsión, afectando que imágenes siguientes logren establecer una relación robusta de puntos.
+Ya hemos visto el proceso simple de relacionar dos imágenes, donde luego de aplicar la transformación a la nueva imagen, ésta presentará cierto nivel de distorsión, afectando que las imágenes siguientes logren establecer una relación robusta de puntos.
 
 La primera propuesta consiste en buscar parejas de puntos correspondientes entre la nueva imagen y el mosaico (todas las imágenes añadidas previamente), pero esto trae consigo un bajo desempeño computacionalmente cuando se cuenta con un mosaico de gran tamaño. Si bien se puede restringir el área de búsqueda hacia el mínimo cuadro que encierra la ultima imagen transformada, el efecto de distorsión mencionado afecta la detección e identificación de puntos correspondientes.
 
@@ -612,7 +612,7 @@ Por otra parte se analiza numéricamente el error en función a la distancia en 
 	ECM = \frac{1}{n} \sum_{i}^{n} \left( \hat{\mathbf{D}} - \mathbf{D} \right)^2
 \end{equation}
 
-Donde $\hat{\mathbf{D}}$ es el valor deseado o esperado, y $\mathbf{D}$ es el valor obtenido, en este caso se trabaja con la distancia entre los puntos luego de aplicar la matriz de transformación. Lo ideal seria que al aplicar la matriz sobre los primeros puntos, con lo cual la distancia deseada entre ellos se considera igual a cero ($\hat{\mathbf{D}}$=0).
+Donde $\hat{\mathbf{D}}$ es el valor deseado o esperado, y $\mathbf{D}$ es el valor obtenido, en este caso se trabaja con la distancia entre los puntos luego de aplicar la matriz de transformación. Lo ideal seria que al aplicar la matriz sobre los primeros puntos éstos logren coincidir, con lo cual la distancia deseada entre ellos se considera igual a cero ($\hat{\mathbf{D}}$=0).
 
 A continuación se muestran los resultados para imágenes de los conjuntos de datos \textit{Chuspa}, \textit{Mochima} y \textit{Grava}. Es importante considerar que para todos los casos se utilizó el extractor de puntos SIFT y el emparejador FLANN, también que las imágenes se trabajaron con una resolución de $640 \times 480$, a excepción del conjunto \textit{Grava} que presentan una resolución de $1280 \times 760$.
 
@@ -649,7 +649,7 @@ En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en
 
 
 \subsubsection*{Grava}
-En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0233-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0233-align} se observa para cada caso las imágenes alineadas en un mismo plano.
+En la figura \ref{imagen:grid:geo-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:geo-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:geo-align} se observa para cada caso las imágenes alineadas en un mismo plano.
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -761,15 +761,15 @@ La distribución de puntos presentada en los histogramas nos revela información
 
 Para realizar un correcto análisis de los datos presentados, es preciso estudiar la información de los histogramas en conjunto con las imágenes alineadas, de esta forma podemos apreciar la distribución de los puntos según la calidad a lo largo de las imágenes. Si bien es muy poco probable lograr el histograma ideal, es necesario contar con que los puntos agrupados hacia las distancias cortas (izquierda) se encuentren repartidos espacialmente por la mayor parte de las imágenes. Esto es para evitar que el modelo del plano resultante se ajuste dando mayor importancia a una pequeña región de la imagen.
 
-Esta distribución indeseada puede traer consigo un problema común cuando se realiza emparejamiento simple (todas las parejas posibles), y es que la cantidad de parejas con poca distancia se encuentren ubicadas en una misa región, dando mayor importancia a dicha región para la estimación de la matriz de transformación. Si bien se suelen tener pocos puntos con mucha distancia, éstos suelen estar esparcidos por el resto de la imagen para estos casos. Dado que esta distribución en la imagen según la distancia no es posible visualizarla en el histograma, en las imágenes alineadas se facilita dicha distinción.
+Esta distribución indeseada puede traer consigo un problema común cuando se realiza emparejamiento simple (todas las parejas posibles), y es que la cantidad de parejas con poca distancia se encuentren ubicadas en una misa región, ponderando dicha región con mayor peso para la estimación de la matriz de transformación. Si bien se suelen tener pocos puntos con mucha distancia, éstos suelen estar esparcidos por el resto de la imagen para estos casos. Dado que esta distribución en la imagen según la distancia no es posible visualizarla en el histograma, en las imágenes alineadas se facilita tal distinción.
 
 Considerando este factor, se puede observar en cada histograma que luego de aplicar la selección planteada, se muestra una fuerte agrupación de buenas parejas, y además se puede asegurar que la mayoría se encuentra distribuida a lo largo de toda la imagen. Para complementar el análisis, de forma que se pueda asegurar la misma o una mejor relación de parejas con corta y grandes distancias se presenta en la tabla \ref{tabla:ECM} el error cuadrático medio sobre cada par de imágenes antes y después de aplicar el método. De esta forma dada la reducción de muestras, se puede asegurar que el promedio de la calidad de emparejamientos luego de la selección mejora para los casos mostrados.
 
-Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{fig:sub-geo-b}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. Si bien la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
+Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{fig:sub-geo-a}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. Si bien la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
 
 Este error se produce ya que el terreno presente en la imagen esta compuesto por planos a distintas altitudes, con lo cual la matriz de transformación se ajusta a aquel plano que presente mayor cantidad de parejas, resultando en un par de imágenes con un fuerte error de alineación. 
 
-El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución (histograma en la sub figura \ref{fig:sub-geo-b}) la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, si bien empeora un poco la alineación del antiguo plano modelo (plano presente a la derecha), el error global se minimiza en mayor medida. 
+El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución (histograma en la sub figura \ref{fig:sub-geo-b}), la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, si bien empeora un poco la alineación del antiguo plano modelo (plano presente a la derecha), el error global se minimiza en mayor medida. 
 
 Analizando el histograma resultante para el resto de casos, se tiene una leve mejora en la distribución de parejas, logrando una reducción relativa de parejas con distancia elevada, y como se planteó anteriormente, se asegura también una distribución correcta de las nuevas parejas en toda la imagen, aseveración que no es posible realizar con el primer histograma. La reducción relativa de parejas con altas distancias se evidencia en la tabla \ref{tabla:ECM}, donde el error cuadrático medio se reduce para todos los casos evaluados. Esto indica que el promedio de las distancias (relación de cortas y largas distancias en las parejas) disminuye.
 
@@ -813,7 +813,7 @@ Luego de utilizar el método propuesto, la posibilidad de realizar el emparejami
 
 \subsection*{Relación con vecinos}
 
-A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-vecinos}. En este caso se presenta un mosaico utilizando imágenes del conjunto \textit{Mochima}. En la figura \ref{fig:vec:0752-a} se tiene un mosaico construido bajo el esquema simple, en el cual se relaciona la nueva imagen con la última añadida. Tal y como se observa en el mapa de la trayectoria mostrado en \ref{fig:vec:0752-c} hay un cambio en el recorrido --- La segunda imagen se posiciona debajo de la numero 1, luego la número 3 cambia el movimiento hacia arriba, donde el resto continúa con la trayectoria ---. Esto produce que la tercera imagen se relacione con la segunda solo bajo una pequeña área de superposición, produciendo el error de alineación (mostrada en la sección marcada).
+A continuación se muestran resultados obtenidos tras aplicar el método descrito en la sección \ref{seccion-vecinos}. En este caso se presenta un mosaico utilizando imágenes del conjunto \textit{Mochima}. En la figura \ref{fig:vec:0752-a} se tiene un mosaico construido bajo el esquema simple, en el cual se relaciona la nueva imagen con la última añadida. Tal y como se observa en el mapa de la trayectoria mostrado en \ref{fig:vec:0752-c} hay un cambio en el recorrido --- La segunda imagen se posiciona debajo de la numero 1, luego la número 3 cambia el movimiento hacia arriba, donde el resto continúa con la trayectoria ---. Esto produce que la tercera imagen se relacione con la segunda sólo bajo una pequeña área de superposición, produciendo el error de alineación mostrada en la sección marcada.
 
 En la figura \ref{fig:vec:0752-b} se muestra el resultado de un esquema que establece el registro de imágenes aprovechando la información de aquellas que se encuentren espacialmente cercanas. En este sentido, destacando la sección marcada es posible observar la mejora que éste método ofrece para este particular caso, logrando alinear correctamente la tercera imagen, utilizando la primera, con la cual comparte gran área de superposición.  
 
@@ -881,7 +881,7 @@ A continuación se muestran resultados obtenidos tras aplicar el método descrit
 
 En primer lugar se muestra un resultado utilizando 12 imágenes del conjunto \textit{ScottReef 25}. En la figura \ref{imagen:ec:SR_1} se observa el mosaico construido únicamente con transformaciones de isometría. A la izquierda de observa el mosaico a color, y a la derecha el mapa con las coordenadas medidas en píxeles.
 
-En el mapa (\ref{fig:ec:SRE-a}) se muestran los 4 puntos marcados con color verde que corresponden con el borde del mosaico. Por otro lado se muestra en la figura \ref{fig:ec:SRP-b} el mapa del mosaico creado usando transformaciones de perspectiva sin ningún tipo de correcciones. También se muestra en esa misma imagen en color rojo los 4 puntos correspondientes a los extremos del mosaico. Ahora bien, teniendo esta correspondencia de 4 pares de puntos, es posible hallar una matriz de transformación de perspectiva para lograr alinear los extremos del mosaico en \ref{fig:ec:SRP-b} con el \ref{fig:ec:SRP-a}. Luego de encontrar dicha transformación y aplicarla al segundo mosaico se obtiene el mosaico mostrado en la figura  \ref{imagen:ec:SR_3}.
+En el mapa (\ref{fig:ec:SRE-b}) se muestran los 4 puntos marcados con color verde que corresponden con el borde del mosaico. Por otro lado se muestra en la figura \ref{fig:ec:SRP-b} el mapa del mosaico creado usando transformaciones de perspectiva sin ningún tipo de correcciones. También se muestra en esa misma imagen en color rojo los 4 puntos correspondientes a los extremos del mosaico. Ahora bien, teniendo esta correspondencia de 4 pares de puntos, es posible hallar una matriz de transformación de perspectiva para lograr alinear los extremos del mosaico en \ref{fig:ec:SRP-b} con el \ref{fig:ec:SRE-b}. Luego de encontrar dicha transformación y aplicarla al segundo mosaico se obtiene el mosaico mostrado en la figura  \ref{imagen:ec:SR_3}.
 
 Se puede observar en los tres mapas de coordenadas la ubicación relativa de los puntos frontera del mosaico. Considerando el origen en la esquina superior izquierda, se tiene que el mosaico construido con matrices de isometria no supera los 3.000 píxeles de longitud en el eje $y$, mientras que el construido con matrices de perspectiva logra superar los 11.000 píxeles. finalmente luego de la corrección la distancia entre los puntos del extremo logran coincidir en ambos mosaicos.
 
@@ -941,13 +941,13 @@ Se presenta otro resultado utilizando 30 imágenes del conjunto \textit{Chuspa}.
 	\label{imagen:ec:0234_3}
 \end{figure}
 
-Con respecto a las coordenadas del mosaico corregido, si bien la posición de los puntos con coincide totalmente, la distancia entre estos si lo hace. Esto es debido a un desplazamiento del mosaico corregido para poder definirlo completamente con coordenadas positivas. 
+Con respecto a las coordenadas del mosaico corregido, si bien la posición de los puntos no coincide totalmente, la distancia entre estos si lo hace. Esto es debido a un desplazamiento del mosaico corregido para poder definirlo completamente con coordenadas positivas. 
 
 \section{Resumen}
 
 En este capítulo se describieron los principios básicos que permiten alinear imágenes bajo un mismo sistema de referencia, utilizando la información que proveen los extractores de características locales. Para esto se introdujeron los distintos niveles de transformaciones geométricas en base a los grados de libertad que ofrece cada una y a la cantidad de variables que preservan de las imágenes, además del proceso para su obtención.
 
-Luego se introdujeron los diversos problemas que se tienen al realizar la alineación bajo el esquema mas simple. En función a esto se buscó resolver errores producidos por la mala selección de la imagen de referencia, por realizar el registro con las imágenes deformadas, y por solo considerar la ultima imagen añadida para establecer la referencia necesaria.
+Luego se introdujeron los diversos problemas que se tienen al realizar la alineación bajo el esquema mas simple. En función a esto se buscó resolver errores producidos por la mala selección de la imagen de referencia, por realizar el registro con las imágenes deformadas, y por considerar únicamente la ultima imagen añadida para establecer la referencia necesaria.
 
 Finalmente se presentaron los resultados que validan los métodos descritos, obteniendo de estos mejoras claras sobre la geometría del mosaico y la robustez para su construcción.
 

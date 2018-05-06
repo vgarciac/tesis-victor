@@ -50,7 +50,7 @@ Donde $\sigma$ es la desviación estándar de la imagen, y siendo válido para l
 	\label{imagen:grafo}
 \end{figure}
 
-Refiriéndonos a la figura \ref{imagen:grafo}, se observa el proceso de modelar una imagen mediante un grafo con conexiones simples y usando un esquema de 4 vecindad --- 4 vecindad solo considera a los píxeles superior, inferior y laterales como vecinos ---, donde cada cuadro está compuesto por el inverso de la diferencia de intensidades entre dos imágenes, representado en escala de grises. Al final se tiene una imagen compuesta por dos grafos separados, donde $\mathtt{I} \in \mathcal{S}$ y $\mathtt{F} \in \mathcal{T}$ donde a cada nodo del grafo se le asigna un valor binario dependiendo de la etiqueta resultante el algoritmo de minimización del costo de corte.
+Refiriéndonos a la figura \ref{imagen:grafo}, se observa el proceso de modelar una imagen mediante un grafo con conexiones simples y usando un esquema de 4 vecindad --- 4 vecindad solo considera a los píxeles superior, inferior y laterales como vecinos ---, donde cada cuadro está compuesto por el inverso de la diferencia de intensidades entre dos imágenes, representado en escala de grises. Al final se tiene una imagen compuesta por dos grafos separados, donde $\mathtt{I} \in \mathcal{S}$ y $\mathtt{F} \in \mathcal{T}$ donde a cada nodo del grafo se le asigna un valor binario dependiendo de la etiqueta resultante del algoritmo de minimización del costo de corte.
 
 
 \section{Corrección de color}\label{seccion-color}
@@ -248,7 +248,7 @@ En la figura \ref{fig:color:geo-a} se observa un mosaico compuesto por tres imá
 	\label{imagen:color:geo}
 \end{figure}
 
-Del ejemplo anterior se tiene que la imagen irregular presenta poca iluminación con respecto al resto. Caso distinto se tiene para el siguiente conjunto presentado en la figura \ref{imagen:color:0233}, donde se muestra en \ref{fig:color:geo-a} y \ref{fig:color:geo-b} el mosaico sin y con corrección de color respectivamente. 
+Del ejemplo anterior se tiene que la imagen irregular presenta poca iluminación con respecto al resto. Caso distinto se tiene para el siguiente conjunto presentado en la figura \ref{imagen:color:0233}, donde la imagen atípica presenta iluminación elevada, también se muestra en \ref{fig:color:0233-a} y \ref{fig:color:0233-b} el mosaico sin y con corrección de color respectivamente. 
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -263,8 +263,8 @@ Para los mosaicos anteriores se estudiaron casos en los que se tenia un cambio d
 
 \begin{figure}[H]
 	\centering     %%% not \center
-	\subfigure[]{\label{fig:color:espenky-a}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-no.jpg}}
-	\subfigure[]{\label{fig:color:espenky-b}\includegraphics[width=0.8\textwidth]{resultados/color/espenky-si.jpg}}
+	\subfigure[]{\label{fig:color:espenky-a}\includegraphics[width=0.7\textwidth]{resultados/color/espenky-no.jpg}}
+	\subfigure[]{\label{fig:color:espenky-b}\includegraphics[width=0.7\textwidth]{resultados/color/espenky-si.jpg}}
 	
 	\caption[Resultado de corrección de color: \textit{Espenky}]{Corrección de color de un conjunto de imágenes con iluminación no uniforme}
 	\label{imagen:color:espenky}
@@ -303,7 +303,7 @@ Es posible evaluar la calidad de la fusión de las imágenes utilizando la deriv
 
 \subsection*{Mosaicos completos}
 
-A continuación se presentan resultados para un conjunto mayor de imágenes, aplicando en conjunto los algoritmos descritos en el presente trabajo. Para algunos casos se emplean todos los módulos, mientras que en otros se excluyen algunos no necesarios, estos se indicarán en cada resultado.
+A continuación se presentan resultados para un grupo mayor de imágenes, aplicando en conjunto los algoritmos descritos en el presente trabajo. Para algunos casos se emplean todos los módulos, mientras que en otros se excluyen algunos no necesarios, estos se indicarán en cada resultado.
 
 \begin{figure}[H]
 	\centering     %%% not \center
