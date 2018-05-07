@@ -22,19 +22,19 @@ Es un método derivado de la teoría de grafos, donde la idea es separar un graf
 
 En el conjunto de nodos presentes en el grafo se cuentan con dos especiales llamados nodos terminales, el inicio ($\mathtt{I}$) y el final ($\mathtt{F}$), donde el resto de píxeles en la imagen corresponden con un nodo no terminal. En aplicaciones de visión por computadora, cuando se desea unir dos imágenes en una región de intersección, lo que se busca es lograr un etiquetado de píxeles que permita distinguir que nodos corresponden a cada imagen en el área de intersección.
 
-Se presenta en la ecuación \ref{funcion-corte} la función de coste que etiqueta los nodos, y minimiza el costo del corte.
+Se presenta en la ecuación \ref{funcion-corte} la función de costo que etiqueta los nodos, y minimiza el costo del corte.
 \begin{equation}
 C(f) = \sum_{_p\in \mathcal{N}}^{} D_p(f_p) + \sum_{_p,_q \in \mathcal{N} - \{\mathtt{I},\mathtt{F}\}}^{} \mathcal{W}_p,_q (f_p, f_q)
 \label{funcion-corte}
 \end{equation}
 Donde $p$ es un nodo que pertenece al conjunto de nodos no terminales $\mathcal{N} - \{\mathtt{I},\mathtt{F}\}$. El término $D_p(f_p)$ es el costo de asignar una etiqueta $f_p$ ($f_p \in \{0,\,1\}$) al nodo $p$ --- en este caso una etiqueta binaria, asociando el píxel a una imagen u otra ---. El término $\mathcal{W}_{p,q} (f_p, f_q)$ es el costo de asociar una etiqueta al nodo $p$ y una distinta al nodo $q$.
 
-Una gran diferencia de intensidades entre píxeles adyacentes representa un fuerte indicador de la existencia de un borde o contorno entre dos objetos, es decir, que el costo de un enlace se puede definir como el inverso de la diferencia entre la intensidad de los píxeles que conecta. Siendo $I(p)$ la intensidad de un píxel $p$, se defina el coso de cada enlace como:
+Una gran diferencia de intensidades entre píxeles adyacentes representa un fuerte indicador de la existencia de un borde o contorno entre dos objetos, es decir, que el costo de un enlace se puede definir como el inverso de la diferencia entre la intensidad de los píxeles que conecta. Siendo $I(p)$ la intensidad de un píxel $p$, se defina el costo de cada enlace como:
 \begin{equation}
 \mathcal{W}_p,_q = 255 - |I(p) - I (q)|
 \label{costo-corte}
 \end{equation}
-Si bien se consideran los parámetros necesarios con esa función, se obtienen resultados mucho mas robustos usando una función exponencial \cite{graph-opencv}:
+A pesar de que se consideran los parámetros necesarios con esa función, se obtienen resultados mucho mas robustos usando una función exponencial \cite{graph-opencv}:
 \begin{equation}
 \mathcal{W}_p,_q = e^{\left(\frac{255-|I(p) - I (q)|}{2 \sigma}  \right) }
 \label{costo-corte}
@@ -122,11 +122,11 @@ Donde el parámetro $\alpha$ varia en el rango $0\to 1$, en este caso en funció
 	\label{imagen:blend-simple}
 \end{figure}
 
-El algoritmo de fusión ponderada bajo el esquema de transición presenta ciertas desventajas, entre estas el efecto fantasma, en el que se observan duplicados de los objetos en la escena pero con cierto grado de desvanecimiento. Si bien no será implementado, el estudio de su funcionamiento es necesario para comprender el algoritmo de fusión que trabaja bajo un esquema piramidal.
+El algoritmo de fusión ponderada bajo el esquema de transición presenta ciertas desventajas, entre estas el efecto fantasma, en el que se observan duplicados de los objetos en la escena pero con cierto grado de desvanecimiento. Aunque no será implementado, el estudio de su funcionamiento es necesario para comprender el algoritmo de fusión que trabaja bajo un esquema piramidal.
 
 \subsection{Fusión ponderada piramidal}
 
-El método planteado anteriormente propone una transición suavizada para imágenes que tengan una región en común. Si bien es una primera aproximación al problema aquí planteado, los algoritmos que se pretenden utilizar en etapas previas (linea de corte) eliminan ésta área de intersección, quedando don imágenes con solo un borde en común. 
+El método planteado anteriormente propone una transición suavizada para imágenes que tengan una región en común, presentando así una primera aproximación al problema aquí planteado, sin embargo los algoritmos que se pretenden utilizar en etapas previas (linea de corte) eliminan ésta área de intersección, quedando don imágenes con solo un borde en común. 
 
 Esta técnica es llamada fusión piramidal o fusión multibanda, y su proceso consiste en fusionar las imágenes para distintos niveles de escala. Refiriéndonos a la figura \ref{imagen:piramidal1}, se crea para una misma imagen distintos niveles de escala ($G_i$), donde cada nivel corresponde con una reducción a un cuarto del área del nivel anterior. La cantidad de niveles en la pirámide corresponde con la cantidad de bandas que se quieren fusionar. Es importante mencionar que el proceso de compresión y posterior expansión de una imagen, se aproxima al proceso de aplicar un filtro gaussiano, con lo cual a cada nivel creado $G_i$ recibe el nombre de gaussiana, resultando lo que se denomina una pirámide de gaussianas, tal y como se ilustra en la figura \ref{imagen:piramidal1} con 5 niveles.
 

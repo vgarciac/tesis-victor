@@ -207,7 +207,7 @@ Donde $ \mathtt{A} $ sería una matriz ortogonal $2\times2$ no singular, $\vec{v
 
 \begin{itemize}
 	\item \textbf{Invarianza:} cociente cruzado (cociente de cocientes de longitudes), puntos de contacto (intersecciones).
-	\item \textbf{8 Grados de libertad:} Si bien la matriz cuenta con 9 componentes, al escalar todos los componentes por $u$, la transformación quedaría especificada por los 8 valores restantes.
+	\item \textbf{8 Grados de libertad:} Pese a que la matriz cuenta con 9 componentes, al escalar todos los componentes por $u$, la transformación quedaría especificada por los 8 valores restantes.
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En la figura \ref{imagen:transformaciones} se ilustra gráficamente los tipos de transformaciones descritas previamente.
@@ -313,14 +313,14 @@ Añadiendo la condición de 	 $\left | \mathtt{H} \right | = 1$ para evitar la s
 
 En este punto, la matriz encontrada se puede usar para transformar $\vec{x} \to \vec{x'}$, o bien se puede usar la inversa ($\mathtt{H^{-1}}$) para realizar el mapeo en sentido contrario.
 
-Dada la naturaleza no plana de las escenas del mundo real, o bien debido a la inexactitud al medir los puntos cuando se captura una imagen, es muy poco probable que los puntos correspondientes residan en un mismo plano. Por otra parte es muy común que para aplicaciones de mapeo automático se cuenten con una gran cantidad de puntos correspondientes, con lo cual se tiene un sistema sobre determinado. En este caso es necesario realizar aproximaciones que permitan encontrar ya no la única homografía, sino la mejor, en función a los datos con los que se cuenten. Para esto es usual el uso de algoritmos que estiman la matriz buscando minimizar alguna función de coste.
+Dada la naturaleza no plana de las escenas del mundo real, o bien debido a la inexactitud al medir los puntos cuando se captura una imagen, es muy poco probable que los puntos correspondientes residan en un mismo plano. Por otra parte es muy común que para aplicaciones de mapeo automático se cuenten con una gran cantidad de puntos correspondientes, con lo cual se tiene un sistema sobre determinado. En este caso es necesario realizar aproximaciones que permitan encontrar ya no la única homografía, sino la mejor, en función a los datos con los que se cuenten. Para esto es usual el uso de algoritmos que estiman la matriz buscando minimizar alguna función de costo.
 
 Uno de los algoritmos mas usados para encontrar el mejor modelo está basado en el método RANSAC (del inglés: Random Sample Consensus), el cual es explicado a continuación.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{RANSAC}
 
-Éste es un método iterativo que permite calcular los parámetros de un modelo, a partir de un conjunto de datos que presentan valores atípicos. En nuestro caso, se tiene un conjunto sobre determinado de pares de puntos correspondientes, de los cuales se deben seleccionar los mejores 4 pares para estimar la mejor matriz de transformación, siendo la mejor aquella que logre minimizar la función de coste planteada.
+Éste es un método iterativo que permite calcular los parámetros de un modelo, a partir de un conjunto de datos que presentan valores atípicos. En nuestro caso, se tiene un conjunto sobre determinado de pares de puntos correspondientes, de los cuales se deben seleccionar los mejores 4 pares para estimar la mejor matriz de transformación, siendo la mejor aquella que logre minimizar la función de costo planteada.
 
 
 Como ya se ha mencionado, las escenas que se estudian no son completamente planas, lo que provoca una inexactitud al estimar la transformación. Para lograr establecer un modelo, el método RANSAC considera solo los mejores datos que se logren ajustar a él, en este sentido se definen los \textit{inliers} y \textit{outliers}, donde los \textit{inliers} son aquellos valores que logran encajar en el modelo deseado, mientras que los \textit{outliers} son aquellos que no logran hacerlo. Por ejemplo: si se tienen un conjunto de puntos cuya distribución corresponden con el plano del suelo, estos serian los \textit{inliers}, y por otro lado aquellos puntos que no pertenecen a este plano serian los \textit{outliers}, ya sea por un emparejamiento erróneo o que pertenezcan a un segmento de distinta altitud de la escena. En la figura \ref{imagen:ransac} se ilustra esta distinción.
@@ -471,7 +471,7 @@ Según se estudió en el método RANSAC, la estimación de una buena homografía
 \begin{figure}[hb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{celdas.pdf}
-	\caption[Selección de mejores parejas]{Selección de mejores parejas en cada celda. Los puntos verdes corresponden con las parejas detectadas, y los puntos rojos serian las mejores pareas por cada celda.}
+	\caption[Selección de mejores parejas]{Selección de mejores parejas en cada celda. Los puntos verdes corresponden con las parejas detectadas, y los puntos rojos serian las mejores parejas por cada celda.}
 	\label{imagen:celdas}
 \end{figure}
 
@@ -494,7 +494,7 @@ Por otro lado, en la figura  \ref{fig:grid-plano-b} se observa como se puede mej
 
 Ya hemos visto el proceso simple de relacionar dos imágenes, donde luego de aplicar la transformación a la nueva imagen, ésta presentará cierto nivel de distorsión, afectando que las imágenes siguientes logren establecer una relación robusta de puntos.
 
-La primera propuesta consiste en buscar parejas de puntos correspondientes entre la nueva imagen y el mosaico (todas las imágenes añadidas previamente), pero esto trae consigo un alto costo computacional cuando se cuenta con un mosaico de gran tamaño. Si bien se puede restringir el área de búsqueda hacia el mínimo cuadro que encierra la ultima imagen transformada, el efecto de distorsión mencionado afecta la detección e identificación de puntos correspondientes.
+La primera propuesta consiste en buscar parejas de puntos correspondientes entre la nueva imagen y el mosaico (todas las imágenes añadidas previamente), pero esto trae consigo un alto costo computacional cuando se cuenta con un mosaico de gran tamaño. A pesar de que se puede restringir el área de búsqueda hacia el mínimo cuadro que encierra la ultima imagen transformada, el efecto de distorsión mencionado afecta la detección e identificación de puntos correspondientes.
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -575,7 +575,7 @@ Considerando toda la información posible, se tiene un sistema que se adapta a u
 
 La concatenación de un gran grupo de imágenes en la formación de un mosaico, suele traer consigo un error de distorsión acumulado producto de la estimación de la mejor matriz de homografía, afectando en muchos casos el tamaño original de las imágenes. Para resolver este problema \textit{A. Elibol y R. Garcia} en \cite{elibol} proponen un método de corrección global basado en transformaciones de isometría.
 
-Considerando que un robot de exploración (aéreo o submarino) con una cámara dirigida hacia abajo presenta pocas variaciones de rotación (ángulo de cabeceo y balanceo), además de intentar mantener una altura constante con el suelo, las transformaciones que describan su movimiento debería estar descrita por esos grados de libertad (rotación y translación, sin escala). En este sentido, se utiliza un modelo del sub mosaico que utiliza solamente transformaciones de isometría (ecuación \ref{matriz-isometria}). Aí mismo, al no contar con datos de navegación, como GPS que no está presente en aplicaciones bajo el agua, el método propuesto presenta una buena aproximación para reducir el error de tamaño en las imágenes del extremo del mosaico. Este proceso se encuentra listado a continuación, además se ilustra gráficamente en la figura \ref{imagen:correcion-e}.
+Considerando que un robot de exploración (aéreo o submarino) con una cámara dirigida hacia abajo presenta pocas variaciones de rotación (ángulo de cabeceo y balanceo), además de intentar mantener una altura constante con el suelo, las transformaciones que describan su movimiento debería estar descrita por esos grados de libertad (rotación y translación, sin escala). En este sentido, se utiliza un modelo del sub mosaico que utiliza solamente transformaciones de isometría (ecuación \ref{matriz-isometria}). Así mismo, al no contar con datos de navegación, como GPS que no está presente en aplicaciones bajo el agua, el método propuesto presenta una buena aproximación para reducir el error de tamaño en las imágenes del extremo del mosaico. Este proceso se encuentra listado a continuación, además se ilustra gráficamente en la figura \ref{imagen:correcion-e}.
 \begin{figure}[h]
 	\centering     %%% not \center
 	\subfigure[]{\label{fig:ec-a}\includegraphics[width=.45\textwidth]{ec-1.pdf}}\hspace{5mm}%}
@@ -605,7 +605,7 @@ En esta sección se presentan los resultados de aplicar los métodos descritos p
 A continuación se muestran los resultados de aplicar el método descrito en la 
 sección \ref{seleccion-grid}. Para esto se estudia tanto analítica como visualmente el resultado de aplicar esta técnica. Al mismo tiempo se analiza el error de estimar una matriz de homografía según la distancia de los puntos correspondientes luego de aplicarla. 
 
-Para cada conjunto se seleccionó un par de imágenes con las que se busca ejemplificar las mejoras que este método ofrece en la etapa de registro. Para una mejor visualización de los datos obtenidos, se propone un estudio de la distribución de las parejas según la distancia que presenten, medida en píxeles. Conjuntamente se presenta para cada distribución las imágenes alineadas, donde se ilustran las parejas con mejor y peor distancia. Para lograr esta distinción se fijaron de color verde las pareas que presente mejor distancia, mientras que aquellas que tengan 3 veces mas distancia que la mejor, se denotan en color rojo. Para ambos casos se muestran de color azul los puntos correspondientes en la nueva imagen.
+Para cada conjunto se seleccionó un par de imágenes con las que se busca ejemplificar las mejoras que este método ofrece en la etapa de registro. Para una mejor visualización de los datos obtenidos, se propone un estudio de la distribución de las parejas según la distancia que presenten, medida en píxeles. Conjuntamente se presenta para cada distribución las imágenes alineadas, donde se ilustran las parejas con mejor y peor distancia. Para lograr esta distinción se fijaron de color verde las parejas que presente mejor distancia, mientras que aquellas que tengan 3 veces mas distancia que la mejor, se denotan en color rojo. Para ambos casos se muestran de color azul los puntos correspondientes en la nueva imagen.
 
 Por otra parte se analiza numéricamente el error en función a la distancia en las parejas de puntos. Para esto se estudia el error cuadrático medio, el cual mide el promedio de la diferencia entre el valor deseado y el obtenido, y se calcula usando la ecuación \ref{eqn-ECM}.
 \begin{equation}\label{eqn-ECM}
@@ -618,7 +618,7 @@ A continuación se muestran los resultados para imágenes de los conjuntos de da
 
 \subsubsection*{Chuspa}
 
-En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0233-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0233-align} se observa para cada caso las imágenes alineadas en un mismo plano.
+En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las parejas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0233-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0233-align} se observa para cada caso las imágenes alineadas en un mismo plano.
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -649,7 +649,7 @@ En la figura \ref{imagen:grid:0233-match} se muestran las parejas detectadas, en
 
 
 \subsubsection*{Grava}
-En la figura \ref{imagen:grid:geo-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:geo-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:geo-align} se observa para cada caso las imágenes alineadas en un mismo plano.
+En la figura \ref{imagen:grid:geo-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las parejas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:geo-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:geo-align} se observa para cada caso las imágenes alineadas en un mismo plano.
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -713,7 +713,7 @@ En la figura \ref{imagen:grid:geo-match} se muestran las parejas detectadas, en 
 
 \subsubsection*{Mochima}
 
-En la figura \ref{imagen:grid:0752-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las pareas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0752-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0752-align} se observa para cada caso las imágenes alineadas en un mismo plano.
+En la figura \ref{imagen:grid:0752-match} se muestran las parejas detectadas, en la imagen superior se muestran todas las parejas posibles, mientras que en la inferior aquellas seleccionadas por el algoritmo propuesto. En la figura \ref{imagen:grid:0752-hist} se observan los histogramas de distribución según la distancia espacial. Finalmente en la figura \ref{imagen:grid:0752-align} se observa para cada caso las imágenes alineadas en un mismo plano.
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -765,11 +765,11 @@ Esta distribución indeseada puede traer consigo un problema común cuando se re
 
 Considerando este factor, se puede observar en cada histograma una fuerte agrupación de buenas parejas luego de aplicar la selección planteada, y además se puede asegurar que la mayoría se encuentra distribuida a lo largo de toda la imagen. Para complementar el análisis, de forma que se pueda asegurar la misma o una mejor relación de parejas con corta y grandes distancias, se presenta en la tabla \ref{tabla:ECM} el error cuadrático medio sobre cada par de imágenes antes y después de aplicar el método. Se puede asegurar que el promedio de la calidad de emparejamientos luego de la selección mejora para los casos mostrados.
 
-Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{fig:sub-geo-a}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. A pesar de que la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
+Un claro ejemplo de las mejoras que ofrece esta técnica la podemos apreciar con las imágenes del conjunto \textit{Grava}. En su primer histograma (figura \ref{fig:grid-geo-hist-a}) se muestra una cantidad importante de parejas con media y elevada distancia (puntos alejados de la distancia cero), donde éstas corresponden con \textit{outliers} del modelo seleccionado. A pesar de que la cantidad  de \textit{inliers} (agrupación a la izquierda del histograma) es elevada, éstas se encuentran en una pequeña región de la imagen. Dicha distribución se aprecia en la figura \ref{imagen:grid:geo-align} con los parejas de puntos \textit{azul-verde}. 
 
 Este error se produce ya que el terreno presente en la imagen esta compuesto por planos a distintas altitudes, con lo cual la matriz de transformación se ajusta a aquel plano que presente mayor cantidad de parejas, resultando en un par de imágenes con un fuerte error de alineación. 
 
-El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución (histograma en la sub figura \ref{fig:sub-geo-b}), la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, si bien empeora un poco la alineación del antiguo plano modelo (plano presente a la derecha), el error global se minimiza en mayor medida. 
+El algoritmo propuesto logra reducir este error, tal y como se observa en la nueva distribución (histograma en la sub figura \ref{fig:sub-geo-b}), la mayoría de las parejas tienen una corta distancia, y además se asegura que éstos se encuentres dispersos por todas las celdas de la imagen. En la figura \ref{fig:geo-align-b} se puede observar la mejora en la alineación luego de aplicar la selección, pese a que empeora un poco la alineación del antiguo plano modelo (plano presente a la derecha), el error global se minimiza en mayor medida. 
 
 Analizando el histograma resultante para el resto de casos, se tiene una leve mejora en la distribución de parejas, logrando una reducción relativa de parejas con distancia elevada. Adicionalmente, se asegura también una distribución correcta de las nuevas parejas en toda la imagen, aseveración que no es posible realizar con el primer histograma. La reducción relativa de parejas con altas distancias se evidencia en la tabla \ref{tabla:ECM}, donde el error cuadrático medio se reduce para todos los casos evaluados. Esto indica que el promedio de las distancias (relación de cortas y largas distancias en las parejas) disminuye.
 
@@ -836,7 +836,7 @@ A continuación se muestran resultados obtenidos tras aplicar el método descrit
 
 Como se puede apreciar, ambos sub mosaicos presentan un elevado nivel de distorsión producto de la mala elección de la imagen de referencia. Ahora bien, al utilizar el método descrito anteriormente, es posible alinearlos logrando reducir el error de distorsión, tal y como se observa el resultado en la figura \ref{fig:h:0234-c}. 
 
-En este caso el error fue obtenido según la ecuación \ref{eq-error}, donde se obtuvo un error de 2.56838 para el sub mosaico en \ref{fig:h:0234-a}, un error de 3.09599 para el sub mosaico en \ref{fig:h:0234-b}, y finalmente se logró reducir el error hasta 2.06248 para obtener el mosaico en \ref{fig:h:0234-c}.
+En este caso el error se calcula según la ecuación \ref{eq-error}, donde se obtuvo un error de 2.56838 para el sub mosaico en \ref{fig:h:0234-a}, un error de 3.09599 para el sub mosaico en \ref{fig:h:0234-b}, y finalmente se logró reducir el error hasta 2.06248 para obtener el mosaico en \ref{fig:h:0234-c}.
 
 \begin{figure}[h]
 	\centering     %%% not \center
@@ -860,7 +860,7 @@ Otro resultado interesante se obtuvo utilizando imágenes del conjunto \textit{S
 	\label{imagen:avgh:SR}
 \end{figure}
 
-Un mosaico puede estar compuesto por una gran cantidad de sub mosaicos, si bien el proceso para unirlos ya se ilustró, se muestra el criterio para la selección sobre cuales se deben unir en primer lugar. Para esto se selecciona el par de sub mosaicos que presente mayor área de superposición a medida que se va construyendo. Es importante destacar que cuando se evalúan dos sub mosaicos ya corregidos, se considera la matriz de homografía promedio para determinar el área de superposición.
+Un mosaico puede estar compuesto por una gran cantidad de sub mosaicos, dado que el proceso para unirlos ya se describió, se muestra ahora el criterio para la selección sobre cuales se deben unir en primer lugar. Para esto se selecciona el par de sub mosaicos que presente mayor área de superposición a medida que se va construyendo. Es importante destacar que cuando se evalúan dos sub mosaicos ya corregidos, se considera la matriz de homografía promedio para determinar el área de superposición.
 
 En la figura \ref{imagen:jerarquia0234} se observa la jerarquía con la que se seleccionan los sub mosaicos para ser alineados en el mosaico final. En este caso se redujo el criterio para detener el proceso de construcción de un sub mosaico, de modo que se cuente con una mayor cantidad de ellos y se ilustre de mejor manera el proceso.
 
@@ -941,7 +941,7 @@ Se presenta otro resultado utilizando 30 imágenes del conjunto \textit{Chuspa}.
 	\label{imagen:ec:0234_3}
 \end{figure}
 
-Con respecto a las coordenadas del mosaico corregido, si bien la posición de los puntos no coincide totalmente, la distancia entre estos si lo hace. Esto es debido a un desplazamiento del mosaico corregido para poder definirlo completamente con coordenadas positivas. 
+Con respecto a las coordenadas del mosaico corregido, a pesar de que la posición de los puntos no coincide totalmente, la distancia entre estos si lo hace. Esto es debido a un desplazamiento del mosaico corregido para poder definirlo completamente con coordenadas positivas. 
 
 \section{Resumen}
 

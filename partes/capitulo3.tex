@@ -56,7 +56,7 @@ Retomando el concepto planteado previamente, este detector busca la diferencia d
 \footnotetext{\url{https://dsp.stackexchange.com/questions/14338/}}
 %https://dsp.stackexchange.com/questions/14338/
 
-Cuando se trabajan con detectores de características, se desea que estos sean invariantes ante la mayor cantidad de variables posibles, tal y como se menciona en la propiedad de robustez que deben tener estos algoritmos. Si bien el detector presentado anteriormente es invariante ante la traslación y la rotación (ya que las esquinas se mantienen como esquinas si son rotadas o desplazadas), no funciona de la misma forma ante cambios de escala. Como se observa en la figura \ref{imagen:corner-scale}, una región considerada como esquina, se podría considerar plana si es ampliada.
+Cuando se trabajan con detectores de características, se desea que estos sean invariantes ante la mayor cantidad de variables posibles, tal y como se menciona en la propiedad de robustez que deben tener estos algoritmos. Pese a que el detector presentado anteriormente es invariante ante la traslación y la rotación (ya que las esquinas se mantienen como esquinas si son rotadas o desplazadas), no funciona de la misma forma ante cambios de escala. Como se observa en la figura \ref{imagen:corner-scale}, una región considerada como esquina, se podría considerar plana si es ampliada.
 
 \begin{figure}[H]
 	\centering
@@ -98,7 +98,7 @@ Finalmente para crear el vector descriptor por cada punto clave se crea una matr
 \end{figure}
 
 
-En el año 2006, un grupo de tres personas: Bay, H., Tuytelaars, T. and Van Gool, L. desarrollan \textit{SURF} \cite{surf}, el cual es un detector y descriptor de características basado en SIFT, pero con modificaciones que aumentan su velocidad de detección. Si bien, sacrifica un poco de rendimiento y precisión, lo hace mas provechoso para aplicaciones embebidas que demanden mayor velocidad de cómputo y menor uso de recursos, como por ejemplo \textit{SLAM}. El proceso para la extracción de características por parte de este algoritmo se compone de los siguientes pasos:
+En el año 2006, un grupo de tres personas: Bay, H., Tuytelaars, T. and Van Gool, L. desarrollan \textit{SURF} \cite{surf}, el cual es un detector y descriptor de características basado en SIFT, pero con modificaciones que aumentan su velocidad de detección. Estos cambios sacrifican un poco de rendimiento y precisión, pero sin embargo lo hace mas provechoso para aplicaciones embebidas que demanden mayor velocidad de cómputo y menor uso de recursos, como por ejemplo \textit{SLAM}. El proceso para la extracción de características por parte de este algoritmo se compone de los siguientes pasos:
 
 Como primer paso, en lugar de aproximar el laplaciano de Gauss \textit{LoG} (del inglés: Laplacian of Gaussians) con la diferencia de Gaussianas (DoG) como lo hace SIFT, este algoritmo aproxima LoG con cuadrados para promediar la imagen. La ventaja de aplicar filtros con cuadrados es que con la ayuda de imágenes integrales el cálculo computacional se reduce en gran medida.
 
@@ -172,7 +172,7 @@ Este proceso se repite hasta tener la distancia de cada punto de la imagen $1$ c
 	\item El punto $P_{2}$ presenta la mejor distancia con $P_{1}$ en relación a todos los puntos de la imagen $1$.
 \end{enumerate}
 
-Este proceso es mejor conocido como emparejamiento por fuerza bruta, ya que se compara entre todos los puntos por la mejor pareja posible. Si bien se asegura obtener el mejor emparejamiento, siendo viable para trabajar con pocos datos, el hecho de probar todas los casos posibles cuando se tiene una gran cantidad de puntos, incrementa en gran medida el tiempo de cómputo. Para efectuar este proceso de una forma eficiente se desarrollaron algoritmos basados en la búsqueda de vecinos mas cercanos. En este sentido se cuenta con el algoritmo \textit{kd-forest} (abreviado del inglés: k-dimensional forest), el cual es una mejora del algoritmo \textit{kd-tree} (abreviado del inglés: k-dimensional tree) para mejor desempeño al usar vectores multidimensionales, implementado en la librería para la rápida aproximación de vecinos mas cercanos FLANN \cite{flann} (del inglés: Fast Library for Approximate Nearest Neighbors).
+Este proceso es mejor conocido como emparejamiento por fuerza bruta, ya que se compara entre todos los puntos por la mejor pareja posible. Aún cuando se asegura obtener el mejor emparejamiento, siendo viable para trabajar con pocos datos, el hecho de probar todas los casos posibles cuando se tiene una gran cantidad de puntos, incrementa en gran medida el tiempo de cómputo. Para efectuar este proceso de una forma eficiente se desarrollaron algoritmos basados en la búsqueda de vecinos mas cercanos. En este sentido se cuenta con el algoritmo \textit{kd-forest} (abreviado del inglés: k-dimensional forest), el cual es una mejora del algoritmo \textit{kd-tree} (abreviado del inglés: k-dimensional tree) para mejor desempeño al usar vectores multidimensionales, implementado en la librería para la rápida aproximación de vecinos mas cercanos FLANN \cite{flann} (del inglés: Fast Library for Approximate Nearest Neighbors).
 
 %\textit{kd-tree} es una estructura de datos de segmentación de espacios para organizar puntos en un espacio de k dimensiones
 
@@ -203,7 +203,7 @@ El proceso planteado para la comparación consiste en evaluar los parámetros an
 
 Cuando se utiliza un algoritmo para emparejar características, es muy común que existan parejas erróneas, puesto que al tener una gran cantidad de datos, varios pares de descriptores pueden tener la similitud necesaria para ser considerados como el mismo punto. Por esta razón es importante emplear una etapa que permita filtrar dichas parejas. Como ya se mencionó, se tienen distintos tipos de emparejadores, y en función a cada uno es necesario realizar el descarte de manera distinta. A continuación se describe el proceso asociado a cada caso.
 
-En el caso del algoritmo de fuerza bruta: Se obtiene la distancia de la mejor pareja, luego se descartan todas las pareas cuya distancia sea mayor que la mejor obtenida multiplicada por un factor de umbral. El proceso planteado se muestra en el algoritmo \ref{fuerzabruta}.
+En el caso del algoritmo de fuerza bruta: Se obtiene la distancia de la mejor pareja, luego se descartan todas las parejas cuya distancia sea mayor que la mejor obtenida multiplicada por un factor de umbral. El proceso planteado se muestra en el algoritmo \ref{fuerzabruta}.
 
 \begin{figure}[h]
 	\centering
